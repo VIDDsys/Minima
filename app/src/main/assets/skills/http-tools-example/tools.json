@@ -1,0 +1,26 @@
+{
+  "tools": [
+    {
+      "name": "httpbin_get",
+      "description": "GET https://httpbin.org/get — optional query 'show_env'. Public demo API for connectivity checks.",
+      "method": "GET",
+      "url": "https://httpbin.org/get",
+      "query": {
+        "show_env": "{{show_env}}"
+      },
+      "headers": {
+        "Accept": "application/json"
+      },
+      "timeoutSec": 20,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "show_env": {
+            "type": "string",
+            "description": "Optional; set to 1 to ask httpbin to include env (usually empty)."
+          }
+        }
+      }
+    }
+  ]
+}

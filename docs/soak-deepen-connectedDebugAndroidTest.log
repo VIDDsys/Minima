@@ -1,0 +1,2211 @@
+Initialized native services in: /home/box/.gradle/native
+Initialized jansi services in: /home/box/.gradle/native
+The client will now receive all logging from the daemon (pid: 163973). The daemon log file: /home/box/.gradle/daemon/8.13/daemon-163973.out.log
+Starting 22nd build in daemon [uptime: 4 hrs 16 mins 13.137 secs, performance: 98%, GC rate: 0.00/s, heap usage: 23% of 2 GiB]
+Using 8 worker leases.
+Watching the file system is configured to be enabled if available
+Unable to list file systems to check whether they can be watched. Disabling watching. Reason: Could not query file systems: could not open mount file (errno 2: No such file or directory)
+File system watching is inactive
+Starting Build
+Settings evaluated using settings file '/workspace/minima-chat/settings.gradle.kts'.
+Using local directory build cache for the root build (location = /home/box/.gradle/caches/build-cache-1, remove unused entries = after 7 days).
+Projects loaded. Root project using build file '/workspace/minima-chat/build.gradle.kts'.
+Included projects: [root project 'Minima', project ':app', project ':core', project ':feature', project ':core:agent', project ':core:data', project ':core:network', project ':core:ui', project ':feature:chat', project ':feature:settings']
+
+> Configure project :
+Evaluating root project 'Minima' using build file '/workspace/minima-chat/build.gradle.kts'.
+Resolved plugin [id: 'com.android.application', version: '8.7.3', apply: false]
+Resolved plugin [id: 'com.android.library', version: '8.7.3', apply: false]
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.0.21', apply: false]
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.compose', version: '2.0.21', apply: false]
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.0.21', apply: false]
+Resolved plugin [id: 'com.google.dagger.hilt.android', version: '2.52', apply: false]
+Resolved plugin [id: 'com.google.devtools.ksp', version: '2.0.21-1.0.28', apply: false]
+
+> Configure project :app
+Evaluating project ':app' using build file '/workspace/minima-chat/app/build.gradle.kts'.
+Resolved plugin [id: 'com.android.application', version: '8.7.3']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.0.21']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.compose', version: '2.0.21']
+Resolved plugin [id: 'com.google.dagger.hilt.android', version: '2.52']
+Resolved plugin [id: 'com.google.devtools.ksp', version: '2.0.21-1.0.28']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+
+> Configure project :core
+Evaluating project ':core' using build file '/workspace/minima-chat/core/build.gradle'.
+
+> Configure project :feature
+Evaluating project ':feature' using build file '/workspace/minima-chat/feature/build.gradle'.
+
+> Configure project :core:agent
+Evaluating project ':core:agent' using build file '/workspace/minima-chat/core/agent/build.gradle.kts'.
+Resolved plugin [id: 'com.android.library', version: '8.7.3']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.0.21']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.0.21']
+Resolved plugin [id: 'com.google.dagger.hilt.android', version: '2.52']
+Resolved plugin [id: 'com.google.devtools.ksp', version: '2.0.21-1.0.28']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :core:data
+Evaluating project ':core:data' using build file '/workspace/minima-chat/core/data/build.gradle.kts'.
+Resolved plugin [id: 'com.android.library', version: '8.7.3']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.0.21']
+Resolved plugin [id: 'com.google.dagger.hilt.android', version: '2.52']
+Resolved plugin [id: 'com.google.devtools.ksp', version: '2.0.21-1.0.28']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.0.21']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :core:network
+Evaluating project ':core:network' using build file '/workspace/minima-chat/core/network/build.gradle.kts'.
+Resolved plugin [id: 'com.android.library', version: '8.7.3']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.0.21']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.0.21']
+Resolved plugin [id: 'com.google.dagger.hilt.android', version: '2.52']
+Resolved plugin [id: 'com.google.devtools.ksp', version: '2.0.21-1.0.28']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :core:ui
+Evaluating project ':core:ui' using build file '/workspace/minima-chat/core/ui/build.gradle.kts'.
+Resolved plugin [id: 'com.android.library', version: '8.7.3']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.0.21']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.compose', version: '2.0.21']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+
+> Configure project :feature:chat
+Evaluating project ':feature:chat' using build file '/workspace/minima-chat/feature/chat/build.gradle.kts'.
+Resolved plugin [id: 'com.android.library', version: '8.7.3']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.0.21']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.compose', version: '2.0.21']
+Resolved plugin [id: 'com.google.dagger.hilt.android', version: '2.52']
+Resolved plugin [id: 'com.google.devtools.ksp', version: '2.0.21-1.0.28']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+
+> Configure project :feature:settings
+Evaluating project ':feature:settings' using build file '/workspace/minima-chat/feature/settings/build.gradle.kts'.
+Resolved plugin [id: 'com.android.library', version: '8.7.3']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.0.21']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.compose', version: '2.0.21']
+Resolved plugin [id: 'com.google.dagger.hilt.android', version: '2.52']
+Resolved plugin [id: 'com.google.devtools.ksp', version: '2.0.21-1.0.28']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+Detected Android Gradle Plugin compose compiler configuration
+All projects evaluated.
+Task path ':app:connectedDebugAndroidTest' matched project ':app'
+Task name matched 'connectedDebugAndroidTest'
+Selected primary task 'connectedDebugAndroidTest' from project :app
+WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 36
+
+This Android Gradle plugin (8.7.3) was tested up to compileSdk = 35.
+
+You are strongly encouraged to update your project to use a newer
+Android Gradle plugin that has been tested with compileSdk = 36.
+
+If you are already using the latest version of the Android Gradle plugin,
+you may need to wait until a newer version with support for compileSdk = 36 is available.
+
+For more information refer to the compatibility table:
+https://d.android.com/r/tools/api-level-support
+
+To suppress this warning, add/update
+    android.suppressUnsupportedCompileSdk=36
+to this project's gradle.properties.
+Tasks to be executed: [task ':app:checkKotlinGradlePluginConfigurationErrors', task ':app:preBuild', task ':app:preDebugBuild', task ':app:generateDebugBuildConfig', task ':core:agent:preBuild', task ':core:agent:preDebugBuild', task ':core:agent:writeDebugAarMetadata', task ':core:data:preBuild', task ':core:data:preDebugBuild', task ':core:data:writeDebugAarMetadata', task ':core:network:preBuild', task ':core:network:preDebugBuild', task ':core:network:writeDebugAarMetadata', task ':core:ui:preBuild', task ':core:ui:preDebugBuild', task ':core:ui:writeDebugAarMetadata', task ':feature:chat:preBuild', task ':feature:chat:preDebugBuild', task ':feature:chat:writeDebugAarMetadata', task ':feature:settings:preBuild', task ':feature:settings:preDebugBuild', task ':feature:settings:writeDebugAarMetadata', task ':app:checkDebugAarMetadata', task ':app:generateDebugResValues', task ':core:agent:generateDebugResValues', task ':core:agent:generateDebugResources', task ':core:agent:packageDebugResources', task ':core:data:generateDebugResValues', task ':core:data:generateDebugResources', task ':core:data:packageDebugResources', task ':core:network:generateDebugResValues', task ':core:network:generateDebugResources', task ':core:network:packageDebugResources', task ':core:ui:generateDebugResValues', task ':core:ui:generateDebugResources', task ':core:ui:packageDebugResources', task ':feature:chat:generateDebugResValues', task ':feature:chat:generateDebugResources', task ':feature:chat:packageDebugResources', task ':feature:settings:generateDebugResValues', task ':feature:settings:generateDebugResources', task ':feature:settings:packageDebugResources', task ':app:mapDebugSourceSetPaths', task ':app:generateDebugResources', task ':app:mergeDebugResources', task ':app:packageDebugResources', task ':app:parseDebugLocalResources', task ':app:createDebugCompatibleScreenManifests', task ':app:extractDeepLinksDebug', task ':core:agent:extractDeepLinksDebug', task ':core:agent:processDebugManifest', task ':core:data:extractDeepLinksDebug', task ':core:data:processDebugManifest', task ':core:network:extractDeepLinksDebug', task ':core:network:processDebugManifest', task ':core:ui:extractDeepLinksDebug', task ':core:ui:processDebugManifest', task ':feature:chat:extractDeepLinksDebug', task ':feature:chat:processDebugManifest', task ':feature:settings:extractDeepLinksDebug', task ':feature:settings:processDebugManifest', task ':app:processDebugMainManifest', task ':app:processDebugManifest', task ':app:processDebugManifestForPackage', task ':core:agent:compileDebugLibraryResources', task ':core:agent:parseDebugLocalResources', task ':core:agent:generateDebugRFile', task ':core:data:compileDebugLibraryResources', task ':core:data:parseDebugLocalResources', task ':core:data:generateDebugRFile', task ':core:network:compileDebugLibraryResources', task ':core:network:parseDebugLocalResources', task ':core:network:generateDebugRFile', task ':core:ui:compileDebugLibraryResources', task ':core:ui:parseDebugLocalResources', task ':core:ui:generateDebugRFile', task ':feature:chat:compileDebugLibraryResources', task ':feature:chat:parseDebugLocalResources', task ':feature:chat:generateDebugRFile', task ':feature:settings:compileDebugLibraryResources', task ':feature:settings:parseDebugLocalResources', task ':feature:settings:generateDebugRFile', task ':app:processDebugResources', task ':core:agent:checkKotlinGradlePluginConfigurationErrors', task ':core:data:checkKotlinGradlePluginConfigurationErrors', task ':core:network:checkKotlinGradlePluginConfigurationErrors', task ':core:network:kspDebugKotlin', task ':core:network:compileDebugKotlin', task ':core:network:javaPreCompileDebug', task ':core:network:compileDebugJavaWithJavac', task ':core:network:transformDebugClassesWithAsm', task ':core:network:bundleLibCompileToJarDebug', task ':core:data:kspDebugKotlin', task ':core:data:compileDebugKotlin', task ':core:data:javaPreCompileDebug', task ':core:data:compileDebugJavaWithJavac', task ':core:network:bundleLibRuntimeToJarDebug', task ':core:data:transformDebugClassesWithAsm', task ':core:data:bundleLibCompileToJarDebug', task ':core:agent:kspDebugKotlin', task ':core:agent:compileDebugKotlin', task ':core:agent:javaPreCompileDebug', task ':core:agent:compileDebugJavaWithJavac', task ':core:data:bundleLibRuntimeToJarDebug', task ':core:agent:transformDebugClassesWithAsm', task ':core:agent:bundleLibCompileToJarDebug', task ':core:ui:checkKotlinGradlePluginConfigurationErrors', task ':core:ui:compileDebugKotlin', task ':core:ui:javaPreCompileDebug', task ':core:ui:compileDebugJavaWithJavac', task ':core:ui:bundleLibCompileToJarDebug', task ':core:agent:bundleLibRuntimeToJarDebug', task ':core:ui:bundleLibRuntimeToJarDebug', task ':feature:chat:checkKotlinGradlePluginConfigurationErrors', task ':feature:chat:kspDebugKotlin', task ':feature:chat:compileDebugKotlin', task ':feature:chat:javaPreCompileDebug', task ':feature:chat:compileDebugJavaWithJavac', task ':feature:chat:transformDebugClassesWithAsm', task ':feature:chat:bundleLibCompileToJarDebug', task ':feature:settings:checkKotlinGradlePluginConfigurationErrors', task ':feature:settings:kspDebugKotlin', task ':feature:settings:compileDebugKotlin', task ':feature:settings:javaPreCompileDebug', task ':feature:settings:compileDebugJavaWithJavac', task ':feature:settings:transformDebugClassesWithAsm', task ':feature:settings:bundleLibCompileToJarDebug', task ':app:kspDebugKotlin', task ':app:compileDebugKotlin', task ':app:javaPreCompileDebug', task ':app:compileDebugJavaWithJavac', task ':app:mergeDebugShaders', task ':app:compileDebugShaders', task ':app:generateDebugAssets', task ':core:agent:mergeDebugShaders', task ':core:agent:compileDebugShaders', task ':core:agent:generateDebugAssets', task ':core:agent:packageDebugAssets', task ':core:data:mergeDebugShaders', task ':core:data:compileDebugShaders', task ':core:data:generateDebugAssets', task ':core:data:packageDebugAssets', task ':core:network:mergeDebugShaders', task ':core:network:compileDebugShaders', task ':core:network:generateDebugAssets', task ':core:network:packageDebugAssets', task ':core:ui:mergeDebugShaders', task ':core:ui:compileDebugShaders', task ':core:ui:generateDebugAssets', task ':core:ui:packageDebugAssets', task ':feature:chat:mergeDebugShaders', task ':feature:chat:compileDebugShaders', task ':feature:chat:generateDebugAssets', task ':feature:chat:packageDebugAssets', task ':feature:settings:mergeDebugShaders', task ':feature:settings:compileDebugShaders', task ':feature:settings:generateDebugAssets', task ':feature:settings:packageDebugAssets', task ':app:mergeDebugAssets', task ':app:compressDebugAssets', task ':feature:chat:bundleLibRuntimeToJarDebug', task ':feature:settings:bundleLibRuntimeToJarDebug', task ':app:desugarDebugFileDependencies', task ':app:hiltAggregateDepsDebug', task ':app:hiltJavaCompileDebug', task ':app:transformDebugClassesWithAsm', task ':app:dexBuilderDebug', task ':app:mergeDebugGlobalSynthetics', task ':app:processDebugJavaRes', task ':core:agent:processDebugJavaRes', task ':core:data:processDebugJavaRes', task ':core:network:processDebugJavaRes', task ':core:ui:processDebugJavaRes', task ':feature:chat:processDebugJavaRes', task ':feature:settings:processDebugJavaRes', task ':app:mergeDebugJavaResource', task ':app:checkDebugDuplicateClasses', task ':app:mergeExtDexDebug', task ':feature:chat:bundleLibRuntimeToDirDebug', task ':feature:settings:bundleLibRuntimeToDirDebug', task ':core:ui:bundleLibRuntimeToDirDebug', task ':core:agent:bundleLibRuntimeToDirDebug', task ':core:data:bundleLibRuntimeToDirDebug', task ':core:network:bundleLibRuntimeToDirDebug', task ':app:mergeLibDexDebug', task ':app:mergeProjectDexDebug', task ':app:mergeDebugJniLibFolders', task ':core:agent:mergeDebugJniLibFolders', task ':core:agent:mergeDebugNativeLibs', task ':core:agent:copyDebugJniLibsProjectOnly', task ':core:data:mergeDebugJniLibFolders', task ':core:data:mergeDebugNativeLibs', task ':core:data:copyDebugJniLibsProjectOnly', task ':core:network:mergeDebugJniLibFolders', task ':core:network:mergeDebugNativeLibs', task ':core:network:copyDebugJniLibsProjectOnly', task ':core:ui:mergeDebugJniLibFolders', task ':core:ui:mergeDebugNativeLibs', task ':core:ui:copyDebugJniLibsProjectOnly', task ':feature:chat:mergeDebugJniLibFolders', task ':feature:chat:mergeDebugNativeLibs', task ':feature:chat:copyDebugJniLibsProjectOnly', task ':feature:settings:mergeDebugJniLibFolders', task ':feature:settings:mergeDebugNativeLibs', task ':feature:settings:copyDebugJniLibsProjectOnly', task ':app:mergeDebugNativeLibs', task ':app:stripDebugDebugSymbols', task ':app:validateSigningDebug', task ':app:writeDebugAppMetadata', task ':app:writeDebugSigningConfigVersions', task ':app:packageDebug', task ':app:createDebugApkListingFileRedirect', task ':app:bundleDebugClassesToCompileJar', task ':app:preDebugAndroidTestBuild', task ':app:processDebugAndroidTestManifest', task ':app:generateDebugAndroidTestBuildConfig', task ':app:checkDebugAndroidTestAarMetadata', task ':app:generateDebugAndroidTestResValues', task ':app:mapDebugAndroidTestSourceSetPaths', task ':app:generateDebugAndroidTestResources', task ':app:mergeDebugAndroidTestResources', task ':app:processDebugAndroidTestResources', task ':app:kspDebugAndroidTestKotlin', task ':app:compileDebugAndroidTestKotlin', task ':app:javaPreCompileDebugAndroidTest', task ':app:compileDebugAndroidTestJavaWithJavac', task ':app:mergeDebugAndroidTestShaders', task ':app:compileDebugAndroidTestShaders', task ':app:generateDebugAndroidTestAssets', task ':app:mergeDebugAndroidTestAssets', task ':app:compressDebugAndroidTestAssets', task ':app:desugarDebugAndroidTestFileDependencies', task ':app:hiltAggregateDepsDebugAndroidTest', task ':app:hiltJavaCompileDebugAndroidTest', task ':app:transformDebugAndroidTestClassesWithAsm', task ':app:dexBuilderDebugAndroidTest', task ':app:mergeDebugAndroidTestGlobalSynthetics', task ':app:processDebugAndroidTestJavaRes', task ':app:mergeDebugAndroidTestJavaResource', task ':app:checkDebugAndroidTestDuplicateClasses', task ':app:mergeExtDexDebugAndroidTest', task ':app:mergeLibDexDebugAndroidTest', task ':app:mergeProjectDexDebugAndroidTest', task ':app:mergeDebugAndroidTestJniLibFolders', task ':app:mergeDebugAndroidTestNativeLibs', task ':app:stripDebugAndroidTestDebugSymbols', task ':app:validateSigningDebugAndroidTest', task ':app:writeDebugAndroidTestSigningConfigVersions', task ':app:packageDebugAndroidTest', task ':app:createDebugAndroidTestApkListingFileRedirect', task ':app:connectedDebugAndroidTest']
+Tasks that were excluded: []
+work action Parameters of IdentityTransform (Thread[#3259,Execution worker,5,main]) started.
+Resolve mutations for :core:agent:preBuild (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core:data:preBuild (Thread[#3261,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :core:network:preBuild (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :core:ui:preBuild (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:agent:preBuild (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:core:ui:preBuild (Thread[#3265,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :feature:chat:preBuild (Thread[#3258,included builds,5,main]) started.
+:core:data:preBuild (Thread[#3261,Execution worker Thread 3,5,main]) started.
+work action Parameters of DexingNoClasspathTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:feature:chat:preBuild (Thread[#3258,included builds,5,main]) started.
+:core:network:preBuild (Thread[#3259,Execution worker,5,main]) started.
+Resolve mutations for :feature:settings:preBuild (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:feature:settings:preBuild (Thread[#3263,Execution worker Thread 5,5,main]) started.
+work action Parameters of DexingOutputSplitTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+work action Parameters of CopyTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+work action Parameters of AggregatedPackagesTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+work action Parameters of ClassesDirToClassesTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+work action Parameters of DexingOutputSplitTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :app:checkKotlinGradlePluginConfigurationErrors (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:app:checkKotlinGradlePluginConfigurationErrors (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :feature:chat:preBuild UP-TO-DATE
+Skipping task ':feature:chat:preBuild' as it has no actions.
+Resolve mutations for :feature:chat:preDebugBuild (Thread[#3258,included builds,5,main]) started.
+:feature:chat:preDebugBuild (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:agent:preBuild UP-TO-DATE
+Skipping task ':core:agent:preBuild' as it has no actions.
+
+> Task :feature:settings:preBuild UP-TO-DATE
+Skipping task ':feature:settings:preBuild' as it has no actions.
+
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':app:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :core:agent:preDebugBuild (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :feature:settings:preDebugBuild (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :app:preBuild (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:feature:settings:preDebugBuild (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :core:network:preBuild UP-TO-DATE
+Skipping task ':core:network:preBuild' as it has no actions.
+Resolve mutations for :core:network:preDebugBuild (Thread[#3259,Execution worker,5,main]) started.
+:app:preBuild (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:agent:preDebugBuild (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:ui:preBuild UP-TO-DATE
+Skipping task ':core:ui:preBuild' as it has no actions.
+Resolve mutations for :core:ui:preDebugBuild (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:preBuild UP-TO-DATE
+Skipping task ':app:preBuild' as it has no actions.
+Resolve mutations for :app:preDebugBuild (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:ui:preDebugBuild (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:preDebugBuild (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:ui:preDebugBuild UP-TO-DATE
+Skipping task ':core:ui:preDebugBuild' as it has no actions.
+Resolve mutations for :core:ui:writeDebugAarMetadata (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:preDebugBuild UP-TO-DATE
+Skipping task ':app:preDebugBuild' as it has no actions.
+
+> Task :feature:settings:preDebugBuild UP-TO-DATE
+Skipping task ':feature:settings:preDebugBuild' as it has no actions.
+Resolve mutations for :app:generateDebugBuildConfig (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :feature:settings:writeDebugAarMetadata (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :core:data:preBuild UP-TO-DATE
+Skipping task ':core:data:preBuild' as it has no actions.
+
+> Task :feature:chat:preDebugBuild UP-TO-DATE
+Skipping task ':feature:chat:preDebugBuild' as it has no actions.
+Resolve mutations for :core:data:preDebugBuild (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :feature:chat:writeDebugAarMetadata (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:data:preDebugBuild (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:data:preDebugBuild UP-TO-DATE
+Skipping task ':core:data:preDebugBuild' as it has no actions.
+Resolve mutations for :core:data:writeDebugAarMetadata (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:agent:preDebugBuild UP-TO-DATE
+Skipping task ':core:agent:preDebugBuild' as it has no actions.
+:core:network:preDebugBuild (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :core:network:preDebugBuild UP-TO-DATE
+Skipping task ':core:network:preDebugBuild' as it has no actions.
+:app:generateDebugBuildConfig (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:data:writeDebugAarMetadata (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :core:network:writeDebugAarMetadata (Thread[#3259,Execution worker,5,main]) started.
+:core:ui:writeDebugAarMetadata (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:core:network:writeDebugAarMetadata (Thread[#3259,Execution worker,5,main]) started.
+Resolve mutations for :core:agent:writeDebugAarMetadata (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:feature:chat:writeDebugAarMetadata (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:agent:writeDebugAarMetadata (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:feature:settings:writeDebugAarMetadata (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:network:writeDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':core:network:writeDebugAarMetadata' because:
+  Caching has been disabled for the task
+Skipping task ':core:network:writeDebugAarMetadata' as it is up-to-date.
+work action resolve aar-metadata.properties (project :core:network) (Thread[#3259,Execution worker,5,main]) started.
+Resolve mutations for :core:network:generateDebugResValues (Thread[#3259,Execution worker,5,main]) started.
+:core:network:generateDebugResValues (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :core:ui:writeDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':core:ui:writeDebugAarMetadata' because:
+  Caching has been disabled for the task
+Skipping task ':core:ui:writeDebugAarMetadata' as it is up-to-date.
+
+> Task :core:network:generateDebugResValues UP-TO-DATE
+Build cache key for task ':core:network:generateDebugResValues' is 78378b4ba7e7f0393e1b028888efbfb8
+Skipping task ':core:network:generateDebugResValues' as it is up-to-date.
+
+> Task :core:data:writeDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':core:data:writeDebugAarMetadata' because:
+  Caching has been disabled for the task
+Skipping task ':core:data:writeDebugAarMetadata' as it is up-to-date.
+
+> Task :feature:settings:writeDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':feature:settings:writeDebugAarMetadata' because:
+  Caching has been disabled for the task
+Skipping task ':feature:settings:writeDebugAarMetadata' as it is up-to-date.
+Resolve mutations for :core:network:generateDebugResources (Thread[#3262,Execution worker Thread 4,5,main]) started.
+work action resolve aar-metadata.properties (project :feature:settings) (Thread[#3258,included builds,5,main]) started.
+
+> Task :feature:chat:writeDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':feature:chat:writeDebugAarMetadata' because:
+  Caching has been disabled for the task
+Skipping task ':feature:chat:writeDebugAarMetadata' as it is up-to-date.
+:core:network:generateDebugResources (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :feature:settings:generateDebugResValues (Thread[#3258,included builds,5,main]) started.
+work action resolve aar-metadata.properties (project :feature:chat) (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :feature:chat:generateDebugResValues (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+Build cache key for task ':app:generateDebugBuildConfig' is e6c5ab376f3957943c95a6c0bc772346
+Skipping task ':app:generateDebugBuildConfig' as it is up-to-date.
+Resolve mutations for :app:generateDebugResValues (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:feature:settings:generateDebugResValues (Thread[#3258,included builds,5,main]) started.
+:feature:chat:generateDebugResValues (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:app:generateDebugResValues (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :core:agent:writeDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':core:agent:writeDebugAarMetadata' because:
+  Caching has been disabled for the task
+Skipping task ':core:agent:writeDebugAarMetadata' as it is up-to-date.
+work action resolve aar-metadata.properties (project :core:agent) (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core:agent:generateDebugResValues (Thread[#3260,Execution worker Thread 2,5,main]) started.
+work action resolve aar-metadata.properties (project :core:data) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+work action resolve aar-metadata.properties (project :core:ui) (Thread[#3265,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :core:data:generateDebugResValues (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:core:agent:generateDebugResValues (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:core:data:generateDebugResValues (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :core:ui:generateDebugResValues (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:core:ui:generateDebugResValues (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:generateDebugResValues UP-TO-DATE
+Build cache key for task ':app:generateDebugResValues' is 78378b4ba7e7f0393e1b028888efbfb8
+Skipping task ':app:generateDebugResValues' as it is up-to-date.
+Resolve mutations for :app:checkDebugAarMetadata (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:app:checkDebugAarMetadata (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :core:agent:generateDebugResValues UP-TO-DATE
+Build cache key for task ':core:agent:generateDebugResValues' is 78378b4ba7e7f0393e1b028888efbfb8
+Skipping task ':core:agent:generateDebugResValues' as it is up-to-date.
+Resolve mutations for :core:agent:generateDebugResources (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:data:generateDebugResValues UP-TO-DATE
+Build cache key for task ':core:data:generateDebugResValues' is 78378b4ba7e7f0393e1b028888efbfb8
+Skipping task ':core:data:generateDebugResValues' as it is up-to-date.
+:core:agent:generateDebugResources (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:network:generateDebugResources UP-TO-DATE
+Build cache key for task ':core:network:generateDebugResources' is d96cb6b7f1f4d2b4a14c05bdc2e119f2
+Skipping task ':core:network:generateDebugResources' as it is up-to-date.
+
+> Task :feature:settings:generateDebugResValues UP-TO-DATE
+Build cache key for task ':feature:settings:generateDebugResValues' is 78378b4ba7e7f0393e1b028888efbfb8
+Skipping task ':feature:settings:generateDebugResValues' as it is up-to-date.
+Resolve mutations for :core:network:packageDebugResources (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :feature:settings:generateDebugResources (Thread[#3258,included builds,5,main]) started.
+:feature:settings:generateDebugResources (Thread[#3258,included builds,5,main]) started.
+:core:network:packageDebugResources (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:agent:generateDebugResources UP-TO-DATE
+Build cache key for task ':core:agent:generateDebugResources' is d96cb6b7f1f4d2b4a14c05bdc2e119f2
+Skipping task ':core:agent:generateDebugResources' as it is up-to-date.
+Resolve mutations for :core:agent:packageDebugResources (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :feature:chat:generateDebugResValues UP-TO-DATE
+Build cache key for task ':feature:chat:generateDebugResValues' is 78378b4ba7e7f0393e1b028888efbfb8
+Skipping task ':feature:chat:generateDebugResValues' as it is up-to-date.
+Resolve mutations for :core:data:generateDebugResources (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :feature:chat:generateDebugResources (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:data:generateDebugResources (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :core:ui:generateDebugResValues UP-TO-DATE
+Build cache key for task ':core:ui:generateDebugResValues' is 78378b4ba7e7f0393e1b028888efbfb8
+Skipping task ':core:ui:generateDebugResValues' as it is up-to-date.
+:core:agent:packageDebugResources (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core:ui:generateDebugResources (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:feature:chat:generateDebugResources (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:core:ui:generateDebugResources (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :core:data:generateDebugResources UP-TO-DATE
+Build cache key for task ':core:data:generateDebugResources' is d96cb6b7f1f4d2b4a14c05bdc2e119f2
+Skipping task ':core:data:generateDebugResources' as it is up-to-date.
+Resolve mutations for :core:data:packageDebugResources (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :feature:settings:generateDebugResources UP-TO-DATE
+Build cache key for task ':feature:settings:generateDebugResources' is d96cb6b7f1f4d2b4a14c05bdc2e119f2
+Skipping task ':feature:settings:generateDebugResources' as it is up-to-date.
+:core:data:packageDebugResources (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :feature:settings:packageDebugResources (Thread[#3258,included builds,5,main]) started.
+:feature:settings:packageDebugResources (Thread[#3258,included builds,5,main]) started.
+
+> Task :feature:chat:generateDebugResources UP-TO-DATE
+Build cache key for task ':feature:chat:generateDebugResources' is d96cb6b7f1f4d2b4a14c05bdc2e119f2
+Skipping task ':feature:chat:generateDebugResources' as it is up-to-date.
+
+> Task :core:ui:generateDebugResources UP-TO-DATE
+Build cache key for task ':core:ui:generateDebugResources' is d96cb6b7f1f4d2b4a14c05bdc2e119f2
+Skipping task ':core:ui:generateDebugResources' as it is up-to-date.
+Resolve mutations for :feature:chat:packageDebugResources (Thread[#3265,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :core:ui:packageDebugResources (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:ui:packageDebugResources (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:feature:chat:packageDebugResources (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :core:agent:packageDebugResources UP-TO-DATE
+Build cache key for task ':core:agent:packageDebugResources' is a66e90674b9040ec4d95e23eb040ab80
+Skipping task ':core:agent:packageDebugResources' as it is up-to-date.
+
+> Task :feature:settings:packageDebugResources UP-TO-DATE
+Build cache key for task ':feature:settings:packageDebugResources' is 6c54df6ab03b4a5c2e5d1b7c7a95f2af
+Skipping task ':feature:settings:packageDebugResources' as it is up-to-date.
+work action resolve packageDebugResources (project :core:agent) (Thread[#3260,Execution worker Thread 2,5,main]) started.
+work action resolve packageDebugResources (project :feature:settings) (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :feature:settings:extractDeepLinksDebug (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :core:agent:extractDeepLinksDebug (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:feature:settings:extractDeepLinksDebug (Thread[#3258,included builds,5,main]) started.
+:core:agent:extractDeepLinksDebug (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:ui:packageDebugResources UP-TO-DATE
+Build cache key for task ':core:ui:packageDebugResources' is 7cb678e7656fa87cd724e7fca6bdc701
+Skipping task ':core:ui:packageDebugResources' as it is up-to-date.
+work action resolve packageDebugResources (project :core:ui) (Thread[#3261,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :core:ui:extractDeepLinksDebug (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:ui:extractDeepLinksDebug (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :core:data:packageDebugResources UP-TO-DATE
+Build cache key for task ':core:data:packageDebugResources' is cef6598d84da23656ef2cf00a95310cc
+Skipping task ':core:data:packageDebugResources' as it is up-to-date.
+
+> Task :feature:settings:extractDeepLinksDebug UP-TO-DATE
+Build cache key for task ':feature:settings:extractDeepLinksDebug' is cba7e119b95e5139533697140175cd83
+Skipping task ':feature:settings:extractDeepLinksDebug' as it is up-to-date.
+
+> Task :core:network:packageDebugResources UP-TO-DATE
+Build cache key for task ':core:network:packageDebugResources' is 02e1e052088eed220eb0db1fe249f1cf
+Skipping task ':core:network:packageDebugResources' as it is up-to-date.
+work action resolve packageDebugResources (project :core:data) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+work action resolve packageDebugResources (project :core:network) (Thread[#3262,Execution worker Thread 4,5,main]) started.
+work action resolve navigation.json (project :feature:settings) (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :core:data:extractDeepLinksDebug (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :core:network:extractDeepLinksDebug (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:network:extractDeepLinksDebug (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:data:extractDeepLinksDebug (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :feature:settings:processDebugManifest (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:feature:settings:processDebugManifest (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :core:network:extractDeepLinksDebug UP-TO-DATE
+Build cache key for task ':core:network:extractDeepLinksDebug' is cba7e119b95e5139533697140175cd83
+Skipping task ':core:network:extractDeepLinksDebug' as it is up-to-date.
+work action resolve navigation.json (project :core:network) (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :core:network:processDebugManifest (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:agent:extractDeepLinksDebug UP-TO-DATE
+Build cache key for task ':core:agent:extractDeepLinksDebug' is cba7e119b95e5139533697140175cd83
+Skipping task ':core:agent:extractDeepLinksDebug' as it is up-to-date.
+work action resolve navigation.json (project :core:agent) (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core:agent:processDebugManifest (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:core:network:processDebugManifest (Thread[#3258,included builds,5,main]) started.
+:core:agent:processDebugManifest (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:data:extractDeepLinksDebug UP-TO-DATE
+Build cache key for task ':core:data:extractDeepLinksDebug' is cba7e119b95e5139533697140175cd83
+Skipping task ':core:data:extractDeepLinksDebug' as it is up-to-date.
+work action resolve navigation.json (project :core:data) (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :core:data:processDebugManifest (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :core:ui:extractDeepLinksDebug UP-TO-DATE
+Build cache key for task ':core:ui:extractDeepLinksDebug' is cba7e119b95e5139533697140175cd83
+Skipping task ':core:ui:extractDeepLinksDebug' as it is up-to-date.
+work action resolve navigation.json (project :core:ui) (Thread[#3261,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :core:ui:processDebugManifest (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:data:processDebugManifest (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:ui:processDebugManifest (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :core:network:processDebugManifest UP-TO-DATE
+Build cache key for task ':core:network:processDebugManifest' is 039d21cc263f60ea5a56c298b277425b
+Skipping task ':core:network:processDebugManifest' as it is up-to-date.
+work action resolve AndroidManifest.xml (project :core:network) (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:ui:processDebugManifest UP-TO-DATE
+Build cache key for task ':core:ui:processDebugManifest' is 5b5554c8dd6947dc5cf3d4d3bd600476
+Skipping task ':core:ui:processDebugManifest' as it is up-to-date.
+Resolve mutations for :core:network:compileDebugLibraryResources (Thread[#3258,included builds,5,main]) started.
+:core:network:compileDebugLibraryResources (Thread[#3258,included builds,5,main]) started.
+
+> Task :feature:settings:processDebugManifest UP-TO-DATE
+Build cache key for task ':feature:settings:processDebugManifest' is bcfc62e0a594add498bbb1f6604b7bee
+Skipping task ':feature:settings:processDebugManifest' as it is up-to-date.
+work action resolve AndroidManifest.xml (project :feature:settings) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :feature:settings:compileDebugLibraryResources (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :core:agent:processDebugManifest UP-TO-DATE
+Build cache key for task ':core:agent:processDebugManifest' is b5d2319a001aeeeeffa9d65db812fbbd
+Skipping task ':core:agent:processDebugManifest' as it is up-to-date.
+work action resolve AndroidManifest.xml (project :core:agent) (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core:agent:compileDebugLibraryResources (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:feature:settings:compileDebugLibraryResources (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:core:agent:compileDebugLibraryResources (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :feature:settings:compileDebugLibraryResources UP-TO-DATE
+Build cache key for task ':feature:settings:compileDebugLibraryResources' is c63e176aaa9cfb21f0a6d63f05fe25c0
+Skipping task ':feature:settings:compileDebugLibraryResources' as it is up-to-date.
+work action resolve out (project :feature:settings) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :feature:settings:parseDebugLocalResources (Thread[#3264,Execution worker Thread 6,5,main]) started.
+work action resolve AndroidManifest.xml (project :core:ui) (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :core:data:processDebugManifest UP-TO-DATE
+Build cache key for task ':core:data:processDebugManifest' is 6f26cec39ee7514122a46811469a0a6a
+Skipping task ':core:data:processDebugManifest' as it is up-to-date.
+
+> Task :core:network:compileDebugLibraryResources UP-TO-DATE
+Build cache key for task ':core:network:compileDebugLibraryResources' is c63e176aaa9cfb21f0a6d63f05fe25c0
+Skipping task ':core:network:compileDebugLibraryResources' as it is up-to-date.
+work action resolve AndroidManifest.xml (project :core:data) (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :core:data:compileDebugLibraryResources (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :core:ui:compileDebugLibraryResources (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:feature:settings:parseDebugLocalResources (Thread[#3264,Execution worker Thread 6,5,main]) started.
+work action resolve out (project :core:network) (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :core:network:parseDebugLocalResources (Thread[#3258,included builds,5,main]) started.
+:core:data:compileDebugLibraryResources (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:ui:compileDebugLibraryResources (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:network:parseDebugLocalResources (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:agent:compileDebugLibraryResources UP-TO-DATE
+Build cache key for task ':core:agent:compileDebugLibraryResources' is c63e176aaa9cfb21f0a6d63f05fe25c0
+Skipping task ':core:agent:compileDebugLibraryResources' as it is up-to-date.
+work action resolve out (project :core:agent) (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core:agent:parseDebugLocalResources (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:core:agent:parseDebugLocalResources (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:data:compileDebugLibraryResources UP-TO-DATE
+Build cache key for task ':core:data:compileDebugLibraryResources' is c63e176aaa9cfb21f0a6d63f05fe25c0
+Skipping task ':core:data:compileDebugLibraryResources' as it is up-to-date.
+work action resolve out (project :core:data) (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :core:data:parseDebugLocalResources (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:data:parseDebugLocalResources (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :feature:chat:packageDebugResources UP-TO-DATE
+Build cache key for task ':feature:chat:packageDebugResources' is 441bb371ba2f3d546410836ec14aab39
+Skipping task ':feature:chat:packageDebugResources' as it is up-to-date.
+work action resolve packageDebugResources (project :feature:chat) (Thread[#3265,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :feature:chat:extractDeepLinksDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:feature:chat:extractDeepLinksDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :core:ui:compileDebugLibraryResources UP-TO-DATE
+Build cache key for task ':core:ui:compileDebugLibraryResources' is c63e176aaa9cfb21f0a6d63f05fe25c0
+Skipping task ':core:ui:compileDebugLibraryResources' as it is up-to-date.
+work action resolve out (project :core:ui) (Thread[#3261,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :core:ui:parseDebugLocalResources (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:ui:parseDebugLocalResources (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :feature:chat:extractDeepLinksDebug UP-TO-DATE
+Build cache key for task ':feature:chat:extractDeepLinksDebug' is cba7e119b95e5139533697140175cd83
+Skipping task ':feature:chat:extractDeepLinksDebug' as it is up-to-date.
+
+> Task :core:agent:parseDebugLocalResources UP-TO-DATE
+Build cache key for task ':core:agent:parseDebugLocalResources' is c135a1ac2c125721dcfef9228a50b4d5
+Skipping task ':core:agent:parseDebugLocalResources' as it is up-to-date.
+work action resolve navigation.json (project :feature:chat) (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :feature:settings:parseDebugLocalResources UP-TO-DATE
+Build cache key for task ':feature:settings:parseDebugLocalResources' is c135a1ac2c125721dcfef9228a50b4d5
+Skipping task ':feature:settings:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :feature:chat:processDebugManifest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :feature:settings:generateDebugRFile (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:feature:chat:processDebugManifest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :core:network:parseDebugLocalResources UP-TO-DATE
+Build cache key for task ':core:network:parseDebugLocalResources' is c135a1ac2c125721dcfef9228a50b4d5
+Skipping task ':core:network:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :core:agent:generateDebugRFile (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core:network:generateDebugRFile (Thread[#3258,included builds,5,main]) started.
+:feature:settings:generateDebugRFile (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:core:agent:generateDebugRFile (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:network:generateDebugRFile (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:data:parseDebugLocalResources UP-TO-DATE
+Build cache key for task ':core:data:parseDebugLocalResources' is c135a1ac2c125721dcfef9228a50b4d5
+Skipping task ':core:data:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :core:data:generateDebugRFile (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:data:generateDebugRFile (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:ui:parseDebugLocalResources UP-TO-DATE
+Build cache key for task ':core:ui:parseDebugLocalResources' is c135a1ac2c125721dcfef9228a50b4d5
+Skipping task ':core:ui:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :core:ui:generateDebugRFile (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:ui:generateDebugRFile (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :feature:settings:generateDebugRFile UP-TO-DATE
+Build cache key for task ':feature:settings:generateDebugRFile' is 2ee72ba775657fcf63f0f522f8a0f272
+Skipping task ':feature:settings:generateDebugRFile' as it is up-to-date.
+work action resolve package-aware-r.txt (project :feature:settings) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :feature:settings:checkKotlinGradlePluginConfigurationErrors (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:feature:settings:checkKotlinGradlePluginConfigurationErrors (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :feature:settings:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':feature:settings:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :feature:settings:javaPreCompileDebug (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:feature:settings:javaPreCompileDebug (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :core:data:generateDebugRFile UP-TO-DATE
+Build cache key for task ':core:data:generateDebugRFile' is c64ebe7129dfcdcd9b47855e002cb2d2
+Skipping task ':core:data:generateDebugRFile' as it is up-to-date.
+
+> Task :core:network:generateDebugRFile UP-TO-DATE
+Build cache key for task ':core:network:generateDebugRFile' is 9a0b5aa70b65f5b0685c3f8fb6751121
+Skipping task ':core:network:generateDebugRFile' as it is up-to-date.
+work action resolve package-aware-r.txt (project :core:data) (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :feature:chat:processDebugManifest UP-TO-DATE
+Build cache key for task ':feature:chat:processDebugManifest' is 2d6b46cdd3e2c152b126d957ac6c98b8
+Skipping task ':feature:chat:processDebugManifest' as it is up-to-date.
+work action resolve package-aware-r.txt (project :core:network) (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :core:data:checkKotlinGradlePluginConfigurationErrors (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:agent:generateDebugRFile UP-TO-DATE
+Build cache key for task ':core:agent:generateDebugRFile' is b807a0cfae9f67a80df06901ec1c4850
+Skipping task ':core:agent:generateDebugRFile' as it is up-to-date.
+work action resolve package-aware-r.txt (project :core:agent) (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :core:agent:checkKotlinGradlePluginConfigurationErrors (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :core:ui:generateDebugRFile UP-TO-DATE
+Build cache key for task ':core:ui:generateDebugRFile' is dc8f808f2e9f2a5c48a4ee32ce594d76
+Skipping task ':core:ui:generateDebugRFile' as it is up-to-date.
+:core:data:checkKotlinGradlePluginConfigurationErrors (Thread[#3262,Execution worker Thread 4,5,main]) started.
+work action resolve package-aware-r.txt (project :core:ui) (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :core:data:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':core:data:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+:core:agent:checkKotlinGradlePluginConfigurationErrors (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :core:data:javaPreCompileDebug (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:agent:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':core:agent:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+:core:data:javaPreCompileDebug (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :core:agent:javaPreCompileDebug (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :core:ui:checkKotlinGradlePluginConfigurationErrors (Thread[#3261,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :core:network:checkKotlinGradlePluginConfigurationErrors (Thread[#3258,included builds,5,main]) started.
+work action resolve AndroidManifest.xml (project :feature:chat) (Thread[#3258,included builds,5,main]) started.
+:core:network:checkKotlinGradlePluginConfigurationErrors (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:agent:javaPreCompileDebug (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:ui:checkKotlinGradlePluginConfigurationErrors (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:ui:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':core:ui:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :core:ui:javaPreCompileDebug (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :feature:chat:compileDebugLibraryResources (Thread[#3258,included builds,5,main]) started.
+:core:ui:javaPreCompileDebug (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:feature:chat:compileDebugLibraryResources (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:network:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':core:network:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :core:network:kspDebugKotlin (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:network:kspDebugKotlin (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :feature:chat:compileDebugLibraryResources UP-TO-DATE
+Build cache key for task ':feature:chat:compileDebugLibraryResources' is c63e176aaa9cfb21f0a6d63f05fe25c0
+Skipping task ':feature:chat:compileDebugLibraryResources' as it is up-to-date.
+work action resolve out (project :feature:chat) (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :feature:chat:parseDebugLocalResources (Thread[#3258,included builds,5,main]) started.
+:feature:chat:parseDebugLocalResources (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:ui:javaPreCompileDebug UP-TO-DATE
+Build cache key for task ':core:ui:javaPreCompileDebug' is 1a4da1bdefe0e5fcfd843296a4187e76
+Skipping task ':core:ui:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :core:ui:mergeDebugShaders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:core:ui:mergeDebugShaders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :feature:chat:parseDebugLocalResources UP-TO-DATE
+Build cache key for task ':feature:chat:parseDebugLocalResources' is c135a1ac2c125721dcfef9228a50b4d5
+Skipping task ':feature:chat:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :feature:chat:generateDebugRFile (Thread[#3258,included builds,5,main]) started.
+:feature:chat:generateDebugRFile (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:ui:mergeDebugShaders UP-TO-DATE
+Caching disabled for task ':core:ui:mergeDebugShaders' because:
+  Simple merging task
+Skipping task ':core:ui:mergeDebugShaders' as it is up-to-date.
+Resolve mutations for :core:ui:compileDebugShaders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:core:ui:compileDebugShaders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :core:ui:compileDebugShaders NO-SOURCE
+Skipping task ':core:ui:compileDebugShaders' as it has no source files and no previous output files.
+Resolve mutations for :core:ui:generateDebugAssets (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:core:ui:generateDebugAssets (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :core:ui:generateDebugAssets UP-TO-DATE
+Skipping task ':core:ui:generateDebugAssets' as it has no actions.
+Resolve mutations for :core:ui:packageDebugAssets (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:core:ui:packageDebugAssets (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :core:ui:packageDebugAssets UP-TO-DATE
+Caching disabled for task ':core:ui:packageDebugAssets' because:
+  Simple merging task
+Skipping task ':core:ui:packageDebugAssets' as it is up-to-date.
+
+> Task :feature:chat:generateDebugRFile UP-TO-DATE
+Build cache key for task ':feature:chat:generateDebugRFile' is 825b1c24756917cbd58041355c40f1b0
+Skipping task ':feature:chat:generateDebugRFile' as it is up-to-date.
+work action resolve package-aware-r.txt (project :feature:chat) (Thread[#3258,included builds,5,main]) started.
+work action resolve out (project :core:ui) (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :feature:chat:checkKotlinGradlePluginConfigurationErrors (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :core:ui:mergeDebugJniLibFolders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:feature:chat:checkKotlinGradlePluginConfigurationErrors (Thread[#3258,included builds,5,main]) started.
+:core:ui:mergeDebugJniLibFolders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :feature:chat:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':feature:chat:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :feature:chat:javaPreCompileDebug (Thread[#3258,included builds,5,main]) started.
+:feature:chat:javaPreCompileDebug (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:ui:mergeDebugJniLibFolders UP-TO-DATE
+Caching disabled for task ':core:ui:mergeDebugJniLibFolders' because:
+  Simple merging task
+Skipping task ':core:ui:mergeDebugJniLibFolders' as it is up-to-date.
+Resolve mutations for :core:ui:mergeDebugNativeLibs (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:core:ui:mergeDebugNativeLibs (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:ui:mergeDebugNativeLibs NO-SOURCE
+Skipping task ':core:ui:mergeDebugNativeLibs' as it has no source files and no previous output files.
+Resolve mutations for :core:ui:copyDebugJniLibsProjectOnly (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:core:ui:copyDebugJniLibsProjectOnly (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :core:ui:copyDebugJniLibsProjectOnly UP-TO-DATE
+Caching disabled for task ':core:ui:copyDebugJniLibsProjectOnly' because:
+  Caching has been disabled for the task
+Skipping task ':core:ui:copyDebugJniLibsProjectOnly' as it is up-to-date.
+work action resolve jni (project :core:ui) (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :feature:chat:javaPreCompileDebug UP-TO-DATE
+Build cache key for task ':feature:chat:javaPreCompileDebug' is 7e0fd5e76c28eb7ab589694af1cb9b88
+Skipping task ':feature:chat:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :feature:chat:mergeDebugShaders (Thread[#3258,included builds,5,main]) started.
+:feature:chat:mergeDebugShaders (Thread[#3258,included builds,5,main]) started.
+
+> Task :feature:settings:javaPreCompileDebug UP-TO-DATE
+Build cache key for task ':feature:settings:javaPreCompileDebug' is 7e0fd5e76c28eb7ab589694af1cb9b88
+Skipping task ':feature:settings:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :feature:settings:mergeDebugShaders (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:feature:settings:mergeDebugShaders (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :feature:chat:mergeDebugShaders UP-TO-DATE
+Caching disabled for task ':feature:chat:mergeDebugShaders' because:
+  Simple merging task
+Skipping task ':feature:chat:mergeDebugShaders' as it is up-to-date.
+Resolve mutations for :feature:chat:compileDebugShaders (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:agent:javaPreCompileDebug UP-TO-DATE
+Build cache key for task ':core:agent:javaPreCompileDebug' is 3b30b7e05bdfd592baf475764282a87d
+Skipping task ':core:agent:javaPreCompileDebug' as it is up-to-date.
+:feature:chat:compileDebugShaders (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :core:agent:mergeDebugShaders (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:agent:mergeDebugShaders (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :feature:chat:compileDebugShaders NO-SOURCE
+Skipping task ':feature:chat:compileDebugShaders' as it has no source files and no previous output files.
+Resolve mutations for :feature:chat:generateDebugAssets (Thread[#3258,included builds,5,main]) started.
+:feature:chat:generateDebugAssets (Thread[#3258,included builds,5,main]) started.
+
+> Task :feature:chat:generateDebugAssets UP-TO-DATE
+Skipping task ':feature:chat:generateDebugAssets' as it has no actions.
+Resolve mutations for :feature:chat:packageDebugAssets (Thread[#3258,included builds,5,main]) started.
+:feature:chat:packageDebugAssets (Thread[#3258,included builds,5,main]) started.
+
+> Task :feature:chat:packageDebugAssets UP-TO-DATE
+Caching disabled for task ':feature:chat:packageDebugAssets' because:
+  Simple merging task
+Skipping task ':feature:chat:packageDebugAssets' as it is up-to-date.
+work action resolve out (project :feature:chat) (Thread[#3265,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :feature:chat:mergeDebugJniLibFolders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :core:agent:mergeDebugShaders UP-TO-DATE
+Caching disabled for task ':core:agent:mergeDebugShaders' because:
+  Simple merging task
+Skipping task ':core:agent:mergeDebugShaders' as it is up-to-date.
+Resolve mutations for :core:agent:compileDebugShaders (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :feature:settings:mergeDebugShaders UP-TO-DATE
+Caching disabled for task ':feature:settings:mergeDebugShaders' because:
+  Simple merging task
+Skipping task ':feature:settings:mergeDebugShaders' as it is up-to-date.
+:feature:chat:mergeDebugJniLibFolders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :feature:settings:compileDebugShaders (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:core:agent:compileDebugShaders (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:feature:settings:compileDebugShaders (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:agent:compileDebugShaders NO-SOURCE
+Skipping task ':core:agent:compileDebugShaders' as it has no source files and no previous output files.
+Resolve mutations for :core:agent:generateDebugAssets (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:agent:generateDebugAssets (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :feature:settings:compileDebugShaders NO-SOURCE
+Skipping task ':feature:settings:compileDebugShaders' as it has no source files and no previous output files.
+
+> Task :core:agent:generateDebugAssets UP-TO-DATE
+Skipping task ':core:agent:generateDebugAssets' as it has no actions.
+Resolve mutations for :feature:settings:generateDebugAssets (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :core:agent:packageDebugAssets (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:feature:settings:generateDebugAssets (Thread[#3258,included builds,5,main]) started.
+
+> Task :feature:settings:generateDebugAssets UP-TO-DATE
+Skipping task ':feature:settings:generateDebugAssets' as it has no actions.
+:core:agent:packageDebugAssets (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :feature:settings:packageDebugAssets (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:feature:settings:packageDebugAssets (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :core:data:javaPreCompileDebug UP-TO-DATE
+Build cache key for task ':core:data:javaPreCompileDebug' is fcaee0b1bc920ee8b77123b0433857b0
+Skipping task ':core:data:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :core:data:mergeDebugShaders (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:data:mergeDebugShaders (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:agent:packageDebugAssets UP-TO-DATE
+Caching disabled for task ':core:agent:packageDebugAssets' because:
+  Simple merging task
+Skipping task ':core:agent:packageDebugAssets' as it is up-to-date.
+work action resolve out (project :core:agent) (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :core:agent:mergeDebugJniLibFolders (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :feature:settings:packageDebugAssets UP-TO-DATE
+Caching disabled for task ':feature:settings:packageDebugAssets' because:
+  Simple merging task
+Skipping task ':feature:settings:packageDebugAssets' as it is up-to-date.
+work action resolve out (project :feature:settings) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:core:agent:mergeDebugJniLibFolders (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :feature:chat:mergeDebugJniLibFolders UP-TO-DATE
+Caching disabled for task ':feature:chat:mergeDebugJniLibFolders' because:
+  Simple merging task
+Skipping task ':feature:chat:mergeDebugJniLibFolders' as it is up-to-date.
+Resolve mutations for :feature:settings:mergeDebugJniLibFolders (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :feature:chat:mergeDebugNativeLibs (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:feature:chat:mergeDebugNativeLibs (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :feature:chat:mergeDebugNativeLibs NO-SOURCE
+Skipping task ':feature:chat:mergeDebugNativeLibs' as it has no source files and no previous output files.
+:feature:settings:mergeDebugJniLibFolders (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :core:agent:mergeDebugJniLibFolders UP-TO-DATE
+Caching disabled for task ':core:agent:mergeDebugJniLibFolders' because:
+  Simple merging task
+Skipping task ':core:agent:mergeDebugJniLibFolders' as it is up-to-date.
+Resolve mutations for :feature:chat:copyDebugJniLibsProjectOnly (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :core:data:mergeDebugShaders UP-TO-DATE
+Caching disabled for task ':core:data:mergeDebugShaders' because:
+  Simple merging task
+Skipping task ':core:data:mergeDebugShaders' as it is up-to-date.
+Resolve mutations for :core:data:compileDebugShaders (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :core:agent:mergeDebugNativeLibs (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:data:compileDebugShaders (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:agent:mergeDebugNativeLibs (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :core:data:compileDebugShaders NO-SOURCE
+Skipping task ':core:data:compileDebugShaders' as it has no source files and no previous output files.
+Resolve mutations for :core:data:generateDebugAssets (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:agent:mergeDebugNativeLibs NO-SOURCE
+Skipping task ':core:agent:mergeDebugNativeLibs' as it has no source files and no previous output files.
+
+> Task :feature:settings:mergeDebugJniLibFolders UP-TO-DATE
+Caching disabled for task ':feature:settings:mergeDebugJniLibFolders' because:
+  Simple merging task
+Skipping task ':feature:settings:mergeDebugJniLibFolders' as it is up-to-date.
+Resolve mutations for :core:agent:copyDebugJniLibsProjectOnly (Thread[#3263,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :feature:settings:mergeDebugNativeLibs (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:core:data:generateDebugAssets (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:agent:copyDebugJniLibsProjectOnly (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:feature:chat:copyDebugJniLibsProjectOnly (Thread[#3258,included builds,5,main]) started.
+:feature:settings:mergeDebugNativeLibs (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:data:generateDebugAssets UP-TO-DATE
+Skipping task ':core:data:generateDebugAssets' as it has no actions.
+Resolve mutations for :core:data:packageDebugAssets (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:data:packageDebugAssets (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:agent:copyDebugJniLibsProjectOnly UP-TO-DATE
+Caching disabled for task ':core:agent:copyDebugJniLibsProjectOnly' because:
+  Caching has been disabled for the task
+Skipping task ':core:agent:copyDebugJniLibsProjectOnly' as it is up-to-date.
+work action resolve jni (project :core:agent) (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :feature:settings:mergeDebugNativeLibs NO-SOURCE
+Skipping task ':feature:settings:mergeDebugNativeLibs' as it has no source files and no previous output files.
+Resolve mutations for :feature:settings:copyDebugJniLibsProjectOnly (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:feature:settings:copyDebugJniLibsProjectOnly (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :feature:chat:copyDebugJniLibsProjectOnly UP-TO-DATE
+Caching disabled for task ':feature:chat:copyDebugJniLibsProjectOnly' because:
+  Caching has been disabled for the task
+Skipping task ':feature:chat:copyDebugJniLibsProjectOnly' as it is up-to-date.
+work action resolve jni (project :feature:chat) (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :feature:settings:copyDebugJniLibsProjectOnly UP-TO-DATE
+Caching disabled for task ':feature:settings:copyDebugJniLibsProjectOnly' because:
+  Caching has been disabled for the task
+Skipping task ':feature:settings:copyDebugJniLibsProjectOnly' as it is up-to-date.
+work action resolve jni (project :feature:settings) (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:data:packageDebugAssets UP-TO-DATE
+Caching disabled for task ':core:data:packageDebugAssets' because:
+  Simple merging task
+Skipping task ':core:data:packageDebugAssets' as it is up-to-date.
+work action resolve out (project :core:data) (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :core:data:mergeDebugJniLibFolders (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:data:mergeDebugJniLibFolders (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:data:mergeDebugJniLibFolders UP-TO-DATE
+Caching disabled for task ':core:data:mergeDebugJniLibFolders' because:
+  Simple merging task
+Skipping task ':core:data:mergeDebugJniLibFolders' as it is up-to-date.
+Resolve mutations for :core:data:mergeDebugNativeLibs (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:data:mergeDebugNativeLibs (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:data:mergeDebugNativeLibs NO-SOURCE
+Skipping task ':core:data:mergeDebugNativeLibs' as it has no source files and no previous output files.
+Resolve mutations for :core:data:copyDebugJniLibsProjectOnly (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:data:copyDebugJniLibsProjectOnly (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:data:copyDebugJniLibsProjectOnly UP-TO-DATE
+Caching disabled for task ':core:data:copyDebugJniLibsProjectOnly' because:
+  Caching has been disabled for the task
+Skipping task ':core:data:copyDebugJniLibsProjectOnly' as it is up-to-date.
+work action resolve jni (project :core:data) (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:network:kspDebugKotlin UP-TO-DATE
+file or directory '/workspace/minima-chat/core/network/src/debug/kotlin', not found
+file or directory '/workspace/minima-chat/core/network/src/debug/java', not found
+file or directory '/workspace/minima-chat/core/network/src/main/kotlin', not found
+file or directory '/workspace/minima-chat/core/network/src/debug/java', not found
+file or directory '/workspace/minima-chat/core/network/src/debug/kotlin', not found
+file or directory '/workspace/minima-chat/core/network/src/debug/java', not found
+file or directory '/workspace/minima-chat/core/network/src/main/kotlin', not found
+file or directory '/workspace/minima-chat/core/network/src/debug/java', not found
+Build cache key for task ':core:network:kspDebugKotlin' is a503d1fcfa3819a20ddef9cf20909c04
+Skipping task ':core:network:kspDebugKotlin' as it is up-to-date.
+Resolve mutations for :core:network:compileDebugKotlin (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:network:compileDebugKotlin (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :core:network:compileDebugKotlin UP-TO-DATE
+Build cache key for task ':core:network:compileDebugKotlin' is fdf99250c58537e13b5b9b52600aaf6e
+Skipping task ':core:network:compileDebugKotlin' as it is up-to-date.
+Resolve mutations for :core:network:javaPreCompileDebug (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:network:javaPreCompileDebug (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':app:checkDebugAarMetadata' because:
+  Caching has been disabled for the task
+Skipping task ':app:checkDebugAarMetadata' as it is up-to-date.
+Resolve mutations for :app:mapDebugSourceSetPaths (Thread[#3259,Execution worker,5,main]) started.
+:app:mapDebugSourceSetPaths (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :core:network:javaPreCompileDebug UP-TO-DATE
+Build cache key for task ':core:network:javaPreCompileDebug' is 7e0fd5e76c28eb7ab589694af1cb9b88
+Skipping task ':core:network:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :core:network:compileDebugJavaWithJavac (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:network:compileDebugJavaWithJavac (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+Caching disabled for task ':app:mapDebugSourceSetPaths' because:
+  Caching has been disabled for the task
+Skipping task ':app:mapDebugSourceSetPaths' as it is up-to-date.
+Resolve mutations for :app:generateDebugResources (Thread[#3259,Execution worker,5,main]) started.
+:app:generateDebugResources (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :app:generateDebugResources UP-TO-DATE
+Build cache key for task ':app:generateDebugResources' is 31a50015fe800d5ee29b0819b1a04d40
+Skipping task ':app:generateDebugResources' as it is up-to-date.
+Resolve mutations for :app:mergeDebugResources (Thread[#3259,Execution worker,5,main]) started.
+:app:mergeDebugResources (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :core:network:compileDebugJavaWithJavac UP-TO-DATE
+file or directory '/workspace/minima-chat/core/network/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/network/build/generated/ksp/debug/classes', not found
+Custom actions are attached to task ':core:network:compileDebugJavaWithJavac'.
+Build cache key for task ':core:network:compileDebugJavaWithJavac' is ae2832a4b01b916246d62b6d67d40533
+Skipping task ':core:network:compileDebugJavaWithJavac' as it is up-to-date.
+No compile result for :core:network:compileDebugJavaWithJavac
+Resolve mutations for :core:network:transformDebugClassesWithAsm (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:network:transformDebugClassesWithAsm (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:mergeDebugResources UP-TO-DATE
+Build cache key for task ':app:mergeDebugResources' is d464379afcf6da19b32399e94c3e2149
+Skipping task ':app:mergeDebugResources' as it is up-to-date.
+Resolve mutations for :app:packageDebugResources (Thread[#3259,Execution worker,5,main]) started.
+:app:packageDebugResources (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :core:network:transformDebugClassesWithAsm UP-TO-DATE
+file or directory '/workspace/minima-chat/core/network/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/network/build/generated/ksp/debug/classes', not found
+Build cache key for task ':core:network:transformDebugClassesWithAsm' is 0ccc4db58ee1e45d1e209454d4b4f384
+Skipping task ':core:network:transformDebugClassesWithAsm' as it is up-to-date.
+Resolve mutations for :core:network:bundleLibCompileToJarDebug (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:network:bundleLibCompileToJarDebug (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :core:network:bundleLibCompileToJarDebug UP-TO-DATE
+Caching disabled for task ':core:network:bundleLibCompileToJarDebug' because:
+  Simple merging task
+Skipping task ':core:network:bundleLibCompileToJarDebug' as it is up-to-date.
+
+> Task :app:packageDebugResources UP-TO-DATE
+Build cache key for task ':app:packageDebugResources' is 38ce29decf06ca80d37fe7089dd3a0a8
+Skipping task ':app:packageDebugResources' as it is up-to-date.
+work action resolve classes.jar (project :core:network) (Thread[#3261,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :core:data:kspDebugKotlin (Thread[#3261,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :core:network:bundleLibRuntimeToJarDebug (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :core:ui:compileDebugKotlin (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:core:network:bundleLibRuntimeToJarDebug (Thread[#3258,included builds,5,main]) started.
+:core:data:kspDebugKotlin (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:ui:compileDebugKotlin (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :core:network:bundleLibRuntimeToJarDebug UP-TO-DATE
+Caching disabled for task ':core:network:bundleLibRuntimeToJarDebug' because:
+  Simple merging task
+Skipping task ':core:network:bundleLibRuntimeToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :core:network) (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :app:parseDebugLocalResources (Thread[#3259,Execution worker,5,main]) started.
+:app:parseDebugLocalResources (Thread[#3259,Execution worker,5,main]) started.
+Resolve mutations for :core:network:mergeDebugShaders (Thread[#3258,included builds,5,main]) started.
+:core:network:mergeDebugShaders (Thread[#3258,included builds,5,main]) started.
+IdentityTransform (Thread[#3263,Execution worker Thread 5,5,main]) started.
+DexingNoClasspathTransform (Thread[#3263,Execution worker Thread 5,5,main]) started.
+CopyTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+AggregatedPackagesTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :app:parseDebugLocalResources UP-TO-DATE
+Build cache key for task ':app:parseDebugLocalResources' is 5f28054b44e9930775abf83db26b9465
+Skipping task ':app:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :app:createDebugCompatibleScreenManifests (Thread[#3259,Execution worker,5,main]) started.
+:app:createDebugCompatibleScreenManifests (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+Caching disabled for task ':app:createDebugCompatibleScreenManifests' because:
+  Caching has been disabled for the task
+Skipping task ':app:createDebugCompatibleScreenManifests' as it is up-to-date.
+Resolve mutations for :app:extractDeepLinksDebug (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :core:network:mergeDebugShaders UP-TO-DATE
+Caching disabled for task ':core:network:mergeDebugShaders' because:
+  Simple merging task
+Skipping task ':core:network:mergeDebugShaders' as it is up-to-date.
+:app:extractDeepLinksDebug (Thread[#3259,Execution worker,5,main]) started.
+Resolve mutations for :core:network:compileDebugShaders (Thread[#3258,included builds,5,main]) started.
+:core:network:compileDebugShaders (Thread[#3258,included builds,5,main]) started.
+
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+Build cache key for task ':app:extractDeepLinksDebug' is cba7e119b95e5139533697140175cd83
+Skipping task ':app:extractDeepLinksDebug' as it is up-to-date.
+
+> Task :core:network:compileDebugShaders NO-SOURCE
+Skipping task ':core:network:compileDebugShaders' as it has no source files and no previous output files.
+Resolve mutations for :app:processDebugMainManifest (Thread[#3259,Execution worker,5,main]) started.
+Resolve mutations for :core:network:generateDebugAssets (Thread[#3258,included builds,5,main]) started.
+:core:network:generateDebugAssets (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:network:generateDebugAssets UP-TO-DATE
+Skipping task ':core:network:generateDebugAssets' as it has no actions.
+Resolve mutations for :core:network:packageDebugAssets (Thread[#3258,included builds,5,main]) started.
+:app:processDebugMainManifest (Thread[#3259,Execution worker,5,main]) started.
+:core:network:packageDebugAssets (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:network:packageDebugAssets UP-TO-DATE
+Caching disabled for task ':core:network:packageDebugAssets' because:
+  Simple merging task
+Skipping task ':core:network:packageDebugAssets' as it is up-to-date.
+work action resolve out (project :core:network) (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :core:network:processDebugJavaRes (Thread[#3258,included builds,5,main]) started.
+:core:network:processDebugJavaRes (Thread[#3258,included builds,5,main]) started.
+
+> Transform classes.jar (project :core:network) with DexingNoClasspathTransform
+Build cache key for DexingNoClasspathTransform: /workspace/minima-chat/core/network/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar is 8f4a93e9e8dfe3bbfa00f8a61c114e62
+Skipping DexingNoClasspathTransform: /workspace/minima-chat/core/network/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar as it is up-to-date.
+DexingOutputSplitTransform (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :core:network:processDebugJavaRes UP-TO-DATE
+file or directory '/workspace/minima-chat/core/network/src/main/resources', not found
+file or directory '/workspace/minima-chat/core/network/src/debug/resources', not found
+file or directory '/workspace/minima-chat/core/network/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/network/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/network/src/main/resources', not found
+file or directory '/workspace/minima-chat/core/network/src/debug/resources', not found
+file or directory '/workspace/minima-chat/core/network/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/network/build/generated/ksp/debug/classes', not found
+Caching disabled for task ':core:network:processDebugJavaRes' because:
+  Caching has been disabled for the task
+Skipping task ':core:network:processDebugJavaRes' as it is up-to-date.
+work action resolve out (project :core:network) (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :core:network:bundleLibRuntimeToDirDebug (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:network:bundleLibRuntimeToDirDebug (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :app:processDebugMainManifest UP-TO-DATE
+Build cache key for task ':app:processDebugMainManifest' is 9d26fb7a5164fd4c907e6a03166309a7
+Skipping task ':app:processDebugMainManifest' as it is up-to-date.
+Resolve mutations for :app:processDebugManifest (Thread[#3259,Execution worker,5,main]) started.
+:app:processDebugManifest (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :app:processDebugManifest UP-TO-DATE
+Build cache key for task ':app:processDebugManifest' is 7eca34dba13c3b4141b4c008acf23c64
+Skipping task ':app:processDebugManifest' as it is up-to-date.
+Resolve mutations for :app:processDebugManifestForPackage (Thread[#3259,Execution worker,5,main]) started.
+:app:processDebugManifestForPackage (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+Custom actions are attached to task ':app:processDebugManifestForPackage'.
+Build cache key for task ':app:processDebugManifestForPackage' is 16782ed3456e1f0037d1f7afc5bb1545
+Skipping task ':app:processDebugManifestForPackage' as it is up-to-date.
+Resolve mutations for :app:processDebugResources (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :core:network:bundleLibRuntimeToDirDebug UP-TO-DATE
+Caching disabled for task ':core:network:bundleLibRuntimeToDirDebug' because:
+  Simple merging task
+Skipping task ':core:network:bundleLibRuntimeToDirDebug' as it is up-to-date.
+work action resolve bundleLibRuntimeToDirDebug (project :core:network) (Thread[#3262,Execution worker Thread 4,5,main]) started.
+ClassesDirToClassesTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :core:network:mergeDebugJniLibFolders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:processDebugResources (Thread[#3259,Execution worker,5,main]) started.
+:core:network:mergeDebugJniLibFolders (Thread[#3258,included builds,5,main]) started.
+DexingNoClasspathTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:network:mergeDebugJniLibFolders UP-TO-DATE
+Caching disabled for task ':core:network:mergeDebugJniLibFolders' because:
+  Simple merging task
+Skipping task ':core:network:mergeDebugJniLibFolders' as it is up-to-date.
+Resolve mutations for :core:network:mergeDebugNativeLibs (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:core:network:mergeDebugNativeLibs (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :core:network:mergeDebugNativeLibs NO-SOURCE
+Skipping task ':core:network:mergeDebugNativeLibs' as it has no source files and no previous output files.
+Resolve mutations for :core:network:copyDebugJniLibsProjectOnly (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:network:copyDebugJniLibsProjectOnly (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :core:network:copyDebugJniLibsProjectOnly UP-TO-DATE
+Caching disabled for task ':core:network:copyDebugJniLibsProjectOnly' because:
+  Caching has been disabled for the task
+Skipping task ':core:network:copyDebugJniLibsProjectOnly' as it is up-to-date.
+work action resolve jni (project :core:network) (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Transform bundleLibRuntimeToDirDebug (project :core:network) with DexingNoClasspathTransform
+Build cache key for DexingNoClasspathTransform: /workspace/minima-chat/core/network/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug is 88c34eeda236a2279c1da4e9e7696a83
+Skipping DexingNoClasspathTransform: /workspace/minima-chat/core/network/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug as it is up-to-date.
+DexingOutputSplitTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:data:kspDebugKotlin UP-TO-DATE
+file or directory '/workspace/minima-chat/core/data/src/debug/kotlin', not found
+file or directory '/workspace/minima-chat/core/data/src/debug/java', not found
+file or directory '/workspace/minima-chat/core/data/src/main/kotlin', not found
+file or directory '/workspace/minima-chat/core/data/src/debug/java', not found
+file or directory '/workspace/minima-chat/core/data/src/debug/kotlin', not found
+file or directory '/workspace/minima-chat/core/data/src/debug/java', not found
+file or directory '/workspace/minima-chat/core/data/src/main/kotlin', not found
+file or directory '/workspace/minima-chat/core/data/src/debug/java', not found
+Build cache key for task ':core:data:kspDebugKotlin' is 33a19f19ae5e24a91634496326fb64d5
+Skipping task ':core:data:kspDebugKotlin' as it is up-to-date.
+Resolve mutations for :core:data:compileDebugKotlin (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:data:compileDebugKotlin (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :core:data:compileDebugKotlin UP-TO-DATE
+Build cache key for task ':core:data:compileDebugKotlin' is e2e67aa4586f571c7dedd3d08393f4b8
+Skipping task ':core:data:compileDebugKotlin' as it is up-to-date.
+Resolve mutations for :core:data:compileDebugJavaWithJavac (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:data:compileDebugJavaWithJavac (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:processDebugResources UP-TO-DATE
+Build cache key for task ':app:processDebugResources' is 2395ba75a973b926471efbd9bc385de3
+Skipping task ':app:processDebugResources' as it is up-to-date.
+Resolve mutations for :app:javaPreCompileDebug (Thread[#3259,Execution worker,5,main]) started.
+:app:javaPreCompileDebug (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :core:data:compileDebugJavaWithJavac UP-TO-DATE
+file or directory '/workspace/minima-chat/core/data/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/data/build/generated/ksp/debug/classes', not found
+Custom actions are attached to task ':core:data:compileDebugJavaWithJavac'.
+Build cache key for task ':core:data:compileDebugJavaWithJavac' is 77520fb50207c44040411552040e55c7
+Skipping task ':core:data:compileDebugJavaWithJavac' as it is up-to-date.
+No compile result for :core:data:compileDebugJavaWithJavac
+Resolve mutations for :core:data:transformDebugClassesWithAsm (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:core:data:transformDebugClassesWithAsm (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:javaPreCompileDebug UP-TO-DATE
+Build cache key for task ':app:javaPreCompileDebug' is 3b30b7e05bdfd592baf475764282a87d
+Skipping task ':app:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :app:mergeDebugShaders (Thread[#3259,Execution worker,5,main]) started.
+:app:mergeDebugShaders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :core:ui:compileDebugKotlin UP-TO-DATE
+Build cache key for task ':core:ui:compileDebugKotlin' is c4329b7d53d13c9cfeabe112f519098f
+Skipping task ':core:ui:compileDebugKotlin' as it is up-to-date.
+Resolve mutations for :core:ui:compileDebugJavaWithJavac (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :app:mergeDebugShaders UP-TO-DATE
+Caching disabled for task ':app:mergeDebugShaders' because:
+  Simple merging task
+Skipping task ':app:mergeDebugShaders' as it is up-to-date.
+Resolve mutations for :app:compileDebugShaders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:compileDebugShaders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:core:ui:compileDebugJavaWithJavac (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :app:compileDebugShaders NO-SOURCE
+Skipping task ':app:compileDebugShaders' as it has no source files and no previous output files.
+Resolve mutations for :app:generateDebugAssets (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:generateDebugAssets (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:generateDebugAssets UP-TO-DATE
+Skipping task ':app:generateDebugAssets' as it has no actions.
+Resolve mutations for :app:mergeDebugAssets (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:mergeDebugAssets (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :core:ui:compileDebugJavaWithJavac NO-SOURCE
+Skipping task ':core:ui:compileDebugJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :core:ui:bundleLibCompileToJarDebug (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:core:ui:bundleLibCompileToJarDebug (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :core:ui:bundleLibCompileToJarDebug UP-TO-DATE
+Caching disabled for task ':core:ui:bundleLibCompileToJarDebug' because:
+  Simple merging task
+Skipping task ':core:ui:bundleLibCompileToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :core:ui) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :core:ui:bundleLibRuntimeToJarDebug (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:core:ui:bundleLibRuntimeToJarDebug (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :core:ui:bundleLibRuntimeToJarDebug UP-TO-DATE
+Caching disabled for task ':core:ui:bundleLibRuntimeToJarDebug' because:
+  Simple merging task
+Skipping task ':core:ui:bundleLibRuntimeToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :core:ui) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+IdentityTransform (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :core:ui:processDebugJavaRes (Thread[#3259,Execution worker,5,main]) started.
+DexingNoClasspathTransform (Thread[#3264,Execution worker Thread 6,5,main]) started.
+CopyTransform (Thread[#3260,Execution worker Thread 2,5,main]) started.
+AggregatedPackagesTransform (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:core:ui:processDebugJavaRes (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :app:mergeDebugAssets UP-TO-DATE
+Caching disabled for task ':app:mergeDebugAssets' because:
+  Simple merging task
+Skipping task ':app:mergeDebugAssets' as it is up-to-date.
+Resolve mutations for :app:compressDebugAssets (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:compressDebugAssets (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Transform classes.jar (project :core:ui) with DexingNoClasspathTransform
+Build cache key for DexingNoClasspathTransform: /workspace/minima-chat/core/ui/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar is fbdedc28d16c2852b30428869857412f
+Skipping DexingNoClasspathTransform: /workspace/minima-chat/core/ui/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar as it is up-to-date.
+
+> Task :core:data:transformDebugClassesWithAsm UP-TO-DATE
+file or directory '/workspace/minima-chat/core/data/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/data/build/generated/ksp/debug/classes', not found
+Build cache key for task ':core:data:transformDebugClassesWithAsm' is bec885c549cdc719c69bb760fd72996e
+Skipping task ':core:data:transformDebugClassesWithAsm' as it is up-to-date.
+DexingOutputSplitTransform (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :core:data:bundleLibCompileToJarDebug (Thread[#3258,included builds,5,main]) started.
+:core:data:bundleLibCompileToJarDebug (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:ui:processDebugJavaRes UP-TO-DATE
+file or directory '/workspace/minima-chat/core/ui/src/main/resources', not found
+file or directory '/workspace/minima-chat/core/ui/src/debug/resources', not found
+file or directory '/workspace/minima-chat/core/ui/src/main/resources', not found
+file or directory '/workspace/minima-chat/core/ui/src/debug/resources', not found
+Caching disabled for task ':core:ui:processDebugJavaRes' because:
+  Caching has been disabled for the task
+Skipping task ':core:ui:processDebugJavaRes' as it is up-to-date.
+work action resolve out (project :core:ui) (Thread[#3259,Execution worker,5,main]) started.
+Resolve mutations for :core:ui:bundleLibRuntimeToDirDebug (Thread[#3259,Execution worker,5,main]) started.
+:core:ui:bundleLibRuntimeToDirDebug (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :core:data:bundleLibCompileToJarDebug UP-TO-DATE
+Caching disabled for task ':core:data:bundleLibCompileToJarDebug' because:
+  Simple merging task
+Skipping task ':core:data:bundleLibCompileToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :core:data) (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :core:agent:kspDebugKotlin (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core:data:bundleLibRuntimeToJarDebug (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:data:bundleLibRuntimeToJarDebug (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :app:compressDebugAssets UP-TO-DATE
+Build cache key for task ':app:compressDebugAssets' is 210b617bee7fd54c68c8908680711a94
+Skipping task ':app:compressDebugAssets' as it is up-to-date.
+Resolve mutations for :app:desugarDebugFileDependencies (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:desugarDebugFileDependencies (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:core:agent:kspDebugKotlin (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:data:bundleLibRuntimeToJarDebug UP-TO-DATE
+Caching disabled for task ':core:data:bundleLibRuntimeToJarDebug' because:
+  Simple merging task
+Skipping task ':core:data:bundleLibRuntimeToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :core:data) (Thread[#3263,Execution worker Thread 5,5,main]) started.
+IdentityTransform (Thread[#3261,Execution worker Thread 3,5,main]) started.
+DexingNoClasspathTransform (Thread[#3261,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :core:data:processDebugJavaRes (Thread[#3263,Execution worker Thread 5,5,main]) started.
+CopyTransform (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+Build cache key for task ':app:desugarDebugFileDependencies' is a13710a9078d1783dfc0484af63b3f34
+Skipping task ':app:desugarDebugFileDependencies' as it is up-to-date.
+:core:data:processDebugJavaRes (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :app:checkDebugDuplicateClasses (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:checkDebugDuplicateClasses (Thread[#3265,Execution worker Thread 7,5,main]) started.
+AggregatedPackagesTransform (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :core:ui:bundleLibRuntimeToDirDebug UP-TO-DATE
+Caching disabled for task ':core:ui:bundleLibRuntimeToDirDebug' because:
+  Simple merging task
+Skipping task ':core:ui:bundleLibRuntimeToDirDebug' as it is up-to-date.
+work action resolve bundleLibRuntimeToDirDebug (project :core:ui) (Thread[#3263,Execution worker Thread 5,5,main]) started.
+ClassesDirToClassesTransform (Thread[#3263,Execution worker Thread 5,5,main]) started.
+DexingNoClasspathTransform (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Transform classes.jar (project :core:data) with DexingNoClasspathTransform
+Build cache key for DexingNoClasspathTransform: /workspace/minima-chat/core/data/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar is c3161d2729650ae8cc03b742726235fa
+Skipping DexingNoClasspathTransform: /workspace/minima-chat/core/data/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar as it is up-to-date.
+DexingOutputSplitTransform (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :core:data:processDebugJavaRes UP-TO-DATE
+file or directory '/workspace/minima-chat/core/data/src/main/resources', not found
+file or directory '/workspace/minima-chat/core/data/src/debug/resources', not found
+file or directory '/workspace/minima-chat/core/data/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/data/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/data/src/main/resources', not found
+file or directory '/workspace/minima-chat/core/data/src/debug/resources', not found
+file or directory '/workspace/minima-chat/core/data/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/data/build/generated/ksp/debug/classes', not found
+Caching disabled for task ':core:data:processDebugJavaRes' because:
+  Caching has been disabled for the task
+Skipping task ':core:data:processDebugJavaRes' as it is up-to-date.
+work action resolve out (project :core:data) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :core:data:bundleLibRuntimeToDirDebug (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:core:data:bundleLibRuntimeToDirDebug (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Transform bundleLibRuntimeToDirDebug (project :core:ui) with DexingNoClasspathTransform
+Build cache key for DexingNoClasspathTransform: /workspace/minima-chat/core/ui/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug is 5416aee7235a04492cee7d79f5a7116c
+Skipping DexingNoClasspathTransform: /workspace/minima-chat/core/ui/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug as it is up-to-date.
+DexingOutputSplitTransform (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Task :core:data:bundleLibRuntimeToDirDebug UP-TO-DATE
+Caching disabled for task ':core:data:bundleLibRuntimeToDirDebug' because:
+  Simple merging task
+Skipping task ':core:data:bundleLibRuntimeToDirDebug' as it is up-to-date.
+work action resolve bundleLibRuntimeToDirDebug (project :core:data) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+ClassesDirToClassesTransform (Thread[#3264,Execution worker Thread 6,5,main]) started.
+DexingNoClasspathTransform (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Transform bundleLibRuntimeToDirDebug (project :core:data) with DexingNoClasspathTransform
+Build cache key for DexingNoClasspathTransform: /workspace/minima-chat/core/data/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug is 558a07b3d50e5ba3d3dcf41b1fba6355
+Skipping DexingNoClasspathTransform: /workspace/minima-chat/core/data/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug as it is up-to-date.
+DexingOutputSplitTransform (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :core:agent:kspDebugKotlin UP-TO-DATE
+file or directory '/workspace/minima-chat/core/agent/src/debug/kotlin', not found
+file or directory '/workspace/minima-chat/core/agent/src/debug/java', not found
+file or directory '/workspace/minima-chat/core/agent/src/main/kotlin', not found
+file or directory '/workspace/minima-chat/core/agent/src/debug/java', not found
+file or directory '/workspace/minima-chat/core/agent/src/debug/kotlin', not found
+file or directory '/workspace/minima-chat/core/agent/src/debug/java', not found
+file or directory '/workspace/minima-chat/core/agent/src/main/kotlin', not found
+file or directory '/workspace/minima-chat/core/agent/src/debug/java', not found
+Build cache key for task ':core:agent:kspDebugKotlin' is 10b4df24ca743bf91549a6822199377b
+Skipping task ':core:agent:kspDebugKotlin' as it is up-to-date.
+Resolve mutations for :core:agent:compileDebugKotlin (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+Caching disabled for task ':app:checkDebugDuplicateClasses' because:
+  Caching has been disabled for the task
+Skipping task ':app:checkDebugDuplicateClasses' as it is up-to-date.
+Resolve mutations for :app:mergeExtDexDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:core:agent:compileDebugKotlin (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:app:mergeExtDexDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :core:agent:compileDebugKotlin UP-TO-DATE
+Build cache key for task ':core:agent:compileDebugKotlin' is 1d8abacadf1e5f3ab9223ee398efbd94
+Skipping task ':core:agent:compileDebugKotlin' as it is up-to-date.
+Resolve mutations for :core:agent:compileDebugJavaWithJavac (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:core:agent:compileDebugJavaWithJavac (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:agent:compileDebugJavaWithJavac UP-TO-DATE
+file or directory '/workspace/minima-chat/core/agent/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/agent/build/generated/ksp/debug/classes', not found
+Custom actions are attached to task ':core:agent:compileDebugJavaWithJavac'.
+Build cache key for task ':core:agent:compileDebugJavaWithJavac' is 422d5f395ae3dd374d6b3eba340972c6
+Skipping task ':core:agent:compileDebugJavaWithJavac' as it is up-to-date.
+No compile result for :core:agent:compileDebugJavaWithJavac
+Resolve mutations for :core:agent:transformDebugClassesWithAsm (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:core:agent:transformDebugClassesWithAsm (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:agent:transformDebugClassesWithAsm UP-TO-DATE
+file or directory '/workspace/minima-chat/core/agent/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/agent/build/generated/ksp/debug/classes', not found
+Build cache key for task ':core:agent:transformDebugClassesWithAsm' is 46ee59c5042a7115b0706aa97c8c7d2f
+Skipping task ':core:agent:transformDebugClassesWithAsm' as it is up-to-date.
+Resolve mutations for :core:agent:bundleLibCompileToJarDebug (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:core:agent:bundleLibCompileToJarDebug (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:agent:bundleLibCompileToJarDebug UP-TO-DATE
+Caching disabled for task ':core:agent:bundleLibCompileToJarDebug' because:
+  Simple merging task
+Skipping task ':core:agent:bundleLibCompileToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :core:agent) (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core:agent:bundleLibRuntimeToJarDebug (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :feature:chat:kspDebugKotlin (Thread[#3258,included builds,5,main]) started.
+Resolve mutations for :feature:settings:kspDebugKotlin (Thread[#3259,Execution worker,5,main]) started.
+:core:agent:bundleLibRuntimeToJarDebug (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:feature:chat:kspDebugKotlin (Thread[#3258,included builds,5,main]) started.
+
+> Task :core:agent:bundleLibRuntimeToJarDebug UP-TO-DATE
+Caching disabled for task ':core:agent:bundleLibRuntimeToJarDebug' because:
+  Simple merging task
+Skipping task ':core:agent:bundleLibRuntimeToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :core:agent) (Thread[#3260,Execution worker Thread 2,5,main]) started.
+IdentityTransform (Thread[#3260,Execution worker Thread 2,5,main]) started.
+DexingNoClasspathTransform (Thread[#3260,Execution worker Thread 2,5,main]) started.
+CopyTransform (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:feature:settings:kspDebugKotlin (Thread[#3259,Execution worker,5,main]) started.
+Resolve mutations for :core:agent:processDebugJavaRes (Thread[#3264,Execution worker Thread 6,5,main]) started.
+AggregatedPackagesTransform (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:core:agent:processDebugJavaRes (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Transform classes.jar (project :core:agent) with DexingNoClasspathTransform
+Build cache key for DexingNoClasspathTransform: /workspace/minima-chat/core/agent/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar is e7354dbb9c2b82d6c55fbffab60c4b61
+Skipping DexingNoClasspathTransform: /workspace/minima-chat/core/agent/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar as it is up-to-date.
+DexingOutputSplitTransform (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :core:agent:processDebugJavaRes UP-TO-DATE
+file or directory '/workspace/minima-chat/core/agent/src/main/resources', not found
+file or directory '/workspace/minima-chat/core/agent/src/debug/resources', not found
+file or directory '/workspace/minima-chat/core/agent/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/agent/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/agent/src/main/resources', not found
+file or directory '/workspace/minima-chat/core/agent/src/debug/resources', not found
+file or directory '/workspace/minima-chat/core/agent/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/core/agent/build/generated/ksp/debug/classes', not found
+Caching disabled for task ':core:agent:processDebugJavaRes' because:
+  Caching has been disabled for the task
+Skipping task ':core:agent:processDebugJavaRes' as it is up-to-date.
+work action resolve out (project :core:agent) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :core:agent:bundleLibRuntimeToDirDebug (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:core:agent:bundleLibRuntimeToDirDebug (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :core:agent:bundleLibRuntimeToDirDebug UP-TO-DATE
+Caching disabled for task ':core:agent:bundleLibRuntimeToDirDebug' because:
+  Simple merging task
+Skipping task ':core:agent:bundleLibRuntimeToDirDebug' as it is up-to-date.
+work action resolve bundleLibRuntimeToDirDebug (project :core:agent) (Thread[#3262,Execution worker Thread 4,5,main]) started.
+ClassesDirToClassesTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+DexingNoClasspathTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Transform bundleLibRuntimeToDirDebug (project :core:agent) with DexingNoClasspathTransform
+Build cache key for DexingNoClasspathTransform: /workspace/minima-chat/core/agent/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug is c5f083c20547ceaf758db0849a3944b2
+Skipping DexingNoClasspathTransform: /workspace/minima-chat/core/agent/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug as it is up-to-date.
+DexingOutputSplitTransform (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :app:mergeExtDexDebug UP-TO-DATE
+Build cache key for task ':app:mergeExtDexDebug' is 47e90b17d75017def7f8eb03f320d313
+Skipping task ':app:mergeExtDexDebug' as it is up-to-date.
+Resolve mutations for :app:mergeDebugJniLibFolders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:mergeDebugJniLibFolders (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+Caching disabled for task ':app:mergeDebugJniLibFolders' because:
+  Simple merging task
+Skipping task ':app:mergeDebugJniLibFolders' as it is up-to-date.
+Resolve mutations for :app:mergeDebugNativeLibs (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:mergeDebugNativeLibs (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:mergeDebugNativeLibs UP-TO-DATE
+Caching disabled for task ':app:mergeDebugNativeLibs' because:
+  Caching has been disabled for the task
+Skipping task ':app:mergeDebugNativeLibs' as it is up-to-date.
+Resolve mutations for :app:stripDebugDebugSymbols (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:stripDebugDebugSymbols (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:stripDebugDebugSymbols UP-TO-DATE
+Caching disabled for task ':app:stripDebugDebugSymbols' because:
+  Caching has been disabled for the task
+Skipping task ':app:stripDebugDebugSymbols' as it is up-to-date.
+Resolve mutations for :app:validateSigningDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:validateSigningDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:validateSigningDebug UP-TO-DATE
+Caching disabled for task ':app:validateSigningDebug' because:
+  Caching has been disabled for the task
+Skipping task ':app:validateSigningDebug' as it is up-to-date.
+Resolve mutations for :app:writeDebugAppMetadata (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:writeDebugAppMetadata (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+Caching disabled for task ':app:writeDebugAppMetadata' because:
+  Caching has been disabled for the task
+Skipping task ':app:writeDebugAppMetadata' as it is up-to-date.
+Resolve mutations for :app:writeDebugSigningConfigVersions (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:writeDebugSigningConfigVersions (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+Caching disabled for task ':app:writeDebugSigningConfigVersions' because:
+  Caching has been disabled for the task
+Skipping task ':app:writeDebugSigningConfigVersions' as it is up-to-date.
+Resolve mutations for :app:preDebugAndroidTestBuild (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:preDebugAndroidTestBuild (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:preDebugAndroidTestBuild SKIPPED
+Skipping task ':app:preDebugAndroidTestBuild' as task onlyIf 'Task is enabled' is false.
+Resolve mutations for :app:processDebugAndroidTestManifest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:processDebugAndroidTestManifest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :feature:chat:kspDebugKotlin UP-TO-DATE
+file or directory '/workspace/minima-chat/feature/chat/src/debug/kotlin', not found
+file or directory '/workspace/minima-chat/feature/chat/src/debug/java', not found
+file or directory '/workspace/minima-chat/feature/chat/src/main/kotlin', not found
+file or directory '/workspace/minima-chat/feature/chat/src/debug/java', not found
+file or directory '/workspace/minima-chat/feature/chat/src/debug/kotlin', not found
+file or directory '/workspace/minima-chat/feature/chat/src/debug/java', not found
+file or directory '/workspace/minima-chat/feature/chat/src/main/kotlin', not found
+file or directory '/workspace/minima-chat/feature/chat/src/debug/java', not found
+Build cache key for task ':feature:chat:kspDebugKotlin' is 4bd9cc65ec860a701ea00d82eaa349b6
+Skipping task ':feature:chat:kspDebugKotlin' as it is up-to-date.
+Resolve mutations for :feature:chat:compileDebugKotlin (Thread[#3258,included builds,5,main]) started.
+:feature:chat:compileDebugKotlin (Thread[#3258,included builds,5,main]) started.
+
+> Task :feature:settings:kspDebugKotlin UP-TO-DATE
+file or directory '/workspace/minima-chat/feature/settings/src/debug/kotlin', not found
+file or directory '/workspace/minima-chat/feature/settings/src/debug/java', not found
+file or directory '/workspace/minima-chat/feature/settings/src/main/kotlin', not found
+file or directory '/workspace/minima-chat/feature/settings/src/debug/java', not found
+file or directory '/workspace/minima-chat/feature/settings/src/debug/kotlin', not found
+file or directory '/workspace/minima-chat/feature/settings/src/debug/java', not found
+file or directory '/workspace/minima-chat/feature/settings/src/main/kotlin', not found
+file or directory '/workspace/minima-chat/feature/settings/src/debug/java', not found
+Build cache key for task ':feature:settings:kspDebugKotlin' is b9a33f7a2c4e3592021f1d568801a800
+Skipping task ':feature:settings:kspDebugKotlin' as it is up-to-date.
+Resolve mutations for :feature:settings:compileDebugKotlin (Thread[#3259,Execution worker,5,main]) started.
+:feature:settings:compileDebugKotlin (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :feature:chat:compileDebugKotlin UP-TO-DATE
+Build cache key for task ':feature:chat:compileDebugKotlin' is 19f335d6f917e9ba5e43bbd21e01a6f6
+Skipping task ':feature:chat:compileDebugKotlin' as it is up-to-date.
+Resolve mutations for :feature:chat:compileDebugJavaWithJavac (Thread[#3258,included builds,5,main]) started.
+:feature:chat:compileDebugJavaWithJavac (Thread[#3258,included builds,5,main]) started.
+
+> Task :feature:settings:compileDebugKotlin UP-TO-DATE
+Build cache key for task ':feature:settings:compileDebugKotlin' is ef8daddaea3b9c8bd0282f285c51a142
+Skipping task ':feature:settings:compileDebugKotlin' as it is up-to-date.
+Resolve mutations for :feature:settings:compileDebugJavaWithJavac (Thread[#3259,Execution worker,5,main]) started.
+:feature:settings:compileDebugJavaWithJavac (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :feature:chat:compileDebugJavaWithJavac UP-TO-DATE
+file or directory '/workspace/minima-chat/feature/chat/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/feature/chat/build/generated/ksp/debug/classes', not found
+Custom actions are attached to task ':feature:chat:compileDebugJavaWithJavac'.
+Build cache key for task ':feature:chat:compileDebugJavaWithJavac' is 8b60be6ca358231a883b93c9b99e056d
+Skipping task ':feature:chat:compileDebugJavaWithJavac' as it is up-to-date.
+No compile result for :feature:chat:compileDebugJavaWithJavac
+Resolve mutations for :feature:chat:transformDebugClassesWithAsm (Thread[#3258,included builds,5,main]) started.
+:feature:chat:transformDebugClassesWithAsm (Thread[#3258,included builds,5,main]) started.
+
+> Task :feature:settings:compileDebugJavaWithJavac UP-TO-DATE
+file or directory '/workspace/minima-chat/feature/settings/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/feature/settings/build/generated/ksp/debug/classes', not found
+Custom actions are attached to task ':feature:settings:compileDebugJavaWithJavac'.
+Build cache key for task ':feature:settings:compileDebugJavaWithJavac' is ce6cbea80dc96c506147df78b2a19999
+Skipping task ':feature:settings:compileDebugJavaWithJavac' as it is up-to-date.
+No compile result for :feature:settings:compileDebugJavaWithJavac
+Resolve mutations for :feature:settings:transformDebugClassesWithAsm (Thread[#3259,Execution worker,5,main]) started.
+:feature:settings:transformDebugClassesWithAsm (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :app:processDebugAndroidTestManifest UP-TO-DATE
+Caching disabled for task ':app:processDebugAndroidTestManifest' because:
+  Caching has been disabled for the task
+Skipping task ':app:processDebugAndroidTestManifest' as it is up-to-date.
+Resolve mutations for :app:generateDebugAndroidTestBuildConfig (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:generateDebugAndroidTestBuildConfig (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:generateDebugAndroidTestBuildConfig UP-TO-DATE
+Build cache key for task ':app:generateDebugAndroidTestBuildConfig' is a05c1e3eaec98d767c5b16ff43f54a92
+Skipping task ':app:generateDebugAndroidTestBuildConfig' as it is up-to-date.
+Resolve mutations for :app:checkDebugAndroidTestAarMetadata (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:checkDebugAndroidTestAarMetadata (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :feature:chat:transformDebugClassesWithAsm UP-TO-DATE
+file or directory '/workspace/minima-chat/feature/chat/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/feature/chat/build/generated/ksp/debug/classes', not found
+Build cache key for task ':feature:chat:transformDebugClassesWithAsm' is 3faea1560b340b9e5ccbce1875eaedd4
+Skipping task ':feature:chat:transformDebugClassesWithAsm' as it is up-to-date.
+Resolve mutations for :feature:chat:bundleLibCompileToJarDebug (Thread[#3258,included builds,5,main]) started.
+:feature:chat:bundleLibCompileToJarDebug (Thread[#3258,included builds,5,main]) started.
+
+> Task :feature:chat:bundleLibCompileToJarDebug UP-TO-DATE
+Caching disabled for task ':feature:chat:bundleLibCompileToJarDebug' because:
+  Simple merging task
+Skipping task ':feature:chat:bundleLibCompileToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :feature:chat) (Thread[#3261,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :feature:chat:bundleLibRuntimeToJarDebug (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:feature:chat:bundleLibRuntimeToJarDebug (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:checkDebugAndroidTestAarMetadata UP-TO-DATE
+Caching disabled for task ':app:checkDebugAndroidTestAarMetadata' because:
+  Caching has been disabled for the task
+Skipping task ':app:checkDebugAndroidTestAarMetadata' as it is up-to-date.
+Resolve mutations for :app:generateDebugAndroidTestResValues (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:generateDebugAndroidTestResValues (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :feature:chat:bundleLibRuntimeToJarDebug UP-TO-DATE
+Caching disabled for task ':feature:chat:bundleLibRuntimeToJarDebug' because:
+  Simple merging task
+Skipping task ':feature:chat:bundleLibRuntimeToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :feature:chat) (Thread[#3261,Execution worker Thread 3,5,main]) started.
+IdentityTransform (Thread[#3261,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :feature:chat:processDebugJavaRes (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:feature:chat:processDebugJavaRes (Thread[#3260,Execution worker Thread 2,5,main]) started.
+DexingNoClasspathTransform (Thread[#3261,Execution worker Thread 3,5,main]) started.
+CopyTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+
+> Task :app:generateDebugAndroidTestResValues UP-TO-DATE
+Build cache key for task ':app:generateDebugAndroidTestResValues' is 78378b4ba7e7f0393e1b028888efbfb8
+Skipping task ':app:generateDebugAndroidTestResValues' as it is up-to-date.
+Resolve mutations for :app:mapDebugAndroidTestSourceSetPaths (Thread[#3265,Execution worker Thread 7,5,main]) started.
+AggregatedPackagesTransform (Thread[#3262,Execution worker Thread 4,5,main]) started.
+:app:mapDebugAndroidTestSourceSetPaths (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Transform classes.jar (project :feature:chat) with DexingNoClasspathTransform
+Build cache key for DexingNoClasspathTransform: /workspace/minima-chat/feature/chat/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar is 0287f8de9a4e74174ea8f69af53f0cce
+Skipping DexingNoClasspathTransform: /workspace/minima-chat/feature/chat/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar as it is up-to-date.
+DexingOutputSplitTransform (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:mapDebugAndroidTestSourceSetPaths UP-TO-DATE
+Caching disabled for task ':app:mapDebugAndroidTestSourceSetPaths' because:
+  Caching has been disabled for the task
+Skipping task ':app:mapDebugAndroidTestSourceSetPaths' as it is up-to-date.
+Resolve mutations for :app:generateDebugAndroidTestResources (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:generateDebugAndroidTestResources (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:generateDebugAndroidTestResources UP-TO-DATE
+Build cache key for task ':app:generateDebugAndroidTestResources' is b6bc557642dfe0812a08c9b40824aa9a
+Skipping task ':app:generateDebugAndroidTestResources' as it is up-to-date.
+Resolve mutations for :app:mergeDebugAndroidTestResources (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :feature:chat:processDebugJavaRes UP-TO-DATE
+file or directory '/workspace/minima-chat/feature/chat/src/main/resources', not found
+file or directory '/workspace/minima-chat/feature/chat/src/debug/resources', not found
+file or directory '/workspace/minima-chat/feature/chat/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/feature/chat/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/feature/chat/src/main/resources', not found
+file or directory '/workspace/minima-chat/feature/chat/src/debug/resources', not found
+file or directory '/workspace/minima-chat/feature/chat/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/feature/chat/build/generated/ksp/debug/classes', not found
+Caching disabled for task ':feature:chat:processDebugJavaRes' because:
+  Caching has been disabled for the task
+Skipping task ':feature:chat:processDebugJavaRes' as it is up-to-date.
+work action resolve out (project :feature:chat) (Thread[#3260,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :feature:chat:bundleLibRuntimeToDirDebug (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:app:mergeDebugAndroidTestResources (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:feature:chat:bundleLibRuntimeToDirDebug (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :feature:settings:transformDebugClassesWithAsm UP-TO-DATE
+file or directory '/workspace/minima-chat/feature/settings/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/feature/settings/build/generated/ksp/debug/classes', not found
+Build cache key for task ':feature:settings:transformDebugClassesWithAsm' is c3e2e377dd54d30f45c479179fb86487
+Skipping task ':feature:settings:transformDebugClassesWithAsm' as it is up-to-date.
+Resolve mutations for :feature:settings:bundleLibCompileToJarDebug (Thread[#3259,Execution worker,5,main]) started.
+:feature:settings:bundleLibCompileToJarDebug (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :feature:chat:bundleLibRuntimeToDirDebug UP-TO-DATE
+Caching disabled for task ':feature:chat:bundleLibRuntimeToDirDebug' because:
+  Simple merging task
+Skipping task ':feature:chat:bundleLibRuntimeToDirDebug' as it is up-to-date.
+work action resolve bundleLibRuntimeToDirDebug (project :feature:chat) (Thread[#3261,Execution worker Thread 3,5,main]) started.
+ClassesDirToClassesTransform (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :feature:settings:bundleLibCompileToJarDebug UP-TO-DATE
+Caching disabled for task ':feature:settings:bundleLibCompileToJarDebug' because:
+  Simple merging task
+Skipping task ':feature:settings:bundleLibCompileToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :feature:settings) (Thread[#3259,Execution worker,5,main]) started.
+Resolve mutations for :feature:settings:bundleLibRuntimeToJarDebug (Thread[#3259,Execution worker,5,main]) started.
+:feature:settings:bundleLibRuntimeToJarDebug (Thread[#3259,Execution worker,5,main]) started.
+DexingNoClasspathTransform (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :feature:settings:bundleLibRuntimeToJarDebug UP-TO-DATE
+Caching disabled for task ':feature:settings:bundleLibRuntimeToJarDebug' because:
+  Simple merging task
+Skipping task ':feature:settings:bundleLibRuntimeToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :feature:settings) (Thread[#3259,Execution worker,5,main]) started.
+IdentityTransform (Thread[#3259,Execution worker,5,main]) started.
+Resolve mutations for :feature:settings:processDebugJavaRes (Thread[#3263,Execution worker Thread 5,5,main]) started.
+DexingNoClasspathTransform (Thread[#3259,Execution worker,5,main]) started.
+CopyTransform (Thread[#3263,Execution worker Thread 5,5,main]) started.
+:feature:settings:processDebugJavaRes (Thread[#3264,Execution worker Thread 6,5,main]) started.
+AggregatedPackagesTransform (Thread[#3263,Execution worker Thread 5,5,main]) started.
+
+> Transform classes.jar (project :feature:settings) with DexingNoClasspathTransform
+Build cache key for DexingNoClasspathTransform: /workspace/minima-chat/feature/settings/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar is 3eca6e9e61b60aa92ec60ff464eb8850
+Skipping DexingNoClasspathTransform: /workspace/minima-chat/feature/settings/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar as it is up-to-date.
+DexingOutputSplitTransform (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :feature:settings:processDebugJavaRes UP-TO-DATE
+file or directory '/workspace/minima-chat/feature/settings/src/main/resources', not found
+file or directory '/workspace/minima-chat/feature/settings/src/debug/resources', not found
+file or directory '/workspace/minima-chat/feature/settings/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/feature/settings/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/feature/settings/src/main/resources', not found
+file or directory '/workspace/minima-chat/feature/settings/src/debug/resources', not found
+file or directory '/workspace/minima-chat/feature/settings/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/feature/settings/build/generated/ksp/debug/classes', not found
+Caching disabled for task ':feature:settings:processDebugJavaRes' because:
+  Caching has been disabled for the task
+Skipping task ':feature:settings:processDebugJavaRes' as it is up-to-date.
+work action resolve out (project :feature:settings) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :feature:settings:bundleLibRuntimeToDirDebug (Thread[#3264,Execution worker Thread 6,5,main]) started.
+:feature:settings:bundleLibRuntimeToDirDebug (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Transform bundleLibRuntimeToDirDebug (project :feature:chat) with DexingNoClasspathTransform
+Build cache key for DexingNoClasspathTransform: /workspace/minima-chat/feature/chat/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug is 897ddeee1f273d0201a113db5cc2dd42
+Skipping DexingNoClasspathTransform: /workspace/minima-chat/feature/chat/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug as it is up-to-date.
+DexingOutputSplitTransform (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :feature:settings:bundleLibRuntimeToDirDebug UP-TO-DATE
+Caching disabled for task ':feature:settings:bundleLibRuntimeToDirDebug' because:
+  Simple merging task
+Skipping task ':feature:settings:bundleLibRuntimeToDirDebug' as it is up-to-date.
+
+> Task :app:mergeDebugAndroidTestResources UP-TO-DATE
+Build cache key for task ':app:mergeDebugAndroidTestResources' is 6eff6fcc6930b218ed9bbd0b267fbe58
+Skipping task ':app:mergeDebugAndroidTestResources' as it is up-to-date.
+work action resolve bundleLibRuntimeToDirDebug (project :feature:settings) (Thread[#3264,Execution worker Thread 6,5,main]) started.
+ClassesDirToClassesTransform (Thread[#3264,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :app:kspDebugKotlin (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:kspDebugKotlin (Thread[#3265,Execution worker Thread 7,5,main]) started.
+DexingNoClasspathTransform (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Transform bundleLibRuntimeToDirDebug (project :feature:settings) with DexingNoClasspathTransform
+Build cache key for DexingNoClasspathTransform: /workspace/minima-chat/feature/settings/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug is 6c1e2fdab464d4863b8f1b425097906f
+Skipping DexingNoClasspathTransform: /workspace/minima-chat/feature/settings/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug as it is up-to-date.
+DexingOutputSplitTransform (Thread[#3264,Execution worker Thread 6,5,main]) started.
+
+> Task :app:kspDebugKotlin UP-TO-DATE
+file or directory '/workspace/minima-chat/app/src/debug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/debug/java', not found
+file or directory '/workspace/minima-chat/app/src/main/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/debug/java', not found
+file or directory '/workspace/minima-chat/app/src/debug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/debug/java', not found
+file or directory '/workspace/minima-chat/app/src/main/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/debug/java', not found
+Build cache key for task ':app:kspDebugKotlin' is 3c5da3cc2527e59d1194477480c9242a
+Skipping task ':app:kspDebugKotlin' as it is up-to-date.
+Resolve mutations for :app:compileDebugKotlin (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:compileDebugKotlin (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:compileDebugKotlin UP-TO-DATE
+Build cache key for task ':app:compileDebugKotlin' is adf95bb1eb31da1eb21ae637791ff058
+Skipping task ':app:compileDebugKotlin' as it is up-to-date.
+Resolve mutations for :app:compileDebugJavaWithJavac (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:compileDebugJavaWithJavac (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debug/classes', not found
+Custom actions are attached to task ':app:compileDebugJavaWithJavac'.
+Build cache key for task ':app:compileDebugJavaWithJavac' is 4e48eb7fb70cbb3a06953cb1da14144e
+Skipping task ':app:compileDebugJavaWithJavac' as it is up-to-date.
+No compile result for :app:compileDebugJavaWithJavac
+Resolve mutations for :app:hiltAggregateDepsDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:hiltAggregateDepsDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:hiltAggregateDepsDebug UP-TO-DATE
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debug/classes', not found
+Build cache key for task ':app:hiltAggregateDepsDebug' is b982ba6cddd492109abf5836281a9b2e
+Skipping task ':app:hiltAggregateDepsDebug' as it is up-to-date.
+Resolve mutations for :app:hiltJavaCompileDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:hiltJavaCompileDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:hiltJavaCompileDebug UP-TO-DATE
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debug/classes', not found
+Build cache key for task ':app:hiltJavaCompileDebug' is 4b0fc21dd907798f93f3cf86c2c6cf80
+Skipping task ':app:hiltJavaCompileDebug' as it is up-to-date.
+No compile result for :app:hiltJavaCompileDebug
+Resolve mutations for :app:transformDebugClassesWithAsm (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:transformDebugClassesWithAsm (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:transformDebugClassesWithAsm UP-TO-DATE
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debug/classes', not found
+Build cache key for task ':app:transformDebugClassesWithAsm' is aea01abd93f19a9793456db10d284bcc
+Skipping task ':app:transformDebugClassesWithAsm' as it is up-to-date.
+Resolve mutations for :app:dexBuilderDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:dexBuilderDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:dexBuilderDebug UP-TO-DATE
+Build cache key for task ':app:dexBuilderDebug' is 64065aac28b7407e2ff7dd925f4ad1a4
+Skipping task ':app:dexBuilderDebug' as it is up-to-date.
+Resolve mutations for :app:mergeDebugGlobalSynthetics (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:mergeDebugGlobalSynthetics (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE
+Build cache key for task ':app:mergeDebugGlobalSynthetics' is c315e95abd93775b1e60e03f3fd55e53
+Skipping task ':app:mergeDebugGlobalSynthetics' as it is up-to-date.
+Resolve mutations for :app:processDebugJavaRes (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:processDebugJavaRes (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:processDebugJavaRes UP-TO-DATE
+file or directory '/workspace/minima-chat/app/src/main/resources', not found
+file or directory '/workspace/minima-chat/app/src/debug/resources', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/app/src/main/resources', not found
+file or directory '/workspace/minima-chat/app/src/debug/resources', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debug/classes', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debug/classes', not found
+Caching disabled for task ':app:processDebugJavaRes' because:
+  Caching has been disabled for the task
+Skipping task ':app:processDebugJavaRes' as it is up-to-date.
+Resolve mutations for :app:mergeDebugJavaResource (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:mergeDebugJavaResource (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+Caching disabled for task ':app:mergeDebugJavaResource' because:
+  Caching has been disabled for the task
+Skipping task ':app:mergeDebugJavaResource' as it is up-to-date.
+Resolve mutations for :app:mergeLibDexDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:mergeLibDexDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:mergeLibDexDebug UP-TO-DATE
+Build cache key for task ':app:mergeLibDexDebug' is 694208d13796b25ee1a1642298802b1c
+Skipping task ':app:mergeLibDexDebug' as it is up-to-date.
+Resolve mutations for :app:mergeProjectDexDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:mergeProjectDexDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:mergeProjectDexDebug UP-TO-DATE
+Build cache key for task ':app:mergeProjectDexDebug' is 854d29c6b3f2615b6c92e20ae343edac
+Skipping task ':app:mergeProjectDexDebug' as it is up-to-date.
+Resolve mutations for :app:packageDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:packageDebug (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:packageDebug UP-TO-DATE
+Custom actions are attached to task ':app:packageDebug'.
+Caching disabled for task ':app:packageDebug' because:
+  Caching has been disabled for the task
+Skipping task ':app:packageDebug' as it is up-to-date.
+Resolve mutations for :app:createDebugApkListingFileRedirect (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:createDebugApkListingFileRedirect (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+Caching disabled for task ':app:createDebugApkListingFileRedirect' because:
+  Caching has been disabled for the task
+Skipping task ':app:createDebugApkListingFileRedirect' as it is up-to-date.
+Resolve mutations for :app:bundleDebugClassesToCompileJar (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:bundleDebugClassesToCompileJar (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
+Caching disabled for task ':app:bundleDebugClassesToCompileJar' because:
+  Caching has been disabled for the task
+Skipping task ':app:bundleDebugClassesToCompileJar' as it is up-to-date.
+work action resolve classes.jar (project :app) (Thread[#3265,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :app:processDebugAndroidTestResources (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:processDebugAndroidTestResources (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:processDebugAndroidTestResources UP-TO-DATE
+Build cache key for task ':app:processDebugAndroidTestResources' is fbb570f1fe22f5865f23e8b661728ae2
+Skipping task ':app:processDebugAndroidTestResources' as it is up-to-date.
+Resolve mutations for :app:kspDebugAndroidTestKotlin (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:kspDebugAndroidTestKotlin (Thread[#3265,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :app:javaPreCompileDebugAndroidTest (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:app:javaPreCompileDebugAndroidTest (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:javaPreCompileDebugAndroidTest UP-TO-DATE
+Build cache key for task ':app:javaPreCompileDebugAndroidTest' is 1a4da1bdefe0e5fcfd843296a4187e76
+Skipping task ':app:javaPreCompileDebugAndroidTest' as it is up-to-date.
+Resolve mutations for :app:mergeDebugAndroidTestShaders (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:app:mergeDebugAndroidTestShaders (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:mergeDebugAndroidTestShaders UP-TO-DATE
+Caching disabled for task ':app:mergeDebugAndroidTestShaders' because:
+  Simple merging task
+Skipping task ':app:mergeDebugAndroidTestShaders' as it is up-to-date.
+Resolve mutations for :app:compileDebugAndroidTestShaders (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:app:compileDebugAndroidTestShaders (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:compileDebugAndroidTestShaders NO-SOURCE
+Skipping task ':app:compileDebugAndroidTestShaders' as it has no source files and no previous output files.
+Resolve mutations for :app:generateDebugAndroidTestAssets (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:app:generateDebugAndroidTestAssets (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:generateDebugAndroidTestAssets UP-TO-DATE
+Skipping task ':app:generateDebugAndroidTestAssets' as it has no actions.
+Resolve mutations for :app:mergeDebugAndroidTestAssets (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:app:mergeDebugAndroidTestAssets (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:mergeDebugAndroidTestAssets UP-TO-DATE
+Caching disabled for task ':app:mergeDebugAndroidTestAssets' because:
+  Simple merging task
+Skipping task ':app:mergeDebugAndroidTestAssets' as it is up-to-date.
+Resolve mutations for :app:compressDebugAndroidTestAssets (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:app:compressDebugAndroidTestAssets (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:compressDebugAndroidTestAssets UP-TO-DATE
+Build cache key for task ':app:compressDebugAndroidTestAssets' is b6ac94087e102f1e444e873a8a0364d3
+Skipping task ':app:compressDebugAndroidTestAssets' as it is up-to-date.
+Resolve mutations for :app:desugarDebugAndroidTestFileDependencies (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:app:desugarDebugAndroidTestFileDependencies (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :app:desugarDebugAndroidTestFileDependencies UP-TO-DATE
+Build cache key for task ':app:desugarDebugAndroidTestFileDependencies' is a13710a9078d1783dfc0484af63b3f34
+Skipping task ':app:desugarDebugAndroidTestFileDependencies' as it is up-to-date.
+Resolve mutations for :app:checkDebugAndroidTestDuplicateClasses (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:app:checkDebugAndroidTestDuplicateClasses (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :app:checkDebugAndroidTestDuplicateClasses UP-TO-DATE
+Caching disabled for task ':app:checkDebugAndroidTestDuplicateClasses' because:
+  Caching has been disabled for the task
+Skipping task ':app:checkDebugAndroidTestDuplicateClasses' as it is up-to-date.
+Resolve mutations for :app:mergeExtDexDebugAndroidTest (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:app:mergeExtDexDebugAndroidTest (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :app:mergeExtDexDebugAndroidTest UP-TO-DATE
+Build cache key for task ':app:mergeExtDexDebugAndroidTest' is 31d3875c3d4632db6e6556f6436c2934
+Skipping task ':app:mergeExtDexDebugAndroidTest' as it is up-to-date.
+Resolve mutations for :app:mergeLibDexDebugAndroidTest (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:app:mergeLibDexDebugAndroidTest (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:mergeLibDexDebugAndroidTest UP-TO-DATE
+Build cache key for task ':app:mergeLibDexDebugAndroidTest' is dddbc47f5f7c25c806c3a62dcb5c1f22
+Skipping task ':app:mergeLibDexDebugAndroidTest' as it is up-to-date.
+Resolve mutations for :app:mergeDebugAndroidTestJniLibFolders (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:app:mergeDebugAndroidTestJniLibFolders (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:mergeDebugAndroidTestJniLibFolders UP-TO-DATE
+Caching disabled for task ':app:mergeDebugAndroidTestJniLibFolders' because:
+  Simple merging task
+Skipping task ':app:mergeDebugAndroidTestJniLibFolders' as it is up-to-date.
+Resolve mutations for :app:mergeDebugAndroidTestNativeLibs (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:app:mergeDebugAndroidTestNativeLibs (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:mergeDebugAndroidTestNativeLibs NO-SOURCE
+Skipping task ':app:mergeDebugAndroidTestNativeLibs' as it has no source files and no previous output files.
+Resolve mutations for :app:stripDebugAndroidTestDebugSymbols (Thread[#3261,Execution worker Thread 3,5,main]) started.
+:app:stripDebugAndroidTestDebugSymbols (Thread[#3261,Execution worker Thread 3,5,main]) started.
+
+> Task :app:stripDebugAndroidTestDebugSymbols NO-SOURCE
+Skipping task ':app:stripDebugAndroidTestDebugSymbols' as it has no source files and no previous output files.
+Resolve mutations for :app:validateSigningDebugAndroidTest (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:app:validateSigningDebugAndroidTest (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :app:validateSigningDebugAndroidTest UP-TO-DATE
+Caching disabled for task ':app:validateSigningDebugAndroidTest' because:
+  Caching has been disabled for the task
+Skipping task ':app:validateSigningDebugAndroidTest' as it is up-to-date.
+Resolve mutations for :app:writeDebugAndroidTestSigningConfigVersions (Thread[#3260,Execution worker Thread 2,5,main]) started.
+:app:writeDebugAndroidTestSigningConfigVersions (Thread[#3260,Execution worker Thread 2,5,main]) started.
+
+> Task :app:writeDebugAndroidTestSigningConfigVersions UP-TO-DATE
+Caching disabled for task ':app:writeDebugAndroidTestSigningConfigVersions' because:
+  Caching has been disabled for the task
+Skipping task ':app:writeDebugAndroidTestSigningConfigVersions' as it is up-to-date.
+
+> Task :app:kspDebugAndroidTestKotlin
+file or directory '/workspace/minima-chat/app/src/debugAndroidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/debugAndroidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+Build cache key for task ':app:kspDebugAndroidTestKotlin' is 8235d801e763350561df8f62c368ef49
+Task ':app:kspDebugAndroidTestKotlin' is not up-to-date because:
+  Input property 'sources' file /workspace/minima-chat/app/src/androidTest/java/com/minima/chat/SessionSettingsSmokeTest.kt has been added.
+file or directory '/workspace/minima-chat/app/src/debugAndroidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/debugAndroidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/debugAndroidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/debugAndroidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+Kotlin source files: /workspace/minima-chat/app/src/androidTest/java/com/minima/chat/SessionSettingsSmokeTest.kt, /workspace/minima-chat/app/src/androidTest/java/com/minima/chat/LaunchSmokeTest.kt
+Java source files: /workspace/minima-chat/app/build/generated/source/buildConfig/androidTest/debug/com/minima/chat/test/BuildConfig.java
+Script source files: 
+Script file extensions: 
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+i: [ksp] loaded provider(s): [dagger.hilt.processor.internal.uninstallmodules.KspUninstallModulesProcessor$Provider, dagger.hilt.android.processor.internal.customtestapplication.KspCustomTestApplicationProcessor$Provider, dagger.hilt.processor.internal.generatesrootinput.KspGeneratesRootInputProcessor$Provider, dagger.hilt.processor.internal.root.KspRootProcessor$Provider, dagger.hilt.processor.internal.definecomponent.KspDefineComponentProcessor$Provider, dagger.hilt.processor.internal.aliasof.KspAliasOfProcessor$Provider, dagger.hilt.android.processor.internal.androidentrypoint.KspAndroidEntryPointProcessor$Provider, dagger.hilt.processor.internal.earlyentrypoint.KspEarlyEntryPointProcessor$Provider, dagger.hilt.processor.internal.root.KspComponentTreeDepsProcessor$Provider, dagger.hilt.processor.internal.aggregateddeps.KspAggregatedDepsProcessor$Provider, dagger.hilt.processor.internal.originatingelement.KspOriginatingElementProcessor$Provider, dagger.hilt.android.processor.internal.viewmodel.KspViewModelProcessor$Provider, dagger.hilt.android.processor.internal.bindvalue.KspBindValueProcessor$Provider, androidx.hilt.AndroidXHiltKspProcessor$Provider, dagger.internal.codegen.KspComponentProcessor$Provider]
+Finished executing kotlin compiler using DAEMON strategy
+Stored cache entry for task ':app:kspDebugAndroidTestKotlin' with cache key 8235d801e763350561df8f62c368ef49
+Resolve mutations for :app:compileDebugAndroidTestKotlin (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:compileDebugAndroidTestKotlin (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:compileDebugAndroidTestKotlin
+Build cache key for task ':app:compileDebugAndroidTestKotlin' is d99f7656bcfb9ce2b382c43c362b1e30
+Task ':app:compileDebugAndroidTestKotlin' is not up-to-date because:
+  Input property 'sources' file /workspace/minima-chat/app/src/androidTest/java/com/minima/chat/SessionSettingsSmokeTest.kt has been added.
+file or directory '/workspace/minima-chat/app/src/debugAndroidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/debugAndroidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/debugAndroidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/debugAndroidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/kotlin', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/java', not found
+Kotlin source files: /workspace/minima-chat/app/src/androidTest/java/com/minima/chat/SessionSettingsSmokeTest.kt, /workspace/minima-chat/app/src/androidTest/java/com/minima/chat/LaunchSmokeTest.kt
+Java source files: /workspace/minima-chat/app/build/generated/source/buildConfig/androidTest/debug/com/minima/chat/test/BuildConfig.java
+Script source files: 
+Script file extensions: 
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), areFileChangesKnown=true, modifiedFiles=[/workspace/minima-chat/app/src/androidTest/java/com/minima/chat/SessionSettingsSmokeTest.kt], deletedFiles=[], classpathChanges=NoChanges, workingDir=/workspace/minima-chat/app/build/kotlin/compileDebugAndroidTestKotlin/cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=/workspace/minima-chat/app/build/kotlin/compileDebugAndroidTestKotlin/local-state/build-history.bin, useModuleDetection=true), usePreciseJavaTracking=true, icFeatures=IncrementalCompilationFeatures(withAbiSnapshot=false, preciseCompilationResultsBackup=true, keepIncrementalCompilationCachesInMemory=true, enableUnsafeIncrementalCompilationForMultiplatform=false), outputFiles=[/workspace/minima-chat/app/build/tmp/kotlin-classes/debugAndroidTest, /workspace/minima-chat/app/build/kotlin/compileDebugAndroidTestKotlin/cacheable, /workspace/minima-chat/app/build/kotlin/compileDebugAndroidTestKotlin/local-state])
+Finished executing kotlin compiler using DAEMON strategy
+Stored cache entry for task ':app:compileDebugAndroidTestKotlin' with cache key d99f7656bcfb9ce2b382c43c362b1e30
+Resolve mutations for :app:compileDebugAndroidTestJavaWithJavac (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:compileDebugAndroidTestJavaWithJavac (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:compileDebugAndroidTestJavaWithJavac UP-TO-DATE
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/classes', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/classes', not found
+Custom actions are attached to task ':app:compileDebugAndroidTestJavaWithJavac'.
+Build cache key for task ':app:compileDebugAndroidTestJavaWithJavac' is b18ea780597cdac78535177c0ef2175c
+Task ':app:compileDebugAndroidTestJavaWithJavac' is not up-to-date because:
+  Input property 'classpath' file /workspace/minima-chat/app/build/tmp/kotlin-classes/debugAndroidTest/com/minima/chat/SessionSettingsSmokeTest.class has been added.
+Compilation mode: in-process compilation
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/classes', not found
+Created classpath snapshot for incremental compilation in 0.034 secs.
+None of the classes needs to be compiled! Analysis took 0.048 secs. 
+Stored cache entry for task ':app:compileDebugAndroidTestJavaWithJavac' with cache key b18ea780597cdac78535177c0ef2175c
+Resolve mutations for :app:hiltAggregateDepsDebugAndroidTest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:hiltAggregateDepsDebugAndroidTest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:hiltAggregateDepsDebugAndroidTest UP-TO-DATE
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/classes', not found
+Caching disabled for CopyTransform: /workspace/minima-chat/app/build/tmp/kotlin-classes/debugAndroidTest because:
+  Caching not enabled.
+Build cache key for AggregatedPackagesTransform: /workspace/minima-chat/app/build/tmp/kotlin-classes/debugAndroidTest is 1c6bd2a8c021a0b2a48a76b639ba5e09
+Stored cache entry for AggregatedPackagesTransform: /workspace/minima-chat/app/build/tmp/kotlin-classes/debugAndroidTest with cache key 1c6bd2a8c021a0b2a48a76b639ba5e09
+Build cache key for task ':app:hiltAggregateDepsDebugAndroidTest' is befa87bd6f504091acff8f96f8965fc0
+Skipping task ':app:hiltAggregateDepsDebugAndroidTest' as it is up-to-date.
+Resolve mutations for :app:hiltJavaCompileDebugAndroidTest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:hiltJavaCompileDebugAndroidTest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:hiltJavaCompileDebugAndroidTest NO-SOURCE
+Skipping task ':app:hiltJavaCompileDebugAndroidTest' as it has no source files and no previous output files.
+Resolve mutations for :app:transformDebugAndroidTestClassesWithAsm (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:transformDebugAndroidTestClassesWithAsm (Thread[#3265,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :app:processDebugAndroidTestJavaRes (Thread[#3259,Execution worker,5,main]) started.
+:app:processDebugAndroidTestJavaRes (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :app:processDebugAndroidTestJavaRes UP-TO-DATE
+file or directory '/workspace/minima-chat/app/src/androidTest/resources', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/resources', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/classes', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/classes', not found
+file or directory '/workspace/minima-chat/app/src/androidTest/resources', not found
+file or directory '/workspace/minima-chat/app/src/androidTestDebug/resources', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/classes', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/classes', not found
+Caching disabled for task ':app:processDebugAndroidTestJavaRes' because:
+  Caching has been disabled for the task
+Skipping task ':app:processDebugAndroidTestJavaRes' as it is up-to-date.
+Resolve mutations for :app:mergeDebugAndroidTestJavaResource (Thread[#3259,Execution worker,5,main]) started.
+:app:mergeDebugAndroidTestJavaResource (Thread[#3259,Execution worker,5,main]) started.
+
+> Task :app:mergeDebugAndroidTestJavaResource UP-TO-DATE
+Caching disabled for task ':app:mergeDebugAndroidTestJavaResource' because:
+  Caching has been disabled for the task
+Skipping task ':app:mergeDebugAndroidTestJavaResource' as it is up-to-date.
+
+> Task :app:transformDebugAndroidTestClassesWithAsm
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/classes', not found
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/classes', not found
+Build cache key for task ':app:transformDebugAndroidTestClassesWithAsm' is 3cfc7c46da5adf4dc01f666cfff7ae48
+Task ':app:transformDebugAndroidTestClassesWithAsm' is not up-to-date because:
+  Input property 'inputClassesDir' file /workspace/minima-chat/app/build/tmp/kotlin-classes/debugAndroidTest/META-INF/app_debugAndroidTest.kotlin_module has been removed.
+  Input property 'inputClassesDir' file /workspace/minima-chat/app/build/tmp/kotlin-classes/debugAndroidTest/com/minima/chat/SessionSettingsSmokeTest.class has been added.
+  Input property 'inputClassesDir' file /workspace/minima-chat/app/build/intermediates/javac/debugAndroidTest/compileDebugAndroidTestJavaWithJavac/classes/com/minima/chat/test/BuildConfig.class has been removed.
+  and more...
+Stored cache entry for task ':app:transformDebugAndroidTestClassesWithAsm' with cache key 3cfc7c46da5adf4dc01f666cfff7ae48
+Resolve mutations for :app:dexBuilderDebugAndroidTest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:dexBuilderDebugAndroidTest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:dexBuilderDebugAndroidTest
+Build cache key for task ':app:dexBuilderDebugAndroidTest' is dedda57d5c9b57a737e4af19d14b7f75
+Task ':app:dexBuilderDebugAndroidTest' is not up-to-date because:
+  Input property 'projectClasses' file /workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/dirs/com/minima/chat/test/BuildConfig.class has been removed.
+  Input property 'projectClasses' file /workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/dirs/com/minima/chat/SessionSettingsSmokeTest.class has been added.
+  Input property 'projectClasses' file /workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/dirs/META-INF/app_debugAndroidTest.kotlin_module has been removed.
+  and more...
+Dex builder is incremental : true 
+Processing input /workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/dirs
+Dexing /workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/dirs
+Processing input /workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/jars/0.jar
+Dexing /workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/jars/0.jar
+Dexing '/workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/dirs' to '/workspace/minima-chat/app/build/intermediates/project_dex_archive/debugAndroidTest/dexBuilderDebugAndroidTest/out'
+Dexing '/workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/jars/0.jar' to '/workspace/minima-chat/app/build/intermediates/project_dex_archive/debugAndroidTest/dexBuilderDebugAndroidTest/out/3058c4fee01665d888f8406cfce05b09f506024b02aeed86350ccc7fc0d638f9_2.jar'
+Dexing '/workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/dirs' to '/workspace/minima-chat/app/build/intermediates/project_dex_archive/debugAndroidTest/dexBuilderDebugAndroidTest/out'
+Dexing '/workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/jars/0.jar' to '/workspace/minima-chat/app/build/intermediates/project_dex_archive/debugAndroidTest/dexBuilderDebugAndroidTest/out/3058c4fee01665d888f8406cfce05b09f506024b02aeed86350ccc7fc0d638f9_3.jar'
+Dexing '/workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/dirs' to '/workspace/minima-chat/app/build/intermediates/project_dex_archive/debugAndroidTest/dexBuilderDebugAndroidTest/out'
+Dexing '/workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/dirs' to '/workspace/minima-chat/app/build/intermediates/project_dex_archive/debugAndroidTest/dexBuilderDebugAndroidTest/out'
+Dexing '/workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/jars/0.jar' to '/workspace/minima-chat/app/build/intermediates/project_dex_archive/debugAndroidTest/dexBuilderDebugAndroidTest/out/3058c4fee01665d888f8406cfce05b09f506024b02aeed86350ccc7fc0d638f9_0.jar'
+Dexing '/workspace/minima-chat/app/build/intermediates/classes/debugAndroidTest/transformDebugAndroidTestClassesWithAsm/jars/0.jar' to '/workspace/minima-chat/app/build/intermediates/project_dex_archive/debugAndroidTest/dexBuilderDebugAndroidTest/out/3058c4fee01665d888f8406cfce05b09f506024b02aeed86350ccc7fc0d638f9_1.jar'
+Done with all dex archive conversions
+Stored cache entry for task ':app:dexBuilderDebugAndroidTest' with cache key dedda57d5c9b57a737e4af19d14b7f75
+Resolve mutations for :app:mergeDebugAndroidTestGlobalSynthetics (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:mergeDebugAndroidTestGlobalSynthetics (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:mergeDebugAndroidTestGlobalSynthetics UP-TO-DATE
+Build cache key for task ':app:mergeDebugAndroidTestGlobalSynthetics' is c315e95abd93775b1e60e03f3fd55e53
+Skipping task ':app:mergeDebugAndroidTestGlobalSynthetics' as it is up-to-date.
+Resolve mutations for :app:mergeProjectDexDebugAndroidTest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:mergeProjectDexDebugAndroidTest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:mergeProjectDexDebugAndroidTest
+Build cache key for task ':app:mergeProjectDexDebugAndroidTest' is 216d63f57f935d4118bcd9b793875080
+Task ':app:mergeProjectDexDebugAndroidTest' is not up-to-date because:
+  Input property 'dexDirs' file /workspace/minima-chat/app/build/intermediates/project_dex_archive/debugAndroidTest/dexBuilderDebugAndroidTest/out/com/minima/chat/SessionSettingsSmokeTest.dex has been added.
+Merging to '/workspace/minima-chat/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/12' with D8 from all or a subset of dex files in /workspace/minima-chat/app/build/intermediates/project_dex_archive/debugAndroidTest/dexBuilderDebugAndroidTest/out, /workspace/minima-chat/app/build/intermediates/project_dex_archive/debugAndroidTest/dexBuilderDebugAndroidTest/out, and from all global synthetics files in 
+Stored cache entry for task ':app:mergeProjectDexDebugAndroidTest' with cache key 216d63f57f935d4118bcd9b793875080
+Resolve mutations for :app:packageDebugAndroidTest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:packageDebugAndroidTest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:packageDebugAndroidTest
+Custom actions are attached to task ':app:packageDebugAndroidTest'.
+Caching disabled for task ':app:packageDebugAndroidTest' because:
+  Caching has been disabled for the task
+Task ':app:packageDebugAndroidTest' is not up-to-date because:
+  Input property 'dexFolders' file /workspace/minima-chat/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/12/classes.dex has changed.
+Resolve mutations for :app:createDebugAndroidTestApkListingFileRedirect (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:createDebugAndroidTestApkListingFileRedirect (Thread[#3265,Execution worker Thread 7,5,main]) started.
+
+> Task :app:createDebugAndroidTestApkListingFileRedirect UP-TO-DATE
+Caching disabled for task ':app:createDebugAndroidTestApkListingFileRedirect' because:
+  Caching has been disabled for the task
+Skipping task ':app:createDebugAndroidTestApkListingFileRedirect' as it is up-to-date.
+Resolve mutations for :app:connectedDebugAndroidTest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+:app:connectedDebugAndroidTest (Thread[#3265,Execution worker Thread 7,5,main]) started.
+[DeviceMonitor]: Connected to adb for device monitoring
+
+> Task :app:connectedDebugAndroidTest
+Caching disabled for task ':app:connectedDebugAndroidTest' because:
+  Caching has been disabled for the task
+Task ':app:connectedDebugAndroidTest' is not up-to-date because:
+  Task.upToDateWhen is false.
+file or directory '/workspace/minima-chat/app/build/generated/ksp/debugAndroidTest/java', not found
+emulator-5554 with id minima34 is not a Gradle Managed Device
+
+INFO: Constructing runner from config.
+INFO: Configuring Android Instrumentation driver: android_instrumentation_runtime {
+  instrumentation_info {
+    app_package: "com.minima.chat"
+    test_package: "com.minima.chat.test"
+    test_runner_class: "androidx.test.runner.AndroidJUnitRunner"
+  }
+  instrumentation_args {
+    args_map {
+      key: "additionalTestOutputDir"
+      value: "/sdcard/Android/media/com.minima.chat/additional_test_output"
+    }
+  }
+}
+am_instrument_timeout: 31536000
+INFO: Configuring AndroidTestApkInstallerPlugin: apks_to_install {
+  apk_paths: "/workspace/minima-chat/app/build/outputs/apk/debug/app-debug.apk"
+  install_options {
+  }
+  uninstall_after_test: true
+}
+apks_to_install {
+  apk_paths: "/workspace/minima-chat/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
+  install_options {
+  }
+  uninstall_after_test: true
+}
+INFO: No installables found in test fixture. Nothing to install.
+INFO: Installing [/workspace/minima-chat/app/build/outputs/apk/debug/app-debug.apk] on device emulator-5554.
+INFO: Installing [/workspace/minima-chat/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk] on device emulator-5554.
+INFO: Start logcat streaming.
+WARNING: Shell command failed (1): rm -rf "/sdcard/Android/media/com.minima.chat/additional_test_output"
+rm: /sdcard/Android/media/com.minima.chat/additional_test_output: Transport endpoint is not connected
+WARNING: Shell command failed (1): mkdir -p "/sdcard/Android/media/com.minima.chat/additional_test_output"
+mkdir: '/sdcard/Android': Transport endpoint is not connected
+INFO: Running Android Instrumentation driver.
+
+> Task :app:connectedDebugAndroidTest
+Starting 2 tests on minima34(AVD) - 14
+
+minima34(AVD) - 14 Tests 0/2 completed. (0 skipped) (0 failed)
+
+> Task :app:connectedDebugAndroidTest
+
+com.minima.chat.LaunchSmokeTest > launchesMainActivity[minima34(AVD) - 14] [32mSUCCESS [0m
+
+minima34(AVD) - 14 Tests 1/2 completed. (0 skipped) (0 failed)
+
+> Task :app:connectedDebugAndroidTest
+
+com.minima.chat.SessionSettingsSmokeTest > onboardingSkip_sessions_settings_newChat[minima34(AVD) - 14] [31mFAILED [0m
+	java.lang.AssertionError: Failed to inject touch input.
+	Reason: Expected exactly '1' node but found '2' nodes that satisfy: (ContentDescription = 'New chat' (ignoreCase: false))
+
+INFO: Copying files from device to host: /sdcard/Android/media/com.minima.chat/additional_test_output to /workspace/minima-chat/app/build/outputs/connected_android_test_additional_output/debugAndroidTest/connected/minima34(AVD) - 14
+INFO: /sdcard/Android/media/com.minima.chat/additional_test_output is not a directory
+INFO: Stop logcat streaming.
+INFO: Uninstalling com.minima.chat for device emulator-5554.
+minima34(AVD) - 14 Tests 2/2 completed. (0 skipped) (1 failed)
+INFO: Uninstalling com.minima.chat.test for device emulator-5554.

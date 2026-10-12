@@ -1,0 +1,3 @@
+-keep class com.minima.chat.core.data.db.** { *; }
+-keep class com.minima.chat.core.data.export.** { *; }
+-keep class com.minima.chat.core.data.util.SessionTitle { *; }

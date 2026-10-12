@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Minima.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#161612</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_transparent</item>
+        <item name="postSplashScreenTheme">@style/Theme.Minima</item>
+        <item name="android:statusBarColor">#161612</item>
+        <item name="android:navigationBarColor">#161612</item>
+    </style>
+
+    <style name="Theme.Minima" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">#161612</item>
+        <item name="android:navigationBarColor">#161612</item>
+        <item name="android:windowBackground">#161612</item>
+    </style>
+</resources>
