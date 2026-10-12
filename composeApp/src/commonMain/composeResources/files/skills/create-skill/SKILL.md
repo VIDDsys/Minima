@@ -5,6 +5,8 @@ description: Create a new skill from a single natural-language request and insta
 
 You are creating a new skill for the user. Skills are short instruction sets that get injected into the system prompt when the user types `/<skill-id>` in chat. Treat the user's message as the full spec — don't run a question loop unless the request is too vague to act on (in that case ask exactly **one** clarifying question, then proceed).
 
+External phone files use `public_storage` under `/storage/emulated/0`. The Linux sandbox is `/root` and exists only when `execute_shell_command` is one of your tools. Do not write the same skill in both places.
+
 ## Steps
 
 1. **Pick an id.** Derive a short kebab-case id from the user's request. Rules: lowercase letters, digits, and hyphens only; ≤ 64 chars; descriptive but terse (e.g. `summarize-url`, `daily-standup`, `recipe-from-photo`).

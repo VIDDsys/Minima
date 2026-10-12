@@ -69,6 +69,7 @@ class ChatSystemPromptBuilderTest {
         uiMode: ChatPromptUiMode = ChatPromptUiMode.NONE,
         activeSkill: com.inspiredandroid.kai.skills.SkillManifest? = null,
         publicStorage: Boolean = false,
+        sandboxShell: Boolean = false,
         agentsMd: String? = null,
     ) = buildChatSystemPrompt(
         variant = variant,
@@ -88,6 +89,7 @@ class ChatSystemPromptBuilderTest {
         uiMode = uiMode,
         activeSkill = activeSkill,
         publicStorage = publicStorage,
+        sandboxShell = sandboxShell,
         agentsMd = agentsMd,
     )
 
@@ -596,15 +598,27 @@ class ChatSystemPromptBuilderTest {
             variant = SystemPromptVariant.CHAT_REMOTE,
             publicStorage = true,
         )
-        assertTrue("## Phone storage" in withStorage)
+        assertTrue("## Where files live" in withStorage)
         assertTrue("/storage/emulated/0" in withStorage)
         assertTrue("/sdcard" in withStorage)
-        assertTrue("`/root`" in withStorage)
         assertTrue("public_storage" in withStorage)
-        assertTrue("restarts" in withStorage)
+        assertTrue("no Linux sandbox" in withStorage)
         assertTrue("Minima/skills" in withStorage)
-        assertTrue("not two copies" in withStorage)
+        assertFalse("execute_shell_command" in withStorage)
         assertFalse("## User workspace" in withStorage)
+        val withBoth = build(
+            variant = SystemPromptVariant.CHAT_REMOTE,
+            publicStorage = true,
+            sandboxShell = true,
+        )
+        assertTrue("External storage" in withBoth)
+        assertTrue("Linux sandbox" in withBoth)
+        assertTrue("execute_shell_command" in withBoth)
+        assertTrue("`/root`" in withBoth)
+        assertTrue("restarts" in withBoth)
+        assertTrue("not the same folder" in withBoth)
+        assertTrue("Minima/skills" in withBoth)
+        assertFalse("## User workspace" in withBoth)
         val withAgents = build(
             variant = SystemPromptVariant.CHAT_REMOTE,
             publicStorage = true,
@@ -619,14 +633,14 @@ class ChatSystemPromptBuilderTest {
                 agentsMd = "Prefer short answers.",
             ),
         )
-        val idxStorage = withStorage.indexOf("## Phone storage")
+        val idxStorage = withStorage.indexOf("## Where files live")
         val idxContext = withStorage.indexOf("## Context")
         assertTrue(idxStorage in 0 until idxContext)
 
-        assertFalse("## Phone storage" in build(variant = SystemPromptVariant.CHAT_REMOTE))
-        assertFalse("## Phone storage" in build(variant = SystemPromptVariant.CHAT_LOCAL))
+        assertFalse("## Where files live" in build(variant = SystemPromptVariant.CHAT_REMOTE))
+        assertFalse("## Where files live" in build(variant = SystemPromptVariant.CHAT_LOCAL))
         assertTrue(
-            "## Phone storage" in build(
+            "## Where files live" in build(
                 variant = SystemPromptVariant.CHAT_LOCAL,
                 publicStorage = true,
             ),

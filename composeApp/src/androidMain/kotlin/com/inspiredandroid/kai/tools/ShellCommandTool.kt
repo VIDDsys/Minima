@@ -48,10 +48,11 @@ Install extra packages with: $install
 
 To show a file you produced in /root to the user, call open_file with the path relative to /root (e.g. open_file path="page.html"). File needs to be self-contained.
 
-Phone shared storage is the same directory public_storage uses, not a second copy of /root. When All files access is granted it is mounted here at /sdcard and /storage/emulated/0. Example: ls /sdcard/Download, cat /storage/emulated/0/DCIM/Camera/photo.jpg. Use the shell on those paths when a command needs the file. Do not write the file twice to sync it with public_storage.
-/root stays on internal app storage for executables, SSH keys, and marketplace skills at ~/skills. Shared storage is not where binaries run. Durable user notes and skills are /sdcard/Minima/AGENTS.md and /sdcard/Minima/skills/<id>/SKILL.md (the same files as /storage/emulated/0/Minima). A public skill overrides ~/skills with the same id; follow the public SKILL.md and do not keep a second body under /root.
-If this persistent shell was started before the grant (or before it was revoked), the next command restarts it so the mount matches the current permission. That restart clears cwd and exported variables. A background process started before the change keeps the old mount.
-Without All files access those paths are absent here. public_storage reads and writes the same files without proot, and it can ask for the grant. A permission failure is an error — do not invent file contents."""
+Where this command runs:
+- This is the Linux sandbox. Home is /root. The phone's file manager cannot see /root. Packages, scripts, SSH keys, and marketplace skills belong at ~/skills.
+- External phone files are a different folder. public_storage reads and writes them. After All files access, this shell sees that same folder at /sdcard and /storage/emulated/0. Example: ls /sdcard/Download. Use those paths only to run a command on a phone file. Do not copy the file into /root.
+- If /sdcard is missing, All files access is off. Say so. Do not invent file contents. A grant change restarts this shell and clears cwd.
+- User notes and skills the file manager should see: /sdcard/Minima/AGENTS.md and /sdcard/Minima/skills/<id>/SKILL.md (the same files as /storage/emulated/0/Minima). That skill overrides ~/skills with the same id. Follow the external SKILL.md only."""
 }
 
 object ShellCommandTool : Tool {

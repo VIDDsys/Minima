@@ -2,18 +2,21 @@
 
 **Last verified:** 2026-10-12
 
-Shared phone files and the Linux sandbox are different trees. Shared phone files themselves are **one** tree with two doors. The model is told that once, in `## Phone storage`, and the tool descriptions match it.
+Shared phone files and the Linux sandbox are different folders. The model is told that in `## Where files live`, and only the half that this request can actually use. Tool descriptions use the same split.
 
-## One shared tree
+## Two places
 
 `/storage/emulated/0` is the phone's shared storage (Download, DCIM, Documents, and the Minima workspace).
 
-| Door | When | Use it for |
-|---|---|---|
-| `public_storage` | All files access is granted (FOSS). Android file APIs, no proot | Reading and writing user files |
-| Shell `/sdcard` and `/storage/emulated/0` | The same grant. proot bind-mounts that directory at both names | A command that needs the file (a pipeline, an archive, a script input) |
+| Place | Tool | Path | Use it for |
+|---|---|---|---|
+| External storage. The file manager can see it | `public_storage` | `/storage/emulated/0` | Reading and writing user files |
+| Linux sandbox. The file manager cannot see it | `execute_shell_command` | `/root` | Running a command, installing a package, SSH |
+| External folder, seen from inside the shell | `execute_shell_command` | `/sdcard` and `/storage/emulated/0` | Running a command on a phone file, after All files access |
 
-A file written either way is the same bytes. Do not copy it into the other door to "sync" it. `/sdcard`, `/mnt/sdcard`, and `/storage/self/primary` are aliases of `/storage/emulated/0` for `public_storage`.
+`/sdcard` inside the shell is the external folder, not a second copy of `/root`. Do not copy a file across to sync it. `/sdcard`, `/mnt/sdcard`, and `/storage/self/primary` are aliases of `/storage/emulated/0` for `public_storage`.
+
+If this request has `public_storage` but no shell, the prompt says there is no sandbox and does not mention `execute_shell_command`. If both tools are present, the prompt ends with a choose-list: edit a phone file with `public_storage`, run a program under `/root`, run a command on a phone file at `/sdcard/...`.
 
 Without the grant, `public_storage` returns an error and the bind is omitted. The sandbox under `/root` still starts. The Play flavor does not declare the permission.
 
@@ -48,7 +51,7 @@ The losing folder stays on disk. The prompt lists bundled files from the home th
 
 | File | Purpose |
 |---|---|
-| `composeApp/src/commonMain/.../data/ChatSystemPromptBuilder.kt` | `## Phone storage` and `## User workspace` |
+| `composeApp/src/commonMain/.../data/ChatSystemPromptBuilder.kt` | `## Where files live` and `## User workspace` |
 | `composeApp/src/androidMain/.../tools/PublicStorageTool.kt` | Native door onto shared storage |
 | `composeApp/src/androidMain/.../tools/ShellCommandTool.kt` | Shell door; `/root` vs `/sdcard` |
 | `composeApp/src/androidMain/.../sandbox/LinuxSandboxManager.kt` | Bind-mounts shared storage at `/sdcard` and `/storage/emulated/0` |
