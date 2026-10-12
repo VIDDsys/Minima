@@ -101,6 +101,25 @@ class PublicStorageSessionTest {
     }
 
     @Test
+    fun `a short write cannot replace a file larger than the read cap`() {
+        val big = File(root, "Download/big.txt")
+        big.writeBytes(ByteArray(32_769) { 'a'.code.toByte() })
+
+        val refused = session().execute("write", "/sdcard/Download/big.txt", "short", false)
+        assertEquals(false, refused["success"])
+        assertEquals(32_769, big.length())
+
+        val smallEdit = session().execute("write", "/sdcard/Download/note.txt", "bye", false)
+        assertEquals(true, smallEdit["success"])
+        assertEquals("bye", File(root, "Download/note.txt").readText())
+
+        val full = "y".repeat(40_000)
+        val replaced = session().execute("write", "/sdcard/Download/big.txt", full, false)
+        assertEquals(true, replaced["success"])
+        assertEquals(full, big.readText())
+    }
+
+    @Test
     fun `binary files are refused and missing paths do not throw`() {
         File(root, "Download/blob.bin").writeBytes(byteArrayOf(0, 1, 2))
         val binary = session().execute("read", "/sdcard/Download/blob.bin", null, false)

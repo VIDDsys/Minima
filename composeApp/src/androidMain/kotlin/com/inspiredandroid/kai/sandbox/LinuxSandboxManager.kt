@@ -306,6 +306,9 @@ class LinuxSandboxManager(
         )
     }
 
+    /** True when [createLauncher] would bind shared storage into this shell. */
+    private fun launcherBindsPublicStorage(): Boolean = preparePublicStorageBind() != null
+
     /**
      * Shared-storage directory to bind, or null when access is not granted or the
      * volume cannot be canonicalized. Creates the guest mount points so proot has
@@ -354,7 +357,17 @@ class LinuxSandboxManager(
     private val pendingSaves = mutableMapOf<String, Job>()
 
     fun shellFor(sessionId: String): SessionShell = synchronized(shells) {
-        shells[sessionId]?.let { return it }
+        val bound = launcherBindsPublicStorage()
+        shells[sessionId]?.let { existing ->
+            // The proot process keeps the mounts it was started with. After the
+            // user grants or revokes All files access, restart it before the next
+            // command so /sdcard matches the current permission.
+            if (existing.publicStorageBound != bound) {
+                existing.rebind(createProotExecutor())
+                existing.publicStorageBound = bound
+            }
+            return existing
+        }
         val inner = PersistentSandboxShell(createProotExecutor(), tmpPath)
         val persistable = SandboxSessions.isPersistable(sessionId)
         val initialLines = if (persistable) {
@@ -368,7 +381,13 @@ class LinuxSandboxManager(
         } else {
             null
         }
-        val wrapper = SessionShell(sessionId, inner, initialLines, onChange)
+        val wrapper = SessionShell(
+            sessionId,
+            inner,
+            initialLines,
+            onChange,
+            publicStorageBound = bound,
+        )
         shells[sessionId] = wrapper
         _sessions.value = shells.keys.toList()
         wrapper

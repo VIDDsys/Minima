@@ -134,6 +134,17 @@ internal class PublicStorageSession(private val root: File) {
         if (content.length > MAX_WRITE_CHARS) return error("content exceeds $MAX_WRITE_CHARS characters")
         if (isRoot(file)) return error("Refusing to write the shared-storage root. Pass a file path under it.")
         if (file.isDirectory) return error("Path is a directory: ${file.absolutePath}")
+        // A read of this file would have been cut at MAX_READ_BYTES. Writing a payload
+        // that still fits in that window would replace the rest of the file with nothing.
+        val bytes = content.toByteArray(Charsets.UTF_8)
+        if (file.isFile && file.length() > MAX_READ_BYTES && bytes.size <= MAX_READ_BYTES) {
+            return error(
+                "Refusing to overwrite ${file.absolutePath} (${file.length()} bytes) with ${bytes.size} bytes. " +
+                    "public_storage read returns at most $MAX_READ_BYTES bytes, so this would replace the file " +
+                    "with a truncated copy. Delete the file first if you mean to replace it with a shorter text, " +
+                    "or write the full contents.",
+            )
+        }
         val parent = file.parentFile ?: return error("Path has no parent: ${file.absolutePath}")
         if (!parent.exists() && !parent.mkdirs()) return error("Could not create parent directory: ${parent.absolutePath}")
         file.writeText(content, Charsets.UTF_8)
