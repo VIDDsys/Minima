@@ -1,3 +1,11 @@
+## v3.3.3 — 2026-10-12
+
+Path D 后续修复。versionName `3.3.3` / versionCode `120`。
+
+- 本地模型工具白名单包含 `public_storage`。手机存储系统提示只在这次请求的工具列表里真有该工具时才附上。
+- 已有的 proot 会话在下一条命令时对照「所有文件访问」授权；授权打开或关闭后重新挂载 `/sdcard` 与 `/storage/emulated/0`。
+- `public_storage` 拒绝用仍落在 32KB 读取上限内的内容覆盖更大的文件，避免截断读被写回。
+
 ## v3.3.2 — 2026-10-12
 
 Path D：手机公共目录与 Linux 沙箱并存。versionName `3.3.2` / versionCode `119`。
