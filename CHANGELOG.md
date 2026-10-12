@@ -6,6 +6,7 @@
 - 设置 → 服务不再显示「免费版 / 用作备选」卡片。内置 Free FAST / EXPERT 仍在；是否把 Free 接在备选链末尾仍由已保存的偏好决定（默认开），只是没有开关。
 - 用户可见的「Kai Build」改为「Minima Build」。通知标题、工具说明里的产品名、iOS 显示名改为 Minima。`kai-ui` 围栏、`api.kai9000.com`、包名 `com.inspiredandroid.kai` 与 LICENSE/NOTICE 保持不变。
 - 删掉已无界面的字符串：Integrations 页、许可证页脚、GitHub Sponsors、请求集成。
+- 对话里的表格（Markdown 管道表，以及 kai-ui 的 table）宽过消息框时，在框内左右滑动，不再把每列挤成等宽细条。
 
 ## v3.3.6 — 2026-10-12
 

@@ -26,6 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import com.inspiredandroid.kai.ui.components.AlignedTable
 import com.inspiredandroid.kai.ui.dynamicui.FrozenSubmission
 import com.inspiredandroid.kai.ui.dynamicui.KaiUiRenderer
 import com.inspiredandroid.kai.ui.markdown.math.MathFormula
@@ -247,32 +248,36 @@ private fun ListItemRow(
 
 @Composable
 private fun TableBlock(block: Table) {
-    Column(Modifier.padding(vertical = 4.dp)) {
-        if (block.headers.any { it.isNotEmpty() }) {
-            Row {
-                block.headers.forEachIndexed { i, cell ->
-                    InlineContent(
-                        inlines = cell,
-                        style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold),
-                        textAlign = alignTextFor(block.alignments.getOrNull(i)),
-                        modifier = Modifier.weight(1f).padding(4.dp),
-                    )
-                }
-            }
-            HorizontalDivider()
+    val showHeader = block.headers.any { it.isNotEmpty() }
+    val columnCount = maxOf(
+        if (showHeader) block.headers.size else 0,
+        block.rows.maxOfOrNull { it.size } ?: 0,
+    )
+    if (columnCount == 0) return
+    val rowCount = block.rows.size + if (showHeader) 1 else 0
+    AlignedTable(
+        columnCount = columnCount,
+        rowCount = rowCount,
+        headerRows = if (showHeader) 1 else 0,
+        modifier = Modifier.padding(vertical = 4.dp),
+    ) { row, column ->
+        val inlines = if (showHeader && row == 0) {
+            block.headers.getOrNull(column) ?: persistentListOf()
+        } else {
+            val bodyRow = if (showHeader) row - 1 else row
+            block.rows.getOrNull(bodyRow)?.getOrNull(column) ?: persistentListOf()
         }
-        for (row in block.rows) {
-            Row {
-                row.forEachIndexed { i, cell ->
-                    InlineContent(
-                        inlines = cell,
-                        style = MaterialTheme.typography.bodyLarge,
-                        textAlign = alignTextFor(block.alignments.getOrNull(i)),
-                        modifier = Modifier.weight(1f).padding(4.dp),
-                    )
-                }
-            }
-        }
+        val header = showHeader && row == 0
+        InlineContent(
+            inlines = inlines,
+            style = if (header) {
+                MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold)
+            } else {
+                MaterialTheme.typography.bodyLarge
+            },
+            textAlign = alignTextFor(block.alignments.getOrNull(column)),
+            modifier = Modifier.padding(horizontal = 8.dp, vertical = 6.dp),
+        )
     }
 }
 

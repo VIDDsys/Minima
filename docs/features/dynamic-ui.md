@@ -1,6 +1,6 @@
 # Dynamic UI (kai-ui)
 
-**Last verified:** 2026-10-02
+**Last verified:** 2026-10-12
 
 AI-generated interactive UI layouts rendered inline in chat messages. The AI produces JSON-based layout definitions wrapped in `kai-ui` code fences. Compose renders them natively with support for forms, buttons, and multi-step flows. Enabled by default; users can disable it in Settings, which removes the instructions from the system prompt. Because the system prompt is rebuilt per request, toggling the setting takes effect on the next message in any conversation. Parsing and rendering stay active regardless so existing messages with kai-ui blocks always render.
 
@@ -18,7 +18,7 @@ A `kai-ui` code fence inside an assistant message contains a JSON object describ
 - **Feedback**: progress (determinate/indeterminate), countdown (relative duration with optional expiry action; a callback action fires only while the message is still interactive, so older countdowns never send messages when the chat is reopened or scrolled), alert (info/success/warning/error)
 - **Navigation**: tabs (tabbed content), accordion (collapsible sections)
 - **Display**: quote (blockquote with accent border), badge (colored count/status pill), stat (large metric display), avatar (circular image or initials)
-- **Data**: list, table
+- **Data**: list, and a kai-ui table (`type: table`). A markdown pipe table is a separate block in the same message. Both size each column to its text. When the row is wider than the message, the table scrolls sideways inside the message.
 
 ### Actions
 
@@ -88,6 +88,7 @@ In interactive mode, the system prompt instructs the AI to respond ONLY with a s
 | `composeApp/.../ui/dynamicui/KaiUiParser.kt` | Sanitizes malformed JSON and decodes kai-ui fence bodies via `parseUiBlockBody` |
 | `composeApp/.../ui/dynamicui/KaiUiNodeBuilders.kt` | Tolerant field-by-field construction of KaiUiNode instances from JsonElement |
 | `composeApp/.../ui/dynamicui/KaiUiRenderer.kt` | Recursive Compose renderer for the component tree, wrapInCard option |
+| `composeApp/.../ui/components/AlignedTable.kt` | Shared table layout for markdown pipe tables and kai-ui tables: natural column widths, sideways scroll inside the message |
 | `composeApp/.../ui/dynamicui/KaiUiTts.kt` | Speakable-text extraction for TTS: walks kai-ui trees for human-readable labels |
 | `composeApp/.../ui/markdown/MarkdownParser.kt` | Unified markdown parser; emits `KaiUiBlock` AST nodes for kai-ui fences |
 | `composeApp/.../ui/markdown/MarkdownRenderer.kt` | Compose renderer that dispatches each block (including kai-ui) to its composable |
