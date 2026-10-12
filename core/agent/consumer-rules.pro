@@ -1,2 +1,0 @@
--keep class * extends androidx.work.CoroutineWorker { *; }
--keep class com.minima.chat.core.agent.mcp.** { *; }
