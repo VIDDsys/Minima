@@ -106,27 +106,47 @@ internal const val DEFAULT_ACTING_SECTION =
         "See work through to a usable result."
 
 /**
- * Android path-space reminder. Only composed when this request actually includes
- * the `public_storage` tool, so a desktop, tool-less, or local model that cannot
- * call it does not get the instruction. Mount names match the proot binds:
- * `/sdcard` and `/storage/emulated/0` — the same directory, not a mirror to copy.
+ * Tells the model which place a file lives in. Only composed when this request
+ * includes `public_storage`. [sandboxShell] is true only when `execute_shell_command`
+ * is also on this request — otherwise the sandbox half is omitted so the model
+ * is not told to use a tool it does not have.
+ *
+ * External storage and the sandbox are different folders. `/sdcard` inside the
+ * shell is the external folder, not a second copy of `/root`.
  */
-internal const val DEFAULT_PUBLIC_STORAGE_SECTION =
-    "## Phone storage\n" +
-        "Shared phone files are one directory. `public_storage` and the sandbox mounts are two doors onto it, not two copies.\n" +
-        "- User files (Download, DCIM, Documents, and `/storage/emulated/0/Minima`): prefer `public_storage`. " +
-        "Paths stay under `/storage/emulated/0`. Aliases `/sdcard`, `/mnt/sdcard`, and `/storage/self/primary` are that same tree. " +
-        "This tool uses Android file APIs and does not go through proot.\n" +
-        "- When All files access is granted, `execute_shell_command` sees those exact bytes at `/sdcard` and `/storage/emulated/0`. " +
-        "Use the shell there only when a command needs the file. Do not write the file twice to keep the two doors in sync.\n" +
-        "- Durable user instructions live only under `/storage/emulated/0/Minima` (shell: `/sdcard/Minima`): `AGENTS.md`, and skills at `skills/<id>/SKILL.md`. " +
-        "If this prompt already includes that AGENTS.md text, follow it. Do not invent a second copy under `/root`.\n" +
-        "- Linux sandbox (`execute_shell_command`): paths under `/root` on internal app storage — packages, executables, SSH keys, and marketplace skills at `~/skills`. " +
-        "Shared storage is not where binaries run. A public `Minima/skills/<id>` overrides a `~/skills/<id>` with the same id; follow the public SKILL.md and do not merge the two bodies.\n" +
-        "- If a shell was already running when the grant changed, its next command restarts it so the mount matches. That restart clears cwd and exported variables. " +
-        "A background process started before the change keeps the old mount.\n" +
-        "- If `public_storage` returns a permission error, say so and ask the user to grant All files access (Settings → Sandbox). " +
-        "Do not fabricate file contents. The Play Store build omits this permission; the FOSS build is the one that can grant it."
+internal fun phoneStorageSection(sandboxShell: Boolean): String = buildString {
+    append("## Where files live\n")
+    if (!sandboxShell) {
+        append("This request can touch external phone files only. There is no Linux sandbox shell.\n")
+        append("- Tool: `public_storage`. It does not run programs.\n")
+        append("- Folder: `/storage/emulated/0`. `/sdcard`, `/mnt/sdcard`, and `/storage/self/primary` are that same folder.\n")
+        append("- Use it for Download, DCIM, Documents, and `/storage/emulated/0/Minima`.\n")
+        append("- User instructions: `/storage/emulated/0/Minima/AGENTS.md`. User skills: `/storage/emulated/0/Minima/skills/<id>/SKILL.md`.\n")
+        append("- Do not use `/root` or `~/skills`. Those are the sandbox, and it is not available in this request.\n")
+        append("- If the tool returns a permission error, ask the user to grant All files access. Do not invent file contents. ")
+        append("The Play Store build cannot grant it.")
+        return@buildString
+    }
+    append("Two places. They are not the same folder. Do not copy a file from one into the other.\n\n")
+    append("External storage — phone files the file manager can see.\n")
+    append("- Tool: `public_storage`. It reads and writes text. It does not run programs.\n")
+    append("- Folder: `/storage/emulated/0`. `/sdcard`, `/mnt/sdcard`, and `/storage/self/primary` are that same folder.\n")
+    append("- Use it for Download, DCIM, Documents, and `/storage/emulated/0/Minima`.\n")
+    append("- User instructions: `/storage/emulated/0/Minima/AGENTS.md`. User skills: `/storage/emulated/0/Minima/skills/<id>/SKILL.md`.\n\n")
+    append("Linux sandbox — a private Linux inside the app. The file manager cannot see it.\n")
+    append("- Tool: `execute_shell_command`.\n")
+    append("- Folder: `/root`. Packages, scripts, SSH keys, and marketplace skills live at `~/skills`.\n")
+    append("- Use it to run a command. Do not use it to save a note the user should find in the file manager.\n")
+    append("- After All files access is granted, this shell also sees the external folder at `/sdcard` and `/storage/emulated/0`. ")
+    append("Run a command on a phone file there. Do not copy it into `/root` first.\n")
+    append("- If `/sdcard` is missing inside the shell, All files access is off. Say so. Do not invent file contents. ")
+    append("A grant change restarts the shell and clears its working directory.\n\n")
+    append("Choose:\n")
+    append("- Read or edit a phone file → `public_storage`\n")
+    append("- Run a program or install a package → `execute_shell_command` under `/root`\n")
+    append("- Run a command on a phone file → `execute_shell_command` with `/sdcard/...`\n")
+    append("- Same skill id in both places → follow `/storage/emulated/0/Minima/skills/<id>/SKILL.md` only. Ignore `~/skills/<id>`.")
+}
 
 /**
  * Advanced memory guidance — references `memory_learn` (not in `LOCAL_TOOL_ALLOWLIST`)
@@ -183,6 +203,7 @@ internal fun buildChatSystemPrompt(
     uiMode: ChatPromptUiMode,
     activeSkill: SkillManifest? = null,
     publicStorage: Boolean = false,
+    sandboxShell: Boolean = false,
     agentsMd: String? = null,
 ): String = buildString {
     append(soul)
@@ -256,7 +277,7 @@ internal fun buildChatSystemPrompt(
 
     if (publicStorage) {
         append("\n\n")
-        append(DEFAULT_PUBLIC_STORAGE_SECTION)
+        append(phoneStorageSection(sandboxShell))
         val agents = agentsMd?.trim().orEmpty()
         if (agents.isNotEmpty()) {
             append("\n\n## User workspace\n")

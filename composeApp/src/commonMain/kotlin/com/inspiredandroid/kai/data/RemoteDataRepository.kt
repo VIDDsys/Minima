@@ -1889,19 +1889,15 @@ class RemoteDataRepository(
         // Mirror the tool list the request will carry: remote uses the full set (when the
         // model supports tools), local uses the allowlist-filtered set.
         val localDeclaresTools = variant == SystemPromptVariant.CHAT_LOCAL && localModelDeclaresTools(modelId)
-        val hasTools = when (variant) {
-            SystemPromptVariant.CHAT_REMOTE -> !isLimited && getAvailableTools().isNotEmpty()
-            SystemPromptVariant.CHAT_LOCAL -> localDeclaresTools && getLocalSafeTools().isNotEmpty()
+        // One tool list for this request. The prompt may mention a place only when the
+        // tool that reaches it is actually on that list.
+        val toolsForPrompt = when (variant) {
+            SystemPromptVariant.CHAT_REMOTE -> if (isLimited) emptyList() else getAvailableTools()
+            SystemPromptVariant.CHAT_LOCAL -> if (localDeclaresTools) getLocalSafeTools() else emptyList()
         }
-        // Same gate as the tool list. A local model that cannot call public_storage must
-        // not be told to use it. Desktop never has the tool, so this stays false there.
-        val offersPublicStorage = when (variant) {
-            SystemPromptVariant.CHAT_REMOTE ->
-                !isLimited && getAvailableTools().any { it.schema.name == "public_storage" }
-
-            SystemPromptVariant.CHAT_LOCAL ->
-                localDeclaresTools && getLocalSafeTools().any { it.schema.name == "public_storage" }
-        }
+        val hasTools = toolsForPrompt.isNotEmpty()
+        val offersPublicStorage = toolsForPrompt.any { it.schema.name == "public_storage" }
+        val offersSandboxShell = toolsForPrompt.any { it.schema.name == "execute_shell_command" }
 
         val activeSkill = pendingActiveSkillId?.let { skillManager.getSkill(it) }
 
@@ -1923,6 +1919,7 @@ class RemoteDataRepository(
             uiMode = uiMode,
             activeSkill = activeSkill,
             publicStorage = offersPublicStorage,
+            sandboxShell = offersSandboxShell,
             agentsMd = if (offersPublicStorage) skillManager.readAgentsMd() else null,
         ).ifEmpty { null }
     }
