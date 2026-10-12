@@ -28,11 +28,13 @@ class AboutAndLabelsTest {
             "设置",
             "服务商",
             "全局 MD",
+            "技能",
+            "保存",
         )) {
             assertThat(settings).contains(label)
             assertThat(cn).contains(label)
         }
-        assertThat(cn).contains("2.42.0")
+        assertThat(cn).contains("2.43.0")
         assertThat(cn).contains("设置 → 服务商")
         assertThat(cn).contains("暂时跳过")
         assertThat(settings).doesNotContain("仅沙箱")
@@ -41,10 +43,10 @@ class AboutAndLabelsTest {
     }
 
     @Test
-    fun appVersionIs2420() {
+    fun appVersionIs2430() {
         val gradle = read("app/build.gradle.kts")
-        assertThat(gradle).contains("versionName = \"2.42.0\"")
-        assertThat(gradle).contains("versionCode = 55")
+        assertThat(gradle).contains("versionName = \"2.43.0\"")
+        assertThat(gradle).contains("versionCode = 56")
     }
 
     @Test
@@ -66,15 +68,22 @@ class AboutAndLabelsTest {
         )
         assertThat(settings).contains("SettingsGroup(title = \"服务商\")")
         assertThat(settings).contains("SettingsGroup(title = \"全局 MD\")")
+        assertThat(settings).contains("SettingsGroup(title = \"技能\")")
         assertThat(settings).contains("SettingsGroup(title = \"关于\")")
         assertThat(settings).contains("SettingsFieldValues.apiKeyValue")
-        assertThat(settings).contains("flushAllPending")
         assertThat(settings).contains("PasswordVisualTransformation()")
-        assertThat(settings).contains("onSystemPromptChange")
+        assertThat(settings).contains("onAgentsMdChange")
+        assertThat(settings).contains("saveAll")
+        assertThat(settings).contains("contentDescription = \"保存\"")
+        assertThat(settings).contains("publicSkills")
+        assertThat(settings).contains("AGENTS.md")
+        assertThat(settings).contains("onSettingsVisible")
         assertThat(settings).doesNotContain("value = draftKey ?: \"\"")
         assertThat(settings).doesNotContain("sandboxOnly")
         assertThat(settings).doesNotContain("Temperature")
         assertThat(settings).doesNotContain("MCP")
+        assertThat(settings).doesNotContain("自动保存")
+        assertThat(settings).doesNotContain("flushAllPending")
     }
 
     @Test
@@ -149,6 +158,8 @@ class AboutAndLabelsTest {
         assertThat(vm).contains("hardCeilingMs")
         assertThat(vm).contains("withTimeout(hardCeilingMs)")
         assertThat(vm).contains("TimeoutCancellationException")
+        assertThat(vm).contains("Do NOT use DataStore systemPrompt")
+        assertThat(vm).contains("loadAllAgentsMarkdown")
     }
 
     @Test

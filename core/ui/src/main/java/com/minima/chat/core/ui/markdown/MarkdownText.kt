@@ -276,7 +276,7 @@ object MarkdownParser {
                 line.matches(Regex("^(\\s*)[-*+]\\s+.+")) -> {
                     flushPara()
                     val leading = line.takeWhile { it == ' ' || it == '\t' }.length
-                    val _indent = leading / 2 // reserved for nested numbered padding
+                    val indent = leading / 2
                     val trimmed = line.trimStart()
                     val content = trimmed.drop(2).trim() // drop bullet marker and space
                     out += MdBlock.Bullet(content, indent)
@@ -293,8 +293,6 @@ object MarkdownParser {
                 }
                 line.matches(Regex("^(\\s*)\\d+\\.\\s+.+")) -> {
                     flushPara()
-                    val leading = line.takeWhile { it == ' ' || it == '\t' }.length
-                    val _indent = leading / 2 // reserved for nested numbered padding
                     val trimmed = line.trimStart()
                     val num = trimmed.takeWhile { it.isDigit() }.toIntOrNull() ?: 1
                     val content = trimmed.substringAfter('.').trim()

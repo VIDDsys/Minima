@@ -1,38 +1,28 @@
-# Minima status
+# Minima STATUS
 
-Updated: 2026-10-12 Asia/Shanghai (CST) — **v2.42.0 vision + public Minima workspace + open-chat polish**
+Updated: 2026-10-12 Asia/Shanghai (CST) — **v2.43.0 全局 MD = 公共 AGENTS.md + 技能列表 + 手动保存**
 
-**Minima** **v2.42.0** — original minimal on-device AI agent (BYOK). `com.minima.chat` is only the Android applicationId (package name).
+**Minima**（应用包名 `com.minima.chat`）**v2.43.0** — 极简本机 AI Agent（BYOK）。
 
-## Packages
-| Kind | File | Notes |
-|------|------|-------|
-| Stamped debug | `minima-v2.42.0-agent-debug.apk` | minimaDebug |
-| Stamped release | `minima-v2.42.0-agent-release.apk` | R8 |
-| Build outputs | `app/build/outputs/apk/debug/app-debug.apk`, `…/release/app-release.apk` | |
+| | | |
+|---|---|---|
+| Stamped debug | `minima-v2.43.0-agent-debug.apk` | minimaDebug |
+| Stamped release | `minima-v2.43.0-agent-release.apk` | R8 |
 
 ```bash
-adb install -r minima-v2.42.0-agent-debug.apk
+adb install -r minima-v2.43.0-agent-debug.apk
 ```
 
-## Public GitHub sync target
-- **Repo:** https://github.com/VIDDsys/Minima (public)
-- **Layout:** repository **root** = this project’s source files (do **not** nest under a `minima-chat/` folder)
-- Include: `README.md`, `CHANGELOG.md`, `STATUS.md`, modules, `scripts/`, stamped APKs optional via Releases
+## 本轮要点（2.43.0）
+1. 设置展示 `Minima/skills/*/SKILL.md` 的 name/description。
+2. 「全局 MD」= `/storage/emulated/0/Minima/AGENTS.md`，与文件管理器 100% 同步。
+3. 取消自动保存；显式「保存」写入服务商字段 + AGENTS.md。
+4. 设置页 resume / FileObserver 实时拉取磁盘改动。
+5. 去掉 DataStore systemPrompt / filesDir AGENT.md 分叉。
 
-## Causes fixed (user-visible) in 2.42.0
-1. Vision attach broken → Photo Picker + hardened prepare + incremental chips + inline errors; model receives `image_url` parts.
-2. User attachments as chips **above** bubble (text-only bubble).
-3. Open from list flashed empty new-chat page → `messagesReady` gate.
-4. Autoscroll pin / pause-on-scroll-up.
-5. GFM list polish (`+`, blank-separated items).
-6. First-launch `/storage/emulated/0/Minima` + `AGENTS.md` + `skills/*/SKILL.md` injection.
+## 验证
+- `./scripts/verify.sh` PASS（testDebugUnitTest + assembleDebug）
+- release 已 assemble；日志 `docs/verify-v2.43.0.log`
 
-## verify.sh evidence
-- **Command:** `./scripts/verify.sh` → **BUILD SUCCESSFUL**
-- **Unit tests (debug):** **528** passed, **0** failures
-- **Release:** `:app:assembleRelease` **BUILD SUCCESSFUL**
-- Log: `docs/verify-v2.42.0.log`
-
-## Version
-- versionName **2.42.0** / versionCode **55**
+## 版本
+- versionName **2.43.0** / versionCode **56**

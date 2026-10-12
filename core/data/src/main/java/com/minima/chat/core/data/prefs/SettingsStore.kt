@@ -20,7 +20,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
-import java.io.File
 
 private val Context.settingsDataStore: DataStore<Preferences> by preferencesDataStore("minima_settings")
 
@@ -171,17 +170,12 @@ class SettingsStore @Inject constructor(
         context.settingsDataStore.edit { it[onboardingCompletedKey] = value }
     }
 
+    /**
+     * Legacy DataStore field kept for backup import only.
+     * Global MD for the agent is `/storage/emulated/0/Minima/AGENTS.md` — never mirror here.
+     */
     suspend fun updateSystemPrompt(value: String) {
         context.settingsDataStore.edit { it[systemPromptKey] = value }
-        // Mirror to filesDir/AGENT.md so search_memory / skills see the same global MD.
-        runCatching {
-            val f = File(context.filesDir, "AGENT.md")
-            if (value.isBlank()) {
-                if (f.exists()) f.delete()
-            } else {
-                f.writeText(value)
-            }
-        }
     }
 
     suspend fun updateShowUsageEstimate(value: Boolean) {
