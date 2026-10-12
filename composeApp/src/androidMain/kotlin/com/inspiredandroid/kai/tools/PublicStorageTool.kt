@@ -23,7 +23,7 @@ import kotlin.time.Duration.Companion.seconds
 private const val PERMISSION_DENIED =
     "All files access is not granted. Ask the user to enable it for Minima: Settings → Sandbox, " +
         "or system Settings → Apps → Special app access → All files access. " +
-        "Until then, paths under /storage/emulated/0 (Download, DCIM, Documents, Minima) are unavailable. " +
+        "Until then, paths under /storage/emulated/0 (Download, DCIM, Documents) are unavailable. " +
         "The Linux sandbox under /root still works and was not touched."
 
 private const val PLAY_BUILD =
@@ -54,15 +54,13 @@ object PublicStorageTool : Tool {
 
     override val schema = ToolSchema(
         name = ID,
-        description = """Read and write external phone storage (Download, DCIM, Documents, /storage/emulated/0/Minima) using Android file APIs. The file manager can see these files.
+        description = """Read and write external phone storage (Download, DCIM, Documents) using Android file APIs. The file manager can see these files.
 
 This is not the Linux sandbox. Do not use this tool for /root or ~/skills. Those are private app files, reached with execute_shell_command when that tool is available. Marketplace scripts that must run stay in ~/skills.
 
 When the sandbox is installed and All files access is granted, the shell sees this same folder at $PUBLIC_STORAGE_GUEST_SDCARD and $PUBLIC_STORAGE_GUEST_EMULATED. Do not copy a file into /root.
 
 Paths must stay under /storage/emulated/0. Aliases ${PUBLIC_STORAGE_ALIASES.joinToString(", ")} are the same directory. Traversal (../) and symlinks that leave that tree are rejected.
-
-Durable user instructions belong here: /storage/emulated/0/Minima/AGENTS.md and /storage/emulated/0/Minima/skills/<id>/SKILL.md. That skill overrides ~/skills with the same id. Do not write both.
 
 action is one of list, read, write, mkdir, delete. write requires content (UTF-8 text). read returns text and refuses binary files. write refuses to replace a file larger than the read cap (32768 bytes) with content that fits in one read — delete the file first if you mean to shrink it. delete of a non-empty directory requires recursive=true. Deleting or overwriting the storage root itself is refused.
 

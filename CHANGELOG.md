@@ -1,3 +1,11 @@
+## Unreleased
+
+未改 versionName / versionCode（仍是 `3.3.5` / `122`）。发版时再升到 `3.3.6` / `123`。
+
+- 不再读取 `/storage/emulated/0/Minima/AGENTS.md`，系统提示里没有 `## User workspace`。`~/skills` 与 `/skill-id` 仍在。提示词和工具说明不再把公共目录里的 skills 说成会覆盖沙箱技能。
+- 设置页去掉许可证页脚、服务页 GitHub Sponsors，以及整个 Integrations 页。沙箱「所有文件访问」说明缩短。
+- 空聊天用 Minima 图标，不再显示旋转的 Kai 标志，也不再提供「打开 Kai Build」。
+
 ## v3.3.5 — 2026-10-12
 
 系统提示 `## Where files live` 把外部存储和 Linux 沙箱分开写，并且只在这次请求真有 shell 时才提沙箱。versionName `3.3.5` / versionCode `122`。

@@ -16,8 +16,7 @@ class SkillManagerTest {
 
     private fun manager(
         sandbox: FakeSandboxController,
-        workspace: MinimaWorkspace = EmptyMinimaWorkspace,
-    ) = SkillManager(sandbox, workspace, backgroundDispatcher = UnconfinedTestDispatcher())
+    ) = SkillManager(sandbox, backgroundDispatcher = UnconfinedTestDispatcher())
 
     @Test
     fun `load reads installed skill folders with their files`() = runTest {
@@ -83,59 +82,6 @@ class SkillManagerTest {
     }
 
     @Test
-    fun `public skill overrides the sandbox folder with the same id`() = runTest {
-        val sandbox = FakeSandboxController()
-        sandbox.files["/root/skills/foo/SKILL.md"] = skillMd("foo", body = "Sandbox body.")
-        val workspace = FakeMinimaWorkspace(
-            skills = mutableListOf(
-                SkillManifest(
-                    id = "foo",
-                    displayName = "Foo",
-                    description = "desc",
-                    body = "Public body.",
-                    bundledFilePaths = listOf("notes.txt"),
-                    fromPublicStorage = true,
-                ),
-            ),
-        )
-        val mgr = manager(sandbox, workspace)
-
-        mgr.load()
-
-        val foo = mgr.getSkill("foo")
-        assertEquals("Public body.", foo?.body?.trim())
-        assertEquals(true, foo?.fromPublicStorage)
-        assertEquals(listOf("notes.txt"), foo?.bundledFilePaths)
-        assertTrue("Sandbox body." in sandbox.files.getValue("/root/skills/foo/SKILL.md"))
-    }
-
-    @Test
-    fun `uninstall of a public skill leaves the sandbox folder`() = runTest {
-        val sandbox = FakeSandboxController()
-        sandbox.files["/root/skills/foo/SKILL.md"] = skillMd("foo", body = "Sandbox body.")
-        val workspace = FakeMinimaWorkspace(
-            skills = mutableListOf(
-                SkillManifest(
-                    id = "foo",
-                    displayName = "Foo",
-                    description = "desc",
-                    body = "Public body.",
-                    fromPublicStorage = true,
-                ),
-            ),
-        )
-        val mgr = manager(sandbox, workspace)
-        mgr.load()
-
-        mgr.uninstall("foo")
-
-        assertEquals(listOf("foo"), workspace.deleted)
-        assertTrue(sandbox.files.containsKey("/root/skills/foo/SKILL.md"))
-        assertEquals("Sandbox body.", mgr.getSkill("foo")?.body?.trim())
-        assertEquals(false, mgr.getSkill("foo")?.fromPublicStorage)
-    }
-
-    @Test
     fun `uninstall deletes the folder`() = runTest {
         val sandbox = FakeSandboxController()
         val mgr = manager(sandbox)
@@ -145,22 +91,5 @@ class SkillManagerTest {
 
         assertTrue(mgr.getInstalled().none { !it.isBuiltIn })
         assertTrue(sandbox.files.keys.none { it.startsWith("/root/skills/bar/") })
-    }
-}
-
-private class FakeMinimaWorkspace(
-    var agents: String? = null,
-    val skills: MutableList<SkillManifest> = mutableListOf(),
-) : MinimaWorkspace {
-    val deleted = mutableListOf<String>()
-
-    override suspend fun readAgentsMd(): String? = agents
-
-    override suspend fun loadSkills(): List<SkillManifest> = skills.toList()
-
-    override suspend fun deleteSkill(id: String): Boolean {
-        val removed = skills.removeAll { it.id == id }
-        if (removed) deleted += id
-        return removed
     }
 }

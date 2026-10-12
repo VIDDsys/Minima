@@ -354,10 +354,10 @@
     <string name="notification_channel_description">Notifications sent by AI assistant</string>
     <string name="settings_sandbox_description">Install a Linux environment so the AI can run shell commands, scripts, and tools on your behalf. Runs securely inside the app.</string>
     <string name="settings_public_storage_title">All files access</string>
-    <string name="settings_public_storage_description">Lets Minima read and write shared storage (Download, DCIM, Documents, /storage/emulated/0/Minima) and bind that directory into the Linux sandbox at /sdcard. /root stays inside the app. The Play Store build omits this permission.</string>
+    <string name="settings_public_storage_description">Lets Minima read and write shared storage, and mount it in the Linux sandbox at /sdcard.</string>
     <string name="settings_public_storage_grant">Grant all files access</string>
-    <string name="settings_public_storage_granted">All files access is on. public_storage can use shared storage now. The next command in an existing shell restarts it so /sdcard is mounted; that restart clears cwd and variables.</string>
-    <string name="settings_public_storage_unavailable">This build does not include all-files access. Install the FOSS sideload build. Google Play may reject MANAGE_EXTERNAL_STORAGE.</string>
+    <string name="settings_public_storage_granted">All files access is on.</string>
+    <string name="settings_public_storage_unavailable">This build does not include all-files access. Install the FOSS sideload build.</string>
     <string name="settings_sandbox_distro_title">Distribution</string>
     <string name="settings_sandbox_distro_debian">Debian 12</string>
     <string name="settings_sandbox_distro_debian_detail">Recommended · ~150 MB · shared with Kai Build</string>

@@ -1,6 +1,6 @@
 # Kai Build
 
-**Last verified:** 2026-10-02
+**Last verified:** 2026-10-12
 
 Kai Build is an **Android-only** coding environment inside the Kai app. It is a separate *surface* from chat — no shared conversation store, no sandbox tools, no provider/settings coupling — but it is not necessarily a separate *Linux*: when the chat sandbox also runs Debian, both work in the same install.
 
@@ -10,7 +10,7 @@ It is a **single screen with three states** — set up Linux, pick a project, wo
 
 ### Separate product surface
 
-Kai Build is opened from the **empty chat state** — an "Open Kai Build" button next to "Start Interactive UI", shown on Android only. It is the same pill and label style as the button above it, in the phosphor green of the terminal it opens, so what it leads to is readable before it is pressed. It then takes over the whole screen the same way Interactive UI mode does: no navigation destination, no second launcher icon, and no place in the back stack. A close button in its top bar and the system back gesture both return to the chat, leaving any drafted message intact. Inside a project, the same top-bar button and system back step back to the project list instead. The mode is not persisted across app restarts; it survives rotation only.
+The empty chat state does not offer Kai Build. "Start Interactive UI" stays. The Kai Build screen still takes over the whole window the same way Interactive UI mode does when something opens it: no navigation destination, no second launcher icon, and no place in the back stack. A close button in its top bar and the system back gesture both return to the chat, leaving any drafted message intact. Inside a project, the same top-bar button and system back step back to the project list instead. The mode is not persisted across app restarts; it survives rotation only.
 
 ### Which Linux it runs in
 
@@ -175,4 +175,4 @@ The PTY hands Kai a block of output as often as the program produces one — und
 | `composeApp/src/androidMain/kotlin/com/inspiredandroid/kai/build/TerminalInputView.kt` | The Android IME plumbing: null input type, key events, committed text. |
 | `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/build/KaiBuildScreen.kt` | Screen shell and the setup / projects / terminal routing. |
 | `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/build/KaiBuildViewModel.kt` | Screen state, and the remembered "Open with" agent — read back at startup and checked against what is installed. |
-| `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/chat/composables/EmptyState.kt` | Hosts the "Open Kai Build" entry button. |
+| `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/chat/composables/EmptyState.kt` | Home empty chat. Shows the Minima icon and "Start Interactive UI". Does not open Kai Build. |

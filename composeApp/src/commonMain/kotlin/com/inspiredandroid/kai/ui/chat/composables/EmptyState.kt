@@ -1,6 +1,6 @@
 package com.inspiredandroid.kai.ui.chat.composables
 
-import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -9,14 +9,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Terminal
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -24,8 +18,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -33,39 +25,35 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import com.inspiredandroid.kai.ui.components.LogoAnimation
 import com.inspiredandroid.kai.ui.components.animatedGradientBorder
 import com.inspiredandroid.kai.ui.handCursor
 import kai.composeapp.generated.resources.Res
-import kai.composeapp.generated.resources.kai_build_open
+import kai.composeapp.generated.resources.logo
 import kai.composeapp.generated.resources.privacy_agree_prefix
 import kai.composeapp.generated.resources.privacy_policy
 import kai.composeapp.generated.resources.start_interactive_ui
 import kai.composeapp.generated.resources.welcome_message
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-
-/**
- * Phosphor green for the Kai Build button, taken from the ANSI palette its own
- * terminal paints with: the bright green on dark backgrounds, the darker normal
- * green where a light one would wash it out. Colors only — the button keeps the
- * shape and label style it shares with the rest of the empty state.
- */
-private val TerminalGreenOnDark = Color(0xFF16C60C)
-private val TerminalGreenOnLight = Color(0xFF13A10E)
 
 @Composable
 internal fun EmptyState(
     modifier: Modifier,
     isUsingSharedKey: Boolean,
     onStartInteractiveMode: (() -> Unit)? = null,
-    onOpenKaiBuild: (() -> Unit)? = null,
 ) {
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        LogoAnimation()
+        Image(
+            painter = painterResource(Res.drawable.logo),
+            contentDescription = null,
+            modifier = Modifier
+                .size(72.dp)
+                .clip(RoundedCornerShape(16.dp)),
+        )
         Spacer(Modifier.height(16.dp))
         Text(
             text = stringResource(Res.string.welcome_message),
@@ -80,29 +68,6 @@ internal fun EmptyState(
                 text = stringResource(Res.string.start_interactive_ui),
                 onClick = onStartInteractiveMode,
             )
-            Spacer(Modifier.height(8.dp))
-        }
-        if (onOpenKaiBuild != null) {
-            val terminalGreen = if (MaterialTheme.colorScheme.background.luminance() < 0.5f) {
-                TerminalGreenOnDark
-            } else {
-                TerminalGreenOnLight
-            }
-            OutlinedButton(
-                onClick = onOpenKaiBuild,
-                modifier = Modifier.handCursor(),
-                colors = ButtonDefaults.outlinedButtonColors(contentColor = terminalGreen),
-                border = BorderStroke(1.dp, terminalGreen.copy(alpha = 0.6f)),
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Terminal,
-                    contentDescription = null,
-                    modifier = Modifier.size(18.dp),
-                )
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(Res.string.kai_build_open))
-            }
-            Spacer(Modifier.height(8.dp))
         }
         if (isUsingSharedKey) {
             val linkColor = MaterialTheme.colorScheme.primary

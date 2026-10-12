@@ -12,7 +12,6 @@ import com.inspiredandroid.kai.data.TaskScheduler
 import com.inspiredandroid.kai.data.ThemeMode
 import com.inspiredandroid.kai.data.supportsAgenticFlows
 import com.inspiredandroid.kai.getBackgroundDispatcher
-import com.inspiredandroid.kai.httpClient
 import com.inspiredandroid.kai.inference.LocalModel
 import com.inspiredandroid.kai.inference.ModelImportResult
 import com.inspiredandroid.kai.isEmailSupported
@@ -29,17 +28,11 @@ import com.inspiredandroid.kai.network.OpenAICompatibleConnectionException
 import com.inspiredandroid.kai.network.OpenAICompatibleInvalidApiKeyException
 import com.inspiredandroid.kai.network.OpenAICompatibleQuotaExhaustedException
 import com.inspiredandroid.kai.network.OpenAICompatibleRateLimitExceededException
-import com.inspiredandroid.kai.network.dtos.SponsorsResponseDto
 import com.inspiredandroid.kai.skills.parseGitHubSkillUrl
 import com.inspiredandroid.kai.tools.AppPermission
 import com.inspiredandroid.kai.tools.PermissionController
 import com.inspiredandroid.kai.tools.isLocalNetworkUrl
 import io.github.vinceglb.filekit.PlatformFile
-import io.ktor.client.call.body
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.request.get
-import io.ktor.http.isSuccess
-import io.ktor.serialization.kotlinx.json.json
 import kai.composeapp.generated.resources.Res
 import kai.composeapp.generated.resources.error_unknown
 import kai.composeapp.generated.resources.error_unrecognized_github_repo
@@ -57,7 +50,6 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.serialization.json.Json
 import org.jetbrains.compose.resources.getString
 import kotlin.coroutines.CoroutineContext
 import kotlin.time.Duration.Companion.milliseconds
@@ -274,7 +266,6 @@ class SettingsViewModel(
             hasCheckedInitialConnection = true
             checkAllConnections()
             connectEnabledMcpServers()
-            fetchSponsors()
         }
         // Re-read notification listener state every time the screen becomes visible:
         // the user may have toggled access in system settings while we were backgrounded.
@@ -285,30 +276,6 @@ class SettingsViewModel(
                     notificationListenerBound = dataRepository.getNotificationSyncState().listenerBound,
                     notificationPendingCount = dataRepository.getPendingNotificationCount(),
                 )
-            }
-        }
-    }
-
-    private fun fetchSponsors() {
-        viewModelScope.launch(backgroundDispatcher) {
-            try {
-                val client = httpClient {
-                    install(ContentNegotiation) {
-                        json(Json { ignoreUnknownKeys = true })
-                    }
-                }
-                val response = client.get("https://ghs.vercel.app/v3/sponsors/SimonSchubert")
-                if (response.status.isSuccess()) {
-                    val dto = response.body<SponsorsResponseDto>()
-                    _state.update {
-                        it.copy(
-                            currentSponsors = dto.sponsors.current.toImmutableList(),
-                            pastSponsors = dto.sponsors.past.toImmutableList(),
-                        )
-                    }
-                }
-            } catch (_: Exception) {
-                // Silently ignore - sponsors are non-critical
             }
         }
     }

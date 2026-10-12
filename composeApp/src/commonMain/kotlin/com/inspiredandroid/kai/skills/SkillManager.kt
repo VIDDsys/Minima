@@ -17,21 +17,17 @@ import kotlin.coroutines.CoroutineContext
  * Manages the user's skills.
  *
  * Marketplace and script skills live in the Linux sandbox at `~/skills/<id>/`.
- * Durable user skills live under the phone's Minima workspace
- * (`/storage/emulated/0/Minima/skills/<id>/`, the same tree as `/sdcard/Minima/skills`).
- * A public folder with the same id overrides the sandbox copy; neither is copied
- * onto the other. Built-in skills ship in compose resources and lose to both.
+ * Built-in skills ship in compose resources and lose to a sandbox folder with
+ * the same id.
  *
  * The cache is (re)loaded after every install/uninstall and whenever the sandbox
  * becomes installed — built-ins are loaded then too, gated on sandbox availability
  * because they only make sense when their `execute_shell_command` writes can land.
  * On platforms without a sandbox the file ops are no-ops and `load()` never runs, so
- * no skills (built-in or otherwise) appear off-Android. The public workspace is
- * empty there as well.
+ * no skills (built-in or otherwise) appear off-Android.
  */
 class SkillManager(
     private val sandboxController: SandboxController,
-    private val workspace: MinimaWorkspace = EmptyMinimaWorkspace,
     private val registry: SkillRegistry = SkillRegistry(),
     backgroundDispatcher: CoroutineContext = getBackgroundDispatcher(),
 ) {
@@ -58,13 +54,9 @@ class SkillManager(
 
     fun getSkill(id: String): SkillManifest? = _skills.value.firstOrNull { it.id == id }
 
-    suspend fun readAgentsMd(): String? = workspace.readAgentsMd()
-
     suspend fun uninstall(id: String) {
         val skill = getSkill(id)
-        if (skill?.fromPublicStorage == true) {
-            workspace.deleteSkill(id)
-        } else if (skill == null || !skill.isBuiltIn) {
+        if (skill == null || !skill.isBuiltIn) {
             sandboxController.deleteEntry("$SKILLS_DIR/$id", recursive = true)
         }
         load()
@@ -93,13 +85,11 @@ class SkillManager(
     }
 
     /**
-     * Rebuilds the cache. Public `Minima/skills/<id>` wins over `~/skills/<id>`,
-     * and either wins over a built-in. The losing folder is left on disk.
+     * Rebuilds the cache. A sandbox `~/skills/<id>/` wins over a built-in with the
+     * same id. The losing built-in stays in resources and is simply not listed.
      */
     suspend fun load() {
         val skills = mutex.withLock {
-            val publicSkills = workspace.loadSkills()
-            val publicIds = publicSkills.mapTo(mutableSetOf()) { it.id }
             val sandboxSkills = sandboxController.listDirectory(SKILLS_DIR)
                 .filter { it.isDirectory }
                 .mapNotNull { dir ->
@@ -108,7 +98,6 @@ class SkillManager(
                         ?.content ?: return@mapNotNull null
                     val parsed = SkillFrontmatterParser.parse(md) as? SkillFrontmatterParser.Result.Ok
                         ?: return@mapNotNull null
-                    if (parsed.id in publicIds) return@mapNotNull null
                     val files = sandboxController.listDirectory(base)
                         .filter { !it.isDirectory && it.name != "SKILL.md" }
                         .map { it.name }
@@ -121,9 +110,9 @@ class SkillManager(
                         bundledFilePaths = files,
                     )
                 }
-            val takenIds = publicIds + sandboxSkills.map { it.id }
+            val takenIds = sandboxSkills.map { it.id }.toSet()
             val builtIns = loadBuiltInSkills().filter { it.id !in takenIds }
-            (builtIns + sandboxSkills + publicSkills).sortedBy { it.id }
+            (builtIns + sandboxSkills).sortedBy { it.id }
         }
         _skills.value = skills
     }
