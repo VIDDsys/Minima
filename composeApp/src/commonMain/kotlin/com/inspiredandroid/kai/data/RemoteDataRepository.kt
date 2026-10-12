@@ -1625,8 +1625,6 @@ class RemoteDataRepository(
         }
     }
 
-    override fun isUsingSharedKey(): Boolean = currentService() == Service.Free
-
     override fun supportedFileExtensions(): List<String> {
         val service = currentService()
         if (service.isOnDevice) return emptyList()

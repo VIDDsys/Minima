@@ -129,7 +129,7 @@ sealed class Service(
         settingsKeyPrefix = "atlascloud",
         chatUrl = "https://api.atlascloud.ai/v1/chat/completions",
         modelsUrl = "https://api.atlascloud.ai/v1/models",
-        apiKeyUrl = "https://www.atlascloud.ai/console/api-keys?utm_source=github&utm_medium=link&utm_campaign=Kai",
+        apiKeyUrl = "https://www.atlascloud.ai/console/api-keys?utm_source=github&utm_medium=link&utm_campaign=Minima",
         apiKeyUrlDisplay = "atlascloud.ai/console/api-keys",
     )
 

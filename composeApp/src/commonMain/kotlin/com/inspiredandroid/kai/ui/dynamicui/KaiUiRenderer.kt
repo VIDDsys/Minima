@@ -214,6 +214,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.kai.ui.KaiOutlinedTextField
+import com.inspiredandroid.kai.ui.components.AlignedTable
 import com.inspiredandroid.kai.ui.components.KaiChip
 import com.inspiredandroid.kai.ui.handCursor
 import com.inspiredandroid.kai.ui.kaiAdaptiveCardBorder
@@ -714,33 +715,28 @@ private fun RenderTable(node: TableNode) {
         node.rows.maxOfOrNull { it.size } ?: 0,
     )
     if (columnCount == 0) return
-    Column(Modifier.fillMaxWidth().wrapContentHeight()) {
-        if (node.headers.isNotEmpty()) {
-            Row(Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
-                for (index in 0 until columnCount) {
-                    Text(
-                        text = node.headers.getOrElse(index) { "" },
-                        style = MaterialTheme.typography.titleSmall,
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-            }
-            HorizontalDivider()
+    val showHeader = node.headers.isNotEmpty()
+    val rowCount = node.rows.size + if (showHeader) 1 else 0
+    AlignedTable(
+        columnCount = columnCount,
+        rowCount = rowCount,
+        headerRows = if (showHeader) 1 else 0,
+    ) { row, column ->
+        val text = if (showHeader && row == 0) {
+            node.headers.getOrElse(column) { "" }
+        } else {
+            val bodyRow = if (showHeader) row - 1 else row
+            node.rows.getOrNull(bodyRow)?.getOrElse(column) { "" } ?: ""
         }
-        for (row in node.rows) {
-            Row(
-                Modifier.fillMaxWidth().padding(vertical = 4.dp),
-                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
-            ) {
-                for (index in 0 until columnCount) {
-                    Text(
-                        text = row.getOrElse(index) { "" },
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-            }
-        }
+        Text(
+            text = text,
+            style = if (showHeader && row == 0) {
+                MaterialTheme.typography.titleSmall
+            } else {
+                MaterialTheme.typography.bodyMedium
+            },
+            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+        )
     }
 }
 

@@ -17,7 +17,7 @@
 | Launcher label / user-facing “Kai 9000” | Kai 9000 | **Minima** |
 | Launcher icon | purple dual-circle | **Minima eyes SVG** (`docs/assets/launcher-icon-source.svg`) |
 | Default service | Free (kai9000 proxy) | **DeepSeek** / `deepseek-flash` |
-| versionName | 3.3.0 | **3.3.5** (versionCode 122) |
+| versionName | 3.3.0 | **3.3.7** (versionCode 124) |
 | Kotlin packages / namespace | com.inspiredandroid.kai.* | **unchanged**（内部 OK） |
 
 ## Intentionally still “Kai*” internally
@@ -26,7 +26,7 @@
 - `import kai.composeapp.generated.resources…`
 - SQLDelight `KaiDatabase`
 - Class names `KaiApplication`, `KaiNotificationListenerService`, …
-- Feature label **Kai Build**（子系统；后续可再品牌化）
+- On-screen label **Minima Build**（类名与资源 id 仍是 `KaiBuild` / `kai_build_*`）
 
 ## Public storage (path D)
 

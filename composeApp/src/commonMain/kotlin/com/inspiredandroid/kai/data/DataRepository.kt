@@ -56,7 +56,6 @@ interface DataRepository {
     )
     fun clearHistory()
     fun currentService(): Service
-    fun isUsingSharedKey(): Boolean
     fun supportedFileExtensions(): List<String>
 
     // Conversation management

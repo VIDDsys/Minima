@@ -129,7 +129,7 @@ object FetchUrlTool : Tool {
 
     private suspend fun send(url: Url, methodArg: String, bodyArg: String?, contentTypeArg: String?): HttpResponse = client.request(url) {
         method = HttpMethod.parse(methodArg)
-        header("User-Agent", "Mozilla/5.0 (compatible; Kai/1.0)")
+        header("User-Agent", "Mozilla/5.0 (compatible; Minima/1.0)")
         if (bodyArg != null && methodArg == "POST") {
             contentType(
                 contentTypeArg?.let { runCatching { ContentType.parse(it) }.getOrNull() }

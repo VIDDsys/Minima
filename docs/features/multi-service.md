@@ -28,7 +28,7 @@ A configured connection to a service. Users can add multiple instances of the sa
 A built-in service that requires no API key. Free is never shown in the service picker — it is used as:
 
 - The sole service when no other services are configured
-- A last-resort fallback when "Use as fallback" is enabled (default)
+- A last-resort fallback when the saved preference is on (the default). Settings → Services does not show a free-tier card or a "use as fallback" switch.
 
 When Free is the only path and the user hits Free FAST/EXPERT rate or quota limits, chat shows a free-provider signup panel (Groq, Cerebras, Gemini, OpenRouter, Ollama Cloud) so they can open an API-key page and continue with a personal free tier. See [chat.md](chat.md).
 
@@ -37,7 +37,7 @@ When Free is the only path and the user hits Free FAST/EXPERT rate or quota limi
 1. Configured instances are tried in the order the user arranged them
 2. Only instances with valid API keys are considered
 3. If no instances are configured, the Free tier is used as the only service
-4. If instances exist and "Use as fallback" is enabled (default), the Free tier is appended as the last resort
+4. If instances exist and the saved free-fallback preference is on (default; no settings switch), the Free tier is appended as the last resort
 5. Each individual API request retries up to 2 times with increasing delays before the service is considered failed. During a tool-use loop, each request inside the loop retries independently — a failure mid-loop never replays the loop (and its tool executions) from the start. On-device (Local Model) attempts are not retried, since their failures are deterministic rather than transient
 6. On failure, the next instance in the chain is tried; if all fail, the last error is shown
 7. If a fallback succeeds, the response indicates which service answered

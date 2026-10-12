@@ -55,7 +55,6 @@ object ScreenshotTestData {
     val chatEmptyState = ChatUiState(
         actions = noOpChatActions,
         history = persistentListOf(),
-        showPrivacyInfo = false,
     )
 
     private val survivalGameContent =
