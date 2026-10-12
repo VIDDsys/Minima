@@ -202,7 +202,7 @@
     <string name="error_quota_exhausted">Quota exhaurida</string>
     <string name="notification_channel_name">Notificaziuns da IA</string>
     <string name="notification_channel_description">Notificaziuns tramessas da l'assistent da IA</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Installai in ambient Linux per che l'IA possia exequir cumonds da shell, scripts ed utensils en tes num. Funcziuna segir en l'app.</string>
     <string name="settings_sandbox_install">Installar</string>
     <string name="settings_sandbox_install_packages">Installar pachets da basa</string>

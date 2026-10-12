@@ -202,7 +202,7 @@
     <string name="error_quota_exhausted">Квотата е изчерпана</string>
     <string name="notification_channel_name">AI известия</string>
     <string name="notification_channel_description">Известия, изпратени от AI асистент</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Инсталирайте Linux среда, за да може ИИ да изпълнява команди, скриптове и инструменти от ваше име. Работи сигурно вътре в приложението.</string>
     <string name="settings_sandbox_install">Инсталиране</string>
     <string name="settings_sandbox_install_packages">Инсталиране на основни пакети</string>

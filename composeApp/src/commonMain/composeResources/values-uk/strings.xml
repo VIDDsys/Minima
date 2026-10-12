@@ -203,7 +203,7 @@
     <string name="error_quota_exhausted">Квоту вичерпано</string>
     <string name="notification_channel_name">Сповіщення ШІ</string>
     <string name="notification_channel_description">Сповіщення, надіслані ШІ-помічником</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Встановіть середовище Linux, щоб ШІ міг виконувати команди оболонки, скрипти та інструменти від вашого імені. Працює безпечно всередині додатка.</string>
     <string name="settings_sandbox_install">Встановити</string>
     <string name="settings_sandbox_install_packages">Встановити базові пакети</string>

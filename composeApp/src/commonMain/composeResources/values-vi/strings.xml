@@ -202,7 +202,7 @@
     <string name="error_quota_exhausted">Đã hết hạn mức</string>
     <string name="notification_channel_name">Thông báo AI</string>
     <string name="notification_channel_description">Thông báo được gửi bởi trợ lý AI</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Cài đặt môi trường Linux để AI có thể chạy các lệnh shell, tập lệnh và công cụ thay mặt bạn. Chạy an toàn bên trong ứng dụng.</string>
     <string name="settings_sandbox_install">Cài đặt</string>
     <string name="settings_sandbox_install_packages">Cài đặt gói cơ bản</string>

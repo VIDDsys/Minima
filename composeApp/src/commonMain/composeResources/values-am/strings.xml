@@ -203,7 +203,7 @@
     <string name="error_quota_exhausted">ኮታ ተሟጥጧል</string>
     <string name="notification_channel_name">የ AI ማሳወቂያዎች</string>
     <string name="notification_channel_description">በ AI ረዳት የተላኩ ማሳወቂያዎች</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">AI በእርስዎ ምትክ የሼል ትዕዛዞችን፣ ስክሪፕቶችን እና መሳሪያዎችን ማሄድ እንዲችል የLinux አካባቢ ይጫኑ። በመተግበሪያው ውስጥ በአስተማማኝ ሁኔታ ይሰራል።</string>
     <string name="settings_sandbox_install">ጫን</string>
     <string name="settings_sandbox_install_packages">መሠረታዊ ፓኬጆችን ጫን</string>

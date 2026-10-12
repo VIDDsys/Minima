@@ -203,7 +203,7 @@ Se qualcosa richiede attenzione (ricordi obsoleti, attività scadute, follow-up 
     <string name="error_quota_exhausted">Quota esaurita</string>
     <string name="notification_channel_name">Notifiche AI</string>
     <string name="notification_channel_description">Notifiche inviate dall'assistente AI</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Installa un ambiente Linux in modo che l'IA possa eseguire comandi shell, script e strumenti per tuo conto. Funziona in modo sicuro all'interno dell'app.</string>
     <string name="settings_sandbox_install">Installa</string>
     <string name="settings_sandbox_install_packages">Installa pacchetti di base</string>

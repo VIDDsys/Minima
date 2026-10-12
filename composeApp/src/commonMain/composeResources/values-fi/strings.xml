@@ -203,7 +203,7 @@ Jos jokin vaatii huomiota (vanhentuneet muistot, erääntyneet tehtävät, käyt
     <string name="error_quota_exhausted">Kiintiö loppunut</string>
     <string name="notification_channel_name">Tekoäly-ilmoitukset</string>
     <string name="notification_channel_description">Tekoälyavustajan lähettämät ilmoitukset</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Asenna Linux-ympäristö, jotta tekoäly voi suorittaa komentorivikomentoja, skriptejä ja työkaluja puolestasi. Toimii turvallisesti sovelluksen sisällä.</string>
     <string name="settings_sandbox_install">Asenna</string>
     <string name="settings_sandbox_install_packages">Asenna peruspaketit</string>

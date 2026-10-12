@@ -202,7 +202,7 @@
     <string name="error_quota_exhausted">Kvóta kimerítve</string>
     <string name="notification_channel_name">AI-értesítések</string>
     <string name="notification_channel_description">Az AI-asszisztens által küldött értesítések</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Telepítsen egy Linux környezetet, hogy az AI az Ön nevében futtasson parancsokat, szkripteket és eszközöket. Biztonságosan fut az alkalmazáson belül.</string>
     <string name="settings_sandbox_install">Telepítés</string>
     <string name="settings_sandbox_install_packages">Alapcsomagok telepítése</string>

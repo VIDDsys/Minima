@@ -202,7 +202,7 @@
     <string name="error_quota_exhausted">המכסה נוצלה</string>
     <string name="notification_channel_name">התראות AI</string>
     <string name="notification_channel_description">התראות שנשלחו על ידי עוזר AI</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">התקן סביבת Linux כדי שה-AI יוכל להריץ פקודות מעטפת, סקריפטים וכלים בשמך. פועל בצורה מאובטחת בתוך האפליקציה.</string>
     <string name="settings_sandbox_install">התקנה</string>
     <string name="settings_sandbox_install_packages">התקנת חבילות בסיסיות</string>

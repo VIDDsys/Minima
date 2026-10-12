@@ -54,7 +54,7 @@
     <string name="tool_open_file_name">開啟檔案</string>
     <string name="tool_open_file_description">在您的預設 Android 應用程式中開啟沙盒檔案</string>
     <string name="tool_execute_shell_command_name">執行命令</string>
-    <string name="tool_execute_shell_command_description">在 Linux 沙盒中執行 Shell 指令</string>
+    <string name="tool_execute_shell_command_description">在沙盒中執行 Shell 指令</string>
     <string name="tool_public_storage_name">公共儲存</string>
     <string name="tool_public_storage_description">列出、讀取和寫入手機公共儲存（Download、DCIM、Documents）</string>
     <string name="settings_dynamic_ui">動態介面</string>
@@ -205,17 +205,17 @@
     <string name="error_quota_exhausted">配額已用盡</string>
     <string name="notification_channel_name">AI 通知</string>
     <string name="notification_channel_description">由 AI 助理傳送的通知</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">安裝 Linux 環境，讓 AI 可以代您執行 shell 指令、腳本和工具。在應用程式內安全執行。</string>
     <string name="settings_public_storage_title">所有檔案存取權</string>
-    <string name="settings_public_storage_description">允許 Minima 讀寫公共儲存，並在 Linux 沙箱中掛載為 /sdcard。</string>
+    <string name="settings_public_storage_description">允許 Minima 讀寫公共儲存，並在沙盒中掛載為 /sdcard。</string>
     <string name="settings_public_storage_grant">授予所有檔案存取權</string>
     <string name="settings_public_storage_granted">已開啟所有檔案存取權。</string>
     <string name="settings_public_storage_unavailable">此版本不含所有檔案存取權。請安裝 FOSS 側載版本。</string>
     <string name="settings_sandbox_install">安裝</string>
     <string name="settings_sandbox_install_packages">安裝基本套件</string>
     <string name="settings_sandbox_uninstall">解除安裝</string>
-    <string name="settings_sandbox_uninstall_confirm">Linux 沙盒中的所有資料將會遺失。確定要解除安裝嗎？</string>
+    <string name="settings_sandbox_uninstall_confirm">沙盒中的所有資料將會遺失。確定要解除安裝嗎？</string>
     <string name="settings_sandbox_cancel">取消</string>
     <string name="settings_sandbox_disk_usage">%1$d MB</string>
     <string name="terminal_title">終端機</string>
@@ -336,7 +336,7 @@
     <string name="sandbox_packages_empty_installed">未安裝任何套件</string>
     <string name="sandbox_packages_empty_results">沒有相符的套件</string>
     <string name="sandbox_packages_uninstall_title">解除安裝 %1$s？</string>
-    <string name="sandbox_packages_uninstall_message">此操作將從沙箱中移除該套件。</string>
+    <string name="sandbox_packages_uninstall_message">此操作將從沙盒中移除該套件。</string>
     <string name="sandbox_packages_uninstall_confirm">解除安裝</string>
     <string name="sandbox_packages_install_success">已安裝 %1$s</string>
     <string name="sandbox_packages_install_failed">安裝失敗：%1$s</string>
@@ -365,7 +365,7 @@
     <string name="sandbox_session_chip_temporary">暫時</string>
     <string name="sandbox_packages_upgrade_count">已升級 %1$s 個套件</string>
     <string name="sandbox_packages_up_to_date">所有套件都是最新的</string>
-    <string name="sandbox_content_description">開啟 Linux 沙箱</string>
+    <string name="sandbox_content_description">開啟沙盒</string>
     <string name="sandbox_files_save_success">已儲存</string>
     <string name="sandbox_files_save_failed">儲存失敗</string>
     <string name="sandbox_files_open_failed">無法以外部方式開啟</string>
@@ -460,7 +460,7 @@
     <string name="settings_sandbox_migrate_title">從 %1$s 遷移您的檔案</string>
     <string name="settings_sandbox_migrate_detail">主目錄中還有 %1$d 個檔案 · %2$s 尚未移動到這裡。複製不會刪除任何內容，另一個系統也不受影響，之後您可以將其解除安裝。</string>
     <string name="settings_sandbox_migrate_action">複製檔案</string>
-    <string name="settings_sandbox_uninstall_confirm_shared">Linux 沙盒中的所有資料都會遺失，Minima Build 也會失去它的 Linux——因為兩者共用同一個。您的專案會保留。確定要解除安裝嗎？</string>
+    <string name="settings_sandbox_uninstall_confirm_shared">沙盒中的所有資料都會遺失，Minima Build 也會失去它的 Linux——因為兩者共用同一個。您的專案會保留。確定要解除安裝嗎？</string>
     <string name="sandbox_status_not_installed">未安裝</string>
     <string name="sandbox_status_downloading">正在下載 rootfs…</string>
     <string name="sandbox_status_extracting">正在解壓縮…</string>
@@ -475,10 +475,10 @@
     <string name="sandbox_status_copy_failed">複製失敗：%1$s</string>
     <string name="sandbox_status_install_failed">安裝失敗：%1$s</string>
     <string name="sandbox_status_package_failed">安裝 %1$s 失敗：%2$s</string>
-    <string name="sandbox_status_error">沙箱狀態錯誤：%1$s</string>
+    <string name="sandbox_status_error">沙盒狀態錯誤：%1$s</string>
     <string name="sandbox_status_unknown_error">未知錯誤</string>
     <string name="terminal_command_failed">指令失敗</string>
-    <string name="terminal_sandbox_not_ready">沙箱尚未就緒</string>
+    <string name="terminal_sandbox_not_ready">沙盒尚未就緒</string>
     <string name="chat_edit_submission_content_description">編輯提交內容</string>
     <string name="chat_cancel_edit_content_description">取消編輯</string>
 </resources>

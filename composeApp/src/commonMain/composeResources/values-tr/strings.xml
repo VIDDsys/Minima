@@ -203,7 +203,7 @@ Bir şey dikkat gerektiriyorsa (eski anılar, vadesi geçmiş görevler, kullan�
     <string name="error_quota_exhausted">Kota tükendi</string>
     <string name="notification_channel_name">AI Bildirimleri</string>
     <string name="notification_channel_description">AI asistan tarafından gönderilen bildirimler</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Yapay zekanın sizin adınıza kabuk komutları, betikler ve araçlar çalıştırabilmesi için bir Linux ortamı kurun. Uygulama içinde güvenli şekilde çalışır.</string>
     <string name="settings_sandbox_install">Kur</string>
     <string name="settings_sandbox_install_packages">Temel paketleri kur</string>

@@ -82,7 +82,7 @@ object ShellCommandTool : Tool {
             ?: return mapOf("success" to false, "error" to "Command is required")
 
         if (sandboxManager.state.value !is SandboxState.Ready) {
-            return mapOf("success" to false, "error" to "Linux sandbox is not installed. Set it up in Settings > Tools.")
+            return mapOf("success" to false, "error" to "沙盒尚未安装。请到设置里的「沙盒」页安装。")
         }
 
         val timeoutSeconds = ((args["timeout"] as? Number)?.toLong() ?: 30L)

@@ -202,7 +202,7 @@
     <string name="error_quota_exhausted">Kvota išnaudota</string>
     <string name="notification_channel_name">DI pranešimai</string>
     <string name="notification_channel_description">Pranešimai, siunčiami DI asistento</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Įdiekite Linux aplinką, kad DI galėtų vykdyti apvalkalo komandas, scenarijus ir įrankius jūsų vardu. Veikia saugiai programėlės viduje.</string>
     <string name="settings_sandbox_install">Įdiegti</string>
     <string name="settings_sandbox_install_packages">Įdiegti pagrindinius paketus</string>

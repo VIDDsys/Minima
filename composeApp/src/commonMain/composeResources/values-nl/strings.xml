@@ -203,7 +203,7 @@ Als iets aandacht nodig heeft (verouderde herinneringen, verlopen taken, gebruik
     <string name="error_quota_exhausted">Quotum uitgeput</string>
     <string name="notification_channel_name">AI-meldingen</string>
     <string name="notification_channel_description">Meldingen verzonden door AI-assistent</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Installeer een Linux-omgeving zodat de AI shell-opdrachten, scripts en tools namens jou kan uitvoeren. Draait veilig binnen de app.</string>
     <string name="settings_sandbox_install">Installeren</string>
     <string name="settings_sandbox_install_packages">Basispakketten installeren</string>

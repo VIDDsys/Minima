@@ -202,7 +202,7 @@
     <string name="error_quota_exhausted">Limiit on ammendatud</string>
     <string name="notification_channel_name">AI teavitused</string>
     <string name="notification_channel_description">AI assistendi saadetud teavitused</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Paigalda Linuxi keskkond, et tehisintellekt saaks sinu nimel käivitada käsuridu, skripte ja tööriistu. Töötab turvaliselt rakenduse sees.</string>
     <string name="settings_sandbox_install">Paigalda</string>
     <string name="settings_sandbox_install_packages">Paigalda põhipaketid</string>

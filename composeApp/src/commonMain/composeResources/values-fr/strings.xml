@@ -203,7 +203,7 @@ Si quelque chose nécessite de l'attention (souvenirs obsolètes, tâches échue
     <string name="error_quota_exhausted">Quota épuisé</string>
     <string name="notification_channel_name">Notifications IA</string>
     <string name="notification_channel_description">Notifications envoyées par l'assistant IA</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Installez un environnement Linux pour que l'IA puisse exécuter des commandes shell, des scripts et des outils en votre nom. S'exécute en toute sécurité dans l'application.</string>
     <string name="settings_sandbox_install">Installer</string>
     <string name="settings_sandbox_install_packages">Installer les paquets de base</string>

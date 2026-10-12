@@ -203,7 +203,7 @@
     <string name="error_quota_exhausted">クォータを超過しました</string>
     <string name="notification_channel_name">AI通知</string>
     <string name="notification_channel_description">AIアシスタントから送信された通知</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Linux環境をインストールすると、AIがあなたの代わりにシェルコマンド、スクリプト、ツールを実行できます。アプリ内で安全に動作します。</string>
     <string name="settings_sandbox_install">インストール</string>
     <string name="settings_sandbox_install_packages">基本パッケージをインストール</string>

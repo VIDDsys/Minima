@@ -78,7 +78,7 @@ object SshConfigureHostTool : Tool {
         if (sandboxManager.state.value !is SandboxState.Ready) {
             return mapOf(
                 "success" to false,
-                "error" to "Linux sandbox is not installed. Set it up in Settings > Tools.",
+                "error" to "沙盒尚未安装。请到设置里的「沙盒」页安装。",
             )
         }
         val alias = (args["alias"] as? String)?.trim()?.takeIf { it.isNotEmpty() }

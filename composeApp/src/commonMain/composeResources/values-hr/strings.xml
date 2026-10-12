@@ -202,7 +202,7 @@
     <string name="error_quota_exhausted">Kvota iscrpljena</string>
     <string name="notification_channel_name">AI obavijesti</string>
     <string name="notification_channel_description">Obavijesti koje šalje AI asistent</string>
-    <string name="settings_tab_sandbox">Linux Sandbox</string>
+    <string name="settings_tab_sandbox">沙盒</string>
     <string name="settings_sandbox_description">Instalirajte Linux okruženje kako bi AI mogao pokretati naredbe ljuske, skripte i alate u vaše ime. Radi sigurno unutar aplikacije.</string>
     <string name="settings_sandbox_install">Instaliraj</string>
     <string name="settings_sandbox_install_packages">Instaliraj osnovne pakete</string>
