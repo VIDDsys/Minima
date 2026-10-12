@@ -21,7 +21,7 @@ Kai is built with Kotlin Multiplatform and Compose Multiplatform. It connects to
 - **Skills** — Install reusable instruction bundles in the SKILL.md format (Android)
 - **Autonomous heartbeat & scheduled tasks** — Periodic self-checks plus one-time or recurring tasks the AI schedules
 - **Linux sandbox** — On Android, the AI can run shell commands, scripts and packages in a Debian or Alpine environment
-- **Kai Build** — An Android coding environment with terminals and coding agents (Claude Code, Grok, OpenCode)
+- **Minima Build** — An Android coding environment with terminals and coding agents (Claude Code, Grok, OpenCode)
 - **Encrypted storage** — Conversations are stored locally with encryption
 - **Settings export/import** — Back up and restore all settings as a JSON file
 - **Text to speech** — Listen to AI responses
@@ -143,7 +143,7 @@ Plus a built-in **Free** tier that requires no API key.
 - **[System Prompts](features/system-prompts.md)** — How each prompt variant is composed
 - **[Skills](features/skills.md)** — Installable SKILL.md instruction bundles
 - **[Linux Sandbox](features/sandbox.md)** — On-device Debian/Alpine shell for the AI and the user (Android)
-- **[Kai Build](features/kai-build.md)** — Coding environment with terminals and coding agents (Android)
+- **[Minima Build](features/kai-build.md)** — Coding environment with terminals and coding agents (Android)
 - **[Notifications](features/notifications.md)** — Reading other apps' notifications (Android, FOSS build)
 - **[SMS](features/sms.md)** — Reading SMS and drafting replies for the user to send (Android, FOSS build)
 - **[Appearance](features/appearance.md)** — Theme picker

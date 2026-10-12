@@ -1,8 +1,8 @@
-# Kai Build
+# Minima Build
 
 **Last verified:** 2026-10-12
 
-Kai Build is an **Android-only** coding environment inside the Kai app. It is a separate *surface* from chat — no shared conversation store, no sandbox tools, no provider/settings coupling — but it is not necessarily a separate *Linux*: when the chat sandbox also runs Debian, both work in the same install.
+Minima Build is an **Android-only** coding environment inside Minima. It is a separate *surface* from chat — no shared conversation store, no sandbox tools, no provider/settings coupling — but it is not necessarily a separate *Linux*: when the chat sandbox also runs Debian, both work in the same install.
 
 It is a **single screen with three states** — set up Linux, pick a project, work in that project's terminal.
 
@@ -10,18 +10,18 @@ It is a **single screen with three states** — set up Linux, pick a project, wo
 
 ### Separate product surface
 
-The empty chat state does not offer Kai Build. "Start Interactive UI" stays. The Kai Build screen still takes over the whole window the same way Interactive UI mode does when something opens it: no navigation destination, no second launcher icon, and no place in the back stack. A close button in its top bar and the system back gesture both return to the chat, leaving any drafted message intact. Inside a project, the same top-bar button and system back step back to the project list instead. The mode is not persisted across app restarts; it survives rotation only.
+The empty chat state does not offer Minima Build. "Start Interactive UI" stays. The Minima Build screen still takes over the whole window the same way Interactive UI mode does when something opens it: no navigation destination, no second launcher icon, and no place in the back stack. A close button in its top bar and the system back gesture both return to the chat, leaving any drafted message intact. Inside a project, the same top-bar button and system back step back to the project list instead. The mode is not persisted across app restarts; it survives rotation only.
 
 ### Which Linux it runs in
 
-Kai Build is always Debian: its coding agents are vendor scripts that expect glibc and apt.
+Minima Build is always Debian: its coding agents are vendor scripts that expect glibc and apt.
 
-Debian has exactly one install on the device, normally under app-private `kai-build/`. Kai Build works in it unconditionally, and never moves. What varies is whether the chat [Linux sandbox](sandbox.md) is pointed at the same install:
+Debian has exactly one install on the device, normally under app-private `kai-build/`. Minima Build works in it unconditionally, and never moves. What varies is whether the chat [Linux sandbox](sandbox.md) is pointed at the same install:
 
-- **Shell integration is Debian** (the default) — both use the *same* install. Whichever surface installs it first, the other finds it already there: set Linux up in Settings and Kai Build opens straight on the project list; install from Kai Build's setup screen and the sandbox reports itself ready. Uninstalling from either removes it for both, and both dialogs say so.
+- **Shell integration is Debian** (the default) — both use the *same* install. Whichever surface installs it first, the other finds it already there: set Linux up in Settings and Minima Build opens straight on the project list; install from Minima Build's setup screen and the sandbox reports itself ready. Uninstalling from either removes it for both, and both dialogs say so.
 - **Shell integration is Alpine** — that runs in a separate Alpine under app-private `linux-sandbox/`, and the two coexist.
 
-The chat sandbox can be switched between the two at any time from Settings, and neither install is touched when it happens — so a Kai Build project terminal is never disturbed by that choice. The sandbox can also copy a home directory across when switching, but never the coding agents: their binaries are built for one distribution's libc, and Kai Build installs them per environment. (A Debian installed by an earlier build that put it under `linux-sandbox/` is found and used where it is, rather than downloaded again.)
+The chat sandbox can be switched between the two at any time from Settings, and neither install is touched when it happens — so a Minima Build project terminal is never disturbed by that choice. The sandbox can also copy a home directory across when switching, but never the coding agents: their binaries are built for one distribution's libc, and Minima Build installs them per environment. (A Debian installed by an earlier build that put it under `linux-sandbox/` is found and used where it is, rather than downloaded again.)
 
 Either way `/root` (agent binaries and config) is on the rootfs, and an external-files folder is bind-mounted only to `/root/projects`, so project code stays USB/MTP reachable without putting executables on storage that Android often mounts noexec. That projects folder is the same one in every arrangement, so projects are unaffected by the sandbox's distribution.
 
@@ -33,15 +33,15 @@ Progress replaces the install button (download percent, extract, configure, base
 
 LXC images ship `etc/resolv.conf` as a symlink into systemd-resolved under `/run`, which does not exist under proot. Install replaces that link with a plain file pointing at public DNS (`8.8.8.8` / `8.8.4.4`) so apt and HTTPS work.
 
-Debian’s package manager relies on hardlinks when unpacking packages. On Android those often fail inside the app sandbox, so Kai Build starts proot with hardlink-to-symlink emulation (and the companion lstat fix) before any apt work. Without that, the base-packages step fails with a dpkg subprocess error even though `apt-get update` succeeded.
+Debian’s package manager relies on hardlinks when unpacking packages. On Android those often fail inside the app sandbox, so Minima Build starts proot with hardlink-to-symlink emulation (and the companion lstat fix) before any apt work. Without that, the base-packages step fails with a dpkg subprocess error even though `apt-get update` succeeded.
 
 Kai also tells apt to keep running as (proot's fake) root instead of dropping to its `_apt` user for downloads. Work profiles, Dual Space, Private Space and system clones block that user switch, which otherwise makes `apt-get update` fail and every package look missing. The setting lives in the rootfs, so apt run from the Terminal or by an agent picks it up too.
 
 ### Coding agents
 
-Three agents are offered — **Claude Code**, **Grok**, and **OpenCode** — each installed with its vendor script, which is why curl, certificates, tar, and coreutils ship with the base system. Installers write under `/root` on the rootfs (executable); only project folders live on the external bind. Vendor scripts put their binaries in different home folders (`~/.local/bin` for Claude, `~/.grok/bin` for Grok, `~/.opencode/bin` for OpenCode). Proot injects all three into `PATH` for install and detection. Login shells (every project terminal) rebuild `PATH` from system profile files and would otherwise drop those dirs — and vendor installers often skip writing shell-rc `PATH` lines when their bin dir is already present during install. Kai Build therefore writes a small system profile snippet that keeps every agent bin dir on `PATH` for login shells, links found binaries into `~/.local/bin`, and starts an agent session via the resolved absolute path so opening Claude or OpenCode does not depend on whichever installer rewrote `.bashrc`. An agent counts as installed only when its binary is actually reachable afterwards, regardless of what the installer's exit code claimed; agent state is probed from the live environment rather than remembered in a file.
+Three agents are offered — **Claude Code**, **Grok**, and **OpenCode** — each installed with its vendor script, which is why curl, certificates, tar, and coreutils ship with the base system. Installers write under `/root` on the rootfs (executable); only project folders live on the external bind. Vendor scripts put their binaries in different home folders (`~/.local/bin` for Claude, `~/.grok/bin` for Grok, `~/.opencode/bin` for OpenCode). Proot injects all three into `PATH` for install and detection. Login shells (every project terminal) rebuild `PATH` from system profile files and would otherwise drop those dirs — and vendor installers often skip writing shell-rc `PATH` lines when their bin dir is already present during install. Minima Build therefore writes a small system profile snippet that keeps every agent bin dir on `PATH` for login shells, links found binaries into `~/.local/bin`, and starts an agent session via the resolved absolute path so opening Claude or OpenCode does not depend on whichever installer rewrote `.bashrc`. An agent counts as installed only when its binary is actually reachable afterwards, regardless of what the installer's exit code claimed; agent state is probed from the live environment rather than remembered in a file.
 
-Vendor install pages often show both a Unix `curl | bash` line and a Windows PowerShell line. Only the Unix line is valid inside Kai Build — pasting both into the terminal will run the PowerShell tokens as shell commands and print `irm`/`iex: not found` after the real installer finishes.
+Vendor install pages often show both a Unix `curl | bash` line and a Windows PowerShell line. Only the Unix line is valid inside Minima Build — pasting both into the terminal will run the PowerShell tokens as shell commands and print `irm`/`iex: not found` after the real installer finishes.
 
 Agents can be added after setup from the Debian system card on the project list, which shows the install progress on the setup surface and returns to the projects when it finishes.
 
@@ -59,7 +59,7 @@ Above the list, an optional **Open with** row picks what a *fresh* project opens
 
 A **Debian system** card below the list is the home for everything about the Linux install rather than the projects: which Debian it is and for which architecture, how many packages are in it, how much space the system and the project folders take, how much room is left on the device, chips to install the remaining agents, and the uninstall action. The facts are read straight off the rootfs, so the card is current every time the list is shown.
 
-Opening Kai Build answers "is Linux installed?" from a marker file and shows the project list straight away. Everything that costs real work — probing each agent by running it, and measuring how much disk the system and projects take — happens right after and fills the card in a moment later, so an installed system never shows the setup screen while it is being checked.
+Opening Minima Build answers "is Linux installed?" from a marker file and shows the project list straight away. Everything that costs real work — probing each agent by running it, and measuring how much disk the system and projects take — happens right after and fills the card in a moment later, so an installed system never shows the setup screen while it is being checked.
 
 ### Terminal sessions
 
@@ -75,7 +75,7 @@ An **agent session** runs that agent's CLI first and drops to an ordinary shell 
 
 ### Project files
 
-Next to the session tabs — pinned, so it is always there — sits **Files**: the same file browser the chat sandbox uses, pointed at Kai Build's Debian instead. It opens on the project's own folder, and navigates the same way it does in chat: the breadcrumbs run all the way up to the filesystem root, so an agent's config under the home folder, `/etc`, or anything else in Debian is a crumb away rather than shell-only. Where it starts is the only difference between the two.
+Next to the session tabs — pinned, so it is always there — sits **Files**: the same file browser the chat sandbox uses, pointed at Minima Build's Debian instead. It opens on the project's own folder, and navigates the same way it does in chat: the breadcrumbs run all the way up to the filesystem root, so an agent's config under the home folder, `/etc`, or anything else in Debian is a crumb away rather than shell-only. Where it starts is the only difference between the two.
 
 It does everything it does in chat: open a file in the built-in editor and save it back — including the extension-less and unfamiliar-extension files a project is full of, since what counts as text is decided from the bytes rather than the name — hand a file to another app on the device, import a file from device storage into the directory on screen, rename, delete, and re-list itself silently whenever the tab becomes visible, so files an agent just wrote show up without a manual refresh. Files are read and written directly rather than through a shell, so none of it depends on a session running.
 
@@ -124,7 +124,7 @@ The PTY hands Kai a block of output as often as the program produces one — und
 - **Android only** — the entry button is hidden on iOS, desktop, and web, and the environment itself is a no-op there.
 - **Network required** — the rootfs download and every agent installer need HTTPS outbound access.
 - **Disk** — expect ~150 MB for the base system, more per agent; the project list reports the real figure once Debian is installed.
-- **Shared or separate** — Kai Build shares its rootfs with the chat sandbox when that sandbox is Debian, and has its own when it is Alpine. Project folders are the same either way.
+- **Shared or separate** — Minima Build shares its rootfs with the chat sandbox when that sandbox is Debian, and has its own when it is Alpine. Project folders are the same either way.
 - **Projects survive uninstall** — removing Linux deletes the Debian system, not the user's project folders. When the system is shared, removing it from either surface removes it for both. Deleting a project is the other way round: it takes that folder only, and leaves the system alone.
 - **Files are ordinary files** — project folders live in app external storage, so the browser reads and writes them directly, and a file handed to another app opens as itself.
 
@@ -158,7 +158,7 @@ The PTY hands Kai a block of output as often as the program produces one — und
 | `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/build/terminal/TerminalKeys.kt` | Key set, modifier latches, and the xterm key-to-bytes encoder. |
 | `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/build/terminal/TerminalMouse.kt` | Which mouse events an app asked for, and the touch-to-report encoder. |
 | `composeApp/src/androidMain/kotlin/com/inspiredandroid/kai/KaiBuildController.android.kt` | Android implementation. Resolves Debian's one install directory and wires the two-way notifications with the chat sandbox, checked at fire time because the sandbox can be pointed at that install and away from it while the app runs. |
-| `composeApp/src/androidMain/kotlin/com/inspiredandroid/kai/linux/LinuxInstalls.kt` | Which install directory a distribution lives in. Both surfaces resolve against it, which is what makes "Kai Build's Debian" and "a Debian shell integration" the same rootfs. |
+| `composeApp/src/androidMain/kotlin/com/inspiredandroid/kai/linux/LinuxInstalls.kt` | Which install directory a distribution lives in. Both surfaces resolve against it, which is what makes "Minima Build's Debian" and "a Debian shell integration" the same rootfs. |
 | `composeApp/src/androidMain/kotlin/com/inspiredandroid/kai/build/runtime/BuildEnvironmentManager.kt` | Agent installs, agent detection, projects, system facts, and the live sessions. Delegates the rootfs itself to the shared installer, and reports install/uninstall back so a shared sandbox notices. |
 | `composeApp/src/androidMain/kotlin/com/inspiredandroid/kai/linux/LinuxInstaller.kt` | Shared download → extract → configure → base packages, used by both surfaces. |
 | `composeApp/src/androidMain/kotlin/com/inspiredandroid/kai/linux/DistroSpec.kt` | `DebianSpec`: LXC index resolve, architecture names, dpkg fixes, the apt setting that keeps it root, and the `--link2symlink`/`-L` flags apt needs on Android. |
@@ -167,7 +167,7 @@ The PTY hands Kai a block of output as often as the program produces one — und
 | `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/build/BuildSessionBar.kt` | Back, session tabs, and the new-session menu. |
 | `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/build/BuildProjectsContent.kt` | Project list, launch-agent row, Debian system card, and the new-project, rename and delete dialogs. |
 | `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/FileBrowserSource.kt` | The browsable-tree contract shared with the chat sandbox's file browser. |
-| `composeApp/src/androidMain/kotlin/com/inspiredandroid/kai/build/runtime/BuildFileBrowser.kt` | Kai Build's side of it: listing, read/write, rename, delete, open-with, over the shared `GuestFileMap`. |
+| `composeApp/src/androidMain/kotlin/com/inspiredandroid/kai/build/runtime/BuildFileBrowser.kt` | Minima Build's side of it: listing, read/write, rename, delete, open-with, over the shared `GuestFileMap`. |
 | `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/sandbox/SandboxFileBrowserScreen.kt` | The reused browser UI, rooted at the open project here. |
 | `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/build/TerminalKeyRow.kt` | The Ctrl/Alt/Shift/Esc/Tab/arrow/Enter row and its latch behavior. |
 | `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/build/TerminalKeyIcons.kt` | The arrow and Enter glyphs the key row draws. |
@@ -175,4 +175,4 @@ The PTY hands Kai a block of output as often as the program produces one — und
 | `composeApp/src/androidMain/kotlin/com/inspiredandroid/kai/build/TerminalInputView.kt` | The Android IME plumbing: null input type, key events, committed text. |
 | `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/build/KaiBuildScreen.kt` | Screen shell and the setup / projects / terminal routing. |
 | `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/build/KaiBuildViewModel.kt` | Screen state, and the remembered "Open with" agent — read back at startup and checked against what is installed. |
-| `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/chat/composables/EmptyState.kt` | Home empty chat. Shows the Minima icon and "Start Interactive UI". Does not open Kai Build. |
+| `composeApp/src/commonMain/kotlin/com/inspiredandroid/kai/ui/chat/composables/EmptyState.kt` | Home empty chat. Shows the Minima icon and "Start Interactive UI". Does not open Minima Build. |

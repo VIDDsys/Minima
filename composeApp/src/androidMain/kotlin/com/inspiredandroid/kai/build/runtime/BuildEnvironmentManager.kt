@@ -748,7 +748,7 @@ class BuildEnvironmentManager(
         dir.mkdirs()
         File(dir, "kai-build-path.sh").writeText(
             """
-            |# Managed by Kai Build — keep coding-agent CLIs on PATH for login shells.
+            |# Managed by Minima Build — keep coding-agent CLIs on PATH for login shells.
             |export PATH="/root/.local/bin:/root/.grok/bin:/root/.opencode/bin${'$'}{PATH:+:${'$'}PATH}"
             |
             """.trimMargin(),
@@ -781,7 +781,7 @@ class BuildEnvironmentManager(
         script.writeText(
             """
             |#!/bin/sh
-            |# Kai Build: capture browser-open URLs for the in-app link bar.
+            |# Minima Build: capture browser-open URLs for the in-app link bar.
             |url="${'$'}1"
             |target="${'$'}{KAI_OPEN_URL_FILE:-/tmp/kai-open-url}"
             |if [ -n "${'$'}url" ]; then

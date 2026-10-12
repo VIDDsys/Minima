@@ -85,7 +85,6 @@ class ChatViewModel(
     private val _state = MutableStateFlow(
         ChatUiState(
             actions = actions,
-            showPrivacyInfo = dataRepository.isUsingSharedKey(),
         ),
     )
 
@@ -436,7 +435,7 @@ class ChatViewModel(
         } else {
             null
         }
-        _state.update { it.copy(availableServices = entries, warning = warning, showPrivacyInfo = dataRepository.isUsingSharedKey()) }
+        _state.update { it.copy(availableServices = entries, warning = warning) }
     }
 
     companion object {

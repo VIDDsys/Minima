@@ -235,7 +235,6 @@ class FakeDataRepository : DataRepository {
 
     override fun currentService(): Service = currentService
 
-    override fun isUsingSharedKey(): Boolean = currentService == Service.Free
     override fun supportedFileExtensions(): List<String> = if (fileAttachmentSupported) listOf("txt", "pdf", "png") else emptyList()
 
     var fileAttachmentSupported = true

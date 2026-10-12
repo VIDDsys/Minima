@@ -115,7 +115,6 @@ class SettingsViewModel(
         notificationListenerAccessGranted = dataRepository.isNotificationListenerAccessGranted(),
         notificationListenerBound = dataRepository.getNotificationSyncState().listenerBound,
         notificationPendingCount = dataRepository.getPendingNotificationCount(),
-        isFreeFallbackEnabled = dataRepository.isFreeFallbackEnabled(),
         uiScale = dataRepository.getUiScale(),
         showUiScale = currentPlatform is Platform.Desktop,
         mcpServers = buildMcpServerEntries().toImmutableList(),
@@ -173,7 +172,6 @@ class SettingsViewModel(
         onOpenAppPermissionSettings = ::onOpenAppPermissionSettings,
         onRecheckLocalNetworkPermission = ::onRecheckLocalNetworkPermission,
         onClearPendingNotifications = ::onClearPendingNotifications,
-        onToggleFreeFallback = ::onToggleFreeFallback,
         onChangeUiScale = ::onChangeUiScale,
         onAddMcpServer = ::onAddMcpServer,
         onRemoveMcpServer = ::onRemoveMcpServer,
@@ -689,11 +687,6 @@ class SettingsViewModel(
             dataRepository.clearPendingNotifications()
             _state.update { it.copy(notificationPendingCount = 0) }
         }
-    }
-
-    private fun onToggleFreeFallback(enabled: Boolean) {
-        dataRepository.setFreeFallbackEnabled(enabled)
-        _state.update { it.copy(isFreeFallbackEnabled = enabled) }
     }
 
     private fun onDownloadLocalModel(model: LocalModel) {
