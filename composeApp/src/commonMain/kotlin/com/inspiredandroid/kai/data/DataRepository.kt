@@ -9,8 +9,6 @@ import com.inspiredandroid.kai.inference.ModelImportResult
 import com.inspiredandroid.kai.linux.LinuxDistro
 import com.inspiredandroid.kai.mcp.McpServerConfig
 import com.inspiredandroid.kai.network.tools.ToolInfo
-import com.inspiredandroid.kai.skills.RegistrySkillEntry
-import com.inspiredandroid.kai.skills.SkillManifest
 import com.inspiredandroid.kai.ui.chat.History
 import com.inspiredandroid.kai.ui.settings.SettingsModel
 import io.github.vinceglb.filekit.PlatformFile
@@ -52,7 +50,6 @@ interface DataRepository {
         question: String?,
         files: List<PlatformFile>,
         uiSubmission: UiSubmission? = null,
-        activeSkillId: String? = null,
     )
     fun clearHistory()
     fun currentService(): Service
@@ -82,13 +79,6 @@ interface DataRepository {
     fun getMcpToolsForServer(serverId: String): List<ToolInfo>
     fun isMcpServerConnected(serverId: String): Boolean
     suspend fun connectEnabledMcpServers()
-
-    // Skills (stored in the Linux sandbox at ~/skills/<id>/; Android-only)
-    fun getInstalledSkills(): List<SkillManifest>
-    suspend fun uninstallSkill(id: String)
-    suspend fun browseSkillMarketplaces(): Result<List<RegistrySkillEntry>>
-    suspend fun installBrowsedSkill(entry: RegistrySkillEntry): Result<SkillManifest>
-    suspend fun installGitHubSkill(owner: String, repo: String, ref: String, path: String): Result<SkillManifest>
 
     // Soul (system prompt)
     fun getSoulText(): String

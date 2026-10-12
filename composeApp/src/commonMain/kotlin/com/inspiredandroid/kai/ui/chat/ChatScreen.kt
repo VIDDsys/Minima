@@ -277,7 +277,6 @@ private fun InteractiveModeScreen(
                         cancel = uiState.actions.cancel,
                         availableServices = interactiveServices,
                         onSelectService = uiState.actions.selectService,
-                        installedSkills = uiState.installedSkills,
                     )
                 }
             }
@@ -937,7 +936,6 @@ private fun ChatModeScreen(
                     cancel = uiState.actions.cancel,
                     availableServices = uiState.availableServices,
                     onSelectService = uiState.actions.selectService,
-                    installedSkills = uiState.installedSkills,
                 )
             }
         }

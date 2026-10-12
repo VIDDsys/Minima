@@ -28,14 +28,10 @@ import com.inspiredandroid.kai.network.OpenAICompatibleConnectionException
 import com.inspiredandroid.kai.network.OpenAICompatibleInvalidApiKeyException
 import com.inspiredandroid.kai.network.OpenAICompatibleQuotaExhaustedException
 import com.inspiredandroid.kai.network.OpenAICompatibleRateLimitExceededException
-import com.inspiredandroid.kai.skills.parseGitHubSkillUrl
 import com.inspiredandroid.kai.tools.AppPermission
 import com.inspiredandroid.kai.tools.PermissionController
 import com.inspiredandroid.kai.tools.isLocalNetworkUrl
 import io.github.vinceglb.filekit.PlatformFile
-import kai.composeapp.generated.resources.Res
-import kai.composeapp.generated.resources.error_unknown
-import kai.composeapp.generated.resources.error_unrecognized_github_repo
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.collections.immutable.toImmutableMap
@@ -50,7 +46,6 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import org.jetbrains.compose.resources.getString
 import kotlin.coroutines.CoroutineContext
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
@@ -118,7 +113,6 @@ class SettingsViewModel(
         uiScale = dataRepository.getUiScale(),
         showUiScale = currentPlatform is Platform.Desktop,
         mcpServers = buildMcpServerEntries().toImmutableList(),
-        skills = dataRepository.getInstalledSkills().toImmutableList(),
         localAvailableModels = dataRepository.getLocalAvailableModels().toImmutableList(),
         localImportedModels = dataRepository.getLocalImportedModels().toImmutableList(),
         totalDeviceMemoryBytes = dataRepository.getTotalDeviceMemoryBytes(),
@@ -179,10 +173,6 @@ class SettingsViewModel(
         onRefreshMcpServer = ::onRefreshMcpServer,
         onShowAddMcpServerDialog = ::onShowAddMcpServerDialog,
         onAddPopularMcpServer = ::onAddPopularMcpServer,
-        onUninstallSkill = ::onUninstallSkill,
-        onShowAddSkillDialog = ::onShowAddSkillDialog,
-        onInstallGitHubSkill = ::onInstallGitHubSkill,
-        onInstallBrowsedSkill = ::onInstallBrowsedSkill,
         onDownloadLocalModel = ::onDownloadLocalModel,
         onCancelLocalModelDownload = ::onCancelLocalModelDownload,
         onImportLocalModel = ::onImportLocalModel,
@@ -872,86 +862,6 @@ class SettingsViewModel(
         onAddMcpServer(server.name, server.url, server.headers)
     }
 
-    // Skills ---------------------------------------------------------------
-
-    private fun refreshSkills() {
-        _state.update { it.copy(skills = dataRepository.getInstalledSkills().toImmutableList()) }
-    }
-
-    private fun onUninstallSkill(id: String) {
-        commitPendingDeletion()
-        _state.update { it.copy(pendingDeletion = PendingDeletion.Skill(id)) }
-        pendingDeleteJob = viewModelScope.launch(backgroundDispatcher) {
-            delay(4.seconds)
-            executeDeletion(PendingDeletion.Skill(id))
-        }
-    }
-
-    private fun onShowAddSkillDialog(show: Boolean) {
-        _state.update {
-            it.copy(
-                showAddSkillDialog = show,
-                skillInstallError = null,
-                // Lazily fetch the marketplaces the first time the dialog opens.
-                browseSkillsFailed = if (show) it.browseSkillsFailed else false,
-            )
-        }
-        if (show && _state.value.browsableSkills.isEmpty() && !_state.value.isBrowsingSkills) {
-            browseSkillMarketplaces()
-        }
-    }
-
-    private fun browseSkillMarketplaces() {
-        _state.update { it.copy(isBrowsingSkills = true, browseSkillsFailed = false) }
-        viewModelScope.launch(backgroundDispatcher) {
-            val result = dataRepository.browseSkillMarketplaces()
-            _state.update { state ->
-                state.copy(
-                    isBrowsingSkills = false,
-                    browsableSkills = result.getOrNull().orEmpty().toImmutableList(),
-                    browseSkillsFailed = result.isFailure,
-                )
-            }
-        }
-    }
-
-    private fun onInstallGitHubSkill(input: String) {
-        val source = parseGitHubSkillUrl(input)
-        if (source == null) {
-            viewModelScope.launch(backgroundDispatcher) {
-                _state.update { it.copy(skillInstallError = getString(Res.string.error_unrecognized_github_repo)) }
-            }
-            return
-        }
-        runSkillInstall { dataRepository.installGitHubSkill(source.owner, source.repo, source.ref, source.path) }
-    }
-
-    private fun onInstallBrowsedSkill(entry: com.inspiredandroid.kai.skills.RegistrySkillEntry) {
-        runSkillInstall { dataRepository.installBrowsedSkill(entry) }
-    }
-
-    private inline fun runSkillInstall(crossinline install: suspend () -> Result<com.inspiredandroid.kai.skills.SkillManifest>) {
-        _state.update { it.copy(isInstallingSkill = true, skillInstallError = null) }
-        viewModelScope.launch(backgroundDispatcher) {
-            val result = install()
-            result.fold(
-                onSuccess = {
-                    refreshSkills()
-                    _state.update { it.copy(isInstallingSkill = false, showAddSkillDialog = false) }
-                },
-                onFailure = { error ->
-                    val message = error.message ?: getString(Res.string.error_unknown)
-                    _state.update {
-                        it.copy(
-                            isInstallingSkill = false,
-                            skillInstallError = message,
-                        )
-                    }
-                },
-            )
-        }
-    }
-
     private suspend fun connectMcpServerWithStatus(serverId: String) {
         updateMcpConnectionStatus(serverId, McpConnectionStatus.Connecting)
         val result = dataRepository.connectMcpServer(serverId)
@@ -1036,11 +946,6 @@ class SettingsViewModel(
             is PendingDeletion.McpServer -> {
                 dataRepository.removeMcpServer(deletion.serverId)
                 refreshMcpServers()
-            }
-
-            is PendingDeletion.Skill -> {
-                dataRepository.uninstallSkill(deletion.id)
-                refreshSkills()
             }
         }
         // Guard against a stale async deletion clobbering a newer pending one from a rapid second Remove click.

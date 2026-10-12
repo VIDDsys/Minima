@@ -56,7 +56,7 @@ object PublicStorageTool : Tool {
         name = ID,
         description = """Read and write external phone storage (Download, DCIM, Documents) using Android file APIs. The file manager can see these files.
 
-This is not the Linux sandbox. Do not use this tool for /root or ~/skills. Those are private app files, reached with execute_shell_command when that tool is available. Marketplace scripts that must run stay in ~/skills.
+This is not the Linux sandbox. Do not use this tool for /root. That is private app storage, reached with execute_shell_command when that tool is available.
 
 When the sandbox is installed and All files access is granted, the shell sees this same folder at $PUBLIC_STORAGE_GUEST_SDCARD and $PUBLIC_STORAGE_GUEST_EMULATED. Do not copy a file into /root.
 

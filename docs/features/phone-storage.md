@@ -1,4 +1,4 @@
-# Phone storage and skills
+# Phone storage
 
 **Last verified:** 2026-10-12
 
@@ -24,7 +24,7 @@ A shell that was already running picks up a grant or a revoke on its next comman
 
 ## What stays on `/root`
 
-`/root` is internal app storage. Packages, executables, SSH keys, and skills (`~/skills/<id>/`) stay there. Shared storage is not where those skills are installed.
+`/root` is internal app storage. Packages, executables, and SSH keys stay there.
 
 `execute_shell_command` is advertised only when the sandbox toggle is on and the install is Ready. Granting All files access does not install the sandbox, so a turn can include `public_storage` and not the shell until the package is installed.
 
@@ -36,5 +36,3 @@ A shell that was already running picks up a grant or a revoke on its next comman
 | `composeApp/src/androidMain/.../tools/PublicStorageTool.kt` | Native door onto shared storage |
 | `composeApp/src/androidMain/.../tools/ShellCommandTool.kt` | Shell door; `/root` vs `/sdcard` |
 | `composeApp/src/androidMain/.../sandbox/LinuxSandboxManager.kt` | Bind-mounts shared storage at `/sdcard` and `/storage/emulated/0` |
-| `composeApp/src/commonMain/.../skills/SkillManager.kt` | Sandbox skills at `~/skills/` |
-| `composeApp/src/commonMain/composeResources/files/skills/create-skill/SKILL.md` | Writes a new skill under `/root/skills/<id>/` |

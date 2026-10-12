@@ -67,7 +67,6 @@ class ChatSystemPromptBuilderTest {
         heartbeatAdditions: List<ScheduledTask> = emptyList(),
         emailAccounts: List<EmailAccountSummary> = emptyList(),
         uiMode: ChatPromptUiMode = ChatPromptUiMode.NONE,
-        activeSkill: com.inspiredandroid.kai.skills.SkillManifest? = null,
         publicStorage: Boolean = false,
         sandboxShell: Boolean = false,
     ) = buildChatSystemPrompt(
@@ -86,42 +85,9 @@ class ChatSystemPromptBuilderTest {
         emailAccounts = emailAccounts,
         runtime = runtime,
         uiMode = uiMode,
-        activeSkill = activeSkill,
         publicStorage = publicStorage,
         sandboxShell = sandboxShell,
     )
-
-    private fun skill(
-        id: String = "pdf-tools",
-        body: String = "Extract text from PDFs.",
-        bundledFilePaths: List<String> = emptyList(),
-    ) = com.inspiredandroid.kai.skills.SkillManifest(
-        id = id,
-        displayName = id,
-        description = "desc",
-        body = body,
-        bundledFilePaths = bundledFilePaths,
-    )
-
-    @Test
-    fun `active skill section is absent by default and present when activated`() {
-        val without = build(SystemPromptVariant.CHAT_REMOTE)
-        assertTrue("## Active skill" !in without)
-
-        val with = build(SystemPromptVariant.CHAT_REMOTE, activeSkill = skill(body = "Extract text from PDFs."))
-        assertTrue("## Active skill: pdf-tools" in with)
-        assertTrue("Extract text from PDFs." in with)
-    }
-
-    @Test
-    fun `active skill section lists bundled files with sandbox path`() {
-        val out = build(
-            SystemPromptVariant.CHAT_REMOTE,
-            activeSkill = skill(bundledFilePaths = listOf("extract.py")),
-        )
-        assertTrue("~/skills/pdf-tools/" in out)
-        assertTrue("- extract.py" in out)
-    }
 
     // region CHAT_REMOTE — focused tests
 

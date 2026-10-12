@@ -51,9 +51,6 @@ import com.inspiredandroid.kai.network.dtos.openairesponses.OpenAIResponsesRespo
 import com.inspiredandroid.kai.network.toUiError
 import com.inspiredandroid.kai.network.tools.Tool
 import com.inspiredandroid.kai.network.tools.ToolInfo
-import com.inspiredandroid.kai.skills.RegistrySkillEntry
-import com.inspiredandroid.kai.skills.SkillManager
-import com.inspiredandroid.kai.skills.SkillManifest
 import com.inspiredandroid.kai.sms.SmsPoller
 import com.inspiredandroid.kai.sms.SmsReader
 import com.inspiredandroid.kai.sms.SmsSendResult
@@ -196,7 +193,6 @@ class RemoteDataRepository(
     private val notificationStore: NotificationStore,
     private val notificationListenerController: NotificationListenerController,
     private val mcpServerManager: McpServerManager,
-    private val skillManager: SkillManager,
     private val sandboxController: SandboxController,
     private val localInferenceEngine: LocalInferenceEngine? = null,
 ) : DataRepository {
@@ -841,32 +837,9 @@ class RemoteDataRepository(
         return ordered.filterIndexed { index, entry -> index == 0 || !entry.service.isOnDevice }
     }
 
-    override suspend fun ask(question: String?, files: List<PlatformFile>, uiSubmission: UiSubmission?, activeSkillId: String?) {
-        // The active skill (if any) is consumed for this single turn only — stored in a
-        // field rather than a parameter on getActiveSystemPrompt so the existing internal
-        // callers (heartbeat, askWithTools, etc.) don't all need a new parameter.
-        // Skill files already live on disk under sandbox ~/skills.
-        // Reload so a folder added since the last turn is visible now.
-        skillManager.load()
-        val resolvedSkillId = activeSkillId?.takeIf { skillManager.getSkill(it) != null }
-        pendingActiveSkillId = resolvedSkillId
-        try {
-            askInternal(question, files, uiSubmission)
-        } finally {
-            pendingActiveSkillId = null
-            // The create-skill flow writes a new /root/skills/<id>/SKILL.md via
-            // execute_shell_command; rescan so it shows up in the slash menu and Settings
-            // without a restart. Cheap (one listDirectory) and only runs on those turns.
-            if (resolvedSkillId == createSkillId) {
-                skillManager.load()
-            }
-        }
+    override suspend fun ask(question: String?, files: List<PlatformFile>, uiSubmission: UiSubmission?) {
+        askInternal(question, files, uiSubmission)
     }
-
-    private var pendingActiveSkillId: String? = null
-
-    /** Built-in skill id; matches the bundled SKILL.md under composeResources. */
-    private val createSkillId = "create-skill"
 
     private suspend fun askInternal(question: String?, files: List<PlatformFile>, uiSubmission: UiSubmission?) {
         // Allocate a conversation id immediately for fresh chats. Without this,
@@ -1793,19 +1766,6 @@ class RemoteDataRepository(
         mcpServerManager.connectEnabledServers()
     }
 
-    // Skills
-    override fun getInstalledSkills(): List<SkillManifest> = skillManager.getInstalled()
-
-    override suspend fun uninstallSkill(id: String) {
-        skillManager.uninstall(id)
-    }
-
-    override suspend fun browseSkillMarketplaces(): Result<List<RegistrySkillEntry>> = skillManager.browseMarketplaces()
-
-    override suspend fun installBrowsedSkill(entry: RegistrySkillEntry): Result<SkillManifest> = skillManager.installFromRegistryEntry(entry)
-
-    override suspend fun installGitHubSkill(owner: String, repo: String, ref: String, path: String): Result<SkillManifest> = skillManager.installFromGitHub(owner, repo, ref, path)
-
     // Soul (system prompt)
     override fun getSoulText(): String = appSettings.getSoulText()
 
@@ -1897,8 +1857,6 @@ class RemoteDataRepository(
         val offersPublicStorage = toolsForPrompt.any { it.schema.name == "public_storage" }
         val offersSandboxShell = toolsForPrompt.any { it.schema.name == "execute_shell_command" }
 
-        val activeSkill = pendingActiveSkillId?.let { skillManager.getSkill(it) }
-
         return buildChatSystemPrompt(
             variant = variant,
             soul = soul,
@@ -1915,7 +1873,6 @@ class RemoteDataRepository(
             emailAccounts = emailAccounts,
             runtime = runtime,
             uiMode = uiMode,
-            activeSkill = activeSkill,
             publicStorage = offersPublicStorage,
             sandboxShell = offersSandboxShell,
         ).ifEmpty { null }
