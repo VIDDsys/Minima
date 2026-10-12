@@ -1,6 +1,6 @@
 # Settings Export / Import
 
-**Last verified:** 2026-10-02
+**Last verified:** 2026-10-12
 
 Users can back up and restore their Kai configuration and data (services, soul, memory, tasks, heartbeat, email, SMS, Splinterlands, tools, MCP servers, conversations) via a human-readable JSON file. Some device-local preferences are deliberately left out — see **Excluded**. The feature is available under **Settings > General** at the bottom of the page.
 
@@ -82,7 +82,7 @@ Users can back up and restore their Kai configuration and data (services, soul, 
 - Linux sandbox and Minima Build settings: `sandbox_enabled`, `sandbox_distro`, `kai_build_launch_agent`
 - Cached per-model context sizes (`model_context_*`)
 - Session state: current conversation id and interactive mode
-- On-device (LiteRT) model files and installed skills (stored as files, not settings)
+- On-device (LiteRT) model files (stored as files, not settings)
 - Backups of undecodable settings JSON and migration flags
 
 ## Key Files

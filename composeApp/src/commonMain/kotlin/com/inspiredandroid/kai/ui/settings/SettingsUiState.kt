@@ -14,8 +14,6 @@ import com.inspiredandroid.kai.inference.DownloadError
 import com.inspiredandroid.kai.inference.LocalModel
 import com.inspiredandroid.kai.inference.ModelImportError
 import com.inspiredandroid.kai.network.tools.ToolInfo
-import com.inspiredandroid.kai.skills.RegistrySkillEntry
-import com.inspiredandroid.kai.skills.SkillManifest
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.ImmutableSet
@@ -108,13 +106,6 @@ data class SettingsUiState(
     val showUiScale: Boolean = false,
     val mcpServers: ImmutableList<McpServerUiState> = persistentListOf(),
     val showAddMcpServerDialog: Boolean = false,
-    val skills: ImmutableList<SkillManifest> = persistentListOf(),
-    val showAddSkillDialog: Boolean = false,
-    val isInstallingSkill: Boolean = false,
-    val skillInstallError: String? = null,
-    val browsableSkills: ImmutableList<RegistrySkillEntry> = persistentListOf(),
-    val isBrowsingSkills: Boolean = false,
-    val browseSkillsFailed: Boolean = false,
     val localAvailableModels: ImmutableList<LocalModel> = persistentListOf(),
     val localImportedModels: ImmutableList<LocalModel> = persistentListOf(),
     val totalDeviceMemoryBytes: Long = Long.MAX_VALUE,
@@ -152,7 +143,6 @@ sealed interface PendingDeletion {
     data class EmailAccount(val id: String) : PendingDeletion
     data class Service(val instanceId: String) : PendingDeletion
     data class McpServer(val serverId: String) : PendingDeletion
-    data class Skill(val id: String) : PendingDeletion
 }
 
 sealed interface ImportResult {

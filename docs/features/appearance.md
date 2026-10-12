@@ -1,6 +1,6 @@
 # Appearance
 
-**Last verified:** 2026-10-02
+**Last verified:** 2026-10-12
 
 Kai has a four-way theme picker — **System**, **Light**, **Dark**, and **OLED** — exposed in Settings on every platform. The default is System, which follows the operating system's dark/light preference. The other three force a specific theme regardless of system state. Dark uses a soft dark background (`#121212`) with slightly lighter surfaces (`#1E1E1E`); OLED flattens the background and the lowest surface tier to pure black (`#000000`) for users who want to save power on OLED panels.
 
@@ -22,7 +22,7 @@ The picker exists on every platform because system theme detection is unreliable
 
 When adding new surfaces in dark mode, **do not** bind fills to `surface` if the element should stand out from the page background with OLED selected — in OLED `surface` becomes black and the element will be invisible against the background. Use `surfaceContainer` (or higher) for anything that represents a raised card, pill, or control.
 
-Many cards (settings list items, service/MCP/skill/tool cards, the heartbeat and pending-SMS banners in chat, sandbox file browser rows, dynamic UI cards) use a shared adaptive card style: normally a half-transparent `surfaceVariant` fill with no border; with OLED selected the fill becomes transparent and a thin `outlineVariant` border outlines the card instead, keeping the background pure black. New card-like surfaces should reuse this style rather than picking their own fill.
+Many cards (settings list items, service/MCP/tool cards, the heartbeat and pending-SMS banners in chat, sandbox file browser rows, dynamic UI cards) use a shared adaptive card style: normally a half-transparent `surfaceVariant` fill with no border; with OLED selected the fill becomes transparent and a thin `outlineVariant` border outlines the card instead, keeping the background pure black. New card-like surfaces should reuse this style rather than picking their own fill.
 
 ## Key Files
 

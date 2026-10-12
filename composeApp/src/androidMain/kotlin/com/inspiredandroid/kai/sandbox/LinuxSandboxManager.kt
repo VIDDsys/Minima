@@ -174,7 +174,7 @@ class LinuxSandboxManager(
 
     /**
      * Files sitting in another distribution's `/root` that the selected install
-     * does not have — SSH keys, skills, whatever the agent wrote. Null when there
+     * does not have — SSH keys and whatever the agent wrote. Null when there
      * is nothing to offer: no other install, no install here to copy into, or a
      * home this one already has in full.
      *

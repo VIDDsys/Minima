@@ -8,7 +8,6 @@
 
 package com.inspiredandroid.kai.data
 
-import com.inspiredandroid.kai.skills.SkillManifest
 import kotlin.time.Instant
 
 /**
@@ -121,7 +120,7 @@ internal fun phoneStorageSection(sandboxShell: Boolean): String = buildString {
         append("- Tool: `public_storage`. It does not run programs.\n")
         append("- Folder: `/storage/emulated/0`. `/sdcard`, `/mnt/sdcard`, and `/storage/self/primary` are that same folder.\n")
         append("- Use it for Download, DCIM, and Documents.\n")
-        append("- Do not use `/root` or `~/skills`. Those are the sandbox, and it is not available in this request.\n")
+        append("- Do not use `/root`. That is the sandbox, and it is not available in this request.\n")
         append("- If the tool returns a permission error, ask the user to grant All files access. Do not invent file contents. ")
         append("The Play Store build cannot grant it.")
         return@buildString
@@ -133,7 +132,7 @@ internal fun phoneStorageSection(sandboxShell: Boolean): String = buildString {
     append("- Use it for Download, DCIM, and Documents.\n\n")
     append("Linux sandbox — a private Linux inside the app. The file manager cannot see it.\n")
     append("- Tool: `execute_shell_command`.\n")
-    append("- Folder: `/root`. Packages, scripts, SSH keys, and marketplace skills live at `~/skills`.\n")
+    append("- Folder: `/root`. Packages, scripts, and SSH keys live here.\n")
     append("- Use it to run a command. Do not use it to save a note the user should find in the file manager.\n")
     append("- After All files access is granted, this shell also sees the external folder at `/sdcard` and `/storage/emulated/0`. ")
     append("Run a command on a phone file there. Do not copy it into `/root` first.\n")
@@ -198,7 +197,6 @@ internal fun buildChatSystemPrompt(
     emailAccounts: List<EmailAccountSummary>,
     runtime: ChatPromptRuntimeContext,
     uiMode: ChatPromptUiMode,
-    activeSkill: SkillManifest? = null,
     publicStorage: Boolean = false,
     sandboxShell: Boolean = false,
 ): String = buildString {
@@ -267,10 +265,6 @@ internal fun buildChatSystemPrompt(
         }
     }
 
-    if (activeSkill != null) {
-        appendActiveSkillSection(activeSkill)
-    }
-
     if (publicStorage) {
         append("\n\n")
         append(phoneStorageSection(sandboxShell))
@@ -283,30 +277,6 @@ internal fun buildChatSystemPrompt(
             ChatPromptUiMode.DYNAMIC_UI -> appendDynamicUiSection()
             ChatPromptUiMode.INTERACTIVE_UI -> appendInteractiveUiSection()
             ChatPromptUiMode.NONE -> {}
-        }
-    }
-}
-
-/**
- * Active skill block. Only emitted when the user prefixed the current turn's
- * message with `/skill-id`, so the body stays out of the prompt on every other
- * turn — matches the lean-prompt rule of "disabled features add zero bytes."
- *
- * Bundled files are listed under `~/skills/<id>/` in the Linux sandbox.
- */
-private fun StringBuilder.appendActiveSkillSection(skill: SkillManifest) {
-    append("\n\n## Active skill: ")
-    append(skill.displayName)
-    append('\n')
-    append(skill.body.trim())
-    if (skill.bundledFilePaths.isNotEmpty()) {
-        append("\n\nBundled files (available at `~/skills/")
-        append(skill.id)
-        append("/` in the Linux sandbox):\n")
-        for (path in skill.bundledFilePaths.sorted()) {
-            append("- ")
-            append(path)
-            append('\n')
         }
     }
 }

@@ -13,8 +13,8 @@ data class HomeSurvey(val fileCount: Int, val bytes: Long) {
 
 /**
  * Copies a user's home directory from one Linux install into another, so
- * switching the shell integration's distribution does not mean leaving SSH keys,
- * skills and files behind — and so the distribution being left can then be
+ * switching the shell integration's distribution does not mean leaving SSH keys
+ * and other files behind — and so the distribution being left can then be
  * removed without losing them.
  *
  * The copy **merges**: anything already at the destination wins and is never

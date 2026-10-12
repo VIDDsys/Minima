@@ -20,7 +20,6 @@ import com.inspiredandroid.kai.inference.createLocalInferenceEngine
 import com.inspiredandroid.kai.mcp.McpServerManager
 import com.inspiredandroid.kai.network.Requests
 import com.inspiredandroid.kai.notifications.NotificationReader
-import com.inspiredandroid.kai.skills.SkillManager
 import com.inspiredandroid.kai.sms.SmsPoller
 import com.inspiredandroid.kai.sms.SmsReader
 import com.inspiredandroid.kai.sms.SmsSender
@@ -106,9 +105,6 @@ val appModule = module {
     single<McpServerManager> {
         McpServerManager(get())
     }
-    single<SkillManager> {
-        SkillManager(get<SandboxController>())
-    }
     single<RemoteDataRepository> {
         RemoteDataRepository(
             requests = get(),
@@ -130,7 +126,6 @@ val appModule = module {
             notificationStore = get(),
             notificationListenerController = get(),
             mcpServerManager = get(),
-            skillManager = get(),
             sandboxController = get(),
             localInferenceEngine = createLocalInferenceEngine(),
         )

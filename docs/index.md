@@ -18,7 +18,6 @@ Kai is built with Kotlin Multiplatform and Compose Multiplatform. It connects to
 - **Tool execution** — Web search, notifications, calendar events, shell commands, and more
 - **MCP server support** — Connect to remote tool servers via the Model Context Protocol
 - **Interactive UI** — The AI can answer with interactive screens (forms, buttons, multi-step flows) instead of plain text
-- **Skills** — Install reusable instruction bundles in the SKILL.md format (Android)
 - **Autonomous heartbeat & scheduled tasks** — Periodic self-checks plus one-time or recurring tasks the AI schedules
 - **Linux sandbox** — On Android, the AI can run shell commands, scripts and packages in a Debian or Alpine environment
 - **Minima Build** — An Android coding environment with terminals and coding agents (Claude Code, Grok, OpenCode)
@@ -141,7 +140,6 @@ Plus a built-in **Free** tier that requires no API key.
 - **[On-Device Inference](features/on-device-inference.md)** — Local LiteRT models, downloads, and integrity checks
 - **[Reasoning](features/reasoning.md)** — How reasoning traces are sent back to providers and shown
 - **[System Prompts](features/system-prompts.md)** — How each prompt variant is composed
-- **[Skills](features/skills.md)** — Installable SKILL.md instruction bundles
 - **[Linux Sandbox](features/sandbox.md)** — On-device Debian/Alpine shell for the AI and the user (Android)
 - **[Minima Build](features/kai-build.md)** — Coding environment with terminals and coding agents (Android)
 - **[Notifications](features/notifications.md)** — Reading other apps' notifications (Android, FOSS build)

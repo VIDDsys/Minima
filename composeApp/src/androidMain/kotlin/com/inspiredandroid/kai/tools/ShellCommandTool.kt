@@ -49,7 +49,7 @@ Install extra packages with: $install
 To show a file you produced in /root to the user, call open_file with the path relative to /root (e.g. open_file path="page.html"). File needs to be self-contained.
 
 Where this command runs:
-- This is the Linux sandbox. Home is /root. The phone's file manager cannot see /root. Packages, scripts, SSH keys, and marketplace skills belong at ~/skills.
+- This is the Linux sandbox. Home is /root. The phone's file manager cannot see /root. Packages, scripts, and SSH keys belong in /root.
 - External phone files are a different folder. public_storage reads and writes them. After All files access, this shell sees that same folder at /sdcard and /storage/emulated/0. Example: ls /sdcard/Download. Use those paths only to run a command on a phone file. Do not copy the file into /root.
 - If /sdcard is missing, All files access is off. Say so. Do not invent file contents. A grant change restarts this shell and clears cwd."""
 }
