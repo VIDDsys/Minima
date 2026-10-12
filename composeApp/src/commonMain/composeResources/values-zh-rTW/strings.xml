@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">已達免費額度上限</string>
     <string name="error_free_limit_body">Free FAST 和 Free EXPERT 有速率限制。請在下列提供者之一建立免費 API 金鑰以獲得更高額度，然後在 設定 → 服務 中新增。</string>
     <string name="error_unknown">發生未知錯誤。</string>
-    <string name="settings_ai_mistakes_warning">AI 可能會出錯，請仔細核對，不要分享敏感資訊。</string>
-    <string name="settings_version">版本：%1$s</string>
     <string name="settings_api_key_label">API 金鑰</string>
     <string name="settings_api_key_optional_label">API 金鑰（可選）</string>
     <string name="settings_sign_in_copy_api_key_from">登入並從以下位置複製您的 API 金鑰</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">免費版</string>
     <string name="settings_free_tier_description">隨著使用者群的成長，贊助有助於擴展基礎設施、提高所有人的請求限制並保持開發活躍。</string>
     <string name="settings_become_sponsor">成為 GitHub 贊助者</string>
-    <string name="settings_business_partnerships">商業合作</string>
-    <string name="settings_business_partnerships_description">想展示您的公司標誌或討論策略合作夥伴關係？</string>
-    <string name="settings_contact_sponsorship">聯繫策略贊助</string>
     <string name="settings_status_error_invalid_key">API 金鑰無效</string>
     <string name="settings_status_error_quota_exhausted">配額已用完</string>
     <string name="settings_status_error_rate_limited">達到速率限制</string>
@@ -155,7 +150,6 @@
     <string name="error_all_services_failed">所有服務皆失敗。</string>
     <string name="settings_heartbeat_interval">間隔</string>
     <string name="settings_heartbeat_active_hours">活躍時段</string>
-    <string name="settings_documentation">文件</string>
     <string name="waiting_thinking">思考中…</string>
     <string name="waiting_working">處理中…</string>
     <string name="waiting_brewing">準備中…</string>

@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Gratis vlaklimiet bereik</string>
     <string name="error_free_limit_body">Gratis FAST en Gratis EXPERT is spoedbeperk. Skep &apos;n gratis API-sleutel by een van hierdie verskaffers vir hoër limiete, en voeg dit dan by onder Instellings → Dienste.</string>
     <string name="error_unknown">'n Onbekende fout het voorgekom.</string>
-    <string name="settings_ai_mistakes_warning">KI maak foute, kontroleer dubbel en deel nie sensitiewe inligting nie.</string>
-    <string name="settings_version">Weergawe: %1$s</string>
     <string name="settings_api_key_label">API-sleutel</string>
     <string name="settings_api_key_optional_label">API-sleutel (opsioneel)</string>
     <string name="settings_sign_in_copy_api_key_from">Meld aan en kopieer jou API-sleutel van</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Gratis Vlak</string>
     <string name="settings_free_tier_description">Soos die gebruikersbasis groei, help borgskappe om infrastruktuur te skaal, tarieklimiet vir almal te verhoog, en ontwikkeling aktief te hou.</string>
     <string name="settings_become_sponsor">Word 'n GitHub-borg</string>
-    <string name="settings_business_partnerships">Sakevennootskappe</string>
-    <string name="settings_business_partnerships_description">Wil jy jou maatskappy se logo vertoon of 'n strategiese vennootskap bespreek?</string>
-    <string name="settings_contact_sponsorship">Kontak vir Strategiese Borgskappe</string>
     <string name="settings_base_url_label">Bediener-URL</string>
     <string name="settings_status_checking">Kontroleer verbinding...</string>
     <string name="settings_status_connected">Verbind</string>
@@ -153,7 +148,6 @@ As iets aandag nodig het (verouderde herinneringe, verskuldigde take, gebruiker-
     <string name="error_all_services_failed">Alle dienste het misluk.</string>
     <string name="settings_heartbeat_interval">Interval</string>
     <string name="settings_heartbeat_active_hours">Aktiewe Ure</string>
-    <string name="settings_documentation">Dokumentasie</string>
     <string name="waiting_thinking">Dink…</string>
     <string name="waiting_working">Werk…</string>
     <string name="waiting_brewing">Brou…</string>

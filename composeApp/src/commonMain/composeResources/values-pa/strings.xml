@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">ਮੁਫ਼ਤ ਪੱਧਰ ਦੀ ਸੀਮਾ ਪੂਰੀ ਹੋਈ</string>
     <string name="error_free_limit_body">Free FAST ਅਤੇ Free EXPERT ਦਰ-ਸੀਮਿਤ ਹਨ। ਉੱਚ ਸੀਮਾਵਾਂ ਲਈ ਇਹਨਾਂ ਪ੍ਰਦਾਤਾਵਾਂ ਵਿੱਚੋਂ ਕਿਸੇ ਇੱਕ ਨਾਲ ਮੁਫ਼ਤ API ਕੁੰਜੀ ਬਣਾਓ, ਫਿਰ ਸੈਟਿੰਗਾਂ → ਸੇਵਾਵਾਂ ਵਿੱਚ ਜੋੜੋ।</string>
     <string name="error_unknown">ਅਣਜਾਣ ਗਲਤੀ ਹੋਈ।</string>
-    <string name="settings_ai_mistakes_warning">AI ਗਲਤੀਆਂ ਕਰਦਾ ਹੈ, ਦੁਬਾਰਾ ਜਾਂਚ ਕਰੋ ਅਤੇ ਸੰਵੇਦਨਸ਼ੀਲ ਜਾਣਕਾਰੀ ਸਾਂਝੀ ਨਾ ਕਰੋ।</string>
-    <string name="settings_version">ਸੰਸਕਰਣ: %1$s</string>
     <string name="settings_api_key_label">API ਕੁੰਜੀ</string>
     <string name="settings_api_key_optional_label">API ਕੁੰਜੀ (ਵਿਕਲਪਿਕ)</string>
     <string name="settings_sign_in_copy_api_key_from">ਸਾਈਨ ਇਨ ਕਰੋ ਅਤੇ ਇੱਥੋਂ ਆਪਣੀ API ਕੁੰਜੀ ਕਾਪੀ ਕਰੋ</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">ਮੁਫ਼ਤ ਪੱਧਰ</string>
     <string name="settings_free_tier_description">ਜਿਵੇਂ-ਜਿਵੇਂ ਉਪਭੋਗਤਾ ਅਧਾਰ ਵਧਦਾ ਹੈ, ਸਪਾਂਸਰਸ਼ਿਪ ਬੁਨਿਆਦੀ ਢਾਂਚੇ ਨੂੰ ਵਧਾਉਣ, ਸਭ ਲਈ ਦਰ ਸੀਮਾਵਾਂ ਵਧਾਉਣ ਅਤੇ ਵਿਕਾਸ ਨੂੰ ਸਰਗਰਮ ਰੱਖਣ ਵਿੱਚ ਮਦਦ ਕਰਦੀ ਹੈ।</string>
     <string name="settings_become_sponsor">GitHub ਸਪਾਂਸਰ ਬਣੋ</string>
-    <string name="settings_business_partnerships">ਵਪਾਰਕ ਭਾਈਵਾਲੀ</string>
-    <string name="settings_business_partnerships_description">ਆਪਣੀ ਕੰਪਨੀ ਦਾ ਲੋਗੋ ਦਿਖਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ ਜਾਂ ਰਣਨੀਤਕ ਭਾਈਵਾਲੀ ਬਾਰੇ ਚਰਚਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
-    <string name="settings_contact_sponsorship">ਰਣਨੀਤਕ ਸਪਾਂਸਰਸ਼ਿਪ ਲਈ ਸੰਪਰਕ ਕਰੋ</string>
     <string name="settings_status_error_invalid_key">ਅਵੈਧ API ਕੁੰਜੀ</string>
     <string name="settings_status_error_quota_exhausted">ਕੋਟਾ ਖਤਮ</string>
     <string name="settings_status_error_rate_limited">ਦਰ ਸੀਮਾ ਪਾਰ</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">ਸਾਰੀਆਂ ਸੇਵਾਵਾਂ ਅਸਫਲ ਹੋਈਆਂ।</string>
     <string name="settings_heartbeat_interval">ਅੰਤਰਾਲ</string>
     <string name="settings_heartbeat_active_hours">ਸਰਗਰਮ ਘੰਟੇ</string>
-    <string name="settings_documentation">ਦਸਤਾਵੇਜ਼ੀਕਰਨ</string>
     <string name="waiting_thinking">ਸੋਚ ਰਿਹਾ ਹੈ…</string>
     <string name="waiting_working">ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ…</string>
     <string name="waiting_brewing">ਤਿਆਰ ਕਰ ਰਿਹਾ ਹੈ…</string>

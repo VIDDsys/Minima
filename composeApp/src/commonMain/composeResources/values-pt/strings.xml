@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Limite do nível gratuito atingido</string>
     <string name="error_free_limit_body">Free FAST e Free EXPERT têm limite de taxa. Crie uma chave de API gratuita num destes fornecedores para limites mais altos e depois adicione-a em Definições → Serviços.</string>
     <string name="error_unknown">Ocorreu um erro desconhecido.</string>
-    <string name="settings_ai_mistakes_warning">A IA comete erros, verifique novamente e não compartilhe informações sensíveis.</string>
-    <string name="settings_version">Versão: %1$s</string>
     <string name="settings_api_key_label">Chave de API</string>
     <string name="settings_api_key_optional_label">Chave de API (opcional)</string>
     <string name="settings_sign_in_copy_api_key_from">Faça login e copie sua chave de API de</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Nível Gratuito</string>
     <string name="settings_free_tier_description">À medida que a base de usuários cresce, o patrocínio ajuda a escalar a infraestrutura, aumentar os limites de requisições para todos e manter o desenvolvimento ativo.</string>
     <string name="settings_become_sponsor">Torne-se um patrocinador do GitHub</string>
-    <string name="settings_business_partnerships">Parcerias Empresariais</string>
-    <string name="settings_business_partnerships_description">Quer exibir o logo da sua empresa ou discutir uma parceria estratégica?</string>
-    <string name="settings_contact_sponsorship">Contato para patrocínio estratégico</string>
     <string name="settings_status_error_invalid_key">Chave de API inválida</string>
     <string name="settings_status_error_quota_exhausted">Cota esgotada</string>
     <string name="settings_status_error_rate_limited">Limite de taxa atingido</string>
@@ -153,7 +148,6 @@ Se algo precisar de atenção (memórias desatualizadas, tarefas vencidas, acomp
     <string name="error_all_services_failed">Todos os serviços falharam.</string>
     <string name="settings_heartbeat_interval">Intervalo</string>
     <string name="settings_heartbeat_active_hours">Horas Ativas</string>
-    <string name="settings_documentation">Documentação</string>
     <string name="waiting_thinking">Pensando…</string>
     <string name="waiting_working">Trabalhando…</string>
     <string name="waiting_brewing">Preparando…</string>

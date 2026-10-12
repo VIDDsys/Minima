@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
@@ -28,7 +27,6 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
@@ -65,13 +63,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.layout.positionInParent
-import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.inspiredandroid.kai.BackIcon
-import com.inspiredandroid.kai.Version
 import com.inspiredandroid.kai.data.EmailAccount
 import com.inspiredandroid.kai.data.Service
 import com.inspiredandroid.kai.linux.LinuxDistro
@@ -80,9 +76,6 @@ import com.inspiredandroid.kai.ui.handCursor
 import com.inspiredandroid.kai.ui.kaiAdaptiveCardBorder
 import com.inspiredandroid.kai.ui.kaiAdaptiveCardColors
 import kai.composeapp.generated.resources.Res
-import kai.composeapp.generated.resources.github_mark
-import kai.composeapp.generated.resources.settings_ai_mistakes_warning
-import kai.composeapp.generated.resources.settings_documentation
 import kai.composeapp.generated.resources.settings_licenses
 import kai.composeapp.generated.resources.settings_licenses_close
 import kai.composeapp.generated.resources.settings_tab_agent
@@ -91,7 +84,6 @@ import kai.composeapp.generated.resources.settings_tab_integrations
 import kai.composeapp.generated.resources.settings_tab_sandbox
 import kai.composeapp.generated.resources.settings_tab_services
 import kai.composeapp.generated.resources.settings_tab_tools
-import kai.composeapp.generated.resources.settings_version
 import kai.composeapp.generated.resources.snackbar_email_removed
 import kai.composeapp.generated.resources.snackbar_mcp_server_removed
 import kai.composeapp.generated.resources.snackbar_memory_deleted
@@ -101,7 +93,6 @@ import kai.composeapp.generated.resources.snackbar_task_cancelled
 import kai.composeapp.generated.resources.snackbar_undo
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -437,72 +428,23 @@ private fun SettingsTabSelector(
 
 @Composable
 private fun BottomInfo() {
+    // GPL-2.0 PRoot and LGPL-3.0 talloc notices have to stay reachable in the app.
+    // Version, source, and disclaimer lines are not part of that obligation.
+    var showLicenses by remember { mutableStateOf(false) }
     Text(
-        text = stringResource(Res.string.settings_ai_mistakes_warning),
-        style = MaterialTheme.typography.bodySmall,
+        text = stringResource(Res.string.settings_licenses),
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.primary,
         textAlign = TextAlign.Center,
-        color = MaterialTheme.colorScheme.onBackground,
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { showLicenses = true }
+            .handCursor()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
     )
-
-    Spacer(Modifier.height(8.dp))
-
-    val uriHandler = LocalUriHandler.current
-
-    // FlowRow, not Row: at large font scales the three items no longer fit on one
-    // line, and a Row would squeeze the documentation link into a column of single
-    // words that runs off the bottom of the screen.
-    FlowRow(
-        modifier = Modifier.padding(horizontal = 16.dp),
-        horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterHorizontally),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        Text(
-            stringResource(Res.string.settings_version, Version.appVersion),
-            modifier = Modifier.align(Alignment.CenterVertically),
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onBackground,
-        )
-
-        Icon(
-            modifier = Modifier
-                .align(Alignment.CenterVertically)
-                .clip(CircleShape)
-                .size(24.dp)
-                .clickable(onClick = {
-                    uriHandler.openUri("https://github.com/SimonSchubert/Kai")
-                })
-                .handCursor(),
-            painter = painterResource(Res.drawable.github_mark),
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.onBackground,
-        )
-
-        Text(
-            text = stringResource(Res.string.settings_documentation),
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier
-                .align(Alignment.CenterVertically)
-                .clickable { uriHandler.openUri("https://kai9000.com/docs/") }
-                .handCursor(),
-        )
-
-        var showLicenses by remember { mutableStateOf(false) }
-        Text(
-            text = stringResource(Res.string.settings_licenses),
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier
-                .align(Alignment.CenterVertically)
-                .clickable { showLicenses = true }
-                .handCursor(),
-        )
-        if (showLicenses) {
-            LicensesDialog(onDismiss = { showLicenses = false })
-        }
+    if (showLicenses) {
+        LicensesDialog(onDismiss = { showLicenses = false })
     }
-
-    Spacer(Modifier.height(8.dp))
 }
 
 // The Android app ships GPL-2.0 PRoot and LGPL-3.0 talloc binaries, whose licenses

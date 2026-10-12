@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">محدودیت سطح رایگان تمام شد</string>
     <string name="error_free_limit_body">Free FAST و Free EXPERT محدودیت نرخ دارند. برای محدودیت‌های بالاتر یک کلید API رایگان از یکی از این ارائه‌دهندگان بسازید، سپس آن را در تنظیمات ← خدمات اضافه کنید.</string>
     <string name="error_unknown">خطای ناشناخته‌ای رخ داد.</string>
-    <string name="settings_ai_mistakes_warning">هوش مصنوعی اشتباه می‌کند، دوباره بررسی کنید و اطلاعات حساس را به اشتراک نگذارید.</string>
-    <string name="settings_version">نسخه: %1$s</string>
     <string name="settings_api_key_label">کلید API</string>
     <string name="settings_api_key_optional_label">کلید API (اختیاری)</string>
     <string name="settings_sign_in_copy_api_key_from">وارد شوید و کلید API خود را از اینجا کپی کنید</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">سطح رایگان</string>
     <string name="settings_free_tier_description">با رشد پایگاه کاربران، حمایت مالی به مقیاس‌پذیری زیرساخت، افزایش محدودیت‌های نرخ برای همه و فعال نگه داشتن توسعه کمک می‌کند.</string>
     <string name="settings_become_sponsor">حامی GitHub شوید</string>
-    <string name="settings_business_partnerships">شراکت‌های تجاری</string>
-    <string name="settings_business_partnerships_description">می‌خواهید لوگوی شرکت خود را نمایش دهید یا درباره یک شراکت استراتژیک گفتگو کنید؟</string>
-    <string name="settings_contact_sponsorship">تماس برای حمایت استراتژیک</string>
     <string name="settings_status_error_invalid_key">کلید API نامعتبر</string>
     <string name="settings_status_error_quota_exhausted">سهمیه تمام شد</string>
     <string name="settings_status_error_rate_limited">به حد نرخ رسید</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">همه سرویس‌ها ناموفق بودند.</string>
     <string name="settings_heartbeat_interval">فاصله زمانی</string>
     <string name="settings_heartbeat_active_hours">ساعات فعال</string>
-    <string name="settings_documentation">مستندات</string>
     <string name="waiting_thinking">در حال فکر…</string>
     <string name="waiting_working">در حال کار…</string>
     <string name="waiting_brewing">در حال آماده‌سازی…</string>

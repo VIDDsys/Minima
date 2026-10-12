@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Gränsen för gratisnivå nådd</string>
     <string name="error_free_limit_body">Free FAST och Free EXPERT är hastighetsbegränsade. Skapa en gratis API-nyckel hos en av dessa leverantörer för högre gränser och lägg sedan till den under Inställningar → Tjänster.</string>
     <string name="error_unknown">Ett okänt fel uppstod.</string>
-    <string name="settings_ai_mistakes_warning">AI kan göra fel, dubbelkolla och dela inte känslig information.</string>
-    <string name="settings_version">Version: %1$s</string>
     <string name="settings_api_key_label">API-nyckel</string>
     <string name="settings_api_key_optional_label">API-nyckel (valfri)</string>
     <string name="settings_sign_in_copy_api_key_from">Logga in och kopiera din API-nyckel från</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Kostnadsfri nivå</string>
     <string name="settings_free_tier_description">I takt med att användarbasen växer hjälper sponsring till att skala infrastrukturen, öka hastighetsgränserna för alla och hålla utvecklingen aktiv.</string>
     <string name="settings_become_sponsor">Bli en GitHub-sponsor</string>
-    <string name="settings_business_partnerships">Affärspartnerskap</string>
-    <string name="settings_business_partnerships_description">Vill du visa ditt företags logotyp eller diskutera ett strategiskt partnerskap?</string>
-    <string name="settings_contact_sponsorship">Kontakta för strategiskt sponsorskap</string>
     <string name="settings_base_url_label">Server-URL</string>
     <string name="settings_status_checking">Kontrollerar anslutning...</string>
     <string name="settings_status_connected">Ansluten</string>
@@ -153,7 +148,6 @@ Om något behöver uppmärksamhet (föråldrade minnen, förfallna uppgifter, an
     <string name="error_all_services_failed">Alla tjänster misslyckades.</string>
     <string name="settings_heartbeat_interval">Intervall</string>
     <string name="settings_heartbeat_active_hours">Aktiva timmar</string>
-    <string name="settings_documentation">Dokumentation</string>
     <string name="waiting_thinking">Tänker…</string>
     <string name="waiting_working">Arbetar…</string>
     <string name="waiting_brewing">Brygger…</string>

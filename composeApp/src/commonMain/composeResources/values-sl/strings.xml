@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Dosežena je omejitev brezplačne ravni</string>
     <string name="error_free_limit_body">Free FAST in Free EXPERT imata omejitev hitrosti. Ustvarite brezplačen API ključ pri enem od teh ponudnikov za višje omejitve in ga nato dodajte v Nastavitve → Storitve.</string>
     <string name="error_unknown">Prišlo je do neznane napake.</string>
-    <string name="settings_ai_mistakes_warning">UI dela napake, dvakrat preverite in ne delite občutljivih podatkov.</string>
-    <string name="settings_version">Različica: %1$s</string>
     <string name="settings_api_key_label">API ključ</string>
     <string name="settings_api_key_optional_label">API ključ (neobvezno)</string>
     <string name="settings_sign_in_copy_api_key_from">Prijavite se in kopirajte svoj API ključ iz</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Brezplačna raven</string>
     <string name="settings_free_tier_description">Z rastjo uporabniške baze sponzorstvo pomaga pri širitvi infrastrukture, povečanju omejitev zahtev za vse in ohranjanju aktivnega razvoja.</string>
     <string name="settings_become_sponsor">Postanite GitHub sponzor</string>
-    <string name="settings_business_partnerships">Poslovna partnerstva</string>
-    <string name="settings_business_partnerships_description">Želite prikazati logotip svojega podjetja ali se pogovoriti o strateškem partnerstvu?</string>
-    <string name="settings_contact_sponsorship">Kontakt za strateško sponzorstvo</string>
     <string name="settings_base_url_label">URL strežnika</string>
     <string name="settings_status_checking">Preverjanje povezave...</string>
     <string name="settings_status_connected">Povezano</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Vse storitve niso uspele.</string>
     <string name="settings_heartbeat_interval">Interval</string>
     <string name="settings_heartbeat_active_hours">Aktivne ure</string>
-    <string name="settings_documentation">Dokumentacija</string>
     <string name="waiting_thinking">Razmišljam…</string>
     <string name="waiting_working">Delam…</string>
     <string name="waiting_brewing">Pripravljam…</string>

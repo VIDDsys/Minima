@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Elérte az ingyenes szint korlátját</string>
     <string name="error_free_limit_body">A Free FAST és a Free EXPERT sebességkorlátozott. Hozzon létre ingyenes API-kulcsot valamelyik szolgáltatónál a magasabb korlátokhoz, majd adja hozzá a Beállítások → Szolgáltatások menüpontban.</string>
     <string name="error_unknown">Ismeretlen hiba történt.</string>
-    <string name="settings_ai_mistakes_warning">A mesterséges intelligencia hibázhat, ellenőrizd az eredményt, és ne ossz meg bizalmas információkat.</string>
-    <string name="settings_version">Verzió: %1$s</string>
     <string name="settings_api_key_label">API kulcs</string>
     <string name="settings_api_key_optional_label">API kulcs (opcionális)</string>
     <string name="settings_sign_in_copy_api_key_from">Jelentkezz be és másold ki az API kulcsodat innen</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Ingyenes szint</string>
     <string name="settings_free_tier_description">A felhasználói bázis növekedésével a szponzorálás segít az infrastruktúra bővítésében, a kérési limitek növelésében mindenki számára, és a fejlesztés aktívan tartásában.</string>
     <string name="settings_become_sponsor">Légy GitHub szponzor</string>
-    <string name="settings_business_partnerships">Üzleti partnerségek</string>
-    <string name="settings_business_partnerships_description">Szeretnéd megjeleníteni a céged logóját vagy stratégiai partnerségről tárgyalni?</string>
-    <string name="settings_contact_sponsorship">Kapcsolatfelvétel stratégiai szponzorációért</string>
     <string name="settings_base_url_label">Szerver URL</string>
     <string name="settings_status_checking">Kapcsolat ellenőrzése…</string>
     <string name="settings_status_connected">Csatlakozva</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Minden szolgáltatás sikertelen volt.</string>
     <string name="settings_heartbeat_interval">Időköz</string>
     <string name="settings_heartbeat_active_hours">Aktív órák</string>
-    <string name="settings_documentation">Dokumentáció</string>
     <string name="waiting_thinking">Gondolkodom…</string>
     <string name="waiting_working">Dolgozom…</string>
     <string name="waiting_brewing">Készítem…</string>

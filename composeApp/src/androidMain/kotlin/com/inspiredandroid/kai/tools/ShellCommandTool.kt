@@ -48,10 +48,10 @@ Install extra packages with: $install
 
 To show a file you produced in /root to the user, call open_file with the path relative to /root (e.g. open_file path="page.html"). File needs to be self-contained.
 
-Phone shared storage (Download, DCIM, Documents, /storage/emulated/0/Minima) is a different filesystem from /root. /root stays on internal app storage for executables and skills. Do not put the user's downloads there.
-When All files access is granted, this sandbox bind-mounts that storage at /sdcard and /storage/emulated/0 (the same directory). Example: ls /sdcard/Download, cat /storage/emulated/0/DCIM/Camera/photo.jpg.
+Phone shared storage is the same directory public_storage uses, not a second copy of /root. When All files access is granted it is mounted here at /sdcard and /storage/emulated/0. Example: ls /sdcard/Download, cat /storage/emulated/0/DCIM/Camera/photo.jpg. Use the shell on those paths when a command needs the file. Do not write the file twice to sync it with public_storage.
+/root stays on internal app storage for executables, SSH keys, and marketplace skills at ~/skills. Shared storage is not where binaries run. Durable user notes and skills are /sdcard/Minima/AGENTS.md and /sdcard/Minima/skills/<id>/SKILL.md (the same files as /storage/emulated/0/Minima). A public skill overrides ~/skills with the same id; follow the public SKILL.md and do not keep a second body under /root.
 If this persistent shell was started before the grant (or before it was revoked), the next command restarts it so the mount matches the current permission. That restart clears cwd and exported variables. A background process started before the change keeps the old mount.
-Without All files access those paths are absent here. The public_storage tool reads and writes the same files without proot, and it can ask for the grant. A permission failure is an error — do not invent file contents."""
+Without All files access those paths are absent here. public_storage reads and writes the same files without proot, and it can ask for the grant. A permission failure is an error — do not invent file contents."""
 }
 
 object ShellCommandTool : Tool {

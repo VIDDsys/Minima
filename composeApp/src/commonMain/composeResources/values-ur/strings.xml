@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">مفت درجے کی حد پوری ہو گئی</string>
     <string name="error_free_limit_body">Free FAST اور Free EXPERT شرح محدود ہیں۔ اعلیٰ حدود کے لیے ان فراہم کنندگان میں سے کسی ایک کے ساتھ مفت API کلید بنائیں، پھر ترتیبات → خدمات میں شامل کریں۔</string>
     <string name="error_unknown">نامعلوم خرابی پیش آئی۔</string>
-    <string name="settings_ai_mistakes_warning">AI غلطیاں کر سکتا ہے، دوبارہ جانچ کریں اور حساس معلومات شیئر نہ کریں۔</string>
-    <string name="settings_version">ورژن: %1$s</string>
     <string name="settings_api_key_label">API کلید</string>
     <string name="settings_api_key_optional_label">API کلید (اختیاری)</string>
     <string name="settings_sign_in_copy_api_key_from">سائن ان کریں اور یہاں سے اپنی API کلید کاپی کریں</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">مفت درجہ</string>
     <string name="settings_free_tier_description">جیسے جیسے صارفین کی تعداد بڑھتی ہے، سرپرستی بنیادی ڈھانچے کو بڑھانے، سب کے لیے شرح کی حدود بڑھانے اور ترقی کو فعال رکھنے میں مدد کرتی ہے۔</string>
     <string name="settings_become_sponsor">GitHub سرپرست بنیں</string>
-    <string name="settings_business_partnerships">کاروباری شراکت داری</string>
-    <string name="settings_business_partnerships_description">اپنی کمپنی کا لوگو دکھانا چاہتے ہیں یا اسٹریٹجک شراکت داری پر بات کرنا چاہتے ہیں؟</string>
-    <string name="settings_contact_sponsorship">اسٹریٹجک سرپرستی کے لیے رابطہ کریں</string>
     <string name="settings_status_error_invalid_key">غلط API کلید</string>
     <string name="settings_status_error_quota_exhausted">کوٹہ ختم ہو گیا</string>
     <string name="settings_status_error_rate_limited">شرح کی حد تک پہنچ گئی</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">تمام خدمات ناکام ہو گئیں۔</string>
     <string name="settings_heartbeat_interval">وقفہ</string>
     <string name="settings_heartbeat_active_hours">فعال اوقات</string>
-    <string name="settings_documentation">دستاویزات</string>
     <string name="waiting_thinking">سوچ رہا ہے…</string>
     <string name="waiting_working">کام کر رہا ہے…</string>
     <string name="waiting_brewing">تیار کر رہا ہے…</string>

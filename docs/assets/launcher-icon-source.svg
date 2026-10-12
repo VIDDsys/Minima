@@ -8,7 +8,9 @@
   </defs>
   <rect width="512" height="512" fill="#8F59F9"/>
   <rect width="512" height="512" fill="url(#sheen)"/>
-  <g fill="#FCFCFC">
+  <!-- Scale around the canvas center so the eyes sit inside the adaptive-icon safe zone.
+       The foreground layer is 108dp; masks may crop the outer 21dp (~19%). -->
+  <g fill="#FCFCFC" transform="translate(256 256) scale(0.62) translate(-256 -256)">
     <rect x="250" y="109" width="66" height="130" rx="33" transform="rotate(-24 283 174)"/>
     <rect x="385" y="55" width="56" height="122" rx="28" transform="rotate(-24 413 116)"/>
   </g>

@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Συμπληρώθηκε το όριο δωρεάν επιπέδου</string>
     <string name="error_free_limit_body">Τα Free FAST και Free EXPERT έχουν περιορισμό ρυθμού. Δημιουργήστε ένα δωρεάν κλειδί API σε έναν από αυτούς τους παρόχους για υψηλότερα όρια και, στη συνέχεια, προσθέστε το στις Ρυθμίσεις → Υπηρεσίες.</string>
     <string name="error_unknown">Παρουσιάστηκε άγνωστο σφάλμα.</string>
-    <string name="settings_ai_mistakes_warning">Η τεχνητή νοημοσύνη κάνει λάθη, ελέγξτε ξανά και μην μοιράζεστε ευαίσθητες πληροφορίες.</string>
-    <string name="settings_version">Έκδοση: %1$s</string>
     <string name="settings_api_key_label">Κλειδί API</string>
     <string name="settings_api_key_optional_label">Κλειδί API (προαιρετικό)</string>
     <string name="settings_sign_in_copy_api_key_from">Συνδεθείτε και αντιγράψτε το κλειδί API σας από</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Δωρεάν Βαθμίδα</string>
     <string name="settings_free_tier_description">Καθώς η βάση χρηστών μεγαλώνει, η χορηγία βοηθά στην κλιμάκωση της υποδομής, στην αύξηση των ορίων αιτημάτων για όλους και στη διατήρηση της ενεργής ανάπτυξης.</string>
     <string name="settings_become_sponsor">Γίνετε Χορηγός στο GitHub</string>
-    <string name="settings_business_partnerships">Επιχειρηματικές Συνεργασίες</string>
-    <string name="settings_business_partnerships_description">Θέλετε να προβάλετε το λογότυπο της εταιρείας σας ή να συζητήσετε μια στρατηγική συνεργασία;</string>
-    <string name="settings_contact_sponsorship">Επικοινωνία για Στρατηγική Χορηγία</string>
     <string name="settings_base_url_label">URL Διακομιστή</string>
     <string name="settings_status_checking">Έλεγχος σύνδεσης...</string>
     <string name="settings_status_connected">Συνδεδεμένο</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Όλες οι υπηρεσίες απέτυχαν.</string>
     <string name="settings_heartbeat_interval">Διάστημα</string>
     <string name="settings_heartbeat_active_hours">Ενεργές Ώρες</string>
-    <string name="settings_documentation">Τεκμηρίωση</string>
     <string name="waiting_thinking">Σκέφτομαι…</string>
     <string name="waiting_working">Εργάζομαι…</string>
     <string name="waiting_brewing">Ετοιμάζω…</string>

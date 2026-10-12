@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">무료 티어 한도에 도달했습니다</string>
     <string name="error_free_limit_body">Free FAST와 Free EXPERT는 요청 한도가 있습니다. 더 높은 한도를 위해 다음 제공업체 중 하나에서 무료 API 키를 만든 다음 설정 → 서비스에 추가하세요.</string>
     <string name="error_unknown">알 수 없는 오류가 발생했습니다.</string>
-    <string name="settings_ai_mistakes_warning">AI는 실수할 수 있습니다. 다시 확인하고 민감한 정보를 공유하지 마세요.</string>
-    <string name="settings_version">버전: %1$s</string>
     <string name="settings_api_key_label">API 키</string>
     <string name="settings_api_key_optional_label">API 키 (선택사항)</string>
     <string name="settings_sign_in_copy_api_key_from">로그인하여 여기에서 API 키를 복사하세요</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">무료 티어</string>
     <string name="settings_free_tier_description">사용자 기반이 성장함에 따라 후원은 인프라 확장, 모든 사용자의 요청 한도 증가, 개발 활동 유지에 도움이 됩니다.</string>
     <string name="settings_become_sponsor">GitHub 스폰서 되기</string>
-    <string name="settings_business_partnerships">비즈니스 파트너십</string>
-    <string name="settings_business_partnerships_description">회사 로고를 표시하거나 전략적 파트너십에 대해 논의하고 싶으신가요?</string>
-    <string name="settings_contact_sponsorship">전략적 후원 문의</string>
     <string name="settings_status_error_invalid_key">유효하지 않은 API 키</string>
     <string name="settings_status_error_quota_exhausted">할당량 소진</string>
     <string name="settings_status_error_rate_limited">요청 한도 초과</string>
@@ -153,7 +148,6 @@
     <string name="error_all_services_failed">모든 서비스가 실패했습니다.</string>
     <string name="settings_heartbeat_interval">간격</string>
     <string name="settings_heartbeat_active_hours">활성 시간</string>
-    <string name="settings_documentation">문서</string>
     <string name="waiting_thinking">생각 중…</string>
     <string name="waiting_working">작업 중…</string>
     <string name="waiting_brewing">준비 중…</string>

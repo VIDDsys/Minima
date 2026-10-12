@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Тегін деңгей шегіне жетті</string>
     <string name="error_free_limit_body">Free FAST және Free EXPERT жылдамдықпен шектелген. Жоғары шектер үшін осы провайдерлердің бірінде тегін API кілтін жасап, оны Параметрлер → Қызметтер бөліміне қосыңыз.</string>
     <string name="error_unknown">Белгісіз қате орын алды.</string>
-    <string name="settings_ai_mistakes_warning">AI қателесуі мүмкін, қайта тексеріңіз және құпия ақпаратты бөліспеңіз.</string>
-    <string name="settings_version">Нұсқа: %1$s</string>
     <string name="settings_api_key_label">API кілті</string>
     <string name="settings_api_key_optional_label">API кілті (міндетті емес)</string>
     <string name="settings_sign_in_copy_api_key_from">Жүйеге кіріп, API кілтіңізді мына жерден көшіріңіз</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Тегін деңгей</string>
     <string name="settings_free_tier_description">Пайдаланушылар базасы өскен сайын, демеушілік инфрақұрылымды кеңейтуге, барлығы үшін сұрау лимиттерін арттыруға және әзірлеуді белсенді ұстауға көмектеседі.</string>
     <string name="settings_become_sponsor">GitHub демеушісі болыңыз</string>
-    <string name="settings_business_partnerships">Бизнес серіктестіктер</string>
-    <string name="settings_business_partnerships_description">Компанияңыздың логотипін көрсеткіңіз келе ме немесе стратегиялық серіктестікті талқылағыңыз келе ме?</string>
-    <string name="settings_contact_sponsorship">Стратегиялық демеушілік үшін байланысыңыз</string>
     <string name="settings_base_url_label">Сервер URL</string>
     <string name="settings_status_checking">Қосылым тексерілуде...</string>
     <string name="settings_status_connected">Қосылды</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Барлық қызметтер сәтсіз аяқталды.</string>
     <string name="settings_heartbeat_interval">Аралық</string>
     <string name="settings_heartbeat_active_hours">Белсенді сағаттар</string>
-    <string name="settings_documentation">Құжаттама</string>
     <string name="waiting_thinking">Ойланамын…</string>
     <string name="waiting_working">Жұмыс істеймін…</string>
     <string name="waiting_brewing">Дайындаймын…</string>

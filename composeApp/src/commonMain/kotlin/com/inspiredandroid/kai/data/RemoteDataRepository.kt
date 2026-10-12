@@ -844,9 +844,10 @@ class RemoteDataRepository(
     override suspend fun ask(question: String?, files: List<PlatformFile>, uiSubmission: UiSubmission?, activeSkillId: String?) {
         // The active skill (if any) is consumed for this single turn only — stored in a
         // field rather than a parameter on getActiveSystemPrompt so the existing internal
-        // callers (heartbeat, askWithTools, etc.) don't all need a new parameter. The
-        // skill's files already live in the sandbox at ~/skills/<id>/, so nothing is
-        // materialized here.
+        // callers (heartbeat, askWithTools, etc.) don't all need a new parameter.
+        // Skill files already live on disk (public Minima/skills, or sandbox ~/skills).
+        // Reload so a folder added since the last turn is visible now.
+        skillManager.load()
         val resolvedSkillId = activeSkillId?.takeIf { skillManager.getSkill(it) != null }
         pendingActiveSkillId = resolvedSkillId
         try {
@@ -1922,6 +1923,7 @@ class RemoteDataRepository(
             uiMode = uiMode,
             activeSkill = activeSkill,
             publicStorage = offersPublicStorage,
+            agentsMd = if (offersPublicStorage) skillManager.readAgentsMd() else null,
         ).ifEmpty { null }
     }
 

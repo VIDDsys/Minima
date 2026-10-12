@@ -1,10 +1,17 @@
 # Skills
 
-**Last verified:** 2026-10-02
+**Last verified:** 2026-10-12
 
 Kai supports installable **skills**: reusable instruction bundles, modeled on Anthropic's [SKILL.md](https://github.com/anthropics/skills) format (now an open standard at [agentskills.io](https://agentskills.io)). A skill packages a name, a description, a body of instructions, and optional bundled files.
 
-User-installed skills live **in the Linux sandbox**: each is a folder at `~/skills/<id>/` (its `SKILL.md` plus any files). There is no separate copy of those folders in app settings. Because of this, the Skills UI is **Android-only** (the only platform with a sandbox) and requires the sandbox to be installed first. The user browses a curated set of skill marketplaces (or installs from any GitHub repo) and triggers a skill in chat by starting a message with its slash command.
+There are two homes, and they are not mirrors of each other. See [phone-storage.md](phone-storage.md).
+
+- **Durable user skills** live on shared storage at `/storage/emulated/0/Minima/skills/<id>/` (the sandbox sees the same files at `/sdcard/Minima/skills/<id>/` after All files access is granted). The user can edit them from a file manager. `AGENTS.md` next to that `skills` folder is standing instructions, not a skill.
+- **Marketplace and script skills** live in the Linux sandbox at `~/skills/<id>/`. That is internal app storage, which is where a script can actually run. GitHub installs still write here.
+
+When the same id exists in both homes, the public copy wins for the slash command and the prompt. The sandbox folder is left on disk and is not merged into the skill body. Built-ins lose to either.
+
+Because marketplace skills need the sandbox, the Skills UI is **Android-only** and requires the sandbox to be installed first. The user browses a curated set of skill marketplaces (or installs from any GitHub repo) and triggers a skill in chat by starting a message with its slash command.
 
 In addition, Kai ships a small set of **built-in skills** (currently `create-skill`) loaded from app compose resources. Built-ins appear in the Skills list once the sandbox is installed, are labeled as built-in, and are not removable through the UI. If a user installs a sandbox skill with the same id, the sandbox copy takes precedence over the built-in. `create-skill` guides the model through writing a new `~/skills/<id>/SKILL.md` via the shell; after a turn that used it, the skill list is rescanned so the new skill shows up in the slash menu and Settings without a restart.
 
@@ -12,7 +19,7 @@ In addition, Kai ships a small set of **built-in skills** (currently `create-ski
 
 ### Skill
 
-Most skills are a folder `~/skills/<id>/` in the sandbox containing a `SKILL.md` (and any other files). The `SKILL.md` frontmatter provides a `name` (the slash-command id) and a `description`; the markdown after the frontmatter is the instruction body. Kai keeps an in-memory cache of installed sandbox skills plus any built-ins that are not overridden by a same-id sandbox folder; the cache is reloaded after every install/uninstall and once the sandbox becomes installed. On platforms without a sandbox the file ops are no-ops, so the cache is simply always empty — skills never appear off-Android.
+A skill is a folder containing a `SKILL.md` (and any other files), either under `~/skills/<id>/` or under `Minima/skills/<id>/`. The `SKILL.md` frontmatter provides a `name` (the slash-command id) and a `description`; the markdown after the frontmatter is the instruction body. Kai keeps an in-memory cache of public skills, sandbox skills, and built-ins. Public wins over sandbox, and either wins over a built-in. The cache reloads after every install/uninstall, once the sandbox becomes installed, and at the start of each chat turn. On platforms without a sandbox the file ops are no-ops and there is no shared-storage workspace, so the cache stays empty — skills never appear off-Android.
 
 A skill has an id (lowercase letters, digits, and hyphens; ≤ 64 chars), a display name derived from the id, the instruction body, and the list of its other top-level file names (surfaced in the prompt). There is no enable/disable state: an installed skill is active. Uninstall deletes the sandbox folder for user-installed skills; built-ins have no remove action.
 
@@ -22,7 +29,7 @@ In chat, a message whose first token is `/<skill-id>` activates that skill for t
 
 ### Active skill section
 
-When a turn activates a skill, the skill's body is appended to the system prompt under an "Active skill" heading for that turn only. On every other turn the section adds zero bytes to the prompt. If the skill's folder has other files, their names are listed with a note that they live at `~/skills/<id>/` in the Linux sandbox, where the model reads them via `execute_shell_command`. Nothing is materialized at chat time — the files are already in the sandbox.
+When a turn activates a skill, the skill's body is appended to the system prompt under an "Active skill" heading for that turn only. On every other turn the section adds zero bytes to the prompt. If the winning folder has other files, their names are listed with the path of that home: `/storage/emulated/0/Minima/skills/<id>/` for a public skill (read with `public_storage` or the shell; not copied into `~/skills`), or `~/skills/<id>/` for a sandbox skill (read with `execute_shell_command`). Nothing is materialized at chat time.
 
 ### Marketplace
 
@@ -40,7 +47,7 @@ The "Skills" section lives in the Tools tab of settings (Android only, between t
 - **If the sandbox isn't installed**, the section shows a notice and a "Set up sandbox" button that jumps to the Sandbox tab. No skills can be added until the sandbox is installed.
 - Otherwise, **"Add Skill"** opens a bottom sheet where the user can either paste a GitHub reference (`owner/repo`, `owner/repo/path/to/skill`, a full `https://github.com/owner/repo` URL, or a `.../tree/<ref>/path` URL) or **browse** the curated marketplaces. The browse list is fetched automatically when the dialog opens, is searchable (filter by id, description, or source), shows each entry's source name, and marks already-installed entries.
 
-Both paths install the same way: a browsed entry carries its full repo coordinates and installs through the same GitHub fetch as a manual install. Installing downloads the raw `SKILL.md` plus its sibling files (including nested ones; binaries and files over 256 KB are skipped) and writes them into `~/skills/<id>/`, replacing any existing folder, then reloads the cache. Install errors (invalid frontmatter, missing `SKILL.md`, unrecognized URL) are surfaced inline in the dialog.
+Both paths install the same way: a browsed entry carries its full repo coordinates and installs through the same GitHub fetch as a manual install. Installing downloads the raw `SKILL.md` plus its sibling files (including nested ones; binaries and files over 256 KB are skipped) and writes them into `~/skills/<id>/`, replacing any existing sandbox folder, then reloads the cache. That install stays in the sandbox even if a public `Minima/skills/<id>` later overrides it in the prompt. Install errors (invalid frontmatter, missing `SKILL.md`, unrecognized URL) are surfaced inline in the dialog. Removing a skill deletes the home that is currently winning: the public folder, or the sandbox folder if there is no public override. Built-ins have no remove action.
 
 ## Skill Management
 
@@ -52,7 +59,7 @@ While the user is typing the first token of a message and it starts with `/`, a 
 
 ## Limitations
 
-- Android only — user-installed skills live in the Linux sandbox, which other platforms don't have. The Skills section is hidden off-Android.
+- Android only — marketplace skills live in the Linux sandbox, and durable user skills live on shared storage, neither of which other platforms have. The Skills section is hidden off-Android.
 - The sandbox must be installed before skills (including built-ins) appear and before any skill can be added.
 - Only text files are stored for GitHub installs; binaries and files over 256 KB are skipped.
 - The skill body is appended verbatim to the system prompt, so very large skills consume prompt budget for the turn they're active.
@@ -67,7 +74,9 @@ While the user is typing the first token of a message and it starts with `/`, a 
 | `composeApp/src/commonMain/.../skills/SkillMarketplaces.kt` | `SkillMarketplace` model + the curated, vetted marketplace list |
 | `composeApp/src/commonMain/.../skills/SkillFrontmatterParser.kt` | SKILL.md frontmatter parser and id validation |
 | `composeApp/src/commonMain/.../skills/SkillRegistry.kt` | Browses marketplaces (`.claude-plugin/marketplace.json`, git-tree discovery, raw SKILL.md fetch) and downloads a skill's files |
-| `composeApp/src/commonMain/.../skills/SkillManager.kt` | Reads/installs/uninstalls skills in the sandbox (`~/skills/`), in-memory cache, GitHub URL parsing |
+| `composeApp/src/commonMain/.../skills/SkillManager.kt` | Reads/installs/uninstalls sandbox skills (`~/skills/`), merges public `Minima/skills` (public wins), in-memory cache, GitHub URL parsing |
+| `composeApp/src/commonMain/.../skills/MinimaWorkspace.kt` | Workspace interface: `AGENTS.md` plus public skills. Empty off Android |
+| `composeApp/src/androidMain/.../skills/MinimaWorkspace.android.kt` | Reads `/storage/emulated/0/Minima` when All files access is granted |
 | `composeApp/src/commonMain/.../data/ChatSystemPromptBuilder.kt` | Appends the active-skill section to the system prompt |
 | `composeApp/src/commonMain/.../data/RemoteDataRepository.kt` | Per-turn active-skill resolution (no materialization — files already in the sandbox); rescans skills after a `create-skill` turn |
 | `composeApp/src/commonMain/.../ui/chat/ChatViewModel.kt` | Parses the leading slash command into a skill id |

@@ -1,6 +1,6 @@
 ---
 name: create-skill
-description: Create a new Kai skill from a single natural-language request, then install it into the sandbox so it's invokable as /<id>.
+description: Create a new skill from a single natural-language request and install it so it's invokable as /<id>.
 ---
 
 You are creating a new skill for the user. Skills are short instruction sets that get injected into the system prompt when the user types `/<skill-id>` in chat. Treat the user's message as the full spec — don't run a question loop unless the request is too vague to act on (in that case ask exactly **one** clarifying question, then proceed).
@@ -9,13 +9,15 @@ You are creating a new skill for the user. Skills are short instruction sets tha
 
 1. **Pick an id.** Derive a short kebab-case id from the user's request. Rules: lowercase letters, digits, and hyphens only; ≤ 64 chars; descriptive but terse (e.g. `summarize-url`, `daily-standup`, `recipe-from-photo`).
 
-2. **Check for conflicts.** Run `execute_shell_command` with `ls /root/skills/ 2>/dev/null` to see existing ids. If your chosen id is taken, append `-2`, `-3`, etc. until it's free.
+2. **Check for conflicts.** Look in both homes. Run `execute_shell_command` with `ls /root/skills/ 2>/dev/null`. If `public_storage` works, also `list` `/storage/emulated/0/Minima/skills`. If your chosen id is taken in either place, append `-2`, `-3`, etc. until it's free. A public folder overrides a sandbox folder with the same id, so do not install the same id in both.
 
 3. **Write a tight description.** ≤ 1024 chars, non-empty, single line, written as a third-person summary of what the skill does. This shows up in the slash-command menu and Settings.
 
 4. **Draft the body.** Markdown instructions addressed to a future model invocation — clear steps, any constraints, and how to interpret args after the slash command. Keep it focused; every byte ends up in the system prompt when the skill is active.
 
-5. **Install it.** Run `execute_shell_command` once with this exact shape (substitute `<id>`, `<description>`, and the body):
+5. **Install it in one home.**
+   - If `public_storage` can write, that is the durable copy: `mkdir` `/storage/emulated/0/Minima/skills/<id>` and `write` `SKILL.md` there. Do not also write `/root/skills/<id>/SKILL.md`.
+   - If `public_storage` returns a permission error, install into the sandbox instead. Run `execute_shell_command` once with this exact shape (substitute `<id>`, `<description>`, and the body):
 
    ```sh
    mkdir -p /root/skills/<id> && cat > /root/skills/<id>/SKILL.md <<'SKILLEOF'
@@ -27,7 +29,7 @@ You are creating a new skill for the user. Skills are short instruction sets tha
    SKILLEOF
    ```
 
-   Use the quoted heredoc delimiter (`<<'SKILLEOF'`) so YAML/markdown special characters are preserved exactly.
+   Use the quoted heredoc delimiter (`<<'SKILLEOF'`) so YAML/markdown special characters are preserved exactly. Put extra scripts that must execute under `/root/skills/<id>/` only when the user asked for them. Shared storage is not where binaries run.
 
 6. **Confirm.** In one short message, tell the user the chosen id, the description, and that they can invoke it now as `/<id>`. Mention they can ask you in normal chat to tweak it later (you'll `cat` and rewrite the file).
 
@@ -44,6 +46,6 @@ Then run the heredoc, confirm: "Installed `/summarize-url` — paste a URL after
 
 ## Notes
 
-- Don't propose bundled scripts/files unless the user specifically asked for them; SKILL.md alone covers most needs.
+- Don't propose bundled scripts/files unless the user specifically asked for them; SKILL.md alone covers most needs. Durable user skills live at `/storage/emulated/0/Minima/skills/<id>/` (same files as `/sdcard/Minima/skills/<id>/`). `~/skills` is the sandbox fallback, not a second copy.
 - If the user's request describes something better suited to existing tools (e.g. "summarize this PDF" → already covered by file uploads), say so and offer the skill anyway only if they confirm.
 - The skill list auto-refreshes after this turn — no restart needed.
