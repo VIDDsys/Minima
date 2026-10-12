@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      All-files access to shared storage (/storage/emulated/0: Download, DCIM, Documents,
+      and similar). FOSS / sideload only. Google Play may reject MANAGE_EXTERNAL_STORAGE
+      unless the app is a file manager, backup, or similar and a console declaration is
+      filed, so the Play flavor does not merge these permissions. Tools check the merged
+      manifest and return a clear error there instead of crashing.
+
+      API 30+: MANAGE_EXTERNAL_STORAGE, granted from the system "All files access" screen.
+      API 26–29: READ/WRITE_EXTERNAL_STORAGE. READ is capped at 32 because API 33+ splits
+      media into granular permissions, which still cannot see Documents or non-media
+      Download files — those need all-files access. requestLegacyExternalStorage only
+      affects API 29 and is ignored when targetSdk is 30+; full shared-storage write is
+      reliable on Android 11+ after the user grants all-files access.
+    -->
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
 
     <!--
       SMS read/send are opt-in, FOSS-only features. These permissions are intentionally
@@ -28,7 +53,7 @@
       cases. The feature gates itself at runtime by probing for the listener service
       in the merged manifest, so the Play variant never shows the feature at all.
     -->
-    <application>
+    <application android:requestLegacyExternalStorage="true">
         <service
             android:name="com.inspiredandroid.kai.notifications.KaiNotificationListenerService"
             android:exported="true"

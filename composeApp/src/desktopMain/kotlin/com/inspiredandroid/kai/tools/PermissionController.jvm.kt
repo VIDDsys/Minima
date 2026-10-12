@@ -15,6 +15,9 @@ internal actual fun platformHasPermission(permission: AppPermission): Boolean = 
 
     // Desktop doesn't gate local network access.
     AppPermission.LOCAL_NETWORK -> true
+
+    // Shared storage is an Android permission.
+    AppPermission.ALL_FILES -> false
 }
 
 internal actual fun platformCanRequest(permission: AppPermission): Boolean = false

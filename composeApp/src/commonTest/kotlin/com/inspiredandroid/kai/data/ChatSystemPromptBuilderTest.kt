@@ -68,6 +68,7 @@ class ChatSystemPromptBuilderTest {
         emailAccounts: List<EmailAccountSummary> = emptyList(),
         uiMode: ChatPromptUiMode = ChatPromptUiMode.NONE,
         activeSkill: com.inspiredandroid.kai.skills.SkillManifest? = null,
+        publicStorage: Boolean = false,
     ) = buildChatSystemPrompt(
         variant = variant,
         soul = soul,
@@ -85,6 +86,7 @@ class ChatSystemPromptBuilderTest {
         runtime = runtime,
         uiMode = uiMode,
         activeSkill = activeSkill,
+        publicStorage = publicStorage,
     )
 
     private fun skill(
@@ -572,6 +574,31 @@ class ChatSystemPromptBuilderTest {
         )
         assertFalse("## Dynamic UI" in out)
         assertFalse("kai-ui" in out)
+    }
+
+    @Test
+    fun `phone storage section appears only when public storage is enabled`() {
+        val withStorage = build(
+            variant = SystemPromptVariant.CHAT_REMOTE,
+            publicStorage = true,
+        )
+        assertTrue("## Phone storage" in withStorage)
+        assertTrue("/storage/emulated/0" in withStorage)
+        assertTrue("/sdcard" in withStorage)
+        assertTrue("`/root`" in withStorage)
+        assertTrue("public_storage" in withStorage)
+        val idxStorage = withStorage.indexOf("## Phone storage")
+        val idxContext = withStorage.indexOf("## Context")
+        assertTrue(idxStorage in 0 until idxContext)
+
+        assertFalse("## Phone storage" in build(variant = SystemPromptVariant.CHAT_REMOTE))
+        assertFalse("## Phone storage" in build(variant = SystemPromptVariant.CHAT_LOCAL))
+        assertTrue(
+            "## Phone storage" in build(
+                variant = SystemPromptVariant.CHAT_LOCAL,
+                publicStorage = true,
+            ),
+        )
     }
 
     @Test

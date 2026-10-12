@@ -2,6 +2,7 @@
 
 package com.inspiredandroid.kai.data
 
+import com.inspiredandroid.kai.Platform
 import com.inspiredandroid.kai.SandboxController
 import com.inspiredandroid.kai.compressImageBytes
 import com.inspiredandroid.kai.currentPlatform
@@ -1907,6 +1908,8 @@ class RemoteDataRepository(
             runtime = runtime,
             uiMode = uiMode,
             activeSkill = activeSkill,
+            publicStorage = currentPlatform is Platform.Mobile.Android &&
+                appSettings.isToolEnabled("public_storage"),
         ).ifEmpty { null }
     }
 

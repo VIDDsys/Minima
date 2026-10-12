@@ -12,6 +12,9 @@ internal actual fun platformHasPermission(permission: AppPermission): Boolean = 
 
     // iOS shows its own local network prompt automatically on first access.
     AppPermission.LOCAL_NETWORK -> true
+
+    // Shared storage is an Android permission.
+    AppPermission.ALL_FILES -> false
 }
 
 internal actual fun platformCanRequest(permission: AppPermission): Boolean = false

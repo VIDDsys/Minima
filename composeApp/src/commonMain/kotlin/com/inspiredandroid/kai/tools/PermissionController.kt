@@ -28,6 +28,17 @@ enum class AppPermission {
      * LM Studio, ...) on the user's home network.
      */
     LOCAL_NETWORK,
+
+    /**
+     * All-files access to the phone's shared storage (`/storage/emulated/0` and aliases such as
+     * `/sdcard`). Android 11+ grants this from the system "All files access" screen
+     * (`MANAGE_EXTERNAL_STORAGE`), not a normal runtime dialog. Older APIs use
+     * `READ_EXTERNAL_STORAGE` and `WRITE_EXTERNAL_STORAGE`.
+     *
+     * Declared on the FOSS flavor only. Play policy may reject this permission, so the Play
+     * flavor leaves it out and tools report that instead of crashing.
+     */
+    ALL_FILES,
 }
 
 /**
@@ -48,6 +59,12 @@ class PermissionController(internal val permission: AppPermission) {
     fun hasPermission(): Boolean = platformHasPermission(permission)
 
     /**
+     * True when this platform can show a prompt or settings screen for [permission].
+     * False on builds that do not declare it (the Play flavor omits all-files access).
+     */
+    fun canRequest(): Boolean = platformCanRequest(permission)
+
+    /**
      * Request the permission and suspend until the user responds.
      * Returns true if permission was granted, false otherwise.
      */
@@ -60,7 +77,9 @@ class PermissionController(internal val permission: AppPermission) {
         permissionResultFlow.value = null
         _permissionRequested.value = true
 
-        val result = withTimeoutOrNull(60.seconds) {
+        // All-files access is a settings screen, not a dialog the user can dismiss in a second.
+        val wait = if (permission == AppPermission.ALL_FILES) 120.seconds else 60.seconds
+        val result = withTimeoutOrNull(wait) {
             permissionResultFlow.first { it != null }
         }
 

@@ -17,7 +17,10 @@ import com.inspiredandroid.kai.linux.LinuxDistro
 import com.inspiredandroid.kai.linux.LinuxInstaller
 import com.inspiredandroid.kai.linux.LinuxInstalls
 import com.inspiredandroid.kai.linux.LinuxPaths
+import com.inspiredandroid.kai.linux.PUBLIC_STORAGE_GUEST_EMULATED
+import com.inspiredandroid.kai.linux.PUBLIC_STORAGE_GUEST_SDCARD
 import com.inspiredandroid.kai.linux.ProotLauncher
+import com.inspiredandroid.kai.linux.publicStorageRoot
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -272,6 +275,9 @@ class LinuxSandboxManager(
         val spec = DistroSpec.of(current.distro)
         paths.copyLibtalloc()
         paths.ensureLayout()
+        // Omitted when All files access is not granted, so a denial cannot stop proot.
+        // /root stays on internal storage either way — executables need that.
+        val publicHost = preparePublicStorageBind()
         val binds = buildList {
             // Nothing to bind when /root is already part of the rootfs; only the
             // pre-unification layout keeps it on external storage.
@@ -283,6 +289,10 @@ class LinuxSandboxManager(
             if (current.distro == LinuxDistro.DEBIAN) {
                 paths.ensureMountPoints()
                 add(paths.projectsDir.absolutePath to "/root/projects")
+            }
+            if (publicHost != null) {
+                add(publicHost.absolutePath to PUBLIC_STORAGE_GUEST_SDCARD)
+                add(publicHost.absolutePath to PUBLIC_STORAGE_GUEST_EMULATED)
             }
         }
         return ProotLauncher(
@@ -296,6 +306,28 @@ class LinuxSandboxManager(
         )
     }
 
+    /**
+     * Shared-storage directory to bind, or null when access is not granted or the
+     * volume cannot be canonicalized. Creates the guest mount points so proot has
+     * somewhere to attach. A failure here skips the bind; it does not throw.
+     */
+    private fun preparePublicStorageBind(): File? {
+        val host = runCatching { context.publicStorageRoot() }.getOrElse { error ->
+            android.util.Log.w("LinuxSandbox", "Shared storage unavailable: ${error.message}")
+            null
+        } ?: return null
+        if (paths.rootfsDir.isDirectory) {
+            runCatching {
+                File(paths.rootfsDir, "sdcard").mkdirs()
+                File(paths.rootfsDir, "storage/emulated/0").mkdirs()
+            }.onFailure { error ->
+                android.util.Log.w("LinuxSandbox", "Could not create shared-storage mount points: ${error.message}")
+                return null
+            }
+        }
+        return host
+    }
+
     /** Guest-path translation matching [createLauncher]'s binds. */
     fun fileMap(): GuestFileMap {
         val current = marker ?: legacyMarker()
@@ -304,6 +336,7 @@ class LinuxSandboxManager(
             homeDir = paths.homeDir(current),
             projectsDir = if (current.distro == LinuxDistro.DEBIAN) paths.projectsDir else null,
             tmpDir = paths.tmpDir,
+            publicStorageDir = preparePublicStorageBind(),
         )
     }
 

@@ -27,13 +27,23 @@ class GuestFileMap(
     private val projectsDir: File?,
     /** Host directory bound to `/tmp`. */
     private val tmpDir: File,
+    /**
+     * Host directory bound to both [PUBLIC_STORAGE_GUEST_SDCARD] and
+     * [PUBLIC_STORAGE_GUEST_EMULATED]. Null when All files access is not granted —
+     * those guest paths then fall through to the rootfs instead of shared storage.
+     */
+    private val publicStorageDir: File? = null,
 ) {
+
+    /** True when `/sdcard` and `/storage/emulated/0` resolve to shared storage. */
+    fun hasPublicStorage(): Boolean = publicStorageDir != null
 
     fun resolve(guestPath: String): File? {
         val normalized = guestPath.trim().ifEmpty { "/" }
         if (!normalized.startsWith("/")) return null
         val parts = normalized.split("/").filter { it.isNotEmpty() }
         if (parts.any { it == ".." }) return null
+        val storage = publicStorageDir
         return when {
             projectsDir != null && parts.size >= 2 && parts[0] == "root" && parts[1] == "projects" ->
                 safeChild(projectsDir, parts.drop(2))
@@ -41,6 +51,13 @@ class GuestFileMap(
             parts.firstOrNull() == "tmp" -> safeChild(tmpDir, parts.drop(1))
 
             parts.firstOrNull() == "root" -> safeChild(homeDir, parts.drop(1))
+
+            storage != null && parts.firstOrNull() == "sdcard" ->
+                safeChild(storage, parts.drop(1))
+
+            storage != null && parts.size >= 3 &&
+                parts[0] == "storage" && parts[1] == "emulated" && parts[2] == "0" ->
+                safeChild(storage, parts.drop(3))
 
             else -> safeChild(rootfsDir, parts)
         }
@@ -52,6 +69,7 @@ class GuestFileMap(
         return canonical == rootfsDir.canonicalPath ||
             canonical == homeDir.canonicalPath ||
             canonical == tmpDir.canonicalPath ||
-            canonical == projectsDir?.canonicalPath
+            canonical == projectsDir?.canonicalPath ||
+            canonical == publicStorageDir?.canonicalPath
     }
 }

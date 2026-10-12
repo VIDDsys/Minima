@@ -106,6 +106,24 @@ internal const val DEFAULT_ACTING_SECTION =
         "See work through to a usable result."
 
 /**
+ * Android path-space reminder. Only composed when the `public_storage` tool is
+ * enabled, so a desktop or tool-less turn does not mention a capability it lacks.
+ * Mount names match the proot binds: `/sdcard` and `/storage/emulated/0`.
+ */
+internal const val DEFAULT_PUBLIC_STORAGE_SECTION =
+    "## Phone storage\n" +
+        "This Android device has two filesystems. Do not mix them.\n" +
+        "- Shared storage (Download, DCIM, Documents, `/storage/emulated/0/Minima`): the `public_storage` tool. " +
+        "Paths must stay under `/storage/emulated/0`. Aliases `/sdcard`, `/mnt/sdcard`, and `/storage/self/primary` are the same tree. " +
+        "This tool uses Android file APIs and does not go through the Linux sandbox.\n" +
+        "- Linux sandbox: `execute_shell_command` and paths under `/root` (skills at `~/skills`, scripts, executables). " +
+        "`/root` stays on internal app storage.\n" +
+        "- When All files access is granted, the sandbox bind-mounts that same shared storage at `/sdcard` and `/storage/emulated/0`. " +
+        "A shell started before the grant does not see the mount; `fresh=true` starts one that does.\n" +
+        "- If `public_storage` returns a permission error, say so and ask the user to grant All files access (Settings → Sandbox). " +
+        "Do not fabricate file contents. The Play Store build omits this permission; the FOSS build is the one that can grant it."
+
+/**
  * Advanced memory guidance — references `memory_learn` (not in `LOCAL_TOOL_ALLOWLIST`)
  * and `memory_reinforce`. Only composed into the `CHAT_REMOTE` variant; the on-device
  * variant omits it entirely because small Gemma models can't reliably call
@@ -159,6 +177,7 @@ internal fun buildChatSystemPrompt(
     runtime: ChatPromptRuntimeContext,
     uiMode: ChatPromptUiMode,
     activeSkill: SkillManifest? = null,
+    publicStorage: Boolean = false,
 ): String = buildString {
     append(soul)
 
@@ -227,6 +246,11 @@ internal fun buildChatSystemPrompt(
 
     if (activeSkill != null) {
         appendActiveSkillSection(activeSkill)
+    }
+
+    if (publicStorage) {
+        append("\n\n")
+        append(DEFAULT_PUBLIC_STORAGE_SECTION)
     }
 
     appendContextSection(runtime)

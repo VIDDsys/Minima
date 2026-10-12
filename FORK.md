@@ -28,6 +28,16 @@
 - Class names `KaiApplication`, `KaiNotificationListenerService`, …
 - Feature label **Kai Build**（子系统；后续可再品牌化）
 
+## Public storage (path D)
+
+FOSS flavor only. `MANAGE_EXTERNAL_STORAGE` plus legacy `READ`/`WRITE_EXTERNAL_STORAGE` for older APIs. Play may reject all-files access, so `playStore` does not declare it.
+
+- Native tool: `public_storage` (not via proot)
+- Sandbox mounts, when granted: **`/sdcard`** and **`/storage/emulated/0`** → host shared storage
+- `/root` stays on internal storage
+
+Grant: Settings → Sandbox → All files access.
+
 ## Build
 
 ```bash

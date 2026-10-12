@@ -320,6 +320,7 @@ fun SettingsScreenContent(
                                     onInstallPackages = onInstallPackages,
                                     onMigrateHome = onMigrateHome,
                                 )
+                                PublicStorageAccessCard()
                             }
                         }
 

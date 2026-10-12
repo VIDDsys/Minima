@@ -19,6 +19,7 @@
 - 启动器名称与用户可见产品名 → **Minima**
 - 应用图标 → Minima 紫色侧视双眼（见 `docs/assets/launcher-icon-source.svg`）
 - 默认服务商 → **DeepSeek**，默认模型 → `deepseek-flash`
+- 手机公共目录（FOSS）：授予「所有文件访问权限」后，`public_storage` 可读写 `/storage/emulated/0`（Download、DCIM、Documents、`Minima` 等）；沙箱把同一目录绑定到 **`/sdcard`** 和 **`/storage/emulated/0`**。`/root` 仍在应用内部存储。Play 风味不声明 `MANAGE_EXTERNAL_STORAGE`（Play 政策可能拒绝）。设置 → Sandbox 里可打开系统授权页
 - 增加 `NOTICE`、`FORK.md`、`MIGRATION.md`、`UPSTREAM_PIN.txt`
 
 ## 许可证与归因
