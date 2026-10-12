@@ -1,0 +1,22 @@
+# Gradle / Android build outputs
+.gradle/
+**/build/
+local.properties
+*.iml
+.idea/
+captures/
+.externalNativeBuild
+.cxx
+
+# Signing material — never commit
+*.jks
+*.keystore
+keystore/
+upload-pass.local
+**/upload-pass.local
+
+# Installable binaries belong on GitHub Releases
+*.apk
+*.aab
+
+!docs/
