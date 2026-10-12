@@ -1,3 +1,7 @@
+## v3.3.5 — 2026-10-12
+
+系统提示 `## Where files live` 把外部存储和 Linux 沙箱分开写，并且只在这次请求真有 shell 时才提沙箱。versionName `3.3.5` / versionCode `122`。
+
 ## v3.3.4 — 2026-10-12
 
 设置页页脚与服务页商业文案清理，启动器图标内缩，公共目录与沙箱技能各管一块。versionName `3.3.4` / versionCode `121`。
