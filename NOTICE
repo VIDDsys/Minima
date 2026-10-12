@@ -1,0 +1,15 @@
+Minima
+Copyright (c) 2026 VIDDsys and contributors
+
+This product is a secondary development / fork of Kai 9000
+(https://github.com/SimonSchubert/Kai), originally created by Simon Schubert
+and contributors.
+
+Kai 9000 is licensed under the Apache License, Version 2.0.
+See LICENSE.txt for the full license text.
+
+Upstream pin: see UPSTREAM_PIN.txt
+
+This product includes third-party components listed in THIRD_PARTY_LICENSES.md
+(including PRoot under GPL-2.0 and talloc under LGPL-3.0 as separate processes /
+dynamic libraries under androidApp/src/main/jniLibs/).

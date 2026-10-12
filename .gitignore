@@ -1,22 +1,37 @@
-# Gradle / Android build outputs
-.gradle/
-**/build/
-local.properties
 *.iml
-.idea/
-captures/
+.kotlin
+.gradle
+**/build/
+xcuserdata
+!**/src/**/build/
+local.properties
+.idea
+.DS_Store
+captures
 .externalNativeBuild
 .cxx
+/ort-results
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+**/xcshareddata/WorkspaceSettings.xcsettings
+*.aab
+/screenshotTests/src/test/snapshots/images/
+fastlane/play-store-key.json
+fastlane/report.xml
+fastlane/README.md
+.build-native/
+.claude
+.opencode
+.grok/
+# Local stamped APKs (ship via GitHub Releases, not git)
+minima-*.apk
+*.apk
+!**/src/**/*.apk
 
-# Signing material — never commit
+# Signing material (never commit)
 *.jks
 *.keystore
-keystore/
-upload-pass.local
-**/upload-pass.local
 
-# Installable binaries belong on GitHub Releases
-*.apk
-*.aab
-
-!docs/

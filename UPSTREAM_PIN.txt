@@ -1,0 +1,3 @@
+upstream_sha=e1622e1a6d2e90fb2fd71582335e62a2176cd605
+upstream_url=https://github.com/SimonSchubert/Kai
+upstream_commit_date=2026-10-10 12:42:04 +0000
