@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">تم الوصول إلى حد الطبقة المجانية</string>
     <string name="error_free_limit_body">Free FAST و Free EXPERT محدودان بالمعدل. أنشئ مفتاح API مجانيًا لدى أحد هؤلاء الموفرين لحدود أعلى، ثم أضفه من الإعدادات ← الخدمات.</string>
     <string name="error_unknown">حدث خطأ غير معروف.</string>
-    <string name="settings_ai_mistakes_warning">الذكاء الاصطناعي قد يرتكب أخطاء، تحقق من الإجابات ولا تشارك معلومات حساسة.</string>
-    <string name="settings_version">الإصدار: %1$s</string>
     <string name="settings_api_key_label">مفتاح API</string>
     <string name="settings_api_key_optional_label">مفتاح API (اختياري)</string>
     <string name="settings_sign_in_copy_api_key_from">قم بتسجيل الدخول وانسخ مفتاح API الخاص بك من</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">الباقة المجانية</string>
     <string name="settings_free_tier_description">مع نمو قاعدة المستخدمين، يساعد الرعاية في توسيع البنية التحتية وزيادة حدود الطلبات للجميع والحفاظ على نشاط التطوير.</string>
     <string name="settings_become_sponsor">كن راعياً على GitHub</string>
-    <string name="settings_business_partnerships">شراكات الأعمال</string>
-    <string name="settings_business_partnerships_description">هل ترغب في عرض شعار شركتك أو مناقشة شراكة استراتيجية؟</string>
-    <string name="settings_contact_sponsorship">تواصل للرعاية الاستراتيجية</string>
     <string name="settings_status_error_invalid_key">مفتاح API غير صالح</string>
     <string name="settings_status_error_quota_exhausted">نفدت الحصة</string>
     <string name="settings_status_error_rate_limited">تم الوصول لحد المعدل</string>
@@ -153,7 +148,6 @@
     <string name="error_all_services_failed">فشلت جميع الخدمات.</string>
     <string name="settings_heartbeat_interval">الفاصل الزمني</string>
     <string name="settings_heartbeat_active_hours">ساعات النشاط</string>
-    <string name="settings_documentation">التوثيق</string>
     <string name="waiting_thinking">يفكر…</string>
     <string name="waiting_working">يعمل…</string>
     <string name="waiting_brewing">يُحضّر…</string>

@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">বিনামূল্যের স্তরের সীমা পৌঁছেছে</string>
     <string name="error_free_limit_body">Free FAST এবং Free EXPERT রেট-সীমিত। উচ্চতর সীমার জন্য এই প্রদানকারীদের একটিতে একটি বিনামূল্যের API কী তৈরি করুন, তারপর সেটিংস → পরিষেবায় যোগ করুন।</string>
     <string name="error_unknown">একটি অজানা ত্রুটি ঘটেছে।</string>
-    <string name="settings_ai_mistakes_warning">AI ভুল করতে পারে, দুবার যাচাই করুন এবং সংবেদনশীল তথ্য শেয়ার করবেন না।</string>
-    <string name="settings_version">সংস্করণ: %1$s</string>
     <string name="settings_api_key_label">API কী</string>
     <string name="settings_api_key_optional_label">API কী (ঐচ্ছিক)</string>
     <string name="settings_sign_in_copy_api_key_from">সাইন ইন করুন এবং এখান থেকে আপনার API কী কপি করুন</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">বিনামূল্যে স্তর</string>
     <string name="settings_free_tier_description">ব্যবহারকারী বাড়ার সাথে সাথে, স্পনসরশিপ অবকাঠামো স্কেল করতে, সবার জন্য রেট লিমিট বাড়াতে এবং উন্নয়ন সক্রিয় রাখতে সাহায্য করে।</string>
     <string name="settings_become_sponsor">GitHub স্পনসর হন</string>
-    <string name="settings_business_partnerships">ব্যবসায়িক অংশীদারিত্ব</string>
-    <string name="settings_business_partnerships_description">আপনার কোম্পানির লোগো প্রদর্শন করতে বা কৌশলগত অংশীদারিত্ব নিয়ে আলোচনা করতে চান?</string>
-    <string name="settings_contact_sponsorship">কৌশলগত স্পনসরশিপের জন্য যোগাযোগ করুন</string>
     <string name="settings_status_error_invalid_key">অবৈধ API কী</string>
     <string name="settings_status_error_quota_exhausted">কোটা শেষ</string>
     <string name="settings_status_error_rate_limited">রেট সীমায় পৌঁছেছে</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">সমস্ত পরিষেবা ব্যর্থ হয়েছে।</string>
     <string name="settings_heartbeat_interval">ব্যবধান</string>
     <string name="settings_heartbeat_active_hours">সক্রিয় সময়</string>
-    <string name="settings_documentation">ডকুমেন্টেশন</string>
     <string name="waiting_thinking">ভাবছি…</string>
     <string name="waiting_working">কাজ করছি…</string>
     <string name="waiting_brewing">তৈরি করছি…</string>

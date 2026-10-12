@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">મફત સ્તરની મર્યાદા પહોંચી</string>
     <string name="error_free_limit_body">Free FAST અને Free EXPERT રેટ-મર્યાદિત છે. વધુ મર્યાદા માટે આ પ્રદાતાઓમાંથી એક પાસે મફત API કી બનાવો, પછી સેટિંગ્સ → સેવાઓ હેઠળ ઉમેરો.</string>
     <string name="error_unknown">અજાણી ભૂલ થઈ.</string>
-    <string name="settings_ai_mistakes_warning">AI ભૂલો કરી શકે છે, ફરીથી તપાસો અને સંવેદનશીલ માહિતી શેર ન કરો.</string>
-    <string name="settings_version">વર્ઝન: %1$s</string>
     <string name="settings_api_key_label">API કી</string>
     <string name="settings_api_key_optional_label">API કી (વૈકલ્પિક)</string>
     <string name="settings_sign_in_copy_api_key_from">સાઇન ઇન કરો અને અહીંથી તમારી API કી કૉપિ કરો</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">મફત સ્તર</string>
     <string name="settings_free_tier_description">વપરાશકર્તા આધાર વધવાની સાથે, પ્રાયોજકતા ઈન્ફ્રાસ્ટ્રક્ચરને સ્કેલ કરવામાં, બધા માટે રેટ લિમિટ્સ વધારવામાં અને વિકાસને સક્રિય રાખવામાં મદદ કરે છે.</string>
     <string name="settings_become_sponsor">GitHub સ્પોન્સર બનો</string>
-    <string name="settings_business_partnerships">વ્યવસાયિક ભાગીદારી</string>
-    <string name="settings_business_partnerships_description">તમારી કંપનીનો લોગો પ્રદર્શિત કરવા અથવા વ્યૂહાત્મક ભાગીદારીની ચર્ચા કરવા માંગો છો?</string>
-    <string name="settings_contact_sponsorship">વ્યૂહાત્મક પ્રાયોજકતા માટે સંપર્ક કરો</string>
     <string name="settings_status_error_invalid_key">અમાન્ય API કી</string>
     <string name="settings_status_error_quota_exhausted">ક્વોટા ખતમ</string>
     <string name="settings_status_error_rate_limited">દર મર્યાદા સુધી પહોંચ્યા</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">બધી સેવાઓ નિષ્ફળ ગઈ.</string>
     <string name="settings_heartbeat_interval">અંતરાલ</string>
     <string name="settings_heartbeat_active_hours">સક્રિય કલાકો</string>
-    <string name="settings_documentation">દસ્તાવેજીકરણ</string>
     <string name="waiting_thinking">વિચારી રહ્યું છે…</string>
     <string name="waiting_working">કામ કરી રહ્યું છે…</string>
     <string name="waiting_brewing">તૈયાર કરી રહ્યું છે…</string>

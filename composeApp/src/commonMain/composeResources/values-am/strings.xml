@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">ነጻ የደረጃ ገደብ ደርሷል</string>
     <string name="error_free_limit_body">ነጻ FAST እና ነጻ EXPERT በፍጥነት ገደብ ተደርገዋል። ከፍተኛ ገደቦች ለማግኘት ከእነዚህ አቅራቢዎች አንዱ ጋር ነጻ API ቁልፍ ይፍጠሩ፣ ከዚያ በቅንብሮች → አገልግሎቶች ስር ያክሉት።</string>
     <string name="error_unknown">ያልታወቀ ስህተት ተከሰተ።</string>
-    <string name="settings_ai_mistakes_warning">AI ስህተቶችን ይሰራል፣ ደግመው ያረጋግጡ እና ሚስጥራዊ መረጃ አያጋሩ።</string>
-    <string name="settings_version">ስሪት: %1$s</string>
     <string name="settings_api_key_label">API ቁልፍ</string>
     <string name="settings_api_key_optional_label">API ቁልፍ (አማራጭ)</string>
     <string name="settings_sign_in_copy_api_key_from">ይግቡ እና API ቁልፍዎን ይቅዱ ከ</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">ነፃ ደረጃ</string>
     <string name="settings_free_tier_description">የተጠቃሚ መሰረቱ ሲያድግ፣ ድጋፍ መሰረተ ልማትን ለማስፋት፣ ለሁሉም የተጠቀሙበት ገደብን ለማሳደግ እና ልማቱን ንቁ ለማድረግ ይረዳል።</string>
     <string name="settings_become_sponsor">የ GitHub ስፖንሰር ይሁኑ</string>
-    <string name="settings_business_partnerships">የንግድ ሽርክናዎች</string>
-    <string name="settings_business_partnerships_description">የኩባንያዎን አርማ ማሳየት ወይም ስትራቴጂካዊ ሽርክና መወያየት ይፈልጋሉ?</string>
-    <string name="settings_contact_sponsorship">ለስትራቴጂካዊ ስፖንሰርሺፕ ያግኙን</string>
     <string name="settings_base_url_label">የአገልጋይ URL</string>
     <string name="settings_status_checking">ግንኙነት በማረጋገጥ ላይ...</string>
     <string name="settings_status_connected">ተገናኝቷል</string>
@@ -153,7 +148,6 @@
     <string name="error_all_services_failed">ሁሉም አገልግሎቶች አልተሳኩም።</string>
     <string name="settings_heartbeat_interval">ክፍተት</string>
     <string name="settings_heartbeat_active_hours">ንቁ ሰዓቶች</string>
-    <string name="settings_documentation">ሰነድ</string>
     <string name="waiting_thinking">እያሰበ…</string>
     <string name="waiting_working">እየሰራ…</string>
     <string name="waiting_brewing">እያዘጋጀ…</string>

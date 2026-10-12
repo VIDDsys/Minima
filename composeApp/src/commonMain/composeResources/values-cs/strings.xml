@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Dosažen limit bezplatné úrovně</string>
     <string name="error_free_limit_body">Free FAST a Free EXPERT mají omezenou rychlost. Vytvořte si bezplatný API klíč u jednoho z těchto poskytovatelů pro vyšší limity a poté jej přidejte v Nastavení → Služby.</string>
     <string name="error_unknown">Do\u0161lo k nezn\u00e1m\u00e9 chyb\u011b.</string>
-    <string name="settings_ai_mistakes_warning">AI d\u011bl\u00e1 chyby, v\u0161e si ov\u011b\u0159te a nesd\u00edlejte citliv\u00e9 informace.</string>
-    <string name="settings_version">Verze: %1$s</string>
     <string name="settings_api_key_label">API kl\u00ed\u010d</string>
     <string name="settings_api_key_optional_label">API kl\u00ed\u010d (voliteln\u00fd)</string>
     <string name="settings_sign_in_copy_api_key_from">P\u0159ihlaste se a zkop\u00edrujte sv\u016fj API kl\u00ed\u010d z</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Bezplatn\u00e1 \u00farove\u0148</string>
     <string name="settings_free_tier_description">S r\u016fstem u\u017eivatelsk\u00e9 z\u00e1kladny pom\u00e1h\u00e1 sponzorstv\u00ed \u0161k\u00e1lovat infrastrukturu, zvy\u0161ovat limity po\u017eadavk\u016f pro v\u0161echny a udr\u017eovat aktivn\u00ed v\u00fdvoj.</string>
     <string name="settings_become_sponsor">Sta\u0148te se sponzorem na GitHubu</string>
-    <string name="settings_business_partnerships">Obchodn\u00ed partnerstv\u00ed</string>
-    <string name="settings_business_partnerships_description">Chcete zobrazit logo sv\u00e9 spole\u010dnosti nebo projednat strategick\u00e9 partnerstv\u00ed?</string>
-    <string name="settings_contact_sponsorship">Kontaktujte n\u00e1s ohledn\u011b strategick\u00e9ho sponzorstv\u00ed</string>
     <string name="settings_base_url_label">URL serveru</string>
     <string name="settings_status_checking">Kontrola p\u0159ipojen\u00ed\u2026</string>
     <string name="settings_status_connected">P\u0159ipojeno</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Všechny služby selhaly.</string>
     <string name="settings_heartbeat_interval">Interval</string>
     <string name="settings_heartbeat_active_hours">Aktivní hodiny</string>
-    <string name="settings_documentation">Dokumentace</string>
     <string name="waiting_thinking">Přemýšlím…</string>
     <string name="waiting_working">Pracuji…</string>
     <string name="waiting_brewing">Připravuji…</string>

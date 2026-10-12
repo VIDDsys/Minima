@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Dosegnuto je ograničenje besplatne razine</string>
     <string name="error_free_limit_body">Free FAST i Free EXPERT imaju ograničenje brzine. Izradite besplatan API ključ kod jednog od ovih pružatelja za veća ograničenja, zatim ga dodajte u Postavke → Usluge.</string>
     <string name="error_unknown">Došlo je do nepoznate greške.</string>
-    <string name="settings_ai_mistakes_warning">AI griješi, provjerite dvaput i nemojte dijeliti osjetljive informacije.</string>
-    <string name="settings_version">Verzija: %1$s</string>
     <string name="settings_api_key_label">API ključ</string>
     <string name="settings_api_key_optional_label">API ključ (neobavezno)</string>
     <string name="settings_sign_in_copy_api_key_from">Prijavite se i kopirajte svoj API ključ s</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Besplatna razina</string>
     <string name="settings_free_tier_description">Kako se baza korisnika povećava, sponzorstvo pomaže u proširenju infrastrukture, povećanju ograničenja zahtjeva za sve i održavanju aktivnog razvoja.</string>
     <string name="settings_become_sponsor">Postanite GitHub sponzor</string>
-    <string name="settings_business_partnerships">Poslovna partnerstva</string>
-    <string name="settings_business_partnerships_description">Želite prikazati logotip svoje tvrtke ili razgovarati o strateškom partnerstvu?</string>
-    <string name="settings_contact_sponsorship">Kontakt za strateško sponzorstvo</string>
     <string name="settings_base_url_label">URL poslužitelja</string>
     <string name="settings_status_checking">Provjera veze...</string>
     <string name="settings_status_connected">Povezano</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Sve usluge nisu uspjele.</string>
     <string name="settings_heartbeat_interval">Interval</string>
     <string name="settings_heartbeat_active_hours">Aktivni sati</string>
-    <string name="settings_documentation">Dokumentacija</string>
     <string name="waiting_thinking">Razmišljam…</string>
     <string name="waiting_working">Radim…</string>
     <string name="waiting_brewing">Pripremam…</string>

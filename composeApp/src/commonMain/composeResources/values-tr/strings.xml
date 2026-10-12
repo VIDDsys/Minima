@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Ücretsiz katman limitine ulaşıldı</string>
     <string name="error_free_limit_body">Free FAST ve Free EXPERT hız sınırlıdır. Daha yüksek limitler için bu sağlayıcılardan birinde ücretsiz bir API anahtarı oluşturun, ardından Ayarlar → Hizmetler altına ekleyin.</string>
     <string name="error_unknown">Bilinmeyen bir hata oluştu.</string>
-    <string name="settings_ai_mistakes_warning">Yapay zeka hata yapabilir, tekrar kontrol edin ve hassas bilgileri paylaşmayın.</string>
-    <string name="settings_version">Sürüm: %1$s</string>
     <string name="settings_api_key_label">API Anahtarı</string>
     <string name="settings_api_key_optional_label">API Anahtarı (isteğe bağlı)</string>
     <string name="settings_sign_in_copy_api_key_from">Giriş yapın ve API anahtarınızı buradan kopyalayın</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Ücretsiz Katman</string>
     <string name="settings_free_tier_description">Kullanıcı tabanı büyüdükçe, sponsorluk altyapıyı ölçeklendirmeye, herkes için istek limitlerini artırmaya ve geliştirmeyi aktif tutmaya yardımcı olur.</string>
     <string name="settings_become_sponsor">GitHub Sponsoru Olun</string>
-    <string name="settings_business_partnerships">İş Ortaklıkları</string>
-    <string name="settings_business_partnerships_description">Şirketinizin logosunu göstermek veya stratejik bir ortaklık görüşmek ister misiniz?</string>
-    <string name="settings_contact_sponsorship">Stratejik Sponsorluk için İletişime Geçin</string>
     <string name="settings_status_error_invalid_key">Geçersiz API anahtarı</string>
     <string name="settings_status_error_quota_exhausted">Kota tükendi</string>
     <string name="settings_status_error_rate_limited">İstek limiti aşıldı</string>
@@ -153,7 +148,6 @@ Bir şey dikkat gerektiriyorsa (eski anılar, vadesi geçmiş görevler, kullan�
     <string name="error_all_services_failed">Tüm hizmetler başarısız oldu.</string>
     <string name="settings_heartbeat_interval">Aralık</string>
     <string name="settings_heartbeat_active_hours">Aktif Saatler</string>
-    <string name="settings_documentation">Dokümantasyon</string>
     <string name="waiting_thinking">Düşünüyor…</string>
     <string name="waiting_working">Çalışıyor…</string>
     <string name="waiting_brewing">Hazırlıyor…</string>

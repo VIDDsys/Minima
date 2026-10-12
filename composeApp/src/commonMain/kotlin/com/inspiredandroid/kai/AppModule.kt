@@ -21,6 +21,7 @@ import com.inspiredandroid.kai.mcp.McpServerManager
 import com.inspiredandroid.kai.network.Requests
 import com.inspiredandroid.kai.notifications.NotificationReader
 import com.inspiredandroid.kai.skills.SkillManager
+import com.inspiredandroid.kai.skills.createMinimaWorkspace
 import com.inspiredandroid.kai.sms.SmsPoller
 import com.inspiredandroid.kai.sms.SmsReader
 import com.inspiredandroid.kai.sms.SmsSender
@@ -107,7 +108,7 @@ val appModule = module {
         McpServerManager(get())
     }
     single<SkillManager> {
-        SkillManager(get<SandboxController>())
+        SkillManager(get<SandboxController>(), createMinimaWorkspace())
     }
     single<RemoteDataRepository> {
         RemoteDataRepository(

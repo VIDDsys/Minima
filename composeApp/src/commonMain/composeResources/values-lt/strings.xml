@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Pasiektas nemokamo lygio limitas</string>
     <string name="error_free_limit_body">Free FAST ir Free EXPERT yra greičio ribojami. Sukurkite nemokamą API raktą pas vieną iš šių teikėjų didesniems limitams, tada pridėkite jį skiltyje Nustatymai → Paslaugos.</string>
     <string name="error_unknown">Įvyko nežinoma klaida.</string>
-    <string name="settings_ai_mistakes_warning">AI gali klysti, patikrinkite dar kartą ir nesidalinkite slapta informacija.</string>
-    <string name="settings_version">Versija: %1$s</string>
     <string name="settings_api_key_label">API raktas</string>
     <string name="settings_api_key_optional_label">API raktas (neprivalomas)</string>
     <string name="settings_sign_in_copy_api_key_from">Prisijunkite ir nukopijuokite savo API raktą iš</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Nemokamas planas</string>
     <string name="settings_free_tier_description">Augant vartotojų bazei, rėmimas padeda plėsti infrastruktūrą, didinti užklausų limitus visiems ir palaikyti aktyvų kūrimą.</string>
     <string name="settings_become_sponsor">Tapkite GitHub rėmėju</string>
-    <string name="settings_business_partnerships">Verslo partnerystės</string>
-    <string name="settings_business_partnerships_description">Norite parodyti savo įmonės logotipą arba aptarti strateginę partnerystę?</string>
-    <string name="settings_contact_sponsorship">Susisiekite dėl strateginio rėmimo</string>
     <string name="settings_base_url_label">Serverio URL</string>
     <string name="settings_status_checking">Tikrinamas ryšys...</string>
     <string name="settings_status_connected">Prisijungta</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Visos paslaugos nepavyko.</string>
     <string name="settings_heartbeat_interval">Intervalas</string>
     <string name="settings_heartbeat_active_hours">Aktyvios valandos</string>
-    <string name="settings_documentation">Dokumentacija</string>
     <string name="waiting_thinking">Galvoju…</string>
     <string name="waiting_working">Dirbu…</string>
     <string name="waiting_brewing">Ruošiu…</string>

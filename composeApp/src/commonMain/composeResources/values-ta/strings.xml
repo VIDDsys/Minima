@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">இலவச அடுக்கு வரம்பு அடைந்தது</string>
     <string name="error_free_limit_body">Free FAST மற்றும் Free EXPERT விகித வரம்புடையவை. அதிக வரம்புகளுக்கு இந்த வழங்குநர்களில் ஒருவரிடம் இலவச API விசையை உருவாக்கி, பின்னர் அமைப்புகள் → சேவைகளில் சேர்க்கவும்.</string>
     <string name="error_unknown">அறியப்படாத பிழை ஏற்பட்டது.</string>
-    <string name="settings_ai_mistakes_warning">AI தவறுகள் செய்யும், மீண்டும் சரிபார்த்து முக்கியமான தகவல்களைப் பகிர வேண்டாம்.</string>
-    <string name="settings_version">பதிப்பு: %1$s</string>
     <string name="settings_api_key_label">API விசை</string>
     <string name="settings_api_key_optional_label">API விசை (விருப்பத்திற்கு)</string>
     <string name="settings_sign_in_copy_api_key_from">உள்நுழைந்து இங்கிருந்து உங்கள் API விசையை நகலெடுக்கவும்</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">இலவச நிலை</string>
     <string name="settings_free_tier_description">பயனர் தளம் வளரும்போது, நிதியுதவி உள்கட்டமைப்பை விரிவாக்க, அனைவருக்கும் வீத வரம்புகளை அதிகரிக்க, மற்றும் மேம்பாட்டை செயலில் வைத்திருக்க உதவுகிறது.</string>
     <string name="settings_become_sponsor">GitHub ஆதரவாளராக மாறுங்கள்</string>
-    <string name="settings_business_partnerships">வணிக கூட்டாண்மைகள்</string>
-    <string name="settings_business_partnerships_description">உங்கள் நிறுவன லோகோவைக் காட்ட விரும்புகிறீர்களா அல்லது மூலோபாய கூட்டாண்மை பற்றி விவாதிக்க விரும்புகிறீர்களா?</string>
-    <string name="settings_contact_sponsorship">மூலோபாய நிதியுதவிக்கு தொடர்பு கொள்ளவும்</string>
     <string name="settings_status_error_invalid_key">தவறான API விசை</string>
     <string name="settings_status_error_quota_exhausted">ஒதுக்கீடு தீர்ந்தது</string>
     <string name="settings_status_error_rate_limited">விகித வரம்பு எட்டப்பட்டது</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">அனைத்து சேவைகளும் தோல்வியடைந்தன.</string>
     <string name="settings_heartbeat_interval">இடைவெளி</string>
     <string name="settings_heartbeat_active_hours">செயலில் உள்ள நேரம்</string>
-    <string name="settings_documentation">ஆவணமாக்கம்</string>
     <string name="waiting_thinking">யோசிக்கிறது…</string>
     <string name="waiting_working">வேலை செய்கிறது…</string>
     <string name="waiting_brewing">தயாரிக்கிறது…</string>

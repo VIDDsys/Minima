@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Dosiahnutý limit bezplatnej úrovne</string>
     <string name="error_free_limit_body">Free FAST a Free EXPERT majú obmedzenie rýchlosti. Vytvorte si bezplatný API kľúč u jedného z týchto poskytovateľov pre vyššie limity a potom ho pridajte v Nastaveniach → Služby.</string>
     <string name="error_unknown">Vyskytla sa neznáma chyba.</string>
-    <string name="settings_ai_mistakes_warning">AI robí chyby, overte si informácie a nezdieľajte citlivé údaje.</string>
-    <string name="settings_version">Verzia: %1$s</string>
     <string name="settings_api_key_label">API kľúč</string>
     <string name="settings_api_key_optional_label">API kľúč (voliteľný)</string>
     <string name="settings_sign_in_copy_api_key_from">Prihláste sa a skopírujte svoj API kľúč z</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Bezplatná úroveň</string>
     <string name="settings_free_tier_description">S rastom používateľskej základne sponzorstvo pomáha škálovať infraštruktúru, zvyšovať limity požiadaviek pre všetkých a udržiavať aktívny vývoj.</string>
     <string name="settings_become_sponsor">Staňte sa sponzorom na GitHub</string>
-    <string name="settings_business_partnerships">Obchodné partnerstvá</string>
-    <string name="settings_business_partnerships_description">Chcete zobraziť logo vašej spoločnosti alebo prediskutovať strategické partnerstvo?</string>
-    <string name="settings_contact_sponsorship">Kontaktujte nás ohľadom strategického sponzorstva</string>
     <string name="settings_base_url_label">URL servera</string>
     <string name="settings_status_checking">Kontrola pripojenia...</string>
     <string name="settings_status_connected">Pripojené</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Všetky služby zlyhali.</string>
     <string name="settings_heartbeat_interval">Interval</string>
     <string name="settings_heartbeat_active_hours">Aktívne hodiny</string>
-    <string name="settings_documentation">Dokumentácia</string>
     <string name="waiting_thinking">Premýšľam…</string>
     <string name="waiting_working">Pracujem…</string>
     <string name="waiting_brewing">Pripravujem…</string>

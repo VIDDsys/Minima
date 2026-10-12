@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Дасягнуты ліміт бясплатнага ўзроўню</string>
     <string name="error_free_limit_body">Free FAST і Free EXPERT маюць абмежаванне хуткасці. Стварыце бясплатны API-ключ у аднаго з гэтых пастаўшчыкоў для больш высокіх лімітаў, затым дадайце яго ў Налады → Сэрвісы.</string>
     <string name="error_unknown">Адбылася невядомая памылка.</string>
-    <string name="settings_ai_mistakes_warning">AI робіць памылкі, правярайце двойчы і не дзяліцеся канфідэнцыяльнай інфармацыяй.</string>
-    <string name="settings_version">Версія: %1$s</string>
     <string name="settings_api_key_label">Ключ API</string>
     <string name="settings_api_key_optional_label">Ключ API (неабавязкова)</string>
     <string name="settings_sign_in_copy_api_key_from">Увайдзіце і скапіруйце свой ключ API з</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Бясплатны ўзровень</string>
     <string name="settings_free_tier_description">Па меры росту базы карыстальнікаў спансарства дапамагае маштабаваць інфраструктуру, павялічваць ліміты запытаў для ўсіх і падтрымліваць актыўную распрацоўку.</string>
     <string name="settings_become_sponsor">Стаць спонсарам GitHub</string>
-    <string name="settings_business_partnerships">Дзелавое партнёрства</string>
-    <string name="settings_business_partnerships_description">Жадаеце размясціць лагатып сваёй кампаніі або абмеркаваць стратэгічнае партнёрства?</string>
-    <string name="settings_contact_sponsorship">Звязацца па пытаннях стратэгічнага спансарства</string>
     <string name="settings_base_url_label">URL сервера</string>
     <string name="settings_status_checking">Праверка злучэння...</string>
     <string name="settings_status_connected">Злучана</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Усе сэрвісы пацярпелі няўдачу.</string>
     <string name="settings_heartbeat_interval">Інтэрвал</string>
     <string name="settings_heartbeat_active_hours">Актыўныя гадзіны</string>
-    <string name="settings_documentation">Дакументацыя</string>
     <string name="waiting_thinking">Думаю…</string>
     <string name="waiting_working">Працую…</string>
     <string name="waiting_brewing">Гатую…</string>

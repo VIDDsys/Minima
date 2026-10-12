@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Kikomo cha kiwango cha bure kimefikiwa</string>
     <string name="error_free_limit_body">Free FAST na Free EXPERT zina kikomo cha kasi. Unda funguo ya API ya bure kwa mmoja wa watoa huduma hawa kwa vikomo vya juu, kisha iongeze chini ya Mipangilio → Huduma.</string>
     <string name="error_unknown">Hitilafu isiyojulikana imetokea.</string>
-    <string name="settings_ai_mistakes_warning">AI inaweza kufanya makosa, angalia mara mbili na usishiriki taarifa nyeti.</string>
-    <string name="settings_version">Toleo: %1$s</string>
     <string name="settings_api_key_label">Ufunguo wa API</string>
     <string name="settings_api_key_optional_label">Ufunguo wa API (si lazima)</string>
     <string name="settings_sign_in_copy_api_key_from">Ingia na unakili ufunguo wako wa API kutoka</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Kiwango cha Bure</string>
     <string name="settings_free_tier_description">Kadri msingi wa watumiaji unavyokua, udhamini husaidia kupanua miundombinu, kuongeza vikomo vya maombi kwa kila mtu, na kuweka maendeleo yakiendelea.</string>
     <string name="settings_become_sponsor">Kuwa Mdhamini wa GitHub</string>
-    <string name="settings_business_partnerships">Ushirikiano wa Biashara</string>
-    <string name="settings_business_partnerships_description">Ungependa kuonyesha nembo ya kampuni yako au kujadili ushirikiano wa kimkakati?</string>
-    <string name="settings_contact_sponsorship">Wasiliana kwa Udhamini wa Kimkakati</string>
     <string name="settings_status_error_invalid_key">Ufunguo wa API si sahihi</string>
     <string name="settings_status_error_quota_exhausted">Kiwango kimeisha</string>
     <string name="settings_status_error_rate_limited">Kikomo cha kiwango kimefikiwa</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Huduma zote zimeshindwa.</string>
     <string name="settings_heartbeat_interval">Muda</string>
     <string name="settings_heartbeat_active_hours">Masaa ya Shughuli</string>
-    <string name="settings_documentation">Nyaraka</string>
     <string name="waiting_thinking">Nafikiri…</string>
     <string name="waiting_working">Nafanya kazi…</string>
     <string name="waiting_brewing">Naandaa…</string>

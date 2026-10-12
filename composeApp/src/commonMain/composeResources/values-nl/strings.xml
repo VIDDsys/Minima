@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Limiet van gratis niveau bereikt</string>
     <string name="error_free_limit_body">Free FAST en Free EXPERT zijn snelheidsbeperkt. Maak een gratis API-sleutel bij een van deze providers voor hogere limieten en voeg die toe onder Instellingen → Services.</string>
     <string name="error_unknown">Er is een onbekende fout opgetreden.</string>
-    <string name="settings_ai_mistakes_warning">AI kan fouten maken, controleer opnieuw en deel geen gevoelige informatie.</string>
-    <string name="settings_version">Versie: %1$s</string>
     <string name="settings_api_key_label">API-sleutel</string>
     <string name="settings_api_key_optional_label">API-sleutel (optioneel)</string>
     <string name="settings_sign_in_copy_api_key_from">Log in en kopieer uw API-sleutel van</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Gratis Niveau</string>
     <string name="settings_free_tier_description">Naarmate het gebruikersbestand groeit, helpt sponsoring om de infrastructuur op te schalen, de aanvraaglimieten voor iedereen te verhogen en de ontwikkeling actief te houden.</string>
     <string name="settings_become_sponsor">Word een GitHub-sponsor</string>
-    <string name="settings_business_partnerships">Zakelijke Partnerschappen</string>
-    <string name="settings_business_partnerships_description">Wilt u uw bedrijfslogo tonen of een strategisch partnerschap bespreken?</string>
-    <string name="settings_contact_sponsorship">Contact voor strategische sponsoring</string>
     <string name="settings_status_error_invalid_key">Ongeldige API-sleutel</string>
     <string name="settings_status_error_quota_exhausted">Quotum uitgeput</string>
     <string name="settings_status_error_rate_limited">Aanvraaglimiet bereikt</string>
@@ -153,7 +148,6 @@ Als iets aandacht nodig heeft (verouderde herinneringen, verlopen taken, gebruik
     <string name="error_all_services_failed">Alle diensten zijn mislukt.</string>
     <string name="settings_heartbeat_interval">Interval</string>
     <string name="settings_heartbeat_active_hours">Actieve uren</string>
-    <string name="settings_documentation">Documentatie</string>
     <string name="waiting_thinking">Denken…</string>
     <string name="waiting_working">Werken…</string>
     <string name="waiting_brewing">Brouwen…</string>

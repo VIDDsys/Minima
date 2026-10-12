@@ -109,19 +109,22 @@ internal const val DEFAULT_ACTING_SECTION =
  * Android path-space reminder. Only composed when this request actually includes
  * the `public_storage` tool, so a desktop, tool-less, or local model that cannot
  * call it does not get the instruction. Mount names match the proot binds:
- * `/sdcard` and `/storage/emulated/0`.
+ * `/sdcard` and `/storage/emulated/0` — the same directory, not a mirror to copy.
  */
 internal const val DEFAULT_PUBLIC_STORAGE_SECTION =
     "## Phone storage\n" +
-        "This Android device has two filesystems. Do not mix them.\n" +
-        "- Shared storage (Download, DCIM, Documents, `/storage/emulated/0/Minima`): the `public_storage` tool. " +
-        "Paths must stay under `/storage/emulated/0`. Aliases `/sdcard`, `/mnt/sdcard`, and `/storage/self/primary` are the same tree. " +
-        "This tool uses Android file APIs and does not go through the Linux sandbox.\n" +
-        "- Linux sandbox: `execute_shell_command` and paths under `/root` (skills at `~/skills`, scripts, executables). " +
-        "`/root` stays on internal app storage.\n" +
-        "- When All files access is granted, the sandbox bind-mounts that same shared storage at `/sdcard` and `/storage/emulated/0`. " +
-        "If a shell was already running, its next command restarts it so the mount appears. That restart clears cwd and exported variables. " +
-        "A background process started before the grant keeps the old mount.\n" +
+        "Shared phone files are one directory. `public_storage` and the sandbox mounts are two doors onto it, not two copies.\n" +
+        "- User files (Download, DCIM, Documents, and `/storage/emulated/0/Minima`): prefer `public_storage`. " +
+        "Paths stay under `/storage/emulated/0`. Aliases `/sdcard`, `/mnt/sdcard`, and `/storage/self/primary` are that same tree. " +
+        "This tool uses Android file APIs and does not go through proot.\n" +
+        "- When All files access is granted, `execute_shell_command` sees those exact bytes at `/sdcard` and `/storage/emulated/0`. " +
+        "Use the shell there only when a command needs the file. Do not write the file twice to keep the two doors in sync.\n" +
+        "- Durable user instructions live only under `/storage/emulated/0/Minima` (shell: `/sdcard/Minima`): `AGENTS.md`, and skills at `skills/<id>/SKILL.md`. " +
+        "If this prompt already includes that AGENTS.md text, follow it. Do not invent a second copy under `/root`.\n" +
+        "- Linux sandbox (`execute_shell_command`): paths under `/root` on internal app storage — packages, executables, SSH keys, and marketplace skills at `~/skills`. " +
+        "Shared storage is not where binaries run. A public `Minima/skills/<id>` overrides a `~/skills/<id>` with the same id; follow the public SKILL.md and do not merge the two bodies.\n" +
+        "- If a shell was already running when the grant changed, its next command restarts it so the mount matches. That restart clears cwd and exported variables. " +
+        "A background process started before the change keeps the old mount.\n" +
         "- If `public_storage` returns a permission error, say so and ask the user to grant All files access (Settings → Sandbox). " +
         "Do not fabricate file contents. The Play Store build omits this permission; the FOSS build is the one that can grant it."
 
@@ -180,6 +183,7 @@ internal fun buildChatSystemPrompt(
     uiMode: ChatPromptUiMode,
     activeSkill: SkillManifest? = null,
     publicStorage: Boolean = false,
+    agentsMd: String? = null,
 ): String = buildString {
     append(soul)
 
@@ -253,6 +257,14 @@ internal fun buildChatSystemPrompt(
     if (publicStorage) {
         append("\n\n")
         append(DEFAULT_PUBLIC_STORAGE_SECTION)
+        val agents = agentsMd?.trim().orEmpty()
+        if (agents.isNotEmpty()) {
+            append("\n\n## User workspace\n")
+            append("Standing instructions from `/storage/emulated/0/Minima/AGENTS.md` ")
+            append("(same file as `/sdcard/Minima/AGENTS.md`). Follow this text. ")
+            append("Do not copy it into `/root`.\n\n")
+            append(agents)
+        }
     }
 
     appendContextSection(runtime)
@@ -271,8 +283,8 @@ internal fun buildChatSystemPrompt(
  * message with `/skill-id`, so the body stays out of the prompt on every other
  * turn — matches the lean-prompt rule of "disabled features add zero bytes."
  *
- * On Android, the skill's bundled files live at `~/skills/<id>/` inside the
- * Linux sandbox, accessible via the existing `execute_shell_command` tool.
+ * Bundled files are listed with the home that won: the public Minima folder, or
+ * `~/skills/<id>/` in the Linux sandbox. The two are not merged.
  */
 private fun StringBuilder.appendActiveSkillSection(skill: SkillManifest) {
     append("\n\n## Active skill: ")
@@ -280,9 +292,17 @@ private fun StringBuilder.appendActiveSkillSection(skill: SkillManifest) {
     append('\n')
     append(skill.body.trim())
     if (skill.bundledFilePaths.isNotEmpty()) {
-        append("\n\nBundled files (available at `~/skills/")
-        append(skill.id)
-        append("/` in the Linux sandbox):\n")
+        if (skill.fromPublicStorage) {
+            append("\n\nBundled files (at `/storage/emulated/0/Minima/skills/")
+            append(skill.id)
+            append("/`, same directory as `/sdcard/Minima/skills/")
+            append(skill.id)
+            append("/`). Read them with `public_storage` or the shell. Do not copy them into `~/skills`:\n")
+        } else {
+            append("\n\nBundled files (available at `~/skills/")
+            append(skill.id)
+            append("/` in the Linux sandbox):\n")
+        }
         for (path in skill.bundledFilePaths.sorted()) {
             append("- ")
             append(path)

@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Limita nivelului gratuit a fost atinsă</string>
     <string name="error_free_limit_body">Free FAST și Free EXPERT au limită de rată. Creează o cheie API gratuită la unul dintre acești furnizori pentru limite mai mari, apoi adaug-o în Setări → Servicii.</string>
     <string name="error_unknown">A apărut o eroare necunoscută.</string>
-    <string name="settings_ai_mistakes_warning">Inteligența artificială poate greși, verificați de două ori și nu partajați informații sensibile.</string>
-    <string name="settings_version">Versiune: %1$s</string>
     <string name="settings_api_key_label">Cheie API</string>
     <string name="settings_api_key_optional_label">Cheie API (opțional)</string>
     <string name="settings_sign_in_copy_api_key_from">Conectați-vă și copiați cheia API de la</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Nivel gratuit</string>
     <string name="settings_free_tier_description">Pe măsură ce baza de utilizatori crește, sponsorizarea ajută la extinderea infrastructurii, la creșterea limitelor de utilizare pentru toți și la menținerea dezvoltării active.</string>
     <string name="settings_become_sponsor">Devino sponsor pe GitHub</string>
-    <string name="settings_business_partnerships">Parteneriate de afaceri</string>
-    <string name="settings_business_partnerships_description">Doriți să afișați logo-ul companiei dvs. sau să discutați un parteneriat strategic?</string>
-    <string name="settings_contact_sponsorship">Contactați-ne pentru sponsorizare strategică</string>
     <string name="settings_base_url_label">URL server</string>
     <string name="settings_status_checking">Se verifică conexiunea...</string>
     <string name="settings_status_connected">Conectat</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Toate serviciile au eșuat.</string>
     <string name="settings_heartbeat_interval">Interval</string>
     <string name="settings_heartbeat_active_hours">Ore active</string>
-    <string name="settings_documentation">Documentație</string>
     <string name="waiting_thinking">Gândesc…</string>
     <string name="waiting_working">Lucrez…</string>
     <string name="waiting_brewing">Pregătesc…</string>

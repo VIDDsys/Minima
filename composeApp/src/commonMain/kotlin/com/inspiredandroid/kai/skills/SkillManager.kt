@@ -14,20 +14,24 @@ import kotlinx.coroutines.sync.withLock
 import kotlin.coroutines.CoroutineContext
 
 /**
- * Manages the user's skills. Most skills live in the Linux sandbox at `~/skills/<id>/`
- * (each is a folder containing `SKILL.md` plus any bundled files); a small set of
- * "built-in" skills ships inside the app as compose resources and is merged into the
- * same in-memory cache so synchronous callers ([getInstalled], [getSkill]) stay cheap.
- * On id collision the sandbox copy wins, so users can override a built-in.
+ * Manages the user's skills.
+ *
+ * Marketplace and script skills live in the Linux sandbox at `~/skills/<id>/`.
+ * Durable user skills live under the phone's Minima workspace
+ * (`/storage/emulated/0/Minima/skills/<id>/`, the same tree as `/sdcard/Minima/skills`).
+ * A public folder with the same id overrides the sandbox copy; neither is copied
+ * onto the other. Built-in skills ship in compose resources and lose to both.
  *
  * The cache is (re)loaded after every install/uninstall and whenever the sandbox
  * becomes installed — built-ins are loaded then too, gated on sandbox availability
  * because they only make sense when their `execute_shell_command` writes can land.
  * On platforms without a sandbox the file ops are no-ops and `load()` never runs, so
- * no skills (built-in or otherwise) appear off-Android.
+ * no skills (built-in or otherwise) appear off-Android. The public workspace is
+ * empty there as well.
  */
 class SkillManager(
     private val sandboxController: SandboxController,
+    private val workspace: MinimaWorkspace = EmptyMinimaWorkspace,
     private val registry: SkillRegistry = SkillRegistry(),
     backgroundDispatcher: CoroutineContext = getBackgroundDispatcher(),
 ) {
@@ -54,8 +58,15 @@ class SkillManager(
 
     fun getSkill(id: String): SkillManifest? = _skills.value.firstOrNull { it.id == id }
 
+    suspend fun readAgentsMd(): String? = workspace.readAgentsMd()
+
     suspend fun uninstall(id: String) {
-        sandboxController.deleteEntry("$SKILLS_DIR/$id", recursive = true)
+        val skill = getSkill(id)
+        if (skill?.fromPublicStorage == true) {
+            workspace.deleteSkill(id)
+        } else if (skill == null || !skill.isBuiltIn) {
+            sandboxController.deleteEntry("$SKILLS_DIR/$id", recursive = true)
+        }
         load()
     }
 
@@ -81,9 +92,14 @@ class SkillManager(
         return getSkill(downloaded.id) ?: error("Skill '${downloaded.id}' not found after install")
     }
 
-    /** Reads every `~/skills/<id>/` folder back into the in-memory cache. */
+    /**
+     * Rebuilds the cache. Public `Minima/skills/<id>` wins over `~/skills/<id>`,
+     * and either wins over a built-in. The losing folder is left on disk.
+     */
     suspend fun load() {
         val skills = mutex.withLock {
+            val publicSkills = workspace.loadSkills()
+            val publicIds = publicSkills.mapTo(mutableSetOf()) { it.id }
             val sandboxSkills = sandboxController.listDirectory(SKILLS_DIR)
                 .filter { it.isDirectory }
                 .mapNotNull { dir ->
@@ -92,6 +108,7 @@ class SkillManager(
                         ?.content ?: return@mapNotNull null
                     val parsed = SkillFrontmatterParser.parse(md) as? SkillFrontmatterParser.Result.Ok
                         ?: return@mapNotNull null
+                    if (parsed.id in publicIds) return@mapNotNull null
                     val files = sandboxController.listDirectory(base)
                         .filter { !it.isDirectory && it.name != "SKILL.md" }
                         .map { it.name }
@@ -104,10 +121,9 @@ class SkillManager(
                         bundledFilePaths = files,
                     )
                 }
-            // Sandbox-installed skills win on id collision so power users can override a built-in.
-            val sandboxIds = sandboxSkills.mapTo(mutableSetOf()) { it.id }
-            val builtIns = loadBuiltInSkills().filter { it.id !in sandboxIds }
-            (builtIns + sandboxSkills).sortedBy { it.id }
+            val takenIds = publicIds + sandboxSkills.map { it.id }
+            val builtIns = loadBuiltInSkills().filter { it.id !in takenIds }
+            (builtIns + sandboxSkills + publicSkills).sortedBy { it.id }
         }
         _skills.value = skills
     }

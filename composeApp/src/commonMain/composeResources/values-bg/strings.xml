@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Достигнат е лимитът на безплатното ниво</string>
     <string name="error_free_limit_body">Free FAST и Free EXPERT са с ограничение на скоростта. Създайте безплатен API ключ при един от тези доставчици за по-високи лимити, след което го добавете в Настройки → Услуги.</string>
     <string name="error_unknown">Възникна неизвестна грешка.</string>
-    <string name="settings_ai_mistakes_warning">AI прави грешки, проверявайте два пъти и не споделяйте чувствителна информация.</string>
-    <string name="settings_version">Версия: %1$s</string>
     <string name="settings_api_key_label">API ключ</string>
     <string name="settings_api_key_optional_label">API ключ (по избор)</string>
     <string name="settings_sign_in_copy_api_key_from">Влезте и копирайте API ключа си от</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Безплатно ниво</string>
     <string name="settings_free_tier_description">С нарастването на потребителската база спонсорството помага за мащабиране на инфраструктурата, увеличаване на лимитите на заявките за всички и поддържане на активната разработка.</string>
     <string name="settings_become_sponsor">Станете спонсор в GitHub</string>
-    <string name="settings_business_partnerships">Бизнес партньорства</string>
-    <string name="settings_business_partnerships_description">Искате да покажете логото на компанията си или да обсъдите стратегическо партньорство?</string>
-    <string name="settings_contact_sponsorship">Свържете се за стратегическо спонсорство</string>
     <string name="settings_base_url_label">URL на сървъра</string>
     <string name="settings_status_checking">Проверка на връзката...</string>
     <string name="settings_status_connected">Свързан</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Всички услуги се провалиха.</string>
     <string name="settings_heartbeat_interval">Интервал</string>
     <string name="settings_heartbeat_active_hours">Активни часове</string>
-    <string name="settings_documentation">Документация</string>
     <string name="waiting_thinking">Мисля…</string>
     <string name="waiting_working">Работя…</string>
     <string name="waiting_brewing">Подготвям…</string>

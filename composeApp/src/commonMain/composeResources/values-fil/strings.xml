@@ -6,8 +6,6 @@
     <string name="error_free_limit_title">Naabot na ang limit ng libreng tier</string>
     <string name="error_free_limit_body">Rate-limited ang Free FAST at Free EXPERT. Gumawa ng libreng API key sa isa sa mga provider na ito para sa mas mataas na limit, pagkatapos idagdag ito sa Settings → Services.</string>
     <string name="error_unknown">May hindi kilalang error na nangyari.</string>
-    <string name="settings_ai_mistakes_warning">Nagkakamali ang AI, i-double check at huwag magbahagi ng sensitibong impormasyon.</string>
-    <string name="settings_version">Bersyon: %1$s</string>
     <string name="settings_api_key_label">API Key</string>
     <string name="settings_api_key_optional_label">API Key (opsyonal)</string>
     <string name="settings_sign_in_copy_api_key_from">Mag-sign in at kopyahin ang iyong API key mula sa</string>
@@ -22,9 +20,6 @@
     <string name="settings_free_tier_title">Libreng Tier</string>
     <string name="settings_free_tier_description">Habang lumalaki ang base ng mga gumagamit, ang sponsorship ay tumutulong na palawakin ang infrastructure, dagdagan ang rate limits para sa lahat, at panatilihing aktibo ang development.</string>
     <string name="settings_become_sponsor">Maging GitHub Sponsor</string>
-    <string name="settings_business_partnerships">Mga Business Partnership</string>
-    <string name="settings_business_partnerships_description">Gustong ipakita ang logo ng iyong kumpanya o talakayin ang isang strategic partnership?</string>
-    <string name="settings_contact_sponsorship">Makipag-ugnayan para sa Strategic Sponsorship</string>
     <string name="settings_base_url_label">URL ng Server</string>
     <string name="settings_status_checking">Sinusuri ang koneksyon...</string>
     <string name="settings_status_connected">Nakakonekta</string>
@@ -152,7 +147,6 @@
     <string name="error_all_services_failed">Nabigo ang lahat ng serbisyo.</string>
     <string name="settings_heartbeat_interval">Pagitan</string>
     <string name="settings_heartbeat_active_hours">Mga Aktibong Oras</string>
-    <string name="settings_documentation">Dokumentasyon</string>
     <string name="waiting_thinking">Nag-iisip…</string>
     <string name="waiting_working">Nagtatrabaho…</string>
     <string name="waiting_brewing">Naghahanda…</string>
