@@ -16,10 +16,11 @@ class AppSettingsTest {
         // Set up a legacy API key for OpenAI
         appSettings.setApiKey(Service.OpenAI, "sk-test-key")
 
-        // First run — migrates and adds the service
+        // First run — seeds the default current service (DeepSeek) and any
+        // service that already has a legacy API key.
         appSettings.migrateConfiguredServicesIfNeeded()
-        assertEquals(1, appSettings.getConfiguredServiceInstances().size)
-        assertEquals(Service.OpenAI.id, appSettings.getConfiguredServiceInstances()[0].serviceId)
+        val migrated = appSettings.getConfiguredServiceInstances().map { it.serviceId }
+        assertEquals(setOf(Service.DeepSeek.id, Service.OpenAI.id), migrated.toSet())
 
         // User deletes the service
         appSettings.setConfiguredServiceInstances(emptyList())
@@ -235,8 +236,9 @@ class AppSettingsTest {
         appSettings.migrateConfiguredServicesIfNeeded()
 
         val instances = appSettings.getConfiguredServiceInstances()
-        assertEquals(2, instances.size)
-        assertTrue(instances.any { it.serviceId == Service.OpenAI.id })
-        assertTrue(instances.any { it.serviceId == Service.Gemini.id })
+        assertEquals(
+            setOf(Service.DeepSeek.id, Service.OpenAI.id, Service.Gemini.id),
+            instances.map { it.serviceId }.toSet(),
+        )
     }
 }
