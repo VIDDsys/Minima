@@ -66,6 +66,8 @@
     <string name="tool_open_file_description">在您的預設 Android 應用程式中開啟沙盒檔案</string>
     <string name="tool_execute_shell_command_name">執行命令</string>
     <string name="tool_execute_shell_command_description">在 Linux 沙盒中執行 Shell 指令</string>
+    <string name="tool_public_storage_name">公共儲存</string>
+    <string name="tool_public_storage_description">列出、讀取和寫入手機公共儲存（Download、DCIM、Documents）</string>
     <string name="settings_dynamic_ui">動態介面</string>
     <string name="settings_dynamic_ui_description">允許AI在回覆中建立互動式介面元素，如按鈕、表單和卡片。變更適用於新對話。</string>
     <string name="settings_memories">記憶</string>
@@ -221,6 +223,11 @@
     <string name="notification_channel_description">由 AI 助理傳送的通知</string>
     <string name="settings_tab_sandbox">Linux Sandbox</string>
     <string name="settings_sandbox_description">安裝 Linux 環境，讓 AI 可以代您執行 shell 指令、腳本和工具。在應用程式內安全執行。</string>
+    <string name="settings_public_storage_title">所有檔案存取權</string>
+    <string name="settings_public_storage_description">允許 Minima 讀寫公共儲存（Download、DCIM、Documents、/storage/emulated/0/Minima），並把該目錄綁進 Linux 沙箱的 /sdcard。/root 仍在應用程式內部。Play 商店版本不含此權限。</string>
+    <string name="settings_public_storage_grant">授予所有檔案存取權</string>
+    <string name="settings_public_storage_granted">已開啟所有檔案存取權。public_storage 現在可以使用公共儲存。此授權之後啟動的 shell 也能在 /sdcard 看到它。</string>
+    <string name="settings_public_storage_unavailable">此版本不含所有檔案存取權。請安裝 FOSS 側載版本。Google Play 可能會拒絕 MANAGE_EXTERNAL_STORAGE。</string>
     <string name="settings_sandbox_install">安裝</string>
     <string name="settings_sandbox_install_packages">安裝基本套件</string>
     <string name="settings_sandbox_uninstall">解除安裝</string>

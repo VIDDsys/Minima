@@ -1,3 +1,10 @@
+## Unreleased
+
+### Features
+- FOSS: All files access (`MANAGE_EXTERNAL_STORAGE`, plus legacy storage reads/writes on older APIs). Play flavor omits it
+- Native `public_storage` tool (list/read/write/mkdir/delete) under `/storage/emulated/0`
+- Bind shared storage into the Linux sandbox at `/sdcard` and `/storage/emulated/0` when the permission is granted. `/root` stays on internal storage
+
 ## v3.3.1 — 2026-10-12
 
 Minima 基于 Kai 9000（Apache-2.0，见 `UPSTREAM_PIN.txt`）的首个品牌化发版（内部标记 minima.1；versionName 用纯 semver `3.3.1` 以兼容 Compose Desktop 打包校验）。

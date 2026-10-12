@@ -296,7 +296,8 @@ class AndroidSandboxController : SandboxController {
     }
 
     override suspend fun listDirectory(path: String): List<SandboxFileEntry> = withContext(Dispatchers.IO) {
-        val dir = sandboxManager.fileMap().resolve(path)
+        val map = sandboxManager.fileMap()
+        val dir = map.resolve(path)
             ?: return@withContext emptyList()
         if (!dir.isDirectory) return@withContext emptyList()
 
@@ -310,6 +311,20 @@ class AndroidSandboxController : SandboxController {
             .filterNot { homeIsSeparate && it.name == "root" }
             .map { it.toFileEntry(parent = if (isRoot) "" else normalized) }
             .toMutableList()
+
+        // The bind target may not exist inside the rootfs yet. Graft it so the
+        // Files tab can open /sdcard, which resolves to shared storage.
+        if (isRoot && map.hasPublicStorage() && children.none { it.name == "sdcard" }) {
+            children.add(
+                SandboxFileEntry(
+                    name = "sdcard",
+                    path = "/sdcard",
+                    isDirectory = true,
+                    sizeBytes = 0,
+                    lastModifiedMs = 0,
+                ),
+            )
+        }
 
         if (homeIsSeparate) {
             val home = File(sandboxManager.homePath)

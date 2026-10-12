@@ -113,4 +113,45 @@ class GuestFileMapTest {
         assertEquals(rootfs, sharedMap().resolve(""))
         assertEquals(rootfs, sharedMap().resolve("   "))
     }
+
+    @Test
+    fun `sdcard and emulated storage resolve to the shared-storage bind`() {
+        val storage = File(base, "phone").apply { mkdirs() }
+        File(storage, "Download").mkdirs()
+        val map = GuestFileMap(
+            rootfsDir = rootfs,
+            homeDir = File(rootfs, "root"),
+            projectsDir = projects,
+            tmpDir = tmp,
+            publicStorageDir = storage,
+        )
+        assertEquals(File(storage, "Download/a.txt"), map.resolve("/sdcard/Download/a.txt"))
+        assertEquals(File(storage, "Download/a.txt"), map.resolve("/storage/emulated/0/Download/a.txt"))
+        assertEquals(storage, map.resolve("/sdcard"))
+        assertEquals(storage, map.resolve("/storage/emulated/0"))
+        assertTrue(map.hasPublicStorage())
+        assertTrue(map.isRoot(storage))
+        assertFalse(map.isRoot(File(storage, "Download")))
+    }
+
+    @Test
+    fun `public storage traversal is rejected and other volumes stay in the rootfs`() {
+        val storage = File(base, "phone").apply { mkdirs() }
+        val map = GuestFileMap(
+            rootfsDir = rootfs,
+            homeDir = File(rootfs, "root"),
+            projectsDir = projects,
+            tmpDir = tmp,
+            publicStorageDir = storage,
+        )
+        assertNull(map.resolve("/sdcard/../../etc/passwd"))
+        assertNull(map.resolve("/storage/emulated/0/../../etc/passwd"))
+        assertEquals(File(rootfs, "storage/emulated/1"), map.resolve("/storage/emulated/1"))
+    }
+
+    @Test
+    fun `without a public storage bind those paths stay in the rootfs`() {
+        assertEquals(File(rootfs, "sdcard/Download"), sharedMap().resolve("/sdcard/Download"))
+        assertFalse(sharedMap().hasPublicStorage())
+    }
 }

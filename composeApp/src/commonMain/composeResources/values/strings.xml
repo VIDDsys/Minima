@@ -85,6 +85,8 @@
     <string name="tool_open_file_description">Open sandbox files in your default Android app</string>
     <string name="tool_execute_shell_command_name">Execute Shell Command</string>
     <string name="tool_execute_shell_command_description">Execute a shell command in the Linux sandbox</string>
+    <string name="tool_public_storage_name">Public storage</string>
+    <string name="tool_public_storage_description">List, read, and write the phone shared storage (Download, DCIM, Documents)</string>
     <string name="tool_open_url_name">Open URL</string>
     <string name="tool_open_url_description">Open a URL or link on the device</string>
     <string name="tool_web_search_name">Web Search</string>
@@ -357,6 +359,11 @@
     <string name="notification_channel_name">AI Notifications</string>
     <string name="notification_channel_description">Notifications sent by AI assistant</string>
     <string name="settings_sandbox_description">Install a Linux environment so the AI can run shell commands, scripts, and tools on your behalf. Runs securely inside the app.</string>
+    <string name="settings_public_storage_title">All files access</string>
+    <string name="settings_public_storage_description">Lets Minima read and write shared storage (Download, DCIM, Documents, /storage/emulated/0/Minima) and bind that directory into the Linux sandbox at /sdcard. /root stays inside the app. The Play Store build omits this permission.</string>
+    <string name="settings_public_storage_grant">Grant all files access</string>
+    <string name="settings_public_storage_granted">All files access is on. public_storage can use shared storage now. Shells started after this grant also see it at /sdcard.</string>
+    <string name="settings_public_storage_unavailable">This build does not include all-files access. Install the FOSS sideload build. Google Play may reject MANAGE_EXTERNAL_STORAGE.</string>
     <string name="settings_sandbox_distro_title">Distribution</string>
     <string name="settings_sandbox_distro_debian">Debian 12</string>
     <string name="settings_sandbox_distro_debian_detail">Recommended · ~150 MB · shared with Kai Build</string>

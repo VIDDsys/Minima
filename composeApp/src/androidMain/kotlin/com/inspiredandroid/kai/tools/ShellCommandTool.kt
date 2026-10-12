@@ -46,7 +46,12 @@ Limits and behavior:
 
 Install extra packages with: $install
 
-To show a file you produced in /root to the user, call open_file with the path relative to /root (e.g. open_file path="page.html"). File needs to be self-contained."""
+To show a file you produced in /root to the user, call open_file with the path relative to /root (e.g. open_file path="page.html"). File needs to be self-contained.
+
+Phone shared storage (Download, DCIM, Documents, /storage/emulated/0/Minima) is a different filesystem from /root. /root stays on internal app storage for executables and skills. Do not put the user's downloads there.
+When All files access is granted, this sandbox bind-mounts that storage at /sdcard and /storage/emulated/0 (the same directory). Example: ls /sdcard/Download, cat /storage/emulated/0/DCIM/Camera/photo.jpg.
+A shell that was already running when access was granted does not see the new mount. Pass fresh=true once, or use a shell started after the grant.
+Without All files access those paths are absent here. The public_storage tool reads and writes the same files without proot, and it can ask for the grant. A permission failure is an error — do not invent file contents."""
 }
 
 object ShellCommandTool : Tool {

@@ -38,6 +38,7 @@ import com.inspiredandroid.kai.tools.NotificationTools
 import com.inspiredandroid.kai.tools.OpenFileTool
 import com.inspiredandroid.kai.tools.PermissionController
 import com.inspiredandroid.kai.tools.ProcessManagerTool
+import com.inspiredandroid.kai.tools.PublicStorageTool
 import com.inspiredandroid.kai.tools.SendNotificationTool
 import com.inspiredandroid.kai.tools.SetAlarmTool
 import com.inspiredandroid.kai.tools.ShellCommandTool
@@ -176,6 +177,7 @@ actual fun getPlatformToolDefinitions(): List<ToolInfo> = CommonTools.commonTool
         CreateCalendarEventTool.toolInfo,
         SetAlarmTool.toolInfo,
         OpenFileTool.toolInfo,
+        PublicStorageTool.toolInfo,
         ShellCommandTool.toolInfo,
         ProcessManagerTool.toolInfo,
         SshConfigureHostTool.toolInfo,
@@ -214,6 +216,12 @@ actual fun getAvailableTools(): List<Tool> {
 
         if (appSettings.isToolEnabled(OpenFileTool.schema.name)) {
             add(OpenFileTool)
+        }
+
+        // Native shared storage. Independent of the sandbox: /root stays internal,
+        // and this tool still works when proot is not installed.
+        if (appSettings.isToolEnabled(PublicStorageTool.ID)) {
+            add(PublicStorageTool)
         }
 
         if (appSettings.isSandboxEnabled()) {
