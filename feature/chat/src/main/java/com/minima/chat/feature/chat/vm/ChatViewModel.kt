@@ -467,11 +467,9 @@ class ChatViewModel @Inject constructor(
             runCatching { toolRegistry.refreshSkillHttp(skillsUri) }
             runCatching { skillsLoader.loadAll(skillsUri) }.getOrDefault(emptyList())
         }
-        val agentMd = withContext(Dispatchers.IO) {
-            runCatching { skillsLoader.loadAgentMd(skillsUri) }.getOrNull()
-        }
         val (publicAgents, publicSkillPrompt) = withContext(Dispatchers.IO) {
             val root = runCatching { PublicMinimaWorkspace.ensureCreated(appContext) }.getOrNull()
+            // Single source of truth: public Minima/AGENTS.md (any casing) — not DataStore.
             val agents = runCatching { PublicMinimaWorkspace.loadAllAgentsMarkdown(root) }.getOrNull()
             val pubSkills = runCatching { PublicMinimaWorkspace.loadSkillIndex(root) }.getOrDefault(emptyList())
             agents to PublicMinimaWorkspace.indexPrompt(pubSkills)
@@ -493,21 +491,12 @@ class ChatViewModel @Inject constructor(
             appendLine("Never invent tool results. If a tool fails, explain briefly and continue.")
         }
         val system = buildString {
-            val custom = s.systemPrompt.trim()
-            if (custom.isNotEmpty()) {
-                appendLine(custom)
-            } else {
-                append(defaultSystem)
-            }
+            // Do NOT use DataStore systemPrompt — that caused split-brain with AGENTS.md.
+            append(defaultSystem)
             if (!publicAgents.isNullOrBlank()) {
                 appendLine()
                 appendLine("## AGENTS.md (public /storage/emulated/0/Minima)")
                 appendLine(publicAgents.trim().take(12_000))
-            }
-            if (!agentMd.isNullOrBlank()) {
-                appendLine()
-                appendLine("## AGENT.md (device memory)")
-                appendLine(agentMd.trim().take(12_000))
             }
             if (skillPrompt.isNotBlank()) {
                 appendLine()

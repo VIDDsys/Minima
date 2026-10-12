@@ -146,6 +146,12 @@ class SkillsLoader @Inject constructor(
      * 4) app filesDir/skills/AGENT.md
      */
     fun loadAgentMd(safTreeUri: String? = null): String? {
+        // Canonical: public /storage/emulated/0/Minima/AGENTS.md
+        runCatching {
+            val root = com.minima.chat.core.data.workspace.PublicMinimaWorkspace.ensureCreated(context)
+            com.minima.chat.core.data.workspace.PublicMinimaWorkspace.loadAllAgentsMarkdown(root)
+        }.getOrNull()?.let { return it }
+
         fun readDoc(doc: DocumentFile?): String? {
             if (doc == null || !doc.isFile) return null
             return try {

@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 [![Android](https://img.shields.io/badge/Android%20minSdk-26-green)](#)
-[![Release](https://img.shields.io/badge/release-v2.42.0-black)](https://github.com/VIDDsys/Minima/releases/tag/v2.42.0)
+[![Release](https://img.shields.io/badge/release-v2.43.0-black)](https://github.com/VIDDsys/Minima/releases/tag/v2.43.0)
 
 ## 功能
 
@@ -31,7 +31,7 @@
 4. 新建对话 → 发送。用回形针附加图片（系统相册）。
 
 ```bash
-adb install -r minima-v2.42.0-agent-debug.apk
+adb install -r minima-v2.43.0-agent-debug.apk
 ```
 
 ## 构建
@@ -47,10 +47,10 @@ adb install -r minima-v2.42.0-agent-debug.apk
 
 | 类型 | 路径 |
 |------|------|
-| Debug | `minima-v2.42.0-agent-debug.apk` |
-| Release | `minima-v2.42.0-agent-release.apk` |
+| Debug | `minima-v2.43.0-agent-debug.apk` |
+| Release | `minima-v2.43.0-agent-release.apk` |
 
-v2.42.0 debug APK 挂在 [GitHub Release](https://github.com/VIDDsys/Minima/releases/tag/v2.42.0)。APK 不入库。
+v2.43.0 debug APK 挂在 [GitHub Release](https://github.com/VIDDsys/Minima/releases/tag/v2.43.0)。APK 不入库。
 
 签名 keystore（`*.jks`）、`local.properties`、`keystore/upload-pass.local` 仅留在本机并已 gitignore。设置 `MINIMA_USE_UPLOAD_SIGNING=1` 且上传密钥可用时，Release 使用上传密钥；否则回退本地 debug keystore 或 Android debug 密钥。
 

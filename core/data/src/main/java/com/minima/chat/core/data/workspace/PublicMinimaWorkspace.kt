@@ -232,4 +232,37 @@ object PublicMinimaWorkspace {
         } ?: return null
         return readTextCapped(entry.skillFile, MAX_SKILL_BYTES)
     }
+
+    /**
+     * Prefer an existing AGENTS.md (any casing); otherwise canonical `AGENTS.md` under [root].
+     */
+    fun primaryAgentsFile(root: File?): File? {
+        if (root == null || !root.isDirectory) return null
+        return listAgentsFiles(root).firstOrNull() ?: File(root, "AGENTS.md")
+    }
+
+    /**
+     * Raw editor text for Settings — content of the primary AGENTS.md only (no ### headers).
+     */
+    fun loadAgentsEditorText(root: File?): String {
+        val f = primaryAgentsFile(root) ?: return ""
+        if (!f.isFile) return ""
+        return readTextCapped(f, MAX_AGENTS_CHARS)?.trimEnd()?.let { "$it\n" } ?: ""
+    }
+
+    /**
+     * Write [text] to the primary/canonical AGENTS.md under [root]. Creates root/skills if needed.
+     * @return absolute path written, or null on failure.
+     */
+    fun writeAgentsMarkdown(root: File?, text: String): String? {
+        if (root == null) return null
+        return runCatching {
+            if (!root.exists()) root.mkdirs()
+            File(root, SKILLS_DIR).mkdirs()
+            val target = listAgentsFiles(root).firstOrNull() ?: File(root, "AGENTS.md")
+            val body = text.trimEnd().let { if (it.isEmpty()) "" else "$it\n" }
+            target.writeText(body)
+            target.absolutePath
+        }.getOrNull()
+    }
 }

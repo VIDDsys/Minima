@@ -1,34 +1,30 @@
 # Minima 首次使用（简体中文）
 
-面向 VIDDsys · Asia/Shanghai · **v2.42.0**
+面向 VIDDsys · Asia/Shanghai · **v2.43.0**
 
 ## 1. 安装
-1. 把 `minima-v2.42.0-agent-debug.apk`（或 release）拷到手机。
-2. 允许「未知来源」安装 → 打开 **Minima**。
-3. 冷启动直接进入会话列表（不会闪空白聊天页；已关闭任务快照 + 会话航线硬化）。无 API 密钥时会盖一层首启引导；可 **打开设置** 或 **暂时跳过**。
+1. 把 `minima-v2.43.0-agent-debug.apk`（或 release）拷到手机。
+2. 允许「未知来源」安装。
+3. 首次启动会尝试创建 `/storage/emulated/0/Minima/`（含 `AGENTS.md` 与 `skills/`）。
 
-## 2. 必填：设置 → 服务商
-打开 **设置**，在 **服务商** 分组自由填写（均可自定义，自动保存）：
-1. **Base URL**（建议以 `/v1` 结尾，默认 `https://api.deepseek.com/v1`）
-2. **模型**（默认 `deepseek-flash`）
-3. **API 密钥**（圆点显示；输入后不会消失，退出再进仍在）
+## 2. 设置 → 服务商
+填写 Base URL、模型与 API 密钥（可留空走默认 DeepSeek）。**必须点右上角或底部「保存」**，不会自动保存。
 
-## 3. 可选：设置 → 全局 MD
-在 **全局 MD** 写系统指令（AGENT.md）。自动保存并同步到本机 `AGENT.md`，对话与 `search_memory` 都会用到。留空则用内置默认人设。
+## 3. 设置 → 全局 MD
+编辑的就是手机上的 `/storage/emulated/0/Minima/AGENTS.md`（任意大小写同一文件）。
+用文件管理器改完后，回到设置页会自动拉取；在设置里改完要点「保存」写回磁盘。
+
+## 4. 设置 → 技能
+列出 `Minima/skills/<名称>/SKILL.md` 的 name / description。可点「刷新技能列表」。
 
 其它高级开关已移除。Agent / 工具 / 公共存储默认全开，无需开关。
 
-没有 Key 时聊天空状态标题为 **还差一步**，可点 **打开设置**。
+## 5. 开源说明
+设置 → 关于 → 开源说明。
 
-## 4. 聊天常用
-- 发送后可用圆形 **停止** 取消；网络卡住会超时并提示，不会无限转圈。
-- 顶栏 **Share** 分享 Markdown 会话（不含 API 密钥）。
-- 会话列表：长按置顶 / 归档 / 重命名 / 删除。
+## 6. 暂时跳过
+欢迎页可「暂时跳过」，之后随时进设置。
 
-## 5. 关于
-**设置 → 关于**：版本号与 **开源说明**。
-
-## 6. 安装
 ```bash
-adb install -r minima-v2.42.0-agent-debug.apk
+adb install -r minima-v2.43.0-agent-debug.apk
 ```

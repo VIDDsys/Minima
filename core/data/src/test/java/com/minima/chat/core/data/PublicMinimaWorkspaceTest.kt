@@ -24,8 +24,7 @@ class PublicMinimaWorkspaceTest {
     fun loadAllAgents_concatenates() {
         val root = tmp.newFolder("Minima")
         File(root, "AGENTS.md").writeText("alpha rules")
-        File(root, "agents.md").writeText("beta rules") // same name case on case-insensitive FS may collide
-        // On Linux both can exist with different cases only if FS is case-sensitive
+        File(root, "agents.md").writeText("beta rules")
         val text = PublicMinimaWorkspace.loadAllAgentsMarkdown(root)
         assertThat(text).isNotNull()
         assertThat(text!!).contains("alpha rules")
@@ -69,5 +68,23 @@ class PublicMinimaWorkspaceTest {
         val (n, d) = PublicMinimaWorkspace.parseNameDescription("fold", "# Title\n\nHello world detail")
         assertThat(n).isEqualTo("fold")
         assertThat(d).contains("Hello")
+    }
+
+    @Test
+    fun writeAgents_roundTrip() {
+        val root = tmp.newFolder("MinimaWrite")
+        val path = PublicMinimaWorkspace.writeAgentsMarkdown(root, "hello agents")
+        assertThat(path).isNotNull()
+        assertThat(PublicMinimaWorkspace.loadAgentsEditorText(root)).contains("hello agents")
+        assertThat(PublicMinimaWorkspace.loadAllAgentsMarkdown(root)).contains("hello agents")
+    }
+
+    @Test
+    fun primaryAgents_prefersExisting() {
+        val root = tmp.newFolder("MinimaPrimary")
+        File(root, "AGENTS.md").writeText("canon")
+        val f = PublicMinimaWorkspace.primaryAgentsFile(root)
+        assertThat(f!!.name.equals("AGENTS.md", ignoreCase = true)).isTrue()
+        assertThat(PublicMinimaWorkspace.loadAgentsEditorText(root).trim()).isEqualTo("canon")
     }
 }

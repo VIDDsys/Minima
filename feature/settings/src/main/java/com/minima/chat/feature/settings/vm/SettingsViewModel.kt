@@ -1,6 +1,10 @@
 package com.minima.chat.feature.settings.vm
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
+import com.minima.chat.core.data.workspace.PublicMinimaWorkspace
+import android.os.FileObserver
+import android.content.Context
 import androidx.lifecycle.viewModelScope
 import com.minima.chat.core.agent.mcp.McpAuthHeaders
 import com.minima.chat.core.agent.mcp.McpConfigParser
@@ -38,6 +42,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
+    @ApplicationContext private val appContext: Context,
     private val settingsRepository: SettingsRepository,
     private val toolRegistry: ToolRegistry,
     private val scheduledNoteScheduler: ScheduledNoteScheduler,
@@ -56,7 +61,24 @@ class SettingsViewModel @Inject constructor(
     private val _draftMaxSteps = MutableStateFlow<String?>(null)
     private val _draftWallClock = MutableStateFlow<String?>(null)
     private val _draftToolTimeout = MutableStateFlow<String?>(null)
-    private val _draftSystemPrompt = MutableStateFlow<String?>(null)
+    private val _draftSystemPrompt = MutableStateFlow<String?>(null) // legacy unused UI
+
+    /** Disk AGENTS.md text (source of truth for 全局 MD). null draft = show disk. */
+    private val _diskAgentsMd = MutableStateFlow("")
+    val diskAgentsMd: StateFlow<String> = _diskAgentsMd.asStateFlow()
+    private val _draftAgentsMd = MutableStateFlow<String?>(null)
+    val draftAgentsMd: StateFlow<String?> = _draftAgentsMd.asStateFlow()
+
+    private val _publicSkills = MutableStateFlow<List<PublicMinimaWorkspace.SkillIndexEntry>>(emptyList())
+    val publicSkills: StateFlow<List<PublicMinimaWorkspace.SkillIndexEntry>> = _publicSkills.asStateFlow()
+
+    private val _saveMessage = MutableStateFlow<String?>(null)
+    val saveMessage: StateFlow<String?> = _saveMessage.asStateFlow()
+    private val _saving = MutableStateFlow(false)
+    val saving: StateFlow<Boolean> = _saving.asStateFlow()
+
+    private var agentsObserver: FileObserver? = null
+    private var suppressDiskReload = false
     private val _draftCertPins = MutableStateFlow<String?>(null)
     private val _draftTemperature = MutableStateFlow<String?>(null)
     private val _draftMaxTokens = MutableStateFlow<String?>(null)
@@ -145,6 +167,97 @@ class SettingsViewModel @Inject constructor(
                 refreshToolInventory()
             }
         }
+        reloadPublicWorkspace(forceDraftReset = true)
+        startAgentsFileObserver()
+    }
+
+    /** Reload AGENTS.md + public skills from /storage/emulated/0/Minima. */
+    fun reloadPublicWorkspace(forceDraftReset: Boolean = false) {
+        viewModelScope.launch {
+            val (agents, skills) = withContext(Dispatchers.IO) {
+                val root = runCatching { PublicMinimaWorkspace.ensureCreated(appContext) }.getOrNull()
+                val text = PublicMinimaWorkspace.loadAgentsEditorText(root)
+                val idx = PublicMinimaWorkspace.loadSkillIndex(root)
+                text to idx
+            }
+            _diskAgentsMd.value = agents
+            _publicSkills.value = skills
+            if (forceDraftReset) {
+                _draftAgentsMd.value = null
+            } else if (_draftAgentsMd.value == null) {
+                // live pull into empty draft so field shows disk
+            } else if (!suppressDiskReload && _draftAgentsMd.value == _diskAgentsMd.value) {
+                // draft matched old disk — already updated diskAgentsMd
+                _draftAgentsMd.value = null
+            } else if (!suppressDiskReload && _draftAgentsMd.value != agents) {
+                // External edit while user may be typing: only overwrite if draft equals previous disk
+                // Keep draft if dirty; surface via diskAgentsMd for comparison
+            }
+            // If not editing (no draft), UI shows diskAgentsMd
+            if (_draftAgentsMd.value != null && !forceDraftReset) {
+                // dirty local edit — keep draft; diskAgentsMd still updated for conflict awareness
+            }
+            reloadSkills()
+        }
+    }
+
+    /** Called when Settings resumes / gains focus — pull live AGENTS.md + skills. */
+    fun onSettingsVisible() {
+        val dirty = _draftAgentsMd.value != null && _draftAgentsMd.value != _diskAgentsMd.value
+        reloadPublicWorkspace(forceDraftReset = !dirty)
+        if (dirty) {
+            viewModelScope.launch(Dispatchers.IO) {
+                val root = runCatching { PublicMinimaWorkspace.ensureCreated(appContext) }.getOrNull()
+                _publicSkills.value = PublicMinimaWorkspace.loadSkillIndex(root)
+            }
+        }
+    }
+
+    private fun startAgentsFileObserver() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val root = runCatching { PublicMinimaWorkspace.ensureCreated(appContext) }.getOrNull() ?: return@launch
+            withContext(Dispatchers.Main) {
+                agentsObserver?.stopWatching()
+                @Suppress("DEPRECATION")
+                val obs = object : FileObserver(
+                    root.absolutePath,
+                    FileObserver.CREATE or FileObserver.MODIFY or FileObserver.MOVED_TO or
+                        FileObserver.MOVED_FROM or FileObserver.DELETE or FileObserver.CLOSE_WRITE,
+                ) {
+                    override fun onEvent(event: Int, path: String?) {
+                        if (path == null) return
+                        if (!PublicMinimaWorkspace.isAgentsFileName(path) &&
+                            path != PublicMinimaWorkspace.SKILLS_DIR &&
+                            !path.startsWith("skills")
+                        ) {
+                            // still reload skills on any skills/ change
+                            if (!path.contains("skill", ignoreCase = true) &&
+                                !path.contains("SKILL")
+                            ) return
+                        }
+                        if (suppressDiskReload) return
+                        viewModelScope.launch {
+                            delay(200)
+                            reloadPublicWorkspace(forceDraftReset = false)
+                            val d = _draftAgentsMd.value
+                            if (d == null) {
+                                // show fresh disk
+                            } else if (d == _diskAgentsMd.value) {
+                                _draftAgentsMd.value = null
+                            }
+                        }
+                    }
+                }
+                agentsObserver = obs
+                obs.startWatching()
+            }
+        }
+    }
+
+    override fun onCleared() {
+        agentsObserver?.stopWatching()
+        agentsObserver = null
+        super.onCleared()
     }
 
     fun reloadSkills() {
@@ -153,6 +266,10 @@ class SettingsViewModel @Inject constructor(
             val uri = settings.value.skillsTreeUri.ifBlank { null }
             val list = withContext(Dispatchers.IO) {
                 runCatching { toolRegistry.refreshSkillHttp(uri) }
+                // Prefer public Minima/skills; also keep legacy SAF/assets index
+                val root = runCatching { PublicMinimaWorkspace.ensureCreated(appContext) }.getOrNull()
+                val public = PublicMinimaWorkspace.loadSkillIndex(root)
+                _publicSkills.value = public
                 runCatching { skillsLoader.loadAll(uri) }.getOrDefault(emptyList())
             }
             _skills.value = list
@@ -211,10 +328,8 @@ class SettingsViewModel @Inject constructor(
             settingsRepository.setAgentToolTimeoutSec(n)
             if (_draftToolTimeout.value == raw) _draftToolTimeout.value = null
         }
-        _draftSystemPrompt.value?.let { v ->
-            // Sticky draft — same as provider fields so the editor never flashes empty.
-            settingsRepository.setSystemPrompt(v)
-        }
+        // Global MD is public AGENTS.md only — never persist systemPrompt from drafts here.
+        _draftSystemPrompt.value = null
         _draftCertPins.value?.let { v ->
             settingsRepository.setCertPins(v)
             if (_draftCertPins.value == v) _draftCertPins.value = null
@@ -235,15 +350,13 @@ class SettingsViewModel @Inject constructor(
 
     fun onBaseUrlChange(v: String) {
         _draftBaseUrl.value = v
-        schedulePersist()
+        // Manual save only — no auto-persist.
     }
     fun onModelChange(v: String) {
         _draftModel.value = v
-        schedulePersist()
     }
     fun onApiKeyChange(v: String) {
         _draftApiKey.value = v
-        schedulePersist()
     }
     fun onMcpChange(v: String) {
         _draftMcp.value = v
@@ -292,8 +405,12 @@ class SettingsViewModel @Inject constructor(
         schedulePersist()
     }
     fun onSystemPromptChange(v: String) {
+        // Legacy no-op path — UI uses onAgentsMdChange.
         _draftSystemPrompt.value = v
-        schedulePersist()
+    }
+
+    fun onAgentsMdChange(v: String) {
+        _draftAgentsMd.value = v
     }
     fun onCertPinsChange(v: String) {
         _draftCertPins.value = v
@@ -413,11 +530,52 @@ class SettingsViewModel @Inject constructor(
     }
 
     fun saveSystemPrompt() {
+        // Redirected: global MD is public AGENTS.md via saveAll().
+        saveAll()
+    }
+
+    /**
+     * Explicit Save: persist Base URL / Model / API Key and write
+     * `/storage/emulated/0/Minima/AGENTS.md` (same file the agent injects).
+     */
+    fun saveAll() {
         viewModelScope.launch {
-            val v = _draftSystemPrompt.value ?: return@launch
-            settingsRepository.setSystemPrompt(v)
-            _draftSystemPrompt.value = null
+            _saving.value = true
+            _saveMessage.value = null
+            withContext(NonCancellable) {
+                val url = _draftBaseUrl.value
+                if (url != null) settingsRepository.setBaseUrl(url)
+                val model = _draftModel.value
+                if (model != null) settingsRepository.setModelId(model)
+                val key = _draftApiKey.value
+                if (key != null) settingsRepository.setApiKey(key)
+
+                val agentsText = _draftAgentsMd.value ?: _diskAgentsMd.value
+                suppressDiskReload = true
+                val written = withContext(Dispatchers.IO) {
+                    val root = runCatching { PublicMinimaWorkspace.ensureCreated(appContext) }.getOrNull()
+                    PublicMinimaWorkspace.writeAgentsMarkdown(root, agentsText)
+                }
+                suppressDiskReload = false
+                // Clear legacy DataStore systemPrompt so chat never uses a split-brain copy.
+                settingsRepository.setSystemPrompt("")
+                if (written != null) {
+                    _diskAgentsMd.value = PublicMinimaWorkspace.loadAgentsEditorText(
+                        runCatching { PublicMinimaWorkspace.ensureCreated(appContext) }.getOrNull(),
+                    )
+                    _draftAgentsMd.value = null
+                    _saveMessage.value = "已保存（含 AGENTS.md）"
+                } else {
+                    _saveMessage.value = "服务商已保存；AGENTS.md 写入失败（检查存储权限）"
+                }
+            }
+            _saving.value = false
+            reloadSkills()
         }
+    }
+
+    fun clearSaveMessage() {
+        _saveMessage.value = null
     }
 
     fun saveCertPins() {
@@ -641,12 +799,12 @@ class SettingsViewModel @Inject constructor(
     }
 
 
-    /** Immediate flush of all drafts (back / dispose). Survives ViewModel clear. */
+    /**
+     * No auto-save on leave. User must tap 保存.
+     * Cancels any legacy debounce job only.
+     */
     fun flushAllPending() {
         persistJob?.cancel()
-        viewModelScope.launch {
-            withContext(NonCancellable) { persistAllDrafts() }
-        }
     }
 
     fun clearDataMessage() {

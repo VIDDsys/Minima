@@ -105,7 +105,14 @@ class SearchMemoryTool @Inject constructor(
         val hits = mutableListOf<MemorySearch.Hit>()
         var scanned = 0
         var remaining = bytesBudget
-        val candidates = listOf(
+        val candidates = mutableListOf<Pair<File, String>>()
+        // Public Minima/AGENTS.md is the canonical global MD
+        runCatching {
+            val root = com.minima.chat.core.data.workspace.PublicMinimaWorkspace.ensureCreated(context)
+            com.minima.chat.core.data.workspace.PublicMinimaWorkspace.listAgentsFiles(root ?: return@runCatching)
+                .forEach { f -> candidates += f to "Minima/${f.name}" }
+        }
+        candidates += listOf(
             File(context.filesDir, "AGENT.md") to "AGENT.md",
             File(context.filesDir, "skills/AGENT.md") to "skills/AGENT.md",
             File(workspaceRoot(context), "AGENT.md") to "workspace/AGENT.md",
