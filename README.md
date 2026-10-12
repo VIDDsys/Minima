@@ -8,8 +8,8 @@
 
 ## 当前版本
 
-- **versionName**：`3.3.4`
-- **versionCode**：`121`
+- **versionName**：`3.3.5`
+- **versionCode**：`122`
 - 上游钉扎：见 `UPSTREAM_PIN.txt`
 - 分发风味：默认 `foss`（另有 `playStore`）
 

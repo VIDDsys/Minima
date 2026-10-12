@@ -17,7 +17,7 @@
 | Launcher label / user-facing “Kai 9000” | Kai 9000 | **Minima** |
 | Launcher icon | purple dual-circle | **Minima eyes SVG** (`docs/assets/launcher-icon-source.svg`) |
 | Default service | Free (kai9000 proxy) | **DeepSeek** / `deepseek-flash` |
-| versionName | 3.3.0 | **3.3.4** (versionCode 121) |
+| versionName | 3.3.0 | **3.3.5** (versionCode 122) |
 | Kotlin packages / namespace | com.inspiredandroid.kai.* | **unchanged**（内部 OK） |
 
 ## Intentionally still “Kai*” internally
