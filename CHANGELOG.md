@@ -1,3 +1,15 @@
+## v3.3.6 — 2026-10-12
+
+去掉公共目录 Minima 自动注入，并收掉几处设置与欢迎页入口。versionName `3.3.6` / versionCode `123`。
+
+- 不再读取公共目录 `/storage/emulated/0/Minima/AGENTS.md`，也不再把 `Minima/skills` 自动注入或当成覆盖沙箱技能的来源。系统提示里没有 `## User workspace`。相关提示词和工具说明已去掉。应用内置 `~/skills` 与 `/skill` 仍在。
+- 设置页去掉许可证页脚。
+- 服务页去掉 GitHub Sponsors。
+- 删除 Integrations 设置页。
+- Linux 沙箱「所有文件访问」说明缩短。
+- 欢迎页改用 Minima 图标，不再使用旋转的 Kai 标志。
+- 欢迎页去掉「打开 Kai Build」。互动 UI 入口保留。
+
 ## v3.3.5 — 2026-10-12
 
 系统提示 `## Where files live` 把外部存储和 Linux 沙箱分开写，并且只在这次请求真有 shell 时才提沙箱。versionName `3.3.5` / versionCode `122`。

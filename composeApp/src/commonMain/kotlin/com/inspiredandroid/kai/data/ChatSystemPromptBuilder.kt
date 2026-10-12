@@ -120,8 +120,7 @@ internal fun phoneStorageSection(sandboxShell: Boolean): String = buildString {
         append("This request can touch external phone files only. There is no Linux sandbox shell.\n")
         append("- Tool: `public_storage`. It does not run programs.\n")
         append("- Folder: `/storage/emulated/0`. `/sdcard`, `/mnt/sdcard`, and `/storage/self/primary` are that same folder.\n")
-        append("- Use it for Download, DCIM, Documents, and `/storage/emulated/0/Minima`.\n")
-        append("- User instructions: `/storage/emulated/0/Minima/AGENTS.md`. User skills: `/storage/emulated/0/Minima/skills/<id>/SKILL.md`.\n")
+        append("- Use it for Download, DCIM, and Documents.\n")
         append("- Do not use `/root` or `~/skills`. Those are the sandbox, and it is not available in this request.\n")
         append("- If the tool returns a permission error, ask the user to grant All files access. Do not invent file contents. ")
         append("The Play Store build cannot grant it.")
@@ -131,8 +130,7 @@ internal fun phoneStorageSection(sandboxShell: Boolean): String = buildString {
     append("External storage — phone files the file manager can see.\n")
     append("- Tool: `public_storage`. It reads and writes text. It does not run programs.\n")
     append("- Folder: `/storage/emulated/0`. `/sdcard`, `/mnt/sdcard`, and `/storage/self/primary` are that same folder.\n")
-    append("- Use it for Download, DCIM, Documents, and `/storage/emulated/0/Minima`.\n")
-    append("- User instructions: `/storage/emulated/0/Minima/AGENTS.md`. User skills: `/storage/emulated/0/Minima/skills/<id>/SKILL.md`.\n\n")
+    append("- Use it for Download, DCIM, and Documents.\n\n")
     append("Linux sandbox — a private Linux inside the app. The file manager cannot see it.\n")
     append("- Tool: `execute_shell_command`.\n")
     append("- Folder: `/root`. Packages, scripts, SSH keys, and marketplace skills live at `~/skills`.\n")
@@ -144,8 +142,7 @@ internal fun phoneStorageSection(sandboxShell: Boolean): String = buildString {
     append("Choose:\n")
     append("- Read or edit a phone file → `public_storage`\n")
     append("- Run a program or install a package → `execute_shell_command` under `/root`\n")
-    append("- Run a command on a phone file → `execute_shell_command` with `/sdcard/...`\n")
-    append("- Same skill id in both places → follow `/storage/emulated/0/Minima/skills/<id>/SKILL.md` only. Ignore `~/skills/<id>`.")
+    append("- Run a command on a phone file → `execute_shell_command` with `/sdcard/...`")
 }
 
 /**
@@ -204,7 +201,6 @@ internal fun buildChatSystemPrompt(
     activeSkill: SkillManifest? = null,
     publicStorage: Boolean = false,
     sandboxShell: Boolean = false,
-    agentsMd: String? = null,
 ): String = buildString {
     append(soul)
 
@@ -278,14 +274,6 @@ internal fun buildChatSystemPrompt(
     if (publicStorage) {
         append("\n\n")
         append(phoneStorageSection(sandboxShell))
-        val agents = agentsMd?.trim().orEmpty()
-        if (agents.isNotEmpty()) {
-            append("\n\n## User workspace\n")
-            append("Standing instructions from `/storage/emulated/0/Minima/AGENTS.md` ")
-            append("(same file as `/sdcard/Minima/AGENTS.md`). Follow this text. ")
-            append("Do not copy it into `/root`.\n\n")
-            append(agents)
-        }
     }
 
     appendContextSection(runtime)
@@ -304,8 +292,7 @@ internal fun buildChatSystemPrompt(
  * message with `/skill-id`, so the body stays out of the prompt on every other
  * turn — matches the lean-prompt rule of "disabled features add zero bytes."
  *
- * Bundled files are listed with the home that won: the public Minima folder, or
- * `~/skills/<id>/` in the Linux sandbox. The two are not merged.
+ * Bundled files are listed under `~/skills/<id>/` in the Linux sandbox.
  */
 private fun StringBuilder.appendActiveSkillSection(skill: SkillManifest) {
     append("\n\n## Active skill: ")
@@ -313,17 +300,9 @@ private fun StringBuilder.appendActiveSkillSection(skill: SkillManifest) {
     append('\n')
     append(skill.body.trim())
     if (skill.bundledFilePaths.isNotEmpty()) {
-        if (skill.fromPublicStorage) {
-            append("\n\nBundled files (at `/storage/emulated/0/Minima/skills/")
-            append(skill.id)
-            append("/`, same directory as `/sdcard/Minima/skills/")
-            append(skill.id)
-            append("/`). Read them with `public_storage` or the shell. Do not copy them into `~/skills`:\n")
-        } else {
-            append("\n\nBundled files (available at `~/skills/")
-            append(skill.id)
-            append("/` in the Linux sandbox):\n")
-        }
+        append("\n\nBundled files (available at `~/skills/")
+        append(skill.id)
+        append("/` in the Linux sandbox):\n")
         for (path in skill.bundledFilePaths.sorted()) {
             append("- ")
             append(path)

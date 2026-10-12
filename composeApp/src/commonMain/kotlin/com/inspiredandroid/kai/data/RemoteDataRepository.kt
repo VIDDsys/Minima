@@ -845,7 +845,7 @@ class RemoteDataRepository(
         // The active skill (if any) is consumed for this single turn only — stored in a
         // field rather than a parameter on getActiveSystemPrompt so the existing internal
         // callers (heartbeat, askWithTools, etc.) don't all need a new parameter.
-        // Skill files already live on disk (public Minima/skills, or sandbox ~/skills).
+        // Skill files already live on disk under sandbox ~/skills.
         // Reload so a folder added since the last turn is visible now.
         skillManager.load()
         val resolvedSkillId = activeSkillId?.takeIf { skillManager.getSkill(it) != null }
@@ -1920,7 +1920,6 @@ class RemoteDataRepository(
             activeSkill = activeSkill,
             publicStorage = offersPublicStorage,
             sandboxShell = offersSandboxShell,
-            agentsMd = if (offersPublicStorage) skillManager.readAgentsMd() else null,
         ).ifEmpty { null }
     }
 

@@ -10,7 +10,7 @@
 可作为参考迁移/对照的能力（不必一次性搬完）：
 
 - 中文设置与文案习惯、DeepSeek 默认 BYOK 体验
-- `/storage/emulated/0/Minima` 下 `AGENTS.md` + `skills/*/SKILL.md` 注入约定
+- 公共目录 `AGENTS.md` / `Minima/skills` 自动注入已从本 fork 去掉。应用内 `~/skills` 与 `/skill-id` 仍在。
 - Vision 附件与消息气泡展示策略（若上游已有则对齐体验）
 - 公开仓库 README / CHANGELOG / Release 流程
 

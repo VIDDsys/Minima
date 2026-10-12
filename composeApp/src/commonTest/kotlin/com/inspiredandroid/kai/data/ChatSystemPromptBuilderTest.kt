@@ -70,7 +70,6 @@ class ChatSystemPromptBuilderTest {
         activeSkill: com.inspiredandroid.kai.skills.SkillManifest? = null,
         publicStorage: Boolean = false,
         sandboxShell: Boolean = false,
-        agentsMd: String? = null,
     ) = buildChatSystemPrompt(
         variant = variant,
         soul = soul,
@@ -90,7 +89,6 @@ class ChatSystemPromptBuilderTest {
         activeSkill = activeSkill,
         publicStorage = publicStorage,
         sandboxShell = sandboxShell,
-        agentsMd = agentsMd,
     )
 
     private fun skill(
@@ -123,18 +121,6 @@ class ChatSystemPromptBuilderTest {
         )
         assertTrue("~/skills/pdf-tools/" in out)
         assertTrue("- extract.py" in out)
-    }
-
-    @Test
-    fun `public skill files point at the Minima folder and not at the sandbox copy`() {
-        val out = build(
-            SystemPromptVariant.CHAT_REMOTE,
-            activeSkill = skill(bundledFilePaths = listOf("notes.txt")).copy(fromPublicStorage = true),
-        )
-        assertTrue("/storage/emulated/0/Minima/skills/pdf-tools/" in out)
-        assertTrue("/sdcard/Minima/skills/pdf-tools/" in out)
-        assertTrue("Do not copy them into `~/skills`" in out)
-        assertFalse("available at `~/skills/pdf-tools/" in out)
     }
 
     // region CHAT_REMOTE — focused tests
@@ -603,7 +589,8 @@ class ChatSystemPromptBuilderTest {
         assertTrue("/sdcard" in withStorage)
         assertTrue("public_storage" in withStorage)
         assertTrue("no Linux sandbox" in withStorage)
-        assertTrue("Minima/skills" in withStorage)
+        assertFalse("AGENTS.md" in withStorage)
+        assertFalse("Minima/skills" in withStorage)
         assertFalse("execute_shell_command" in withStorage)
         assertFalse("## User workspace" in withStorage)
         val withBoth = build(
@@ -617,22 +604,9 @@ class ChatSystemPromptBuilderTest {
         assertTrue("`/root`" in withBoth)
         assertTrue("restarts" in withBoth)
         assertTrue("not the same folder" in withBoth)
-        assertTrue("Minima/skills" in withBoth)
+        assertFalse("AGENTS.md" in withBoth)
+        assertFalse("Minima/skills" in withBoth)
         assertFalse("## User workspace" in withBoth)
-        val withAgents = build(
-            variant = SystemPromptVariant.CHAT_REMOTE,
-            publicStorage = true,
-            agentsMd = "Prefer short answers.",
-        )
-        assertTrue("## User workspace" in withAgents)
-        assertTrue("Prefer short answers." in withAgents)
-        assertTrue("/sdcard/Minima/AGENTS.md" in withAgents)
-        assertFalse(
-            "## User workspace" in build(
-                variant = SystemPromptVariant.CHAT_REMOTE,
-                agentsMd = "Prefer short answers.",
-            ),
-        )
         val idxStorage = withStorage.indexOf("## Where files live")
         val idxContext = withStorage.indexOf("## Context")
         assertTrue(idxStorage in 0 until idxContext)

@@ -1,6 +1,6 @@
 # Multi-Service
 
-**Last verified:** 2026-10-02
+**Last verified:** 2026-10-12
 
 Kai supports 31 LLM providers (plus a built-in Free tier). Each provider uses one of three API formats: **OpenAI-compatible** (most services), **Gemini native**, or **Anthropic native** -- plus **LiteRT on-device** for local inference. A handful of OpenAI models additionally require OpenAI's **Responses API**; Kai switches to it per model, transparently. Users can configure multiple service instances, reorder them, and Kai automatically falls back through the chain on failure.
 
@@ -171,8 +171,7 @@ Users manage services through the settings screen:
 - **Remove** — delete an instance and its stored credentials; deletion is deferred with a snackbar "Undo" option (~4 seconds) before the service is permanently removed
 - **Reorder** — drag to change priority (first = primary, rest = fallbacks)
 - **Configure** — per-instance API key, model selection, base URL (OpenAI-Compatible only; optional custom model id via checkbox)
-- **Free fallback toggle** — controls whether Free is appended as last resort
-- **Sponsors** — the Free tier card lists all GitHub sponsors in a single grid, with active sponsors first followed by past sponsors
+- **Free fallback toggle** — controls whether Free is appended as last resort. Shown on the Free tier card when at least one service is configured. The card does not pitch sponsorship or list GitHub sponsors.
 
 ## Key Files
 

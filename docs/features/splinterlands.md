@@ -1,6 +1,6 @@
 # Splinterlands Auto-Battle
 
-**Last verified:** 2026-10-02
+**Last verified:** 2026-10-12
 
 ## Overview
 
@@ -10,7 +10,7 @@ The entire Splinterlands integration has a master enable/disable toggle in the s
 
 ## Configuration
 
-Users configure the feature in **Settings > Integrations > Splinterlands**:
+The Integrations settings page has been removed, so this section is not reachable from Settings. The account and service controls below describe the screen that used to live there:
 
 Multiple accounts can be added, each with independent battle controls. Settings:
 
@@ -127,6 +127,6 @@ Recent Battles log keeps up to 500 entries (5 visible by default, with a "Show m
 | `ui/settings/SplinterlandsUiState.kt` | `SplinterlandsUiState`, `SplinterlandsAccountUiState`, `SplinterlandsAddStatus` |
 | `ui/settings/SplinterlandsViewModel.kt` | Wires Splinterlands callbacks, builds account states from battle runner |
 | `ui/settings/SplinterlandsComposables.kt` | `SplinterlandsServiceList`, `SplinterlandsAccountRow` with per-service battle status |
-| `ui/settings/IntegrationsSettings.kt` | Integrations tab that hosts the Splinterlands section |
+| `ui/settings/SplinterlandsComposables.kt` | Splinterlands settings controls. The Integrations tab that used to host them has been removed. |
 | `splinterlands/SplinterlandsTeamPickerPromptTest.kt` | LLM prompt-building tests (commonTest) |
 | `ui/settings/SplinterlandsViewModelTest.kt` | ViewModel tests (commonTest) |

@@ -51,8 +51,7 @@ To show a file you produced in /root to the user, call open_file with the path r
 Where this command runs:
 - This is the Linux sandbox. Home is /root. The phone's file manager cannot see /root. Packages, scripts, SSH keys, and marketplace skills belong at ~/skills.
 - External phone files are a different folder. public_storage reads and writes them. After All files access, this shell sees that same folder at /sdcard and /storage/emulated/0. Example: ls /sdcard/Download. Use those paths only to run a command on a phone file. Do not copy the file into /root.
-- If /sdcard is missing, All files access is off. Say so. Do not invent file contents. A grant change restarts this shell and clears cwd.
-- User notes and skills the file manager should see: /sdcard/Minima/AGENTS.md and /sdcard/Minima/skills/<id>/SKILL.md (the same files as /storage/emulated/0/Minima). That skill overrides ~/skills with the same id. Follow the external SKILL.md only."""
+- If /sdcard is missing, All files access is off. Say so. Do not invent file contents. A grant change restarts this shell and clears cwd."""
 }
 
 object ShellCommandTool : Tool {
