@@ -106,9 +106,10 @@ internal const val DEFAULT_ACTING_SECTION =
         "See work through to a usable result."
 
 /**
- * Android path-space reminder. Only composed when the `public_storage` tool is
- * enabled, so a desktop or tool-less turn does not mention a capability it lacks.
- * Mount names match the proot binds: `/sdcard` and `/storage/emulated/0`.
+ * Android path-space reminder. Only composed when this request actually includes
+ * the `public_storage` tool, so a desktop, tool-less, or local model that cannot
+ * call it does not get the instruction. Mount names match the proot binds:
+ * `/sdcard` and `/storage/emulated/0`.
  */
 internal const val DEFAULT_PUBLIC_STORAGE_SECTION =
     "## Phone storage\n" +
@@ -119,7 +120,8 @@ internal const val DEFAULT_PUBLIC_STORAGE_SECTION =
         "- Linux sandbox: `execute_shell_command` and paths under `/root` (skills at `~/skills`, scripts, executables). " +
         "`/root` stays on internal app storage.\n" +
         "- When All files access is granted, the sandbox bind-mounts that same shared storage at `/sdcard` and `/storage/emulated/0`. " +
-        "A shell started before the grant does not see the mount; `fresh=true` starts one that does.\n" +
+        "If a shell was already running, its next command restarts it so the mount appears. That restart clears cwd and exported variables. " +
+        "A background process started before the grant keeps the old mount.\n" +
         "- If `public_storage` returns a permission error, say so and ask the user to grant All files access (Settings → Sandbox). " +
         "Do not fabricate file contents. The Play Store build omits this permission; the FOSS build is the one that can grant it."
 

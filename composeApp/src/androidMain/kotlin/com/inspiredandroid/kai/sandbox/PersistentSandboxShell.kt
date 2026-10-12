@@ -34,7 +34,7 @@ private const val US = ""
 private const val PID_PROBE_PREFIX = "${RS}KAIBASHPID$US"
 
 class PersistentSandboxShell(
-    private val executor: ProotExecutor,
+    @Volatile private var executor: ProotExecutor,
     private val tmpPath: String,
 ) {
     private val mutex = Mutex()
@@ -163,6 +163,16 @@ class PersistentSandboxShell(
             // Even SIGKILL didn't free us — the shell itself must be wedged.
             reset()
         }
+    }
+
+    /**
+     * Swap the proot launcher, then tear the running shell down. The next [run]
+     * starts bash with the new binds. Used when All files access is granted or
+     * revoked so `/sdcard` is not stuck on the mount namespace from before.
+     */
+    fun replaceExecutor(newExecutor: ProotExecutor) {
+        executor = newExecutor
+        reset()
     }
 
     /** Tear down the shell. Next [run] will lazily restart it. */

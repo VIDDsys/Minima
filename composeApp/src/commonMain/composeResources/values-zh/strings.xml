@@ -226,7 +226,7 @@
     <string name="settings_public_storage_title">所有文件访问权限</string>
     <string name="settings_public_storage_description">允许 Minima 读写公共存储（Download、DCIM、Documents、/storage/emulated/0/Minima），并把该目录绑定进 Linux 沙箱的 /sdcard。/root 仍在应用内部。Play 商店版本不包含此权限。</string>
     <string name="settings_public_storage_grant">授予所有文件访问权限</string>
-    <string name="settings_public_storage_granted">已开启所有文件访问权限。public_storage 现在可以使用公共存储。此授权之后启动的 shell 也能在 /sdcard 看到它。</string>
+    <string name="settings_public_storage_granted">已开启所有文件访问权限。public_storage 现在可以使用公共存储。已有 shell 的下一条命令会重启以挂上 /sdcard，工作目录和变量会清空。</string>
     <string name="settings_public_storage_unavailable">此版本不包含所有文件访问权限。请安装 FOSS 侧载版本。Google Play 可能会拒绝 MANAGE_EXTERNAL_STORAGE。</string>
     <string name="settings_sandbox_install">安装</string>
     <string name="settings_sandbox_install_packages">安装基础软件包</string>

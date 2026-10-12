@@ -119,6 +119,8 @@ private const val COMPACTION_KEEP_RECENT = 4 // Number of recent user exchanges 
 // a couple of string parameters. Excluded by design: memory_learn (4 params + enum),
 // schedule_task / list_tasks / cancel_task (datetime + cron), the entire email family,
 // the heartbeat config tools, and MCP tools.
+// `public_storage` is included so an on-device turn can actually call the tool the
+// phone-storage prompt describes. Its parameters stay strings plus one boolean.
 internal val LOCAL_TOOL_ALLOWLIST = setOf(
     "get_local_time",
     "get_location_from_ip",
@@ -128,6 +130,7 @@ internal val LOCAL_TOOL_ALLOWLIST = setOf(
     "memory_forget",
     "memory_reinforce",
     "execute_shell_command",
+    "public_storage",
 )
 
 /**
@@ -1884,9 +1887,19 @@ class RemoteDataRepository(
         // Tool-use guidance is only worth sending when the model is actually given tools.
         // Mirror the tool list the request will carry: remote uses the full set (when the
         // model supports tools), local uses the allowlist-filtered set.
+        val localDeclaresTools = variant == SystemPromptVariant.CHAT_LOCAL && localModelDeclaresTools(modelId)
         val hasTools = when (variant) {
             SystemPromptVariant.CHAT_REMOTE -> !isLimited && getAvailableTools().isNotEmpty()
-            SystemPromptVariant.CHAT_LOCAL -> getLocalSafeTools().isNotEmpty() && localModelDeclaresTools(modelId)
+            SystemPromptVariant.CHAT_LOCAL -> localDeclaresTools && getLocalSafeTools().isNotEmpty()
+        }
+        // Same gate as the tool list. A local model that cannot call public_storage must
+        // not be told to use it. Desktop never has the tool, so this stays false there.
+        val offersPublicStorage = when (variant) {
+            SystemPromptVariant.CHAT_REMOTE ->
+                !isLimited && getAvailableTools().any { it.schema.name == "public_storage" }
+
+            SystemPromptVariant.CHAT_LOCAL ->
+                localDeclaresTools && getLocalSafeTools().any { it.schema.name == "public_storage" }
         }
 
         val activeSkill = pendingActiveSkillId?.let { skillManager.getSkill(it) }
@@ -1908,8 +1921,7 @@ class RemoteDataRepository(
             runtime = runtime,
             uiMode = uiMode,
             activeSkill = activeSkill,
-            publicStorage = currentPlatform is Platform.Mobile.Android &&
-                appSettings.isToolEnabled("public_storage"),
+            publicStorage = offersPublicStorage,
         ).ifEmpty { null }
     }
 

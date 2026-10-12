@@ -19,6 +19,8 @@ class SessionShell(
     private val inner: PersistentSandboxShell,
     initialLines: List<TerminalLine> = emptyList(),
     private val onChange: ((List<TerminalLine>) -> Unit)? = null,
+    /** Whether the live proot was started with the shared-storage bind. */
+    var publicStorageBound: Boolean = false,
 ) {
     val transcript: SnapshotStateList<TerminalLine> = mutableStateListOf<TerminalLine>().apply {
         addAll(initialLines)
@@ -63,6 +65,9 @@ class SessionShell(
     fun cancelForeground() = inner.cancelForeground()
 
     fun reset() = inner.reset()
+
+    /** Kill the live proot and start the next command with [executor]'s binds. */
+    fun rebind(executor: ProotExecutor) = inner.replaceExecutor(executor)
 
     @Volatile
     private var prunePaused: Boolean = false

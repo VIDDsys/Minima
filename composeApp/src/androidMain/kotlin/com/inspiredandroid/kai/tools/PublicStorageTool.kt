@@ -60,7 +60,7 @@ Paths must stay under /storage/emulated/0. Aliases ${PUBLIC_STORAGE_ALIASES.join
 
 Do not use this for /root, ~/skills, or other sandbox paths. Those live on internal app storage and are reached with execute_shell_command. When All files access is granted, the sandbox also sees this same storage at $PUBLIC_STORAGE_GUEST_SDCARD and $PUBLIC_STORAGE_GUEST_EMULATED.
 
-action is one of list, read, write, mkdir, delete. write requires content (UTF-8 text). read returns text and refuses binary files. delete of a non-empty directory requires recursive=true. Deleting or overwriting the storage root itself is refused.
+action is one of list, read, write, mkdir, delete. write requires content (UTF-8 text). read returns text and refuses binary files. write refuses to replace a file larger than the read cap (32768 bytes) with content that fits in one read — delete the file first if you mean to shrink it. delete of a non-empty directory requires recursive=true. Deleting or overwriting the storage root itself is refused.
 
 If this returns a permission error, tell the user to grant All files access. Do not invent file contents. The Play Store build cannot grant this permission; the FOSS build can.""",
         parameters = mapOf(

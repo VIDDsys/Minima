@@ -587,6 +587,7 @@ class ChatSystemPromptBuilderTest {
         assertTrue("/sdcard" in withStorage)
         assertTrue("`/root`" in withStorage)
         assertTrue("public_storage" in withStorage)
+        assertTrue("restarts" in withStorage)
         val idxStorage = withStorage.indexOf("## Phone storage")
         val idxContext = withStorage.indexOf("## Context")
         assertTrue(idxStorage in 0 until idxContext)
