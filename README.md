@@ -1,7 +1,6 @@
 # Minima
 
-**Minima**（`com.minima.chat`）是一款原创的极简 Android AI **Agent** 客户端，对接任意 OpenAI 兼容 API（自带密钥 / BYOK）。  
-与其他产品无关联。
+**Minima** 是一款原创的极简 Android AI Agent 客户端（应用包名 `com.minima.chat`），对接任意 OpenAI 兼容 API（自带密钥 / BYOK）。与其他产品无关联。
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 [![Android](https://img.shields.io/badge/Android%20minSdk-26-green)](#)

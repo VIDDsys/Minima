@@ -2,7 +2,7 @@
 
 Updated: 2026-10-12 Asia/Shanghai (CST) — **v2.42.0 vision + public Minima workspace + open-chat polish**
 
-**Minima** (`com.minima.chat`) **v2.42.0** — original minimal on-device AI agent (BYOK).
+**Minima** **v2.42.0** — original minimal on-device AI agent (BYOK). `com.minima.chat` is only the Android applicationId (package name).
 
 ## Packages
 | Kind | File | Notes |
