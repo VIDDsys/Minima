@@ -1,9 +1,11 @@
-## Unreleased
+## v3.3.2 — 2026-10-12
 
-### Features
-- FOSS: All files access (`MANAGE_EXTERNAL_STORAGE`, plus legacy storage reads/writes on older APIs). Play flavor omits it
-- Native `public_storage` tool (list/read/write/mkdir/delete) under `/storage/emulated/0`
-- Bind shared storage into the Linux sandbox at `/sdcard` and `/storage/emulated/0` when the permission is granted. `/root` stays on internal storage
+Path D：手机公共目录与 Linux 沙箱并存。versionName `3.3.2` / versionCode `119`。
+
+- FOSS 声明 `MANAGE_EXTERNAL_STORAGE`（以及旧系统上的读写外部存储权限）。Play 风味不声明该权限。
+- 原生工具 `public_storage`：在 `/storage/emulated/0` 下列出、读取、写入、建目录、删除（不经 proot）。
+- 授予「所有文件访问权限」后，沙箱把同一目录绑定到 `/sdcard` 与 `/storage/emulated/0`。`/root` 仍在应用内部存储。
+- 授权入口：设置 → Sandbox → 授予所有文件访问权限。未授权时工具返回错误，沙箱照常启动。
 
 ## v3.3.1 — 2026-10-12
 
